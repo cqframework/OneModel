@@ -288,6 +288,208 @@ Code SHALL only contain characters that are either a letter, a digit, or one of 
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+	<xsd:complexType name="ED">
+		<xsd:annotation>
+			<xsd:documentation>Data that is primarily intended for human interpretation or for further machine processing outside the scope of this specification. This includes unformatted or formatted written language, multimedia data, or structured information as defined by a different standard (e.g., XML-signatures.) 
+Encapsulated data can be present in two forms, inline or by reference. The content is the same whether it is located inline or remote.Inline data is communicated or moved as part of the encapsulated data value, whereas by-reference data may reside at a different  location: a URL/URI that provides reference to the information required to locate the data. Inline data may be provided in one of 3 different ways:
+&#60;ul&#62;
+	&#60;li&#62;as a plain sequence of characters (value)&#60;/li&#62;
+	&#60;li&#62;as a binary (a sequence of bytes) (data)&#60;/li&#62;
+	&#60;li&#62;as xml content (xml)&#60;/li&#62;
+&#60;/ul&#62;
+Content SHALL be provided if the ED has no nullFlavor. The content may be provided in-line (using only one of value, data or xml), or it may be provided as a reference.Content may be provided in-line and a reference also may be given; in these cases, it is expected that the content of the reference will be exactly the same as the in-line content. Information Processing Entities are not required to check this, but may regard it as an error condition if the content does not match</xsd:documentation>
+			<xsd:appinfo>
+				<!--
+				<sch:pattern name="content is required if not null">
+					<sch:rule abstract="true" id="ED-0">
+						<sch:assert test="@nullFlavor or @value or xml or data"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="only one of value, data, xml">
+					<sch:rule abstract="true" id="ED-1">
+						<sch:assert test="count(*[self::value or self::xml or self::data])&#60;=1"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="integrityCheckAlgorithm required">
+					<sch:rule abstract="true" id="ED-2">
+						<sch:assert test="not(integrityCheck) or @integrityCheckAlgorithm"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="thumbnails do not use reference">
+					<sch:rule abstract="true" id="ED-3">
+						<sch:assert test="not(thumbnail) or thumbnail[not(@nullFlavor and reference)]"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="thumbnails do not have thumbnails">
+					<sch:rule abstract="true" id="ED-4">
+						<sch:assert test="not(thumbnail) or thumbnail[not(thumbnail)]"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="compression only on binary">
+					<sch:rule abstract="true" id="ED-5">
+						<sch:assert test="(@compression and data) or not(@compression or data)"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="mediaType cannot be null">
+					<sch:rule abstract="true" id="ED-6">
+						<sch:assert test="@mediaType"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="value implies mediaType is text/plain">
+					<sch:rule abstract="true" id="ED-7">
+						<sch:assert test="not(@value) or (@value and (not(@mediaType) or @mediaType=&#39;text/plain&#39;))"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="no charset for value or xml">
+					<sch:rule abstract="true" id="ED-8">
+						<sch:assert test="not(@value or xml) or not(@charset)"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="No History or Update Mode">
+					<sch:rule abstract="true" id="ED-9">
+						<sch:assert test="count(*[self::reference or self::thumbnail][@validTimeLow or @validTimeHigh or @controlInformationRoot or @controlInformationExtension or @updateMode])=0"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="no nested translations">
+					<sch:rule abstract="true" id="ED-10">
+						<sch:assert test="not(translation) or thumbnail[not(translation)]"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="reference: no use">
+					<sch:rule abstract="true" id="ED-11">
+						<sch:assert test="not(reference) or (not(reference/use))"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="reference: schemes">
+					<sch:rule abstract="true" id="ED-12">
+						<sch:assert test="not(reference) or ((starts-with(reference/@value, &#34;file&#34;) or starts-with(reference/@value, &#34;ftp&#34;) or starts-with(reference/@value, &#34;http&#34;) or starts-with(reference/@value, &#34;https&#34;) or starts-with(@value, &#34;nfs&#34;)))"/>
+					</sch:rule>
+				</sch:pattern>
+				-->
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ANY">
+				<xsd:sequence>
+					<xsd:element name="data" type="xsd:base64Binary" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A simple sequence of byte values that contains the content.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="xml" type="xsd:anyType" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The content represented in plain XML form.
+
+A direct representation is provided for XML. This is because this specification includes an XML serialization of the data, and this xml attribute is handled specially in the serialisation form. The xml data is not different in any semantic sense to the same data if represented in the value or data attributes.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="reference" type="TEL" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A URL the target of which provides the binary content.
+
+The semantic value of an encapsulated data value is the same, regardless whether the content is present as inline content or just by reference. However, an encapsulated data value without inline content behaves differently, since any attempt to examine the content requires the data to be downloaded from the reference. An encapsulated data value may have both inline content and a reference.
+
+If data is provded in the value, data or xml attributes, the reference SHALL point to the same data. It is an error if the data resolved through the reference does not match either the integrity check, data as provided, or data that had earlier been retrieved through the reference and then cached. The mediatype of the ED SHALL match the type returned by accessing the reference. 
+
+The reference may contain a usablePeriod to indicate that the data may only be available for a limited period of time. Whether the reference is limited by a usablePeriod or not, the content of the reference SHALL be fixed for all time. Any application using the reference SHALL always receive the same data, or an error. The reference cannot be reused to send a different version of the same data, or different data</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="integrityCheck" type="xsd:base64Binary" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A checksum calculated over the binary data
+
+The purpose of this property, when communicated with a reference is for anyone to validate later whether the reference still resolved to the same content that the reference resolved to when the encapsulated data value with reference was created. If the attribute is null, there is no integrityCheck.
+It is an error if the data resolved through the reference does not match the integrity check. 
+The integrity check is calculated according to the integrityCheckAlgorithm. By default, the Secure Hash Algorithm-1 (SHA-1) shall be used. The integrity check is binary encoded according to the rules of the integrity check algorithm. 
+The integrity check is calculated over the raw binary data that is contained in the data component, or that is accessible through the reference. No transformations are made before the integrity check is calculated. If the data is compressed, the Integrity Check is calculated over the compressed data. </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<!--
+					<xsd:element name="thumbnail" type="ED" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>An abbreviated rendition of the full content. 
+
+A thumbnail requires significantly fewer resources than the full content, while still maintaining some distinctive similarity with the full content. A thumbnail is typically used with by-reference encapsulated data. It allows a user to select the appropriate content more efficiently before actually downloading through the reference.
+
+Originally, the term thumbnail refers to an image in a lower resolution (or smaller size) than another image. However, the thumbnail concept can be metaphorically used for media types other than images. For example, a movie may be represented by a shorter clip; an audio-clip may be represented by another audio-clip that is shorter, has a lower sampling rate, or a lossy compression; or an abstract provided for a long document.
+
+A thumbnail itself SHALL NOT contain a thumbnail.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					-->
+					<xsd:element name="description" type="ST" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>An alternative description of the media where the media is not able to be rendered. 
+
+E.g. Short text description of an image or sound clip, etc. This attribute is not intended to be a complete substitute for the original. For complete substitutes, use the &#34;translation&#34; property.
+
+The intent of this property is to allow compliance with disability requirements such as those expressed in American&#39;s with Disability Act (also known as &#34;Section 508&#34;), where there is a requirement to provide a short text description of included media in some form that can be read by a screen reader. This is similar to a very short thumbnail with mediaType = text/plain.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<!--
+					<xsd:element name="translation" type="ED" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Alternate renditions of the same content translated into a different language or a different mediaType. 
+The translations SHALL convey the same information, but in a different language or mediaType. Translations SHALL not contain translations. The translations do not take part in the test for equality, so SHALL NOT introduce any new semantics to the value.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					-->
+				</xsd:sequence>
+				<xsd:attribute name="value" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>A simple sequence of characters that contains the content. 
+
+If value is used, the mediatype is fixed to text/plain and the charset must be consistent with the String Character Set. Refer to section 6.7.5 for more details</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="mediaType" type="xsd:string" use="optional" default="text/plain">
+					<xsd:annotation>
+						<xsd:documentation>Identifies the type of the encapsulated data and can be used to determine a method to interpret or render the content. 
+
+The IANA defined domain of media types is established by the IETF RFCs 2045 and 2046. mediaType has a default value of text/plain and cannot be null. If the media type is different to text/plain, the &#60;i&#62;mediaType&#60;/i&#62; attribute SHALL be populated.
+
+If the content is compressed using a specified compression algorithm, the mediaType SHALL refer the mediaType of the uncompressed data, whether the data is accessed by reference or not. </xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="charset" type="Code" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>An Internet Assigned Numbers Authority (IANA) Charset Registered character set and character encoding for character-based encoding types&#60;b&#62;. &#60;/b&#62;
+
+Whenever the content of the ED is character type data in any form, the charset property needs to be known. If the content is provided directly in the value attribute, then the charset SHALL be a known character set consistent with the String Character Set. Refer to section 6.7.5 for more details. If the content is provided as a reference, and the access method does not provide the charset for the content (such as by a mime header), then the charset SHALL be conveyed as part of the ED</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="language" type="Code" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>The human language of the content. Valid codes are taken from the IETF RFC 3066. If this attribute is null, the language may be inferred from elsewhere, either from the context or from unicode language tags, for example.
+
+Conformance profiles SHOULD define defaulting rules for language for a given usage environment of this specification.
+
+Note: While language attribute usually alters the interpretation of the text, the language attribute does not alter the meaning of the characters in the text.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="integrityCheckAlgorithm" type="IntegrityCheckAlgorithm" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>The algorithm used to compute the integrityCheck value.
+If populated, the value of this attribute SHALL be taken from the HL7 IntegrityCheckAlgorithm code system.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+			<!--
+				<xsd:attribute name="compression" type="Compression" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>The compression algorithm, if any, used on the raw byte data.
+
+If the attribute is null, the data is not compressed. Compression only applies to the binary form of the content.
+
+If populated, the value of this attribute SHALL be taken from the HL7 CompressionAlgorithm code system.
+
+Some compression formats allow multiple archive files to be embedded within a single compressed volume. Applications SHALL ensure that the decompressed form of the data conforms to the stated media type</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				-->
+		</xsd:complexContent>
+	</xsd:complexType>
 	<xsd:complexType name="EN">
 		<xsd:annotation>
 			<xsd:documentation>A name for a person, organization, place or thing. 
@@ -368,6 +570,20 @@ The root and extension scheme means that the concatenation of root and extension
 Some identifier schemes define certain style options to their code values. For example, the U.S. Social Security Number (SSN) is normally written with dashes that group the digits into a pattern "123-12-1234". However, the dashes are not meaningful and a SSN can also be represented as "123121234" without the dashes. In the case where identifier schemes provide for multiple representations, HL7 or ISO may make a ruling about which is the preferred form and document that ruling where that respective external identifier scheme is recognized.
 If no extension attribute is provided in a non-null II, then the root is the complete unique identifier. 
 </xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="identifierName" type="xsd:string" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>This is a human-readable name for the namespace represented in the root. 
+
+Note:  It is a descriptive name for the actual namespace. e.g. &#34;California, U.S. Driver&#39;s License Number, 1970-&#34;.
+
+IdentifierName does NOT refer to the organization which issued the identifier (e.g. California Dept. of Motor Vehicles). It is intended for use as a human readable label when an identifier must be displayed to a human user where an OID would not be meaningful. 
+
+The Identifier Name has no computational value. IdentifierName can never modify the meaning of the root attribute. The purpose of the Identifer Name is to assist an unaided human interpreter of an II value to interpret the authority. Applications SHALL NOT attempt to perform any decision-making, matching, filtering or other processing based on the presence or value of this property. It is for display and development assistance only. All decision logic MUST be based solely on the root and extension properties. Information Processing Entities claiming direct or indirect conformance MAY choose not to implement &#60;i&#62;identifierName&#60;/i&#62; but SHALL NOT reject instances because &#60;i&#62;identifierName&#60;/i&#62; is present.
+
+Note: In general, it should only be used when an extension is present, allowing for a display such as &#34;California, U.S. Driver&#39;s License Number, 1970-: 123456789&#34;. There are absolutely no guidelines for the contents of this text other than it should be completely descriptive of the namespace. E.g. &#34;Driver&#39;s License&#34; or even &#34;California Driver&#39;s License&#34; would not be ideal. However, formatting, capitalization, whitepace, language, etc. are completely up to the sender.
+						</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
 			</xsd:extension>
@@ -648,7 +864,75 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+	<!--
 	<xsd:complexType name="RTO">
+		<xsd:annotation>
+			<xsd:documentation>A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. 
+Common factors in the numerator and denominator are not automatically cancelled out. 
+The RTO datatype supports titers (e.g., 1:128) and other quantities produced by laboratories that truly represent ratios. Ratios are not simply structured numerics, particularly blood pressure measurements (e.g. 120/60) are not ratios.
+Notes: 
+1.    Ratios are different from rational numbers, i.e., in ratios common factors in the numerator and denominator never cancel out. A ratio of two real or integer numbers is not automatically reduced to a real number. This datatype is not defined to generally represent rational numbers. It is used only if common factors in numerator and denominator are not supposed to cancel out. This is only rarely the case. For observation values, ratios occur almost exclusively with titers. In most other cases, REAL should be used instead of the RTO.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="QTY">
+				<xsd:attributeGroup ref="ATTR_RTO"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	-->
+	<xsd:complexType name="RTO_PQ">
+		<xsd:annotation>
+			<xsd:documentation>A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. 
+Common factors in the numerator and denominator are not automatically cancelled out. 
+The RTO datatype supports titers (e.g., &#34;1:128&#34;) and other quantities produced by laboratories that truly represent ratios. Ratios are not simply &#34;structured numerics&#34;, particularly blood pressure measurements (e.g. &#34;120/60&#34;) are not ratios.
+Notes: 
+1.	Ratios are different from rational numbers, i.e., in ratios common factors in the numerator and denominator never cancel out. A ratio of two real or integer numbers is not automatically reduced to a real number. This datatype is not defined to generally represent rational numbers. It is used only if common factors in numerator and denominator are not supposed to cancel out. This is only rarely the case. For observation values, ratios occur almost exclusively with titers. In most other cases, REAL should be used instead of the RTO.
+2.	Since many implementation technologies expect generics to be collections, or only have one parameter, RTO is not implemented as a generic in this specification. Constraints at the point where the RTO is used will define which form of QTY are used.</xsd:documentation>
+			<!--
+			<xsd:appinfo>
+				<sch:pattern name="numerator and denominator required">
+					<sch:rule abstract="true" id="RTO-0">
+						<sch:assert test="@nullFlavor or ((numerator and not(numerator/@nullFlavor)) and (numerator and not(numerator/@nullFlavor)))"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="no updateMode or History on RTO Attributes">
+					<sch:rule abstract="true" id="RTO-1">
+						<sch:assert test="count(*[self::numerator or self::denominator][@validTimeLow or @validTimeHigh or @controlInformationRoot or @controlInformationExtension or @updateMode])=0"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="no uncertainty">
+					<sch:rule abstract="true" id="RTO-2">
+						<sch:assert test="not(uncertainty)"/>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="no TS">
+					<sch:rule abstract="true" id="RTO-3">
+						<sch:assert test="not(numerator/@xsi:type = &#34;TS&#34;) and not(denominator/@xsi:type = &#34;TS&#34;)"/>
+					</sch:rule>
+				</sch:pattern>
+			</xsd:appinfo>
+			-->
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="QTY">
+				<xsd:sequence>
+					<xsd:element name="numerator" type="PQ" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The quantity that is being divided in the ratio</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="denominator" type="PQ" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The quantity that divides the numerator in the ratio. 
+The denominator SHALL not be zero.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="RTO_INT">
 		<xsd:annotation>
 			<xsd:documentation>A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. 
 Common factors in the numerator and denominator are not automatically cancelled out. 
@@ -786,12 +1070,12 @@ The reason for this is that neither tablets or scoops are proper units. What kin
 		<xsd:annotation>
 			<xsd:documentation>Attribute group defining a IVL_PQ low value</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="lowValue" type="Decimal" use="required">
+		<xsd:attribute name="lowValue" type="Decimal" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="lowUnit" type="Code" use="required">
+		<xsd:attribute name="lowUnit" type="Code" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
 UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
@@ -807,12 +1091,12 @@ The reason for this is that neither tablets or scoops are proper units. What kin
 		<xsd:annotation>
 			<xsd:documentation>Attribute group defining a IVL_PQ high value</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="highValue" type="Decimal" use="required">
+		<xsd:attribute name="highValue" type="Decimal" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="highUnit" type="Code" use="required">
+		<xsd:attribute name="highUnit" type="Code" use="optional">
 			<xsd:annotation>
 				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
 UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
@@ -828,17 +1112,12 @@ The reason for this is that neither tablets or scoops are proper units. What kin
 		<xsd:annotation>
 			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="numerator" type="Decimal" use="required">
+		<xsd:attribute name="numerator" type="xsd:int" use="required">
 			<xsd:annotation>
 				<xsd:documentation>The quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xsd:documentation>
-				<xsd:appinfo>
-					<altova:exampleValues>
-						<altova:example value="1"/>
-					</altova:exampleValues>
-				</xsd:appinfo>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="denominator" type="Decimal" use="required">
+		<xsd:attribute name="denominator" type="xsd:int" use="required">
 			<xsd:annotation>
 				<xsd:documentation>The quantity that divides the numerator in the ratio. 
 The denominator SHALL not be zero.  This represents the denominator.expression.value from the ISO 21090 datatypes.</xsd:documentation>
@@ -1326,6 +1605,20 @@ Note that marriage naming customs vary greatly around the world.  This name use 
 			<xsd:enumeration value="PHON">
 				<xsd:annotation>
 					<xsd:documentation>Phonetic : The name as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the name, not based on a phonetic algorithm.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IntegrityCheckAlgorithm">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SHA1">
+				<xsd:annotation>
+					<xsd:documentation>Secure Hash Algorithm - 1 : This algorithm is defined in FIPS PUB 180-1: Secure Hash Standard. As of April 17, 1995 </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SHA256">
+				<xsd:annotation>
+					<xsd:documentation>Secure Hash Algorithm - 256 : This algorithm is defined in FIPS PUB 180-2: Secure Hash Standard </xsd:documentation>
 				</xsd:annotation>
 			</xsd:enumeration>
 		</xsd:restriction>

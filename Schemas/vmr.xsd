@@ -78,7 +78,7 @@
 							<xs:documentation>The code that identifies the substance with as much specificity as appropriate, or as required by a template.  E.g., aspirin, lisinopril.  May be either a generic or brand code, unless otherwise restricted by a template.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="strength" type="dt:RTO" minOccurs="0">
+					<xs:element name="strength" type="dt:RTO_PQ" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The concentration of the substance.  E.g., 250 mg per 5 ml.</xs:documentation>
 						</xs:annotation>
