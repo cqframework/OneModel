@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Jeff Bronte (Zynx Health, Inc.) -->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="org.opencds.vmr.v1_0.schema.datatypes" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="org.opencds.vmr.v1_0.schema.datatypes">
 	<xsd:annotation>
 		<xsd:documentation>

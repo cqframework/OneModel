@@ -23,6 +23,101 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="CodedIdentifier">
+		<xs:annotation>
+			<xs:documentation>An II with an additional code to represent the associated concept. This is relevant for templates that are associated with a particular concept such as Barium Enema for instance.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="dt:II">
+				<xs:sequence>
+					<xs:element name="relevantConcept" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Code specifying the concept represented by this identifier.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodedNameValuePair">
+		<xs:annotation>
+			<xs:documentation>Class represents a generic Name-Value-Pair object where the name is controlled by a terminology and the value may be of several types.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="dt:CD">
+				<xs:annotation>
+					<xs:documentation>A code representing the name of the attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value">
+				<xs:annotation>
+					<xs:documentation>The value of the attribute.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice minOccurs="0">
+						<xs:element name="boolean" type="dt:BL"/>
+						<xs:element name="concept" type="dt:CD"/>
+						<xs:element name="decimal" type="dt:REAL"/>
+						<xs:element name="decimalRange" type="dt:IVL_REAL"/>
+						<xs:element name="integer" type="dt:INT"/>
+						<xs:element name="integerRange" type="dt:IVL_INT"/>
+						<xs:element name="physicalQuantity" type="dt:PQ"/>
+						<xs:element name="physicalQuantityRange" type="dt:IVL_PQ"/>
+						<!--
+								<xs:element name="ratio" type="dt:RTO"/>
+								-->
+						<xs:element name="ratio" type="dt:RTO_PQ"/>
+						<xs:element name="ratioRange" type="dt:IVL_RTO"/>
+						<xs:element name="simpleConcept" type="dt:CS"/>
+						<xs:element name="text" type="dt:ST"/>
+						<xs:element name="time" type="dt:TS"/>
+						<xs:element name="timeRange" type="dt:IVL_TS"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DietQualifier">
+		<xs:annotation>
+			<xs:documentation>"Diet qualifier allows the post-coordination of diets in cases where such post-coordination is required. Diets can vary greatly in how they are represented in terminologies. The most common use case for DietQualifier is to represent a nutrient that can be either stated as a quantity, a range, or as a code (e.g., 'Low Protein'). Diet qualifiers may also be such attributes of diet as Dysphagia consistency, Fluid levels and consistency, qualifiers on vegetarian diets, sensitivity or preference, etc.... 
+
+DietQualifier consists of the dietQualifierType (e.g., Sodium), the amount in the diet (e.g., 20-30g), and/or a qualifier such as 'Low Sodium'. Note that dietQualifierType is required and of type CD. Amount is optional and of type IVL_PQ. qualifier is optional and of type CD. Either amount or qualifier is required and both may not be empty.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dietQualifierType" type="dt:CD">
+				<xs:annotation>
+					<xs:documentation>The type of nutrient that this diet contains. Nutrient types include: carbohydrates, lipids and fats, salts such as Sodium or Potassium, fibers, and also fluids.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="amount" type="dt:IVL_PQ" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The quantity of nutrient or bound to consider for this diet. For instance, 40mg, &lt;40mg, 30mg&lt;x&lt;60mg, etc...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="qualifier" type="dt:CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Not all nutrients will be given using physical quantities. A fat may be specified as 'Low Fat', 'No Animal Fat', etc... Other examples include: 'Ketogenic 3:1 Ratio', 'Consistent Carb Low (1200-1500 Kcal'), etc... Note that fluid consistencies may also be specified as the qualifier of a Nutrient whose type is 'Fluid'. E.g., Honey Thick Liquids, Nectar Thick Liquids, Pudding Thick Liquids, Other</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Dose">
+		<xs:annotation>
+			<xs:documentation>Class represents the amount of a substance administered as well as the type of dose. For instance, one may administer a loading dose followed by a maintenance dose.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="doseType" type="dt:CD" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The kind of dose.  E.g., initial, maintenance, loading.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="doseQuantity" type="dt:IVL_PQ">
+				<xs:annotation>
+					<xs:documentation>The amount of substance.  E.g., 1 tab, 325 mg, 1-2 tabs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="DoseRestriction">
 		<xs:annotation>
 			<xs:documentation>Referred to in CDA release 2 as maxDoseQuantity.  Specifies the maximum dose that can be given in a specified time interval.</xs:documentation>
@@ -36,6 +131,28 @@
 			<xs:element name="timeInterval" type="dt:PQ">
 				<xs:annotation>
 					<xs:documentation>The time interval during which the dose specified is the maximum amount that should be administered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Documentation">
+		<xs:annotation>
+			<xs:documentation>This type may be used to represent documentation that is either free text or richer in format (e.g., XML or HTML) where provenance is not relevant. The type of the documentation is determined by a code that represents the type of documentation ("e.g., a consult note, a provider instruction, a patient instruction, etc...). It is intended to represent comment fields and notes such as those associated with order entry forms. Either freeTextValue or content must be specified.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="type" type="dt:CD">
+				<xs:annotation>
+					<xs:documentation>Code that specifies the type of document represented: E.g.,  'Instructions to Provider', 'Patient Instructions', 'Special Handling', etc...</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="freeTextValue" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The free text representation of this document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="content" type="dt:ED" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The content of this document in encapsulated data format. The intent of this attribute is to support content with formatting such as XML and XHTML.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -63,6 +180,25 @@
 				<xs:annotation>
 					<xs:documentation>The specific type of entity.  E.g., healthcare organization, medical facility, pacemaker.</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="evaluatedPersonId" type="dt:II" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The person referencing this entity, generally the patient.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="extension" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This section allows for additional attributes to be defined in an entity.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="attribute" type="vmr:CodedNameValuePair" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>A user-specified attribute for this class. The field 'attribute' supports user-defined attribute extensions for entities. New concepts defined in this manner need to have an associated template. Refer to Implementation Guide for details.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -694,6 +830,11 @@ Similarly, related Entities can either be nested, or placed in the EntityLists e
 							<xs:documentation>A specimen may contain other related entities, such as contaminants, preservatives, or constituents</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="source" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The specimen source. E.g., sputum, urine, blood, stool</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -943,12 +1084,12 @@ Approaches to representing specific statements:
 	- Patient takes an unknown drug --&gt; SubstanceAdministrationEvent where code for substance represents "unknown medication".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="templateId" type="dt:II" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="templateId" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The identifier of a set of constraints placed on a clinical statement.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="id" type="dt:II">
+			<xs:element name="id" type="dt:II" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A unique ID of this clinical statement for reference purposes.  Does not need to be the actual ID of the source system.</xs:documentation>
 				</xs:annotation>
@@ -957,6 +1098,25 @@ Approaches to representing specific statements:
 				<xs:annotation>
 					<xs:documentation>A categorization of the type of information source making the clinical statement.  Can be used, for example, to provide relevant information regarding the reliability of input data or to mark specific pieces of data as having been generated by a CDS system. E.g., administrative system, clinical system, patient or family member, external CDS system, this CDS system.  Optional in the base vMR, but should consider providing when available.</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="evaluatedPersonId" type="dt:II" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The 'owner' of this clinical statement.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="extension" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This section allows for additional attributes to be defined in a CdsContext.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="attribute" type="vmr:CodedNameValuePair" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>A user-specified attribute for this class. The field 'attribute' supports user-defined attribute extensions for clinical concepts. New concepts defined in this manner need to have an associated template. Refer to Implementation Guide for details.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -1232,7 +1392,10 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 								<xs:element name="integerRange" type="dt:IVL_INT"/>
 								<xs:element name="physicalQuantity" type="dt:PQ"/>
 								<xs:element name="physicalQuantityRange" type="dt:IVL_PQ"/>
+								<!--
 								<xs:element name="ratio" type="dt:RTO"/>
+								-->
+								<xs:element name="ratio" type="dt:RTO_PQ"/>
 								<xs:element name="ratioRange" type="dt:IVL_RTO"/>
 								<xs:element name="simpleConcept" type="dt:CS"/>
 								<xs:element name="text" type="dt:ST"/>
@@ -1402,7 +1565,10 @@ If repeatNumber &gt;= 2, then specifies proposed period within which the observa
 								<xs:element name="name" type="dt:EN"/>
 								<xs:element name="physicalQuantity" type="dt:PQ"/>
 								<xs:element name="physicalQuantityRange" type="dt:IVL_PQ"/>
+								<!--
 								<xs:element name="ratio" type="dt:RTO"/>
+								-->
+								<xs:element name="ratio" type="dt:RTO_PQ"/>
 								<xs:element name="ratioRange" type="dt:IVL_RTO"/>
 								<xs:element name="simpleConcept" type="dt:CS"/>
 								<xs:element name="telecom" type="dt:TEL"/>
@@ -1537,6 +1703,104 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 		</xs:complexContent>
 	</xs:complexType>
 	<!--== Procedure Clinical Statements ==-->
+	<xs:complexType name="DietProposal">
+		<xs:annotation>
+			<xs:documentation>A proposal for a diet order.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="vmr:ProcedureProposal">
+				<xs:sequence>
+					<xs:element name="dietQualifiers" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Diet proposals may be fully precoordinated in a terminology or specified by type only and allowing the nutrients (eg, specification of calories, carbohydrates, protein, fat, sodium, potassium, etc.) to be post-coordinated.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="dietQualifier" type="vmr:DietQualifier" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>A qualifier for this diet proposal (eg, specification of calories, carbohydrates, protein, fat, sodium, potassium, etc.)</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ImagingProposal">
+		<xs:annotation>
+			<xs:documentation>A proposal for an Imaging Order. For instance, Chest Radiograph - PA and Lateral.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="vmr:ProcedureProposal">
+				<xs:sequence>
+					<xs:element name="stressor" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Type of physiologic or pharmacologic stress that will be subjected to the patient during the imaging procedure. For example, Adenosine, Dipyrdomole, Persantine, Thallium, Cardiolite, Dobutamine, Treadmill.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contrast" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of whether contrast should be administered as part of the imaging study (Yes, No), the route of contrast (Oral, IV), or the kind of contrast (Barium, Gastrograffin)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="portableExam" type="dt:BL" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Designation of whether or not the imaging procedure should be performed at the patient's bedside (Yes) or if the procedure can be conducted in the location of the performing department (No)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="transportMode" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of how a patient will be moved from their hospital room to the performing department</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="isolationCode" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification for type of precautions that should be taken when in proximity to the patient. For instance, Airborne Precautions, Contact Precautions, Droplet Precautions, Standard Precautions.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LaboratoryProposal">
+		<xs:annotation>
+			<xs:documentation>A proposal for a laboratory test.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="vmr:ProcedureProposal">
+				<xs:sequence>
+					<xs:element name="specimen" type="vmr:Specimen" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The source of the collected laboratory specimen</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="nurseCollect" type="dt:BL" minOccurs="0"/>
+					<xs:element name="collectionMethod" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of how the laboratory specimen should be obtained</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="collectionPriority" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Collection priority is the urgency for which the sample needs to be collected.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="specialHandling" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Special instructions on how to handle a laboratory specimen. For example, 'Keep on ice'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The pathogen or pathogens that are felt to be the most likely cause of the patient's condition that led to the laboratory procedure proposal. For instance, Staphylococcus, Streptococcus, Pseudomonas, Neisseria.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="ProcedureBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for a procedure, which is a series of steps taken on a subject to accomplish a clinical goal.</xs:documentation>
@@ -1645,8 +1909,126 @@ If repeatNumber &gt;= 2, then specifies requested period within which the proced
 							<xs:documentation>Number of times the procedure is requested.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="originationMode" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="orderStatus" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>State of this proposal in the workflow. Note that the set of relevant states may vary by type of proposal. (e.g., the workflow on a laboratory proposal may be different from the workflow for substance administration proposals.)
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="comment" type="vmr:Documentation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult', etc...) and the value of the comment represents the free text value.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="frequency" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The interval in between events. For instance, TID, BID, q8h, etc.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="timing" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Timing relative to some event. Today, Tomorrow, On Admission to ICU, etc...</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indication for the proposed procedure such as shortness of breath; things like "SpO2 less than x%" should be addressed as a PRN Instruction (because it is difficult to enumerate a value set for these instructions) rather than a PRN Reason</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="relatedEntity" type="vmr:RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="relatedClinicalStatement" type="vmr:RelatedClinicalStatement" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RespiratoryCareProposal">
+		<xs:annotation>
+			<xs:documentation>Order proposals that encompass supplemental oxygen (eg, nasal cannula, face mask), BiPAP/CPAP, and mechanical ventilation.  While these are vastly different respiratory care concepts, the associated data elements can be constrained through templates.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="vmr:ProcedureProposal">
+				<xs:sequence>
+					<xs:element name="EPAP" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Expiratory positive airway pressure, often expressed in cmH20 in the United States. Example: 5 cmH2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="IPAP" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Inspiratory positive airway pressure, often expressed in cmH20 in the United States. For example, 10 cmH2O</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PEEP" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Positive end expiratory pressure, the alveolar pressure above atmospheric pressure that exists at the end of expiration, often expressed in cmH20 in the United States. For example, 5 cmH2O.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="fiO2" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Fraction of inspired oxygen, expressed as a percentage. For example, 100%.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="spO2Range" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Target oxygen saturation, expressed as a percentage. For instance, 95-100%</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="spO2Titration" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Titration instructions to achieve target oxygen saturation. An example might include: "Titrate oxygen to maintain SpO2 > 93%"</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="respiratoryRate" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Number of machine-delivered breaths per minute, in the context of mechanical ventilation, expressed as breaths/minute.  For example, 14 breaths/minute.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tidalVolume" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Volume of air delivered with each machine-delivered breath, often expressed in mL in the United States. For example, 500 mL.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="peakFlowRate" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of the maximum allowable rate of airflow delivered by a mechanical ventilator. For example, 60 L/min.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="peakInspiratoryPressure" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of the maximum airway pressure allowed to be delivered by the ventilator in order to prevent barotrauma, applies to volume-controlled ventilation modes. For example, 35 cmH2O.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inspiratoryTime" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of the duration of the positive airway pressume applied by a mechanical ventilator. For example, 1 second.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ventilatorMode" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Primary setting on a mechanical ventilator that specifies how machine breaths will be delivered to a patient.
+Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (SIMV), Pressure Support Ventilation (PS or PSV), Pressure-Regulated Volume Control (PRVC)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="pressureSupport" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of the additional amount of pressure that is added to a mechanical ventilation mode, often CPAP mode.  Not to be confused with pressure control ventilation mode. For example, 500 mL</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="oxygenDeliveryMethod" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes how oxygen will be delivered to a patient. For example: Nasal Cannula, Hood, Face Mask, Non-rebreather Mask</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="isolationCode" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes the kinds of precautions that should be taken for the patient. Values include: Airborne Precautions, Contact Precautions, Droplet Precautions, Standard Precautions, Neutropenic (Reverse) Precautions</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1698,6 +2080,24 @@ If repeatNumber &gt;= 2, then specifies requested period within which the proced
 		</xs:complexContent>
 	</xs:complexType>
 	<!--== Substance Administration Clinical Statements ==-->
+	<xs:complexType name="PCAProposal">
+		<xs:complexContent>
+			<xs:extension base="vmr:SubstanceAdministrationProposal">
+				<xs:sequence>
+					<xs:element name="lockoutInterval" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The amount of time that must elapse after a PCA demand dose is administered before the next PCA demand dose can be delivered. For example, 10 minutes</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="doseLimit" type="vmr:DoseRestriction" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The maximum amount of a PCA drug that can be delivered within a certain time window. For example, 50 mg/4 hours</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="SubstanceAdministrationBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for giving a material of a particular constitution to a person to enable a clinical effect.</xs:documentation>
@@ -1710,21 +2110,30 @@ If repeatNumber &gt;= 2, then specifies requested period within which the proced
 							<xs:documentation>The general purpose for the substance administration.  E.g., medication, immunization.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="dose" type="vmr:Dose" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The amount of a substance administered as well as the type of dose. For instance, one may administer a loading dose followed by a maintenance dose.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<!--
 					<xs:element name="doseType" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The type of dose.  E.g., initial, maintenance, loading.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					-->
 					<xs:element name="substance" type="vmr:AdministrableSubstance">
 						<xs:annotation>
 							<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<!--
 					<xs:element name="doseQuantity" type="dt:IVL_PQ" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The amount of substance.  E.g., 1 tab, 325 mg, 1-2 tabs.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					-->
 					<xs:element name="deliveryRoute" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The physical route through which the substance is administered.  E.g., IV, PO.</xs:documentation>
@@ -1737,12 +2146,12 @@ If repeatNumber &gt;= 2, then specifies requested period within which the proced
 					</xs:element>
 					<xs:element name="dosingPeriod" type="dt:IVL_PQ" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Together with dosingPeriodIntervalIsImportant, identifies the frequency of substance administration.  dosingPeriod identifies the periodicity of doses within a 24 hour timeframe.  E.g., a dosingPeriod of 8 hr would signify q8h if dosingPeriodIntervalIsImportant is true, and TID if dosingPeriodIntervalIsImportant is false.</xs:documentation>
+							<xs:documentation>Together with dosingPeriodIntervalIsImportant, identifies the frequency of substance administration.  dosingPeriod identifies the periodicity of doses within a specified timeframe, which is often 24 hours (but may be different for some uses).  E.g., a dosingPeriod of 3 times every 24 hrs would signify q8h if dosingPeriodIntervalIsImportant is true, and TID if dosingPeriodIntervalIsImportant is false.  Other possibilities include 20 minutes every 2 hours for an infusion, or 30 minutes every 2 days for a medicated compress, etc.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="dosingPeriodIntervalIsImportant" type="dt:BL" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Together with dosingPeriod, identifies the frequency of substance administration.  dosingPeriod identifies the periodicity of doses within a 24 hour timeframe, whereas dosingPeriodIntervalIsImportant identifies whether doses should be equally spaced within that 24 hour period.  E.g., a dosingPeriod of 8 hr would signify q8h if dosingPeriodIntervalIsImportant is true, and TID if dosingPeriodIntervalIsImportant is false.</xs:documentation>
+							<xs:documentation>Together with dosingPeriod, identifies the frequency of substance administration.  dosingPeriod identifies the periodicity of doses within a specified timeframe, which is often 24 hours, whereas dosingPeriodIntervalIsImportant identifies whether doses should be equally spaced within that timeframe.  E.g., a dosingPeriod of once every 8 hr would signify q8h if dosingPeriodIntervalIsImportant is true, and TID if dosingPeriodIntervalIsImportant is false.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="deliveryMethod" type="dt:CD" minOccurs="0">
@@ -1880,6 +2289,37 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 					<xs:element name="numberFillsAllowed" type="dt:INT" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The number of fills allowed. Must be 1 or greater.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="originationMode" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="comment" type="vmr:Documentation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult', etc...) and the value of the comment represents the free text value.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="orderStatus" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>State of this proposal in the workflow. Note that the set of relevant states may vary by type of proposal. (e.g., the workflow on a laboratory proposal may be different from the workflow for substance administration proposals.)
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="prnReason" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indication for the proposed procedure such as shortness of breath; things like "SpO2 less than x%" should be addressed as a PRN Instruction (because it is difficult to enumerate a value set for these instructions) rather than a PRN Reason</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="infuseOver" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Represents the actual time the medication is infused. Note the difference between infuseOver and duration. An orderable may call for infusing a patient TID for an hour each time over a duration of 5 days. For example, 1 hour.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="timing" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Timing relative to some event. Today, Tomorrow, On Admission to ICU, etc...</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="relatedEntity" type="vmr:RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
