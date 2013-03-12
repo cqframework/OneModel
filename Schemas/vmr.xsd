@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Kensaku Kawamoto (Duke University) -->
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Jeff Bronte (Zynx Health, Inc.) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vmr="org.opencds.vmr.v1_0.schema.vmr" xmlns:dt="org.opencds.vmr.v1_0.schema.datatypes" targetNamespace="org.opencds.vmr.v1_0.schema.vmr">
 	<xs:annotation>
 		<xs:documentation>This schema specifies information about a patient relevant for CDS.  It has been enhanced in several ways compared to the vMR UML Domain Analysis Model (DAM), Release 1.  These enhancements are expected to be incorporated into a future release of the vMR DAM.  These enhancements are as follows: (1) Made bodySiteCode within BodySite attributes optional rather than mandatory.  This change was made because a specific body site may be implied by the type of procedure, problem, etc., such that only the laterality is of interest (e.g., bilateral laterality for a mastectomy).  (2) ClinicalStatementEntityInRoleRelationship.role was renamed to ClinicalStatementEntityInRoleRelationship.targetRole to be consistent with the naming structure for Entity; (3) ClinicalStatementEntityInRoleRelationship.relationshipTimeInterval was added; (4) relatedEntityInRole was renamed to relatedEntity, and RelatedClinicalStatementToEntityInRole was deleted.  These changes (changes 2-4) were made because they enable the same structure to be used for representing related entities, regardless of the source of the relationship (entity vs. clinical statement).</xs:documentation>
@@ -49,31 +49,10 @@
 					<xs:documentation>A code representing the name of the attribute.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="value">
+			<xs:element name="value" type="dt:ANY">
 				<xs:annotation>
 					<xs:documentation>The value of the attribute.</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:choice minOccurs="0">
-						<xs:element name="boolean" type="dt:BL"/>
-						<xs:element name="concept" type="dt:CD"/>
-						<xs:element name="decimal" type="dt:REAL"/>
-						<xs:element name="decimalRange" type="dt:IVL_REAL"/>
-						<xs:element name="integer" type="dt:INT"/>
-						<xs:element name="integerRange" type="dt:IVL_INT"/>
-						<xs:element name="physicalQuantity" type="dt:PQ"/>
-						<xs:element name="physicalQuantityRange" type="dt:IVL_PQ"/>
-						<!--
-								<xs:element name="ratio" type="dt:RTO"/>
-								-->
-						<xs:element name="ratio" type="dt:RTO_PQ"/>
-						<xs:element name="ratioRange" type="dt:IVL_RTO"/>
-						<xs:element name="simpleConcept" type="dt:CS"/>
-						<xs:element name="text" type="dt:ST"/>
-						<xs:element name="time" type="dt:TS"/>
-						<xs:element name="timeRange" type="dt:IVL_TS"/>
-					</xs:choice>
-				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -1164,7 +1143,7 @@ Approaches to representing specific statements:
 		<xs:complexContent>
 			<xs:extension base="vmr:AdverseEventBase">
 				<xs:sequence>
-					<xs:element name="criticality" type="dt:CD" minOccurs="0">
+					<xs:element name="importance" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The clinical importance or seriousness of the adverse event.  E.g., life-threatening, potentially requires hospitalization, self-resolving.  Different from severity in that a moderate subarachnoid hemorrhage is likely to be highly critical, whereas a moderate headache is not.</xs:documentation>
 						</xs:annotation>
@@ -1378,31 +1357,10 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 							<xs:documentation>The body site that serves as the target of the goal.  E.g., waist.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="targetGoalValue" minOccurs="0">
+					<xs:element name="targetGoalValue" type="dt:ANY" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The metric whose achievement would signify the fulfillment of the goal.  E.g., 150 pounds, 7.0%.</xs:documentation>
 						</xs:annotation>
-						<xs:complexType>
-							<xs:choice minOccurs="0">
-								<xs:element name="boolean" type="dt:BL"/>
-								<xs:element name="concept" type="dt:CD"/>
-								<xs:element name="decimal" type="dt:REAL"/>
-								<xs:element name="decimalRange" type="dt:IVL_REAL"/>
-								<xs:element name="integer" type="dt:INT"/>
-								<xs:element name="integerRange" type="dt:IVL_INT"/>
-								<xs:element name="physicalQuantity" type="dt:PQ"/>
-								<xs:element name="physicalQuantityRange" type="dt:IVL_PQ"/>
-								<!--
-								<xs:element name="ratio" type="dt:RTO"/>
-								-->
-								<xs:element name="ratio" type="dt:RTO_PQ"/>
-								<xs:element name="ratioRange" type="dt:IVL_RTO"/>
-								<xs:element name="simpleConcept" type="dt:CS"/>
-								<xs:element name="text" type="dt:ST"/>
-								<xs:element name="time" type="dt:TS"/>
-								<xs:element name="timeRange" type="dt:IVL_TS"/>
-							</xs:choice>
-						</xs:complexType>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
@@ -1548,35 +1506,10 @@ If repeatNumber &gt;= 2, then specifies proposed period within which the observa
 							<xs:documentation>Time for the completion of the observation, including the interpretation.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="observationValue" minOccurs="0">
+					<xs:element name="observationValue" type="dt:ANY" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Actual observed results.  E.g., 6.5 mg/dL, 5.7%.</xs:documentation>
 						</xs:annotation>
-						<xs:complexType>
-							<xs:choice minOccurs="0">
-								<xs:element name="address" type="dt:AD"/>
-								<xs:element name="boolean" type="dt:BL"/>
-								<xs:element name="concept" type="dt:CD"/>
-								<xs:element name="decimal" type="dt:REAL"/>
-								<xs:element name="decimalRange" type="dt:IVL_REAL"/>
-								<xs:element name="identifier" type="dt:II"/>
-								<xs:element name="integer" type="dt:INT"/>
-								<xs:element name="integerRange" type="dt:IVL_INT"/>
-								<xs:element name="name" type="dt:EN"/>
-								<xs:element name="physicalQuantity" type="dt:PQ"/>
-								<xs:element name="physicalQuantityRange" type="dt:IVL_PQ"/>
-								<!--
-								<xs:element name="ratio" type="dt:RTO"/>
-								-->
-								<xs:element name="ratio" type="dt:RTO_PQ"/>
-								<xs:element name="ratioRange" type="dt:IVL_RTO"/>
-								<xs:element name="simpleConcept" type="dt:CS"/>
-								<xs:element name="telecom" type="dt:TEL"/>
-								<xs:element name="text" type="dt:ST"/>
-								<xs:element name="time" type="dt:TS"/>
-								<xs:element name="timeRange" type="dt:IVL_TS"/>
-							</xs:choice>
-						</xs:complexType>
 					</xs:element>
 					<xs:element name="interpretation" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -1740,9 +1673,19 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 							<xs:documentation>Type of physiologic or pharmacologic stress that will be subjected to the patient during the imaging procedure. For example, Adenosine, Dipyrdomole, Persantine, Thallium, Cardiolite, Dobutamine, Treadmill.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="contrast" type="dt:CD" minOccurs="0">
+					<xs:element name="contrast" type="dt:BL" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Specification of whether contrast should be administered as part of the imaging study (Yes, No), the route of contrast (Oral, IV), or the kind of contrast (Barium, Gastrograffin)</xs:documentation>
+							<xs:documentation>Specification of whether contrast should be administered as part of the imaging study (e.g., Yes, No, Per Radiology)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contrastType" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of the kind of contrast (e.g., Barium, Gastrograffin) to be given as part of an imaging proposal. For example, Barium, Gastrograffin.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contrastRoute" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Specification of the route of contrast (e.g., Oral, IV, Per Radiology) to be given as part of an imaging proposal</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="portableExam" type="dt:BL" minOccurs="0">
@@ -1776,15 +1719,9 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 							<xs:documentation>The source of the collected laboratory specimen</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="nurseCollect" type="dt:BL" minOccurs="0"/>
 					<xs:element name="collectionMethod" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Specification of how the laboratory specimen should be obtained</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="collectionPriority" type="dt:CD" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Collection priority is the urgency for which the sample needs to be collected.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="specialHandling" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
@@ -1912,12 +1849,6 @@ If repeatNumber &gt;= 2, then specifies requested period within which the proced
 					<xs:element name="originationMode" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="orderStatus" type="dt:CD" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>State of this proposal in the workflow. Note that the set of relevant states may vary by type of proposal. (e.g., the workflow on a laboratory proposal may be different from the workflow for substance administration proposals.)
-</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="comment" type="vmr:Documentation" minOccurs="0" maxOccurs="unbounded">
@@ -2080,6 +2011,16 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 		</xs:complexContent>
 	</xs:complexType>
 	<!--== Substance Administration Clinical Statements ==-->
+	<xs:complexType name="ComplexIVProposal">
+		<xs:complexContent>
+			<xs:extension base="vmr:SubstanceAdministrationProposal">
+				<xs:sequence>
+					<xs:element name="diluent" type="vmr:SubstanceAdministrationProposal" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="additive" type="vmr:SubstanceAdministrationProposal" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="PCAProposal">
 		<xs:complexContent>
 			<xs:extension base="vmr:SubstanceAdministrationProposal">
@@ -2087,11 +2028,6 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 					<xs:element name="lockoutInterval" type="dt:IVL_PQ" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The amount of time that must elapse after a PCA demand dose is administered before the next PCA demand dose can be delivered. For example, 10 minutes</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="doseLimit" type="vmr:DoseRestriction" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>The maximum amount of a PCA drug that can be delivered within a certain time window. For example, 50 mg/4 hours</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2299,12 +2235,6 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 					<xs:element name="comment" type="vmr:Documentation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="orderStatus" type="dt:CD" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>State of this proposal in the workflow. Note that the set of relevant states may vary by type of proposal. (e.g., the workflow on a laboratory proposal may be different from the workflow for substance administration proposals.)
-</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="prnReason" minOccurs="0" maxOccurs="unbounded">
