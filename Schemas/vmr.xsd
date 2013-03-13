@@ -80,23 +80,6 @@ DietQualifier consists of the dietQualifierType (e.g., Sodium), the amount in th
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="Dose">
-		<xs:annotation>
-			<xs:documentation>Class represents the amount of a substance administered as well as the type of dose. For instance, one may administer a loading dose followed by a maintenance dose.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="doseType" type="dt:CD" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The kind of dose.  E.g., initial, maintenance, loading.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="doseQuantity" type="dt:IVL_PQ">
-				<xs:annotation>
-					<xs:documentation>The amount of substance.  E.g., 1 tab, 325 mg, 1-2 tabs.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="DoseRestriction">
 		<xs:annotation>
 			<xs:documentation>Referred to in CDA release 2 as maxDoseQuantity.  Specifies the maximum dose that can be given in a specified time interval.</xs:documentation>
@@ -497,10 +480,38 @@ Similarly, related Entities can either be nested, or placed in the EntityLists e
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
+								<xs:element name="DietProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="DietProposal" type="vmr:DietProposal" minOccurs="0" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="ImagingProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="ImagingProposal" type="vmr:ImagingProposal" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="LaboratoryProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="LaboratoryProposal" type="vmr:LaboratoryProposal" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
 								<xs:element name="procedureProposals" minOccurs="0">
 									<xs:complexType>
 										<xs:sequence>
 											<xs:element name="procedureProposal" type="vmr:ProcedureProposal" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="RespiratoryCareProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="RespiratoryCareProposal" type="vmr:RespiratoryCareProposal" maxOccurs="unbounded"/>
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
@@ -525,10 +536,31 @@ Similarly, related Entities can either be nested, or placed in the EntityLists e
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
+								<xs:element name="ComplexIVProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="ComplexIVProposal" type="vmr:ComplexIVProposal" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="PCAProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="PCAProposal" type="vmr:PCAProposal" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
 								<xs:element name="substanceAdministrationProposals" minOccurs="0">
 									<xs:complexType>
 										<xs:sequence>
 											<xs:element name="substanceAdministrationProposal" type="vmr:SubstanceAdministrationProposal" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="TubeFeedingProposals" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="TubeFeedingProposal" type="vmr:TubeFeedingProposal" maxOccurs="unbounded"/>
 										</xs:sequence>
 									</xs:complexType>
 								</xs:element>
@@ -1022,7 +1054,7 @@ Note that enumerations and value domains are anticipated to be specified in prof
 		</xs:annotation>
 	</xs:element>
 	<!--== Base Clinical Statements ==-->
-	<xs:complexType name="ClinicalStatement" abstract="true">
+	<xs:complexType name="ClinicalStatement" abstract="false">
 		<xs:annotation>
 			<xs:documentation>A record of something of clinical relevance that is being done, has been done, can be done, or is intended or requested to be done.  An abstract base class that serves as the basis for concrete clinical statements, such as ObservationEvent and ProcedureProposal.
 
@@ -2025,6 +2057,16 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 		<xs:complexContent>
 			<xs:extension base="vmr:SubstanceAdministrationProposal">
 				<xs:sequence>
+					<xs:element name="loadingDose" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The initial amount of an analgesic to be administered at one time.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="demandDose" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A dose of an analgesic given upon request often through an action such as pressing a button to activate a pump</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="lockoutInterval" type="dt:IVL_PQ" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The amount of time that must elapse after a PCA demand dose is administered before the next PCA demand dose can be delivered. For example, 10 minutes</xs:documentation>
@@ -2046,11 +2088,6 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 							<xs:documentation>The general purpose for the substance administration.  E.g., medication, immunization.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="dose" type="vmr:Dose" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>The amount of a substance administered as well as the type of dose. For instance, one may administer a loading dose followed by a maintenance dose.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<!--
 					<xs:element name="doseType" type="dt:CD" minOccurs="0">
 						<xs:annotation>
@@ -2058,6 +2095,11 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 						</xs:annotation>
 					</xs:element>
 					-->
+					<xs:element name="doseType" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The type of dose.  E.g., initial, maintenance, loading.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="substance" type="vmr:AdministrableSubstance">
 						<xs:annotation>
 							<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.</xs:documentation>
@@ -2070,6 +2112,11 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 						</xs:annotation>
 					</xs:element>
 					-->
+					<xs:element name="doseQuantity" type="dt:IVL_PQ" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The amount of substance.  E.g., 1 tab, 325 mg, 1-2 tabs.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="deliveryRoute" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The physical route through which the substance is administered.  E.g., IV, PO.</xs:documentation>
@@ -2092,7 +2139,7 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 					</xs:element>
 					<xs:element name="deliveryMethod" type="dt:CD" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Methodology used to administer the substance.  E.g., gastric feeding tube, gastrostomy.</xs:documentation>
+							<xs:documentation>Methodology used to administer the substance.  E.g., gastric feeding tube, gastrostomy, drip.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="approachBodySite" type="vmr:BodySite" minOccurs="0">
@@ -2297,6 +2344,23 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 					</xs:element>
 					<xs:element name="relatedEntity" type="vmr:RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="relatedClinicalStatement" type="vmr:RelatedClinicalStatement" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TubeFeedingProposal">
+		<xs:annotation>
+			<xs:documentation>Class representing a tube feeding order proposal.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="vmr:SubstanceAdministrationProposal">
+				<xs:sequence>
+					<xs:element name="dietQualifier" type="vmr:DietQualifier" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Diet proposals may be fully precoordinated in a terminology or specified by type only and allowing the nutrients (eg, specification of calories, carbohydrates, protein, fat, sodium, potassium, etc.) to be post-coordinated.
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
