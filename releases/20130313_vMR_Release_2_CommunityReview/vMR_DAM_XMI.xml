@@ -6732,8 +6732,8 @@
 			</element>
 			<element xmi:idref="EAID_6A0A4758_ABB9_457b_9A76_D267D015423D" xmi:type="uml:Class" name="TubeFeedingProposal" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="537" ea_eleType="element"/>
-				<properties documentation="A class representing enteral nutrition proposals for the delivery of tube-fed substances (eg, Nutren, Ensure, RenalCal) for patients who are unable to consume diets orally; tube feedings can be delivered to the stomach or varying parts of the small intestines using a variety of tube placement methods, depending on the clinical scenario. For instance, Nutren via nasogastric tube, 20 ml/hour, increase by 20 ml every 4 hours, goal of 75 ml/hour, water flushes 125 ml every shift." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-12 17:06:57" modified="2013-03-13 23:38:42" complexity="1" status="Proposed"/>
+				<properties documentation="A class representing enteral nutrition proposals for the delivery of tube-fed substances (eg, Nutren, Ensure, RenalCal) for patients who are unable to consume diets orally; tube feedings can be delivered to the stomach or varying parts of the small intestines using a variety of tube placement methods, depending on the clinical scenario." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-12 17:06:57" modified="2013-03-13 19:38:45" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -6758,7 +6758,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_0AE6CF1D_3385_4c4c_BB09_BBE10AD807A5" name="dosingGoal" scope="Public">
 						<initial/>
-						<documentation value="Target tube feeding rate. E.g., 75ml/hour."/>
+						<documentation value="Target tube feeding rate"/>
 						<model ea_localid="1052" ea_guid="{0AE6CF1D-3385-4c4c-BB09-BBE10AD807A5}"/>
 						<properties type="DoseRestriction" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -6773,7 +6773,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_8FEBFC5E_A931_4f34_BC1D_EDDD295E2312" name="dosingRateIncrement" scope="Public">
 						<initial/>
-						<documentation value="Change in the dosing rate; usually an increase for a patient who is initiating tube feeding. E.g., 20 mL."/>
+						<documentation value="Change in the dosing rate; usually an increase for a patient who is initiating tube feeding"/>
 						<model ea_localid="1053" ea_guid="{8FEBFC5E-A931-4f34-BC1D-EDDD295E2312}"/>
 						<properties type="IVL_PQ" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -6788,7 +6788,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_4FEBDF8B_2791_4433_88DA_C21B81BEAE13" name="dosingRateIncrementInterval" scope="Public">
 						<initial/>
-						<documentation value="Period of time after which the dosingRateIncrement should be attempted. E.g., 4 hours."/>
+						<documentation value="Period of time after which the dosingRateIncrement should be attempted"/>
 						<model ea_localid="1054" ea_guid="{4FEBDF8B-2791-4433-88DA-C21B81BEAE13}"/>
 						<properties type="IVL_PQ" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>

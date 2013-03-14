@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<in:cdsInput xmlns:in="org.opencds.vmr.v1_0.schema.cdsinput"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="org.opencds.vmr.v1_0.schema.cdsinput ..\Schemas\cdsInput.xsd">
+	<vmrInput>
+		<!-- 2.16.840.1.113883.3.795.11.1.1 is the templateId for OpenCDS vMR version 1.0 -->
+		<templateId root="2.16.840.1.113883.3.795.11.1.1"/>
+		<patient>
+			<id root="2.16.840.1.113883.3.795.10.1" extension="100123"/>
+			<demographics></demographics>
+			<clinicalStatements>
+				<!-- allergies -->
+				<adverseEvents>
+					<adverseEvent>
+						<id root="2.16.840.1.113883.3.795.10.1" extension="7478551"/>
+						<!-- Allergic reaction to substance (disorder) -->
+						<adverseEventCode codeSystem="2.16.840.1.113883.6.96" code="418634005"/>
+						<!-- Eggs (edible) (substance) -->
+						<adverseEventAgent codeSystem="2.16.840.1.113883.6.96" code="256442007"/>
+					</adverseEvent>
+				</adverseEvents>
+				<!-- current medications -->
+				<substanceAdministrationEvents>
+					<substanceAdministrationEvent>
+						<id root="2.16.840.1.113883.3.795.10.1" extension="4519239"/>
+						<substance>
+							<id root="f4a1d18b-2b92-4399-b4f9-efb1828d267d"/>
+							<!-- Hydrochlorothiazide 25 MG Oral Tablet -->
+							<substanceCode codeSystem="2.16.840.1.113883.6.88" code="310798" />
+						</substance>
+					</substanceAdministrationEvent>
+				</substanceAdministrationEvents>
+				<!-- proposed medications -->
+				<substanceAdministrationProposals>
+					<substanceAdministrationProposal>
+						<id root="2.16.840.1.113883.3.795.10.1" extension="5551212"/>
+						<substance>
+							<id root="620b75a2-a0ad-4c75-bd33-bf76d7dd0017"/>
+							<!-- Sudafed Triple Action -->
+							<substanceCode codeSystem="2.16.840.1.113883.6.88" code="352166"/>
+						</substance>						
+					</substanceAdministrationProposal>
+				</substanceAdministrationProposals>
+			</clinicalStatements>
+		</patient>
+	</vmrInput>
+</in:cdsInput>

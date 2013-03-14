@@ -2355,7 +2355,7 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 	</xs:complexType>
 	<xs:complexType name="TubeFeedingProposal">
 		<xs:annotation>
-			<xs:documentation>A class representing enteral nutrition proposals for the delivery of tube-fed substances (eg, Nutren, Ensure, RenalCal) for patients who are unable to consume diets orally; tube feedings can be delivered to the stomach or varying parts of the small intestines using a variety of tube placement methods, depending on the clinical scenario. For instance, Nutren via nasogastric tube, 20 ml/hour, increase by 20 ml every 4 hours, goal of 75 ml/hour, water flushes 125 ml every shift.</xs:documentation>
+			<xs:documentation>A class representing enteral nutrition proposals for the delivery of tube-fed substances (eg, Nutren, Ensure, RenalCal) for patients who are unable to consume diets orally; tube feedings can be delivered to the stomach or varying parts of the small intestines using a variety of tube placement methods, depending on the clinical scenario.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="vmr:SubstanceAdministrationProposal">
@@ -2368,17 +2368,17 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 					</xs:element>
 					<xs:element name="dosingGoal" type="vmr:DoseRestriction" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Target tube feeding rate. E.g., 75ml/hour.</xs:documentation>
+							<xs:documentation>Target tube feeding rate</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="dosingRateIncrement" type="dt:IVL_PQ" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Change in the dosing rate; usually an increase for a patient who is initiating tube feeding. E.g., 20 mL.</xs:documentation>
+							<xs:documentation>Change in the dosing rate; usually an increase for a patient who is initiating tube feeding</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="dosingRateIncrementInterval" type="dt:IVL_PQ" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Period of time after which the dosingRateIncrement should be attempted. E.g., 4 hours.</xs:documentation>
+							<xs:documentation>Period of time after which the dosingRateIncrement should be attempted</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
