@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/vmr" xmlns:dt="urn:hl7-org:v3/cdsdt" targetNamespace="urn:hl7-org:v3/vmr" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cis="org.opencds.vmr.v2_0.schema.cdsinput.specification" xmlns:dt="org.opencds.vmr.v2_0.schema.datatypes" targetNamespace="org.opencds.vmr.v2_0.schema.cdsinput.specification">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS input data required for a specific CDS use case.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3/cdsdt" schemaLocation="datatypes.xsd"/>
+	<xs:import namespace="org.opencds.vmr.v2_0.schema.datatypes" schemaLocation="datatypes.xsd"/>
 	<xs:complexType name="EvaluatedPersonInputSpecification" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Specifies the data required for an evaluated person.  Can include (i) a specification of the person attributes (e.g., gender) required; (ii) a specification of the templates that must be applied; (iii) a specification of the data required for related entities; and (iv) a specification of the clinical statements required.</xs:documentation>
@@ -19,8 +19,8 @@
 					<xs:documentation>Identifier of a set of constraints that must be placed on the EvaluatedPerson.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relatedEntityInputSpecification" type="RelatedEntityInputSpecification" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="clinicalStatementInputSpecification" type="ClinicalStatementInputSpecification" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="relatedEntityInputSpecification" type="cis:RelatedEntityInputSpecification" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="clinicalStatementInputSpecification" type="cis:ClinicalStatementInputSpecification" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CDSInputSpecification">
@@ -45,8 +45,8 @@ Can include a detailed input specification for the focal patient as well as for 
 					<xs:documentation>Identifier of a set of constraints that must be placed on the input vMR.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="patientInputSpecification" type="PatientInputSpecification" minOccurs="0"/>
-			<xs:element name="relatedEvaluatedPersonInputSpecification" type="RelatedEvaluatedPersonInputSpecification" minOccurs="0"/>
+			<xs:element name="patientInputSpecification" type="cis:PatientInputSpecification" minOccurs="0"/>
+			<xs:element name="relatedEvaluatedPersonInputSpecification" type="cis:RelatedEvaluatedPersonInputSpecification" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PatientInputSpecification">
@@ -54,7 +54,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			<xs:documentation>The data required for the patient.  Is a specialization of the EvaluatedPersonInputSpecification class.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="EvaluatedPersonInputSpecification"/>
+			<xs:extension base="cis:EvaluatedPersonInputSpecification"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CodedAttributeRequirement">
@@ -79,7 +79,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			<xs:documentation>The data required for evaluated persons related to the patient.  Is a specialization of the EvaluatedPersonInputSpecification class.  Includes a specification of the scope of evaluated persons that are required.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="EvaluatedPersonInputSpecification">
+			<xs:extension base="cis:EvaluatedPersonInputSpecification">
 				<xs:sequence>
 					<xs:element name="inclusionScope" type="dt:CD">
 						<xs:annotation>
@@ -151,8 +151,8 @@ If only the general clinical statement type is specified (i.e., requiredSpecific
 					<xs:documentation>The specific class of clinical statement required.  E.g., ProcedureOrder, ObservationResult.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="codedAttributeRequirement" type="CodedAttributeRequirement" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="timeAttributeRequirement" type="TimeAttributeRequirement" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="codedAttributeRequirement" type="cis:CodedAttributeRequirement" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="timeAttributeRequirement" type="cis:TimeAttributeRequirement" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TimeAttributeRequirement">
@@ -177,5 +177,5 @@ If only the general clinical statement type is specified (i.e., requiredSpecific
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsInputSpecification" type="CDSInputSpecification"/>
+	<xs:element name="cdsInputSpecification" type="cis:CDSInputSpecification"/>
 </xs:schema>

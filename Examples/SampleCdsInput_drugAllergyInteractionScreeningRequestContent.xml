@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<in:cdsInput xmlns:in="org.opencds.vmr.v1_0.schema.cdsinput"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="org.opencds.vmr.v1_0.schema.cdsinput ..\Schemas\cdsInput.xsd">
+<cdsInput xmlns="urn:hl7-org:v3/vmr" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3/vmr ..\Schemas\cdsInput.xsd">
 	<vmrInput>
 		<!-- 2.16.840.1.113883.3.795.11.1.1 is the templateId for OpenCDS vMR version 1.0 -->
 		<templateId root="2.16.840.1.113883.3.795.11.1.1"/>
@@ -43,4 +43,4 @@
 			</clinicalStatements>
 		</patient>
 	</vmrInput>
-</in:cdsInput>
+</cdsInput>

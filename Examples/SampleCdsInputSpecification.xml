@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Sample CDS input specification using vMR DAM XSDs derived from vMR DAM Enterprise Architect model. Specifies requirements for mammogram testing: age, gender, bresat cancer history, past mastectomies, and past mammograms. -->
-<is:cdsInputSpecification xmlns:is="org.opencds.vmr.v1_0.schema.cdsinput.specification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="org.opencds.vmr.v1_0.schema.datatypes" xsi:schemaLocation="org.opencds.vmr.v1_0.schema.cdsinput.specification ../Schemas/cdsInputSpecification.xsd">
+<cdsInputSpecification xmlns="urn:hl7-org:v3/vmr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="urn:hl7-org:v3/cdsdt" xsi:schemaLocation="urn:hl7-org:v3/vmr ../Schemas/cdsInputSpecification.xsd">
 	<patientInputSpecification>
 		<requiredEvaluatedPersonAttribute code="age"/>
 		<requiredEvaluatedPersonAttribute code="gender"/>
@@ -56,4 +56,4 @@
 			</timeAttributeRequirement>
 		</clinicalStatementInputSpecification>
 	</patientInputSpecification>
-</is:cdsInputSpecification>
+</cdsInputSpecification>

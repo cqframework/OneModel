@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/vmr" xmlns:dt="urn:hl7-org:v3/cdsdt" targetNamespace="urn:hl7-org:v3/vmr" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:in="org.opencds.vmr.v2_0.schema.cdsinput" xmlns:dt="org.opencds.vmr.v2_0.schema.datatypes" xmlns:vmr="org.opencds.vmr.v2_0.schema.vmr" targetNamespace="org.opencds.vmr.v2_0.schema.cdsinput">
 	<xs:annotation>
 		<xs:documentation>Specifies input data used by CDS systems.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3/cdsdt" schemaLocation="datatypes.xsd"/>
-	<xs:include schemaLocation="vmr.xsd"/>
+	<xs:import namespace="org.opencds.vmr.v2_0.schema.datatypes" schemaLocation="datatypes.xsd"/>
+	<xs:import namespace="org.opencds.vmr.v2_0.schema.vmr" schemaLocation="vmr.xsd"/>
 	<xs:complexType name="CDSContext">
 		<xs:annotation>
 			<xs:documentation>The situation or context within which a CDS evaluation is made.  Included in CDS inputs for HL7 Context-Aware Knowledge Retrieval (Infobutton) Knowledge Request standard.  Used, for example, to generate human-readable care guidance in the end-user's preferred language.</xs:documentation>
@@ -51,7 +51,7 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="attribute" type="CodedNameValuePair" maxOccurs="unbounded">
+						<xs:element name="attribute" type="vmr:CodedNameValuePair" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>An additional coded attribute.</xs:documentation>
 							</xs:annotation>
@@ -66,14 +66,14 @@
 			<xs:documentation>The parent class containing the data used by a CDS system to generate inferences.  Includes an input vMR and optionally CDS context and/or CDS resource data.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="templateId" type="CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="templateId" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The identifier of a set of constraints placed on a CDS input.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="cdsContext" type="CDSContext" minOccurs="0"/>
-			<xs:element name="vmrInput" type="VMR"/>
-			<xs:element name="cdsResource" type="CDSResource" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cdsContext" type="in:CDSContext" minOccurs="0"/>
+			<xs:element name="vmrInput" type="vmr:VMR"/>
+			<xs:element name="cdsResource" type="in:CDSResource" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CDSResource">
@@ -93,5 +93,5 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsInput" type="CDSInput"/>
+	<xs:element name="cdsInput" type="in:CDSInput"/>
 </xs:schema>
