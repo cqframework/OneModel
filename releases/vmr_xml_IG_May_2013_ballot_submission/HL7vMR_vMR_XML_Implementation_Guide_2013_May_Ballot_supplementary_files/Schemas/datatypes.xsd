@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="org.opencds.vmr.v2_0.schema.datatypes" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="org.opencds.vmr.v2_0.schema.datatypes">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/cdsdt" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="urn:hl7-org:v3/cdsdt"  elementFormDefault="qualified">
 	<xsd:annotation>
 		<xsd:documentation>
 Introduction
@@ -283,6 +283,32 @@ Due to its highly restricted functionality, CS SHALL only be used for simple str
 						<xsd:documentation>The plain code symbol defined by the code system.  If the code value is empty or null, then there is no code in the code system that represents the concept.
 Code SHALL only contain characters that are either a letter, a digit, or one of '.', '-', '_' or ':'. Code systems that are used with CS SHALL NOT define code symbols or expression syntaxes that contain whitespace or any other characters not in this list.
 </xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CO">
+		<xsd:annotation>
+			<xsd:documentation>Represents data where coded values are associated with a specific order. 
+Note:  CO may be used for things that model rankings and scores, e.g. likert scales, pain, Apgar values, etc, where there is a) implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite. CO may also be used in the context of an ordered code system. In this case, it may not be appropriate or even possible to use the value attribute, but CO may still be used so that models that make use of such code systems may introduce model elements that involve statements about the order of the terms in a domain.
+The relative order of values in a code system need not be independently obvious in the literal representation of the CO. It these circumstances, is expected that an application will look up the ordering of these values from some definition of the code system. 
+Some of the code systems will directly assign numerical value to the concepts that are suitable for some mathemetical operations.
+Though it would generally make sense, applications SHOULD not assume that the translations of the code, if provided, will have the same ordering as the CO. Translations SHALL not be considered when the ordering of the code system is determined.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="QTY">
+				<xsd:sequence>
+					<xsd:element name="code" type="CD" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A code representing the definition of the ordinal item</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="value" type="Decimal" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>A numerical value associated with the coded ordinal value.
+The value may be constrained to an integer in some contexts of use. If code is nonNull, value SHALL only be nonNull if the code system explicitly assigns a value to the concept.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attribute>
 			</xsd:extension>
