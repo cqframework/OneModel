@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Jeff Bronte (Zynx Health, Inc.) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/vmr" xmlns:dt="urn:hl7-org:v3/cdsdt" targetNamespace="urn:hl7-org:v3/vmr" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies input data used by CDS systems.</xs:documentation>
@@ -35,12 +36,12 @@
 					<xs:documentation>The task that a CDS system user is performing.  E.g., laboratory results review, medication list review.  Can be used to tailor CDS outputs, such as recommended information resources.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="cdsEncounterType" minOccurs="0">
+			<xs:element name="cdsEncounterType" type="dt:CD" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The type of patient encounter (e.g., inpatient, outpatient) in which the knowledge request takes place. Encounter type (Value set: ActEncounterCode  [2.16.840.1.113883.1.11.13955])</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="cdsSubTopic" minOccurs="0">
+			<xs:element name="cdsSubTopic" type="dt:CD" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Narrows down the knowledge request by specifying a subdomain of interest (e.g., indications, contraindications, dose).</xs:documentation>
 				</xs:annotation>
