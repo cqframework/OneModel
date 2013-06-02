@@ -2254,6 +2254,11 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 							<xs:documentation>Urgency of the substance administration. Coding system values indicating the urgency of a requested or proposed observation (e.g., please give Vitamin K STAT).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="repeatNumber" type="dt:INT" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The total number of times the substance administration is requested. For instance, ‘Nitroglycerin 0.4 mg tab every 5 minutes x3 PRN chest pain’ where the ‘x3’ represents the total number of proposed administrations.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="doseRestriction" type="DoseRestriction" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Specifies the maximum dose that can be given in a specified time interval.</xs:documentation>

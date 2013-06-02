@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/cdsdt" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="urn:hl7-org:v3/cdsdt"  elementFormDefault="qualified">
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by Jeff Bronte (Zynx Health, Inc.) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/cdsdt" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="urn:hl7-org:v3/cdsdt" elementFormDefault="qualified">
 	<xsd:annotation>
 		<xsd:documentation>
 Introduction
@@ -675,7 +676,7 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-	<xsd:complexType name="IVL_RTO">
+	<xsd:complexType name="IVL_RTO_INT">
 		<xsd:annotation>
 			<xsd:documentation>A set of consecutive values of an ordered base datatype. 
 
@@ -684,13 +685,51 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		</xsd:annotation>
 		<xsd:complexContent>
 			<xsd:extension base="ANY">
-				<xsd:attributeGroup ref="ATTR_RTO_LOW">
+				<xsd:attributeGroup ref="ATTR_RTO_INT_LOW">
 					<xsd:annotation>
 						<xsd:documentation>This is the low limit. If the low limit is not known, it may be null.
 The low limit SHALL NOT be positive infinity.</xsd:documentation>
 					</xsd:annotation>
 				</xsd:attributeGroup>
-				<xsd:attributeGroup ref="ATTR_RTO_HIGH">
+				<xsd:attributeGroup ref="ATTR_RTO_INT_HIGH">
+					<xsd:annotation>
+						<xsd:documentation>This is the high limit. If the high limit is not known, it may be null.
+The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attributeGroup>
+				<xsd:attribute name="lowIsInclusive" type="xsd:boolean" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="highIsInclusive" type="xsd:boolean" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
+
+Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IVL_RTO_PQ">
+		<xsd:annotation>
+			<xsd:documentation>A set of consecutive values of an ordered base datatype. 
+
+Any ordered type can be the basis of an IVL; it does not matter whether the base type is discrete or continuous. If the base datatype is only partially ordered, all elements of the IVL must be elements of a totally ordered subset of the partially ordered datatype. For example, PQ is considered ordered. However the ordering of PQs is only partial; a total order is only defined among comparable quantities (quantities of the same physical dimension). While IVLs between 2 and 4 meter exists, there is no IVL between 2 meters and 4 seconds.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ANY">
+				<xsd:attributeGroup ref="ATTR_RTO_PQ_LOW">
+					<xsd:annotation>
+						<xsd:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attributeGroup>
+				<xsd:attributeGroup ref="ATTR_RTO_PQ_HIGH">
 					<xsd:annotation>
 						<xsd:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xsd:documentation>
@@ -851,7 +890,7 @@ The denominator SHALL not be zero.
 	</xsd:complexType>
 	<xsd:complexType name="RTO_INT">
 		<xsd:annotation>
-			<xsd:documentation>A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. 
+			<xsd:documentation>A ratio of integers constructed as the quotient of a numerator integer value divided by a denominator integer value.
 Common factors in the numerator and denominator are not automatically cancelled out. 
 The RTO datatype supports titers (e.g., 1:128) and other quantities produced by laboratories that truly represent ratios. Ratios are not simply structured numerics, particularly blood pressure measurements (e.g. 120/60) are not ratios.
 Notes: 
@@ -859,7 +898,7 @@ Notes:
 		</xsd:annotation>
 		<xsd:complexContent>
 			<xsd:extension base="QTY">
-				<xsd:attributeGroup ref="ATTR_RTO"/>
+				<xsd:attributeGroup ref="ATTR_RTO_INT"/>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -1025,17 +1064,43 @@ The reason for this is that neither tablets or scoops are proper units. What kin
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:attributeGroup>
-	<xsd:attributeGroup name="ATTR_RTO">
+	<xsd:attributeGroup name="ATTR_RTO_INT">
 		<xsd:annotation>
 			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
 		</xsd:annotation>
 		<xsd:attribute name="numerator" type="xsd:int" use="required">
 			<xsd:annotation>
-				<xsd:documentation>The quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xsd:documentation>
+				<xsd:documentation>The integer quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
 		<xsd:attribute name="denominator" type="xsd:int" use="required">
 			<xsd:annotation>
+				<xsd:documentation>The integer quantity that divides the numerator in the ratio. 
+The denominator SHALL not be zero.  This represents the denominator.expression.value from the ISO 21090 datatypes.</xsd:documentation>
+				<xsd:appinfo>
+					<altova:exampleValues>
+						<altova:example value="32"/>
+					</altova:exampleValues>
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="ATTR_RTO_INT_LOW">
+		<xsd:annotation>
+			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="lowNumerator" type="xsd:int" use="required">
+			<xsd:annotation>
+				<xsd:documentation>The quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xsd:documentation>
+				<xsd:appinfo>
+					<altova:exampleValues>
+						<altova:example value="1"/>
+					</altova:exampleValues>
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="lowDenominator" type="xsd:int" use="required">
+			<xsd:annotation>
 				<xsd:documentation>The quantity that divides the numerator in the ratio. 
 The denominator SHALL not be zero.  This represents the denominator.expression.value from the ISO 21090 datatypes.</xsd:documentation>
 				<xsd:appinfo>
@@ -1046,11 +1111,11 @@ The denominator SHALL not be zero.  This represents the denominator.expression.v
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:attributeGroup>
-	<xsd:attributeGroup name="ATTR_RTO_LOW">
+	<xsd:attributeGroup name="ATTR_RTO_INT_HIGH">
 		<xsd:annotation>
 			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="lowNumerator" type="Decimal" use="required">
+		<xsd:attribute name="highNumerator" type="xsd:int" use="required">
 			<xsd:annotation>
 				<xsd:documentation>The quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xsd:documentation>
 				<xsd:appinfo>
@@ -1060,7 +1125,7 @@ The denominator SHALL not be zero.  This represents the denominator.expression.v
 				</xsd:appinfo>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="lowDenominator" type="Decimal" use="required">
+		<xsd:attribute name="highDenominator" type="xsd:int" use="required">
 			<xsd:annotation>
 				<xsd:documentation>The quantity that divides the numerator in the ratio. 
 The denominator SHALL not be zero.  This represents the denominator.expression.value from the ISO 21090 datatypes.</xsd:documentation>
@@ -1072,29 +1137,114 @@ The denominator SHALL not be zero.  This represents the denominator.expression.v
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:attributeGroup>
-	<xsd:attributeGroup name="ATTR_RTO_HIGH">
+	<xsd:attributeGroup name="ATTR_RTO_PQ">
 		<xsd:annotation>
 			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
 		</xsd:annotation>
-		<xsd:attribute name="highNumerator" type="Decimal" use="required">
+		<xsd:attribute name="numeratorValue" type="Decimal" use="optional">
 			<xsd:annotation>
-				<xsd:documentation>The quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xsd:documentation>
-				<xsd:appinfo>
-					<altova:exampleValues>
-						<altova:example value="1"/>
-					</altova:exampleValues>
-				</xsd:appinfo>
+				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
-		<xsd:attribute name="highDenominator" type="Decimal" use="required">
+		<xsd:attribute name="numeratorUnit" type="Code" use="optional">
 			<xsd:annotation>
-				<xsd:documentation>The quantity that divides the numerator in the ratio. 
-The denominator SHALL not be zero.  This represents the denominator.expression.value from the ISO 21090 datatypes.</xsd:documentation>
-				<xsd:appinfo>
-					<altova:exampleValues>
-						<altova:example value="32"/>
-					</altova:exampleValues>
-				</xsd:appinfo>
+				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
+UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
+Equality of physical quantities does not require the values and units to be equal independently. Value and unit is only how we represent physical quantities. For example, 1 m equals 100 cm. Although the units are different and the values are different, the physical quantities are equal. Therefore one should never expect a particular unit for a physical quantity but instead allow for automated conversion between different comparable units. 
+The unit SHALL come from UCUM, which only specifies unambiguous measurement units. Sometimes it is not clear how some measurements in healthcare map to UCUM codes.
+Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
+However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
+The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="denominatorValue" type="Decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="denominatorUnit" type="Code" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
+UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
+Equality of physical quantities does not require the values and units to be equal independently. Value and unit is only how we represent physical quantities. For example, 1 m equals 100 cm. Although the units are different and the values are different, the physical quantities are equal. Therefore one should never expect a particular unit for a physical quantity but instead allow for automated conversion between different comparable units. 
+The unit SHALL come from UCUM, which only specifies unambiguous measurement units. Sometimes it is not clear how some measurements in healthcare map to UCUM codes.
+Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
+However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
+The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="ATTR_RTO_PQ_LOW">
+		<xsd:annotation>
+			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="lowNumeratorValue" type="Decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="lowNumeratorUnit" type="Code" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
+UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
+Equality of physical quantities does not require the values and units to be equal independently. Value and unit is only how we represent physical quantities. For example, 1 m equals 100 cm. Although the units are different and the values are different, the physical quantities are equal. Therefore one should never expect a particular unit for a physical quantity but instead allow for automated conversion between different comparable units. 
+The unit SHALL come from UCUM, which only specifies unambiguous measurement units. Sometimes it is not clear how some measurements in healthcare map to UCUM codes.
+Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
+However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
+The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="lowDenominatorValue" type="Decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="lowDenominatorUnit" type="Code" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
+UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
+Equality of physical quantities does not require the values and units to be equal independently. Value and unit is only how we represent physical quantities. For example, 1 m equals 100 cm. Although the units are different and the values are different, the physical quantities are equal. Therefore one should never expect a particular unit for a physical quantity but instead allow for automated conversion between different comparable units. 
+The unit SHALL come from UCUM, which only specifies unambiguous measurement units. Sometimes it is not clear how some measurements in healthcare map to UCUM codes.
+Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
+However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
+The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="ATTR_RTO_PQ_HIGH">
+		<xsd:annotation>
+			<xsd:documentation>Attribute group defining a RTO numerator and denominator values</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="highNumeratorValue" type="Decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="highNumeratorUnit" type="Code" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
+UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
+Equality of physical quantities does not require the values and units to be equal independently. Value and unit is only how we represent physical quantities. For example, 1 m equals 100 cm. Although the units are different and the values are different, the physical quantities are equal. Therefore one should never expect a particular unit for a physical quantity but instead allow for automated conversion between different comparable units. 
+The unit SHALL come from UCUM, which only specifies unambiguous measurement units. Sometimes it is not clear how some measurements in healthcare map to UCUM codes.
+Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
+However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
+The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="highDenominatorValue" type="Decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The number which is multiplied by the unit to make the PQ.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="highDenominatorUnit" type="Code" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
+UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
+Equality of physical quantities does not require the values and units to be equal independently. Value and unit is only how we represent physical quantities. For example, 1 m equals 100 cm. Although the units are different and the values are different, the physical quantities are equal. Therefore one should never expect a particular unit for a physical quantity but instead allow for automated conversion between different comparable units. 
+The unit SHALL come from UCUM, which only specifies unambiguous measurement units. Sometimes it is not clear how some measurements in healthcare map to UCUM codes.
+Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
+However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
+The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:attributeGroup>
