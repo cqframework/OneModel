@@ -2787,20 +2787,20 @@
 		<thecustomprofile:XSDelement base_Property="EAID_dst5F547C_09F3_4821_B809_C2A9F8DD53C0"/>
 		<thecustomprofile:position base_Property="EAID_dst5F547C_09F3_4821_B809_C2A9F8DD53C0" position="2"/>
 		<thecustomprofile:elementFormDefault base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454" elementFormDefault="qualified"/>
-		<RDF:rdfDocument base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454" defaultNamespace="urn:hl7-org:v3:vmr:r2"/>
+		<RDF:rdfDocument base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454" defaultNamespace="urn:hl7-org:v3:cdsinput:r2"/>
 		<thecustomprofile:XSDschema base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
 		<thecustomprofile:targetNamespacePrefix base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454" targetNamespacePrefix="vmr"/>
-		<thecustomprofile:targetNamespace base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454" targetNamespace="urn:hl7-org:v3:vmr:r2"/>
+		<thecustomprofile:targetNamespace base_Package="EAPK_A51A4BC1_3491_4216_8801_291C7ACB8454" targetNamespace="urn:hl7-org:v3:cdsinput:r2"/>
 		<thecustomprofile:elementFormDefault base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F" elementFormDefault="qualified"/>
-		<RDF:rdfDocument base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F" defaultNamespace="urn:hl7-org:v3:vmr:r2"/>
+		<RDF:rdfDocument base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F" defaultNamespace="urn:hl7-org:v3:cdsoutput:r2"/>
 		<thecustomprofile:XSDschema base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
 		<thecustomprofile:targetNamespacePrefix base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F" targetNamespacePrefix="vmr"/>
-		<thecustomprofile:targetNamespace base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F" targetNamespace="urn:hl7-org:v3:vmr:r2"/>
+		<thecustomprofile:targetNamespace base_Package="EAPK_9155C822_F854_41c5_BB97_FA66CEF9486F" targetNamespace="urn:hl7-org:v3:cdsoutput:r2"/>
 		<thecustomprofile:elementFormDefault base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F" elementFormDefault="qualified"/>
-		<RDF:rdfDocument base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F" defaultNamespace="urn:hl7-org:v3:vmr:r2"/>
+		<RDF:rdfDocument base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F" defaultNamespace="urn:hl7-org:v3:cdsinputspecification:r2"/>
 		<thecustomprofile:XSDschema base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
 		<thecustomprofile:targetNamespacePrefix base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F" targetNamespacePrefix="vmr"/>
-		<thecustomprofile:targetNamespace base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F" targetNamespace="urn:hl7-org:v3:vmr:r2"/>
+		<thecustomprofile:targetNamespace base_Package="EAPK_AE767792_CAE4_45cf_975E_85B197E6E32F" targetNamespace="urn:hl7-org:v3:cdsinputspecification:r2"/>
 		<thecustomprofile:mixed base_Class="EAID_D512809F_6182_4b47_A93E_EAB8EF6E0D53" mixed="false"/>
 		<thecustomprofile:modelGroup base_Class="EAID_D512809F_6182_4b47_A93E_EAB8EF6E0D53" modelGroup="sequence"/>
 		<thecustomprofile:XSDcomplexType base_Class="EAID_D512809F_6182_4b47_A93E_EAB8EF6E0D53"/>
@@ -3060,9 +3060,9 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags>
-					<tag xmi:id="EAID_A7DABCC9_C095_470c_B7CA_64C96F27B2A9" name="defaultNamespace" value="urn:hl7-org:v3:vmr:r2#NOTES#Description: Specifies the default namespace attribute in the schema element&#xA;" modelElement="EAID_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
+					<tag xmi:id="EAID_A7DABCC9_C095_470c_B7CA_64C96F27B2A9" name="defaultNamespace" value="urn:hl7-org:v3:cdsinput:r2#NOTES#Description: Specifies the default namespace attribute in the schema element&#xA;" modelElement="EAID_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
 					<tag xmi:id="EAID_E239430C_127C_4fdb_BAA3_AEA238086C2A" name="elementFormDefault" value="qualified" modelElement="EAID_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
-					<tag xmi:id="EAID_5773A142_5829_4b44_893A_4316C4627EBA" name="targetNamespace" value="urn:hl7-org:v3:vmr:r2#NOTES#Description: URI to unique target namespace&#xA;" modelElement="EAID_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
+					<tag xmi:id="EAID_5773A142_5829_4b44_893A_4316C4627EBA" name="targetNamespace" value="urn:hl7-org:v3:cdsinput:r2#NOTES#Description: URI to unique target namespace&#xA;" modelElement="EAID_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
 					<tag xmi:id="EAID_4DA410C2_B40F_42da_AEF3_36ACD1F53B30" name="targetNamespacePrefix" value="vmr#NOTES#Description: Prefix associated with namespace&#xA;" modelElement="EAID_A51A4BC1_3491_4216_8801_291C7ACB8454"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={8FD37309-82E0-4b36-8063-4820D8E77100}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDschema;GUID={D11A9A02-0934-4cf5-9F9E-E9B1E99E1963};@ENDSTEREO;$DES;$CLT={A51A4BC1-3491-4216-8801-291C7ACB8454}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
@@ -3301,9 +3301,9 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags>
-					<tag xmi:id="EAID_1A3F0DEE_E9AC_4f4a_A2E5_2224DB649186" name="defaultNamespace" value="urn:hl7-org:v3:vmr:r2#NOTES#Description: Specifies the default namespace attribute in the schema element&#xA;" modelElement="EAID_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
+					<tag xmi:id="EAID_1A3F0DEE_E9AC_4f4a_A2E5_2224DB649186" name="defaultNamespace" value="urn:hl7-org:v3:cdsoutput:r2#NOTES#Description: Specifies the default namespace attribute in the schema element&#xA;" modelElement="EAID_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
 					<tag xmi:id="EAID_34DBB2C0_B802_4d0b_A58A_E478343F36F0" name="elementFormDefault" value="qualified" modelElement="EAID_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
-					<tag xmi:id="EAID_19FAB75E_96D0_48ff_87DC_EB687EA8F7EA" name="targetNamespace" value="urn:hl7-org:v3:vmr:r2#NOTES#Description: URI to unique target namespace&#xA;" modelElement="EAID_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
+					<tag xmi:id="EAID_19FAB75E_96D0_48ff_87DC_EB687EA8F7EA" name="targetNamespace" value="urn:hl7-org:v3:cdsoutput:r2#NOTES#Description: URI to unique target namespace&#xA;" modelElement="EAID_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
 					<tag xmi:id="EAID_439B1BF7_91CA_4abb_A6AF_EDCD87F1D7D2" name="targetNamespacePrefix" value="vmr#NOTES#Description: Prefix associated with namespace&#xA;" modelElement="EAID_9155C822_F854_41c5_BB97_FA66CEF9486F"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={1E466A29-B94E-4cc5-BF13-8E2B0547B02E}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDschema;GUID={D11A9A02-0934-4cf5-9F9E-E9B1E99E1963};@ENDSTEREO;$DES;$CLT={9155C822-F854-41c5-BB97-FA66CEF9486F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
@@ -3336,9 +3336,9 @@
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags>
-					<tag xmi:id="EAID_08D05621_EFE8_4eba_A55A_B7B30C9CF0E2" name="defaultNamespace" value="urn:hl7-org:v3:vmr:r2#NOTES#Description: Specifies the default namespace attribute in the schema element&#xA;" modelElement="EAID_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
+					<tag xmi:id="EAID_08D05621_EFE8_4eba_A55A_B7B30C9CF0E2" name="defaultNamespace" value="urn:hl7-org:v3:cdsinputspecification:r2#NOTES#Description: Specifies the default namespace attribute in the schema element&#xA;" modelElement="EAID_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
 					<tag xmi:id="EAID_566AB32B_BDE7_49c8_87BB_55E6C3B0488E" name="elementFormDefault" value="qualified" modelElement="EAID_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
-					<tag xmi:id="EAID_9295780B_62A8_4fd7_A4C7_2CB6AE0E7774" name="targetNamespace" value="urn:hl7-org:v3:vmr:r2#NOTES#Description: URI to unique target namespace&#xA;" modelElement="EAID_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
+					<tag xmi:id="EAID_9295780B_62A8_4fd7_A4C7_2CB6AE0E7774" name="targetNamespace" value="urn:hl7-org:v3:cdsinputspecification:r2#NOTES#Description: URI to unique target namespace&#xA;" modelElement="EAID_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
 					<tag xmi:id="EAID_30FC81C0_E427_4451_8331_2A1BCA74BDC2" name="targetNamespacePrefix" value="vmr#NOTES#Description: Prefix associated with namespace&#xA;" modelElement="EAID_AE767792_CAE4_45cf_975E_85B197E6E32F"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={4C25E24F-414C-44ac-96B3-2C2DC68C71BB}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDschema;GUID={D11A9A02-0934-4cf5-9F9E-E9B1E99E1963};@ENDSTEREO;$DES;$CLT={AE767792-CAE4-45cf-975E-85B197E6E32F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
