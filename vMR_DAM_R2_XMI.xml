@@ -9905,7 +9905,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_AFC65228_AC72_4a11_AC8C_AFD2C5271651" name="AL" scope="Public">
 						<initial/>
-						<documentation value="address line	An address line is for either an additional locator, a delivery address or a street address. An address generally has only a delivery address line or a street address line, but not both. "/>
+						<documentation value="Address Line: An address line is for either an additional locator, a delivery address or a street address. An address generally has only a delivery address line or a street address line, but not both. "/>
 						<model ea_localid="1203" ea_guid="{AFC65228-AC72-4a11-AC8C-AFD2C5271651}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -9920,7 +9920,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_DC87F6C8_CA2E_4fb9_A207_53C2C6548895" name="ADL" scope="Public">
 						<initial/>
-						<documentation value="Additional Locator	This can be a unit designator, such as apartment number, suite number, or floor. There may be several unit designators in an address (e.g., &quot;3rd floor, Appt. 342&quot;.) This can also be a designator pointing away from the location (e.g. Across the street from). "/>
+						<documentation value="Additional Locator: This can be a unit designator, such as apartment number, suite number, or floor. There may be several unit designators in an address (e.g., &quot;3rd floor, Appt. 342&quot;.) This can also be a designator pointing away from the location (e.g. Across the street from). "/>
 						<model ea_localid="1204" ea_guid="{DC87F6C8-CA2E-4fb9-A207-53C2C6548895}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -9935,7 +9935,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_FBF4BD65_B2BD_4e85_9CA0_B78F3C7B8662" name="UNID" scope="Public">
 						<initial/>
-						<documentation value="unit identifier	The number or name of a specific unit contained within a building or complex, as assigned by that building or complex."/>
+						<documentation value="Unit Identifier: The number or name of a specific unit contained within a building or complex, as assigned by that building or complex."/>
 						<model ea_localid="1205" ea_guid="{FBF4BD65-B2BD-4e85-9CA0-B78F3C7B8662}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -9950,7 +9950,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_46CBCE29_3641_45b0_BFE5_02B875168FB6" name="UNIT" scope="Public">
 						<initial/>
-						<documentation value="unit designator	Indicates the type of specific unit contained within a building or complex. E.g. Appartment, Floor"/>
+						<documentation value="Unit Designator: Indicates the type of specific unit contained within a building or complex. E.g. Appartment, Floor"/>
 						<model ea_localid="1206" ea_guid="{46CBCE29-3641-45b0-BFE5-02B875168FB6}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -9965,7 +9965,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_05CA831C_AA4C_4ff4_8FCD_733C1B2D1835" name="DAL" scope="Public">
 						<initial/>
-						<documentation value="delivery address line	A delivery address line is frequently used instead of breaking out delivery mode, delivery installation, etc. An address generally has only a delivery address line or a street address line, but not both. "/>
+						<documentation value="Delivery Address Line: A delivery address line is frequently used instead of breaking out delivery mode, delivery installation, etc. An address generally has only a delivery address line or a street address line, but not both. "/>
 						<model ea_localid="1207" ea_guid="{05CA831C-AA4C-4ff4-8FCD-733C1B2D1835}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -9980,7 +9980,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_3D705CEB_7957_4914_8BD1_0AE4DEFFD4FF" name="DINST" scope="Public">
 						<initial/>
-						<documentation value="delivery installation type	Indicates the type of delivery installation (the facility to which the mail will be delivered prior to final shipping via the delivery mode.) Example: post office, letter carrier depot, community mail center, station, etc. "/>
+						<documentation value="Delivery Installation Type: Indicates the type of delivery installation (the facility to which the mail will be delivered prior to final shipping via the delivery mode.) Example: post office, letter carrier depot, community mail center, station, etc. "/>
 						<model ea_localid="1208" ea_guid="{3D705CEB-7957-4914-8BD1-0AE4DEFFD4FF}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -9995,7 +9995,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_41E13FC5_F372_4b45_A812_2AC77AA2E44E" name="DINSTA" scope="Public">
 						<initial/>
-						<documentation value="delivery installation area	The location of the delivery installation, usually a town or city, and is only required if the area is different from the municipality. Area to which mail delivery service is provided from any postal facility or service such as an individual letter carrier, rural route, or postal route. "/>
+						<documentation value="Delivery Installation Area: The location of the delivery installation, usually a town or city, and is only required if the area is different from the municipality. Area to which mail delivery service is provided from any postal facility or service such as an individual letter carrier, rural route, or postal route. "/>
 						<model ea_localid="1209" ea_guid="{41E13FC5-F372-4b45-A812-2AC77AA2E44E}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10010,7 +10010,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_02CA22F5_EF2D_487b_882E_D3EECF7E2D18" name="DINSTQ" scope="Public">
 						<initial/>
-						<documentation value="delivery installation qualifier	A number, letter or name identifying a delivery installation. E.g., for Station A, the delivery installation qualifier would be 'A'. "/>
+						<documentation value="Delivery Installation Qualifier: A number, letter or name identifying a delivery installation. E.g., for Station A, the delivery installation qualifier would be 'A'. "/>
 						<model ea_localid="1210" ea_guid="{02CA22F5-EF2D-487b-882E-D3EECF7E2D18}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10025,7 +10025,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_C26E5FE4_02A7_41c5_8825_77B7A618C8D5" name="DMOD" scope="Public">
 						<initial/>
-						<documentation value="delivery mode	Indicates the type of service offered, method of delivery. For example: post office box, rural route, general delivery, etc."/>
+						<documentation value="Delivery Mode: Indicates the type of service offered, method of delivery. For example: post office box, rural route, general delivery, etc."/>
 						<model ea_localid="1211" ea_guid="{C26E5FE4-02A7-41c5-8825-77B7A618C8D5}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10040,7 +10040,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_058B6E0C_F553_4020_8957_6FD74AEA3E73" name="DMODID" scope="Public">
 						<initial/>
-						<documentation value="delivery mode identifier	Represents the routing information such as a letter carrier route number. It is the identifying number of the designator (the box number or rural route number). "/>
+						<documentation value="Delivery Mode Identifier: Represents the routing information such as a letter carrier route number. It is the identifying number of the designator (the box number or rural route number). "/>
 						<model ea_localid="1212" ea_guid="{058B6E0C-F553-4020-8957-6FD74AEA3E73}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10055,7 +10055,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_CE627901_5680_4663_9463_B4976FFD61E3" name="SAL" scope="Public">
 						<initial/>
-						<documentation value="street address line	A street address line is frequently used instead of breaking out build number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both. "/>
+						<documentation value="Street Address Line: A street address line is frequently used instead of breaking out build number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both. "/>
 						<model ea_localid="1213" ea_guid="{CE627901-5680-4663-9463-B4976FFD61E3}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10070,7 +10070,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_93E59F07_7A1F_419a_9DF1_5ECA094589D3" name="BNR" scope="Public">
 						<initial/>
-						<documentation value="building number	The number of a building, house or lot alongside the street. Also known as &quot;primary street number&quot;. This does not number the street but rather the building. "/>
+						<documentation value="Building Number: The number of a building, house or lot alongside the street. Also known as &quot;primary street number&quot;. This does not number the street but rather the building. "/>
 						<model ea_localid="1214" ea_guid="{93E59F07-7A1F-419a-9DF1-5ECA094589D3}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10085,7 +10085,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_5A232C8B_A6CD_4f47_8E17_57D98FE8B3DE" name="BNN" scope="Public">
 						<initial/>
-						<documentation value="building number numeric	The numeric portion of a building number"/>
+						<documentation value="Building Number Numeric: The numeric portion of a building number"/>
 						<model ea_localid="1215" ea_guid="{5A232C8B-A6CD-4f47-8E17-57D98FE8B3DE}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10100,7 +10100,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_4C9E38E6_9FF2_4dad_97BB_A1C42CAF629D" name="BNS" scope="Public">
 						<initial/>
-						<documentation value="building number suffix	Any alphabetic character, fraction or other text that may appear after the numeric portion of a building number"/>
+						<documentation value="Building Number Suffix: Any alphabetic character, fraction or other text that may appear after the numeric portion of a building number"/>
 						<model ea_localid="1216" ea_guid="{4C9E38E6-9FF2-4dad-97BB-A1C42CAF629D}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10115,7 +10115,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_BF5F4DD3_BF73_48b5_81BC_376A58577DCD" name="STR" scope="Public">
 						<initial/>
-						<documentation value="street name	The name of the street, including the type"/>
+						<documentation value="Street Name: The name of the street, including the type"/>
 						<model ea_localid="1217" ea_guid="{BF5F4DD3-BF73-48b5-81BC-376A58577DCD}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10130,7 +10130,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_646CA9F9_EC0C_4943_80DA_F30137D4F5AF" name="STB" scope="Public">
 						<initial/>
-						<documentation value="street name base	The base name of a roadway or artery recognized by a municipality (excluding street type and direction)"/>
+						<documentation value="Street Name Base: The base name of a roadway or artery recognized by a municipality (excluding street type and direction)"/>
 						<model ea_localid="1218" ea_guid="{646CA9F9-EC0C-4943-80DA-F30137D4F5AF}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10145,7 +10145,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_365D3456_FCCD_4538_A93A_1100AC1D5741" name="STTYP" scope="Public">
 						<initial/>
-						<documentation value="street type	The designation given to the street. (e.g. Street, Avenue, Crescent, etc.)"/>
+						<documentation value="Street Type: The designation given to the street. (e.g. Street, Avenue, Crescent, etc.)"/>
 						<model ea_localid="1219" ea_guid="{365D3456-FCCD-4538-A93A-1100AC1D5741}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10160,7 +10160,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_DBC91033_5DCB_4cdf_93CA_B73A60AB707B" name="DIR" scope="Public">
 						<initial/>
-						<documentation value="direction	Direction (e.g., N, S, W, E)"/>
+						<documentation value="Direction (e.g., N, S, W, E)"/>
 						<model ea_localid="1220" ea_guid="{DBC91033-5DCB-4cdf-93CA-B73A60AB707B}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10175,7 +10175,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_026E2E50_206C_4fd9_A79B_3EEE9A486D7E" name="INT" scope="Public">
 						<initial/>
-						<documentation value="intersection	An intersection denotes that the actual address is located at or close to the intersection of two or more streets"/>
+						<documentation value="Intersection: An intersection denotes that the actual address is located at or close to the intersection of two or more streets"/>
 						<model ea_localid="1221" ea_guid="{026E2E50-206C-4fd9-A79B-3EEE9A486D7E}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10190,7 +10190,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_4CB6337D_04CA_4817_BCD8_406C1D99B3BD" name="CAR" scope="Public">
 						<initial/>
-						<documentation value="care of	The name of the party who will take receipt at the specified address, and will take on responsibility for ensuring delivery to the target recipient "/>
+						<documentation value="Care Of: The name of the party who will take receipt at the specified address, and will take on responsibility for ensuring delivery to the target recipient "/>
 						<model ea_localid="1222" ea_guid="{4CB6337D-04CA-4817-BCD8-406C1D99B3BD}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10205,7 +10205,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_88E9C2B5_2F76_42b3_AAB0_9EC18454031F" name="CEN" scope="Public">
 						<initial/>
-						<documentation value="census tract	A geographic sub-unit delineated for demographic purposes."/>
+						<documentation value="Census Tract: A geographic sub-unit delineated for demographic purposes."/>
 						<model ea_localid="1223" ea_guid="{88E9C2B5-2F76-42b3-AAB0-9EC18454031F}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10220,7 +10220,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_ACE0C547_0ED1_41e1_8DC3_B339B8A6B5BE" name="CNT" scope="Public">
 						<initial/>
-						<documentation value="country	Country"/>
+						<documentation value="Country"/>
 						<model ea_localid="1224" ea_guid="{ACE0C547-0ED1-41e1-8DC3-B339B8A6B5BE}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10235,7 +10235,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_7A99155B_69F4_4a95_9829_D59E126ADB07" name="CPA" scope="Public">
 						<initial/>
-						<documentation value="county or parish	A sub-unit of a state or province. (49 of the United States of America use the term &quot;county;&quot; Louisiana uses the term &quot;parish&quot;.)"/>
+						<documentation value="County or Parish: A sub-unit of a state or province. (49 of the United States of America use the term &quot;county;&quot; Louisiana uses the term &quot;parish&quot;.)"/>
 						<model ea_localid="1225" ea_guid="{7A99155B-69F4-4a95-9829-D59E126ADB07}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10250,7 +10250,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_513E10CB_E169_45f4_A60B_57EB03775019" name="CTY" scope="Public">
 						<initial/>
-						<documentation value="municipality	The name of the city, town, village, or other community or delivery center"/>
+						<documentation value="Municipality: The name of the city, town, village, or other community or delivery center"/>
 						<model ea_localid="1226" ea_guid="{513E10CB-E169-45f4-A60B-57EB03775019}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10265,7 +10265,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_990BFC86_1597_47b1_8191_A85657DBE8FE" name="DEL" scope="Public">
 						<initial/>
-						<documentation value="delimiter	Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break."/>
+						<documentation value="Delimiter: Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break."/>
 						<model ea_localid="1227" ea_guid="{990BFC86-1597-47b1-8191-A85657DBE8FE}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10280,7 +10280,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_69DFBC5A_DD4C_4f47_821A_46E8CD7265DE" name="POB" scope="Public">
 						<initial/>
-						<documentation value="post box	A numbered box located in a post station."/>
+						<documentation value="Post Box: A numbered box located in a post station."/>
 						<model ea_localid="1228" ea_guid="{69DFBC5A-DD4C-4f47-821A-46E8CD7265DE}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10295,7 +10295,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_08BDF8AC_F66B_4016_A1E2_72C764820F63" name="PRE" scope="Public">
 						<initial/>
-						<documentation value="precinct	A subsection of a municipality"/>
+						<documentation value="Precinct: A subsection of a municipality"/>
 						<model ea_localid="1229" ea_guid="{08BDF8AC-F66B-4016-A1E2-72C764820F63}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10310,7 +10310,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_89407154_8A32_401e_B19A_7FFE8A4DB3AF" name="STA" scope="Public">
 						<initial/>
-						<documentation value="state or province	A sub-unit of a country with limited sovereignty in a federally organized country."/>
+						<documentation value="State or Province: A sub-unit of a country with limited sovereignty in a federally organized country."/>
 						<model ea_localid="1230" ea_guid="{89407154-8A32-401e-B19A-7FFE8A4DB3AF}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10325,7 +10325,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_371ADE21_39E4_44e6_BA43_F7CC89FC5CD4" name="ZIP" scope="Public">
 						<initial/>
-						<documentation value="postal code	A postal code designating a region defined by the postal service."/>
+						<documentation value="Postal Code: A postal code designating a region defined by the postal service."/>
 						<model ea_localid="1231" ea_guid="{371ADE21-39E4-44e6-BA43-F7CC89FC5CD4}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -11319,7 +11319,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_C5F597E1_F76D_4626_9E3F_75067FC5FCFD" name="P" scope="Public">
 						<initial/>
-						<documentation value="pseudonym: A self asserted name that the person is using or has used."/>
+						<documentation value="Pseudonym: A self asserted name that the person is using or has used."/>
 						<model ea_localid="1275" ea_guid="{C5F597E1-F76D-4626-9E3F-75067FC5FCFD}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -11439,7 +11439,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_B3AA28B4_8F61_4dab_BA46_0CE3750BB748" name="PHON" scope="Public">
 						<initial/>
-						<documentation value="phonetic: The address as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the address, not based on a phonetic algorithm. "/>
+						<documentation value="Phonetic: The address as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the address, not based on a phonetic algorithm. "/>
 						<model ea_localid="1283" ea_guid="{B3AA28B4-8F61-4dab-BA46-0CE3750BB748}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12121,7 +12121,7 @@
 			<element xmi:idref="EAID_901F057D_D784_419e_870A_D68ED3A9F7AE" xmi:type="uml:Class" name="PostalAddressUse" scope="public">
 				<model package="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9" tpos="0" ea_localid="592" ea_eleType="element"/>
 				<properties documentation="A set of codes advising a system or user which address in a set of like addresses to select for a given purpose. &#xA;&#xA;ValueSet OID: 2.16.840.1.113883.11.190. CodeSystem &quot;PostalAddressUse&quot;, OID: 2.16.840.1.113883.5.1012, Owner: HL7 " isSpecification="false" sType="Class" nType="0" scope="public" stereotype="enumeration" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-06-29 16:50:19" modified="2013-07-14 23:34:06" complexity="1" status="Proposed"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-06-29 16:50:19" modified="2013-07-15 09:35:21" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -12131,7 +12131,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_C429EB7E_7E12_4a83_8BF8_7D42F11F647D" name="H" scope="Public">
 						<initial/>
-						<documentation value="home address	A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available. "/>
+						<documentation value="Home Address: A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available. "/>
 						<model ea_localid="1250" ea_guid="{C429EB7E-7E12-4a83-8BF8-7D42F11F647D}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12146,7 +12146,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_2985C131_A857_49d3_B22F_051EA1662B15" name="HP" scope="Public">
 						<initial/>
-						<documentation value="primary home	The primary home, to reach a person after business hours."/>
+						<documentation value="Primary Home: The primary home, to reach a person after business hours."/>
 						<model ea_localid="1251" ea_guid="{2985C131-A857-49d3-B22F-051EA1662B15}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12161,7 +12161,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_DA72A963_D074_4479_898C_A63461C5EC69" name="HV" scope="Public">
 						<initial/>
-						<documentation value="vacation home	A vacation home, to reach a person while on vacation."/>
+						<documentation value="Vacation Home: A vacation home, to reach a person while on vacation."/>
 						<model ea_localid="1252" ea_guid="{DA72A963-D074-4479-898C-A63461C5EC69}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12176,7 +12176,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_EB468E6A_4EE1_45c8_B5E0_9B53E08FE073" name="WP" scope="Public">
 						<initial/>
-						<documentation value="work place	An office address. First choice for business related contacts during business hours."/>
+						<documentation value="Work Place: An office address. First choice for business related contacts during business hours."/>
 						<model ea_localid="1253" ea_guid="{EB468E6A-4EE1-45c8-B5E0-9B53E08FE073}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12191,7 +12191,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_29BC6E19_53F8_4e71_BE97_EC6E0AAA43D7" name="DIR" scope="Public">
 						<initial/>
-						<documentation value="Direct	Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'. "/>
+						<documentation value="Direct: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'. "/>
 						<model ea_localid="1254" ea_guid="{29BC6E19-53F8-4e71-BE97-EC6E0AAA43D7}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12206,7 +12206,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_202F6412_4E78_484e_9A08_17CD83E65502" name="PUB" scope="Public">
 						<initial/>
-						<documentation value="Public	Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity. "/>
+						<documentation value="Public: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity. "/>
 						<model ea_localid="1255" ea_guid="{202F6412-4E78-484e-9A08-17CD83E65502}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12221,7 +12221,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_00FAE861_415C_4409_B3CE_3305902CCAF2" name="BAD" scope="Public">
 						<initial/>
-						<documentation value="bad address	A flag indicating that the address is bad, in fact, useless."/>
+						<documentation value="Bad Address: A flag indicating that the address is bad, in fact, useless."/>
 						<model ea_localid="1256" ea_guid="{00FAE861-415C-4409-B3CE-3305902CCAF2}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12236,7 +12236,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_42780A15_F03E_4c47_93A4_0D9A0394A045" name="PHYS" scope="Public">
 						<initial/>
-						<documentation value="physical visit address	Used primarily to visit an address."/>
+						<documentation value="Physical Visit Address: Used primarily to visit an address."/>
 						<model ea_localid="1257" ea_guid="{42780A15-F03E-4c47-93A4-0D9A0394A045}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12251,7 +12251,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_0D1192BD_1BA9_4565_A832_63A45A4B032C" name="PST" scope="Public">
 						<initial/>
-						<documentation value="postal address	Used to send mail."/>
+						<documentation value="Postal Address: Used to send mail."/>
 						<model ea_localid="1258" ea_guid="{0D1192BD-1BA9-4565-A832-63A45A4B032C}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12266,7 +12266,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_4586BA8A_6D45_4a6e_81CA_23BED99BBAAF" name="TMP" scope="Public">
 						<initial/>
-						<documentation value="temporary address	A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information."/>
+						<documentation value="Temporary Address: A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information."/>
 						<model ea_localid="1259" ea_guid="{4586BA8A-6D45-4a6e-81CA-23BED99BBAAF}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12341,7 +12341,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_795E7C83_48C0_4ae9_91AB_7BED38FD6208" name="SNDX" scope="Public">
 						<initial/>
-						<documentation value="Soundex	An address spelled according to the SoundEx algorithm."/>
+						<documentation value="Soundex: An address spelled according to the SoundEx algorithm."/>
 						<model ea_localid="1264" ea_guid="{795E7C83-48C0-4ae9-91AB-7BED38FD6208}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12699,7 +12699,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_93344E74_99B5_4bf8_B913_7B4F874B67DF" name="H" scope="Public">
 						<initial/>
-						<documentation value="home address	A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. "/>
+						<documentation value="Home Address: A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. "/>
 						<model ea_localid="1233" ea_guid="{93344E74-99B5-4bf8-B913-7B4F874B67DF}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12714,7 +12714,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_A6B4EFBC_EB41_45ef_A9A2_68361D2ECC09" name="HP" scope="Public">
 						<initial/>
-						<documentation value="primary home	The primary home, to reach a person after business hours."/>
+						<documentation value="Primary Home: The primary home, to reach a person after business hours."/>
 						<model ea_localid="1234" ea_guid="{A6B4EFBC-EB41-45ef-A9A2-68361D2ECC09}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12729,7 +12729,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_484B1E4C_D649_47eb_BD4C_699D5DFD125F" name="HV" scope="Public">
 						<initial/>
-						<documentation value="vacation home	A vacation home, to reach a person while on vacation."/>
+						<documentation value="Vacation Home: vacation home, to reach a person while on vacation."/>
 						<model ea_localid="1235" ea_guid="{484B1E4C-D649-47eb-BD4C-699D5DFD125F}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12744,7 +12744,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_272AF745_BF43_4a2b_98FF_C6DFBC59769D" name="WP" scope="Public">
 						<initial/>
-						<documentation value="work place	An office address. First choice for business related contacts during business hours."/>
+						<documentation value="Work Place: An office address. First choice for business related contacts during business hours."/>
 						<model ea_localid="1236" ea_guid="{272AF745-BF43-4a2b-98FF-C6DFBC59769D}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12759,7 +12759,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_526CC943_9462_45f3_9E85_4BA8BD190DC8" name="DIR" scope="Public">
 						<initial/>
-						<documentation value="Direct	Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'. "/>
+						<documentation value="Direct: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'. "/>
 						<model ea_localid="1237" ea_guid="{526CC943-9462-45f3-9E85-4BA8BD190DC8}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12774,7 +12774,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_881F63F5_F657_4b8e_84ED_F88B68252F88" name="PUB" scope="Public">
 						<initial/>
-						<documentation value="Public	Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity. "/>
+						<documentation value="Public: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity. "/>
 						<model ea_localid="1238" ea_guid="{881F63F5-F657-4b8e-84ED-F88B68252F88}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12789,7 +12789,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_8F8316F8_C994_43cd_BD6E_05F19F4F8573" name="BAD" scope="Public">
 						<initial/>
-						<documentation value="bad address	A flag indicating that the address is bad, in fact, useless."/>
+						<documentation value="Bad Address: A flag indicating that the address is bad, in fact, useless."/>
 						<model ea_localid="1239" ea_guid="{8F8316F8-C994-43cd-BD6E-05F19F4F8573}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12804,7 +12804,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_E6ACB33F_F52A_4666_8567_662439A56D02" name="TMP" scope="Public">
 						<initial/>
-						<documentation value="temporary address	A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information."/>
+						<documentation value="Temporary Address: A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information."/>
 						<model ea_localid="1240" ea_guid="{E6ACB33F-F52A-4666-8567-662439A56D02}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12819,7 +12819,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_7C563A2B_5425_4325_A9DD_1403ABDFCA81" name="AS" scope="Public">
 						<initial/>
-						<documentation value="answering service	An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement. "/>
+						<documentation value="Answering Service: An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement. "/>
 						<model ea_localid="1241" ea_guid="{7C563A2B-5425-4325-A9DD-1403ABDFCA81}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12834,7 +12834,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_9AA8E3CC_365D_4a23_AE71_624D0DBF57E7" name="EC" scope="Public">
 						<initial/>
-						<documentation value="emergency contact	A contact specifically designated to be used for emergencies. This is the first choice in emergencies, independent of any other use codes. "/>
+						<documentation value="Emergency Contact: A contact specifically designated to be used for emergencies. This is the first choice in emergencies, independent of any other use codes. "/>
 						<model ea_localid="1242" ea_guid="{9AA8E3CC-365D-4a23-AE71-624D0DBF57E7}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12849,7 +12849,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_E25499B3_0CAE_421e_8E4E_601CAEF49520" name="MC" scope="Public">
 						<initial/>
-						<documentation value="mobile contact	A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business. "/>
+						<documentation value="Mobile Contact: A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business. "/>
 						<model ea_localid="1243" ea_guid="{E25499B3-0CAE-421e-8E4E-601CAEF49520}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -12864,7 +12864,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_7EDADABA_ACF8_401c_8CDE_B30123465170" name="PG" scope="Public">
 						<initial/>
-						<documentation value="pager	A paging device suitable to solicit a callback or to leave a very short message."/>
+						<documentation value="Pager: A paging device suitable to solicit a callback or to leave a very short message."/>
 						<model ea_localid="1244" ea_guid="{7EDADABA-ACF8-401c-8CDE-B30123465170}"/>
 						<properties derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
