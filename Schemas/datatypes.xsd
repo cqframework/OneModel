@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <xs:schema targetNamespace="urn:hl7-org:v3:cdsdt:r2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsdt:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data types used.  The data types are a simplified/constrained version of ISO 21090 data types, which is an implementable specification based on the abstract HL7 version 3 data types specification, release 2.</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="Code">
+		<xs:annotation>
+			<xs:documentation>A code representing the string data. For example, the string data may be a user-message out of a message-catalog where the code represents the identifier of the message in the message catalog. </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="TEL">
@@ -19,11 +22,10 @@ Note:  The intent of this datatype is to be a locator, not an identifier; this d
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="xs:anyURI">
+				<xs:attribute name="capabilities" use="optional" type="set_TelecommunicationCapability">
 					<xs:annotation>
-						<xs:documentation>A uniform resource identifier specified according to IETF RFC 2396. 
-The URI specifies the protocol and the contact point defined by that protocol for the resource. 
-Examples:  Notable uses of the telecommunication address datatype are for telephone and telefax numbers, e-mail addresses, Hypertext references, FTP references, etc.</xs:documentation>
+						<xs:documentation>One or more codes advising a system or user what telecommunication capabilities are known to be associated with the telecommunication address. 
+If populated, the values contained in this attribute SHALL be taken from the HL7 TelecommunicationCapability code system</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="use" use="optional" type="set_TelecommunicationAddressUse">
@@ -33,12 +35,6 @@ The telecommunication use code is not a complete classification for equipment ty
 If populated, the values contained in this attribute SHALL be taken from the HL7 TelecommunicationAddressUse code system</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="capabilities" use="optional" type="set_TelecommunicationCapability">
-					<xs:annotation>
-						<xs:documentation>One or more codes advising a system or user what telecommunication capabilities are known to be associated with the telecommunication address. 
-If populated, the values contained in this attribute SHALL be taken from the HL7 TelecommunicationCapability code system</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="useablePeriodOriginalText" use="optional" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>This attribute is equivalent to the originalText.value attribute within the useablePeriod attribute of this class in the ISO 21090 specification.
@@ -46,6 +42,13 @@ If populated, the values contained in this attribute SHALL be taken from the HL7
 The periods of time during which the telecommunication address can be used. 
 
 For a telephone number, this can indicate the time of day in which the party can be reached on that telephone. For a web address, it may specify a time range in which the web content is promised to be available under the given address.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="value" use="required" type="xs:anyURI">
+					<xs:annotation>
+						<xs:documentation>A uniform resource identifier specified according to IETF RFC 2396. 
+The URI specifies the protocol and the contact point defined by that protocol for the resource. 
+Examples:  Notable uses of the telecommunication address datatype are for telephone and telefax numbers, e-mail addresses, Hypertext references, FTP references, etc.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -103,15 +106,15 @@ Notes:
 		<xs:complexContent>
 			<xs:extension base="QTY">
 				<xs:sequence>
-					<xs:element name="numerator" type="INT" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The integer quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="denominator" type="INT" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The integer quantity that divides the numerator in the ratio. 
 The denominator SHALL not be zero.  This represents the denominator.expression.value from the ISO 21090 datatypes.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="numerator" type="INT" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The integer quantity that is being divided in the ratio.  This represents the numerator.expression.value from the ISO21090 datatypes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -127,31 +130,31 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="low" type="INT" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
-The low limit SHALL NOT be positive infinity.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="high" type="INT" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="low" type="INT" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
-
-Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -212,29 +215,29 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="low" type="RTO_INT" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
-The low limit SHALL NOT be positive infinity.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="high" type="RTO_INT" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="low" type="RTO_INT" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
-Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -279,11 +282,6 @@ A ST SHALL have at least one character or else be null.</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
 				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="Decimal">
-					<xs:annotation>
-						<xs:documentation>The number which is multiplied by the unit to make the PQ.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="unit" use="required" type="Code">
 					<xs:annotation>
 						<xs:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
@@ -293,6 +291,11 @@ The unit SHALL come from UCUM, which only specifies unambiguous measurement unit
 Note: The general pattern for a measurement is  value unit of Thing. In this scheme, the PQ represents the  value and the unit, and the Thing is described by some coded concept that is linked to the PQ by the context of use. This maps obviously to some measurements, such as Patient Body Temperature of 37 Celsius, and 250 mg/day of Salicylate.
 However for some measurements that arise in healthcare, the scheme is not so obvious. Two classic examples are 5 Drinks of Beer, and 3 Acetaminophen tablets. At first glance it is tempting to classify these measurements like this: 5 drinks of Beer and 3 Acetaminophen tablets. The problem with this is that UCUM does not support units of "beer", "tablets" or "scoops".
 The reason for this is that neither tablets or scoops are proper units. What kind of tablets? How big is the glass? In these kinds of cases, the concept that appears to be a unit needs to further specified before interoperability is established. If a correct amount is required, then it is generally appropriate to specify an exact measurement with an appropriate UCUM unit. If this is not possible, then the concept is not part of the measurement. UCUM provides a unit called unity for use in these cases. The proper way to understand these measurements as 3 1 Acetaminophen tablets, where 1 is the UCUM unit for unity, and the Thing has a qualifier. The context of use will need to provide the extra qualifying information.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="value" use="required" type="Decimal">
+					<xs:annotation>
+						<xs:documentation>The number which is multiplied by the unit to make the PQ.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -307,31 +310,31 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="low" type="RTO_PQ" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
-The low limit SHALL NOT be positive infinity.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="high" type="RTO_PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="low" type="RTO_PQ" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
-
-Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -361,31 +364,31 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="low" type="REAL" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
-The low limit SHALL NOT be positive infinity.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="high" type="REAL" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="low" type="REAL" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
-
-Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -429,17 +432,17 @@ The value of this attribute SHALL be taken from the HL7 AddressPartType code sys
 		<xs:complexContent>
 			<xs:extension base="XP">
 				<xs:sequence/>
-				<xs:attribute name="type" use="required" type="EntityNamePartType">
-					<xs:annotation>
-						<xs:documentation>Indicates whether the name part is a given name, family name, prefix, suffix, etc. 
-The value of this attribute SHALL be taken from the HL7 EntityNamePartType2 code system.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="qualifier" use="optional" type="set_EntityNamePartQualifier">
 					<xs:annotation>
 						<xs:documentation>The qualifier is a set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type.
 For example, a given name may be flagged as a nickname (CL), a family name may be a name acquired by marriage (SP) or a name from birth (BR).
 If populated, the values contained in this attribute SHALL be taken from the HL7 EntityNamePartQualifier2 code system.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="type" use="required" type="EntityNamePartType">
+					<xs:annotation>
+						<xs:documentation>Indicates whether the name part is a given name, family name, prefix, suffix, etc. 
+The value of this attribute SHALL be taken from the HL7 EntityNamePartType2 code system.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -473,15 +476,6 @@ Information Processing Entities claiming direct or indirect conformance SHALL ne
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence/>
-				<xs:attribute name="root" use="required" type="Uid">
-					<xs:annotation>
-						<xs:documentation>A unique identifier that guarantees the global uniqueness of the instance identifier. 
-If root is populated, and there is no extension, then the root is a globally unique identifier in its own right. In the presence of a non-null extension, the root is the unique identifier for the "namespace" of the identifier in the extension. Note that this does NOT necessarily correlate with the organization that manages the issuing of the identifiers. A given organization may manage multiple identifier namespaces, and control over a given namespace may transfer from organization to organization over time while the root remains the same. 
-This field can be either a DCE UUID, an Object Identifier (OID), or a special identifier taken from lists that may be published by ISO or HL7. 
-Comparison of root values is always case sensitive. UUID's SHALL be represented in upper case, so UUID case should always be preserved. 
-The root SHALL not be used to carry semantic meaning - all it does is ensure global computational uniqueness.</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="extension" use="optional" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>A character string as a unique identifier within the scope of the identifier root. 
@@ -493,6 +487,15 @@ If no extension attribute is provided in a non-null II, then the root is the com
 				<xs:attribute name="identifierName" use="optional" type="xs:string">
 					<xs:annotation>
 						<xs:documentation>A human readable description for this identifier.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="root" use="required" type="Uid">
+					<xs:annotation>
+						<xs:documentation>A unique identifier that guarantees the global uniqueness of the instance identifier. 
+If root is populated, and there is no extension, then the root is a globally unique identifier in its own right. In the presence of a non-null extension, the root is the unique identifier for the "namespace" of the identifier in the extension. Note that this does NOT necessarily correlate with the organization that manages the issuing of the identifiers. A given organization may manage multiple identifier namespaces, and control over a given namespace may transfer from organization to organization over time while the root remains the same. 
+This field can be either a DCE UUID, an Object Identifier (OID), or a special identifier taken from lists that may be published by ISO or HL7. 
+Comparison of root values is always case sensitive. UUID's SHALL be represented in upper case, so UUID case should always be preserved. 
+The root SHALL not be used to carry semantic meaning - all it does is ensure global computational uniqueness.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -565,31 +568,31 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="low" type="PQ" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
-The low limit SHALL NOT be positive infinity.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="high" type="PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="low" type="PQ" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
-
-Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -598,12 +601,12 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 	<xs:complexType name="ED">
 		<xs:annotation>
 			<xs:documentation>Data that is primarily intended for human interpretation or for further machine processing outside the scope of this specification. This includes unformatted or formatted written language, multimedia data, or structured information as defined by a different standard (e.g., XML-signatures.) 
-Encapsulated data can be present in two forms, inline or by reference. The content is the same whether it is located inline or remote.Inline data is communicated or moved as part of the encapsulated data value, whereas by-reference data may reside at a different  location: a URL/URI that provides reference to the information required to locate the data. Inline data may be provided in one of 3 different ways:
-&amp;#60;ul&amp;#62;
-	&amp;#60;li&amp;#62;as a plain sequence of characters (value)&amp;#60;/li&amp;#62;
-	&amp;#60;li&amp;#62;as a binary (a sequence of bytes) (data)&amp;#60;/li&amp;#62;
-	&amp;#60;li&amp;#62;as xml content (xml)&amp;#60;/li&amp;#62;
-&amp;#60;/ul&amp;#62;
+Encapsulated data can be present in two forms, inline or by reference. The content is the same whether it is located inline or remote. Inline data is communicated or moved as part of the encapsulated data value, whereas by-reference data may reside at a different  location: a URL/URI that provides reference to the information required to locate the data. Inline data may be provided in one of 3 different ways:
+
+1) as a plain sequence of characters (value)
+2) as a binary (a sequence of bytes) (data
+3) as xml content (xml)
+
 Content SHALL be provided if the ED has no nullFlavor. The content may be provided in-line (using only one of value, data or xml), or it may be provided as a reference.Content may be provided in-line and a reference also may be given; in these cases, it is expected that the content of the reference will be exactly the same as the in-line content. Information Processing Entities are not required to check this, but may regard it as an error condition if the content does not match</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -614,11 +617,23 @@ Content SHALL be provided if the ED has no nullFlavor. The content may be provid
 							<xs:documentation>A simple sequence of byte values that contains the content. (Base64 Encoded String).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="xml" type="xs:anyType" minOccurs="0" maxOccurs="1">
+					<xs:element name="description" type="ST" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The content represented in plain XML form.
+							<xs:documentation>An alternative description of the media where the media is not able to be rendered. 
 
-A direct representation is provided for XML. This is because this specification includes an XML serialization of the data, and this xml attribute is handled specially in the serialisation form. The xml data is not different in any semantic sense to the same data if represented in the value or data attributes.</xs:documentation>
+E.g. Short text description of an image or sound clip, etc. This attribute is not intended to be a complete substitute for the original. For complete substitutes, use the &amp;#34;translation&amp;#34; property.
+
+The intent of this property is to allow compliance with disability requirements such as those expressed in American&amp;#39;s with Disability Act (also known as &amp;#34;Section 508&amp;#34;), where there is a requirement to provide a short text description of included media in some form that can be read by a screen reader. This is similar to a very short thumbnail with mediaType = text/plain.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="integrityCheck" type="xs:base64Binary" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A checksum calculated over the binary data
+
+The purpose of this property, when communicated with a reference is for anyone to validate later whether the reference still resolved to the same content that the reference resolved to when the encapsulated data value with reference was created. If the attribute is null, there is no integrityCheck.
+It is an error if the data resolved through the reference does not match the integrity check. 
+The integrity check is calculated according to the integrityCheckAlgorithm. By default, the Secure Hash Algorithm-1 (SHA-1) shall be used. The integrity check is binary encoded according to the rules of the integrity check algorithm. 
+The integrity check is calculated over the raw binary data that is contained in the data component, or that is accessible through the reference. No transformations are made before the integrity check is calculated. If the data is compressed, the Integrity Check is calculated over the compressed data. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="reference" type="TEL" minOccurs="0" maxOccurs="1">
@@ -632,47 +647,25 @@ If data is provded in the value, data or xml attributes, the reference SHALL poi
 The reference may contain a usablePeriod to indicate that the data may only be available for a limited period of time. Whether the reference is limited by a usablePeriod or not, the content of the reference SHALL be fixed for all time. Any application using the reference SHALL always receive the same data, or an error. The reference cannot be reused to send a different version of the same data, or different data</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="integrityCheck" type="xs:base64Binary" minOccurs="0" maxOccurs="1">
+					<xs:element name="xml" type="xs:anyType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>A checksum calculated over the binary data
+							<xs:documentation>The content represented in plain XML form.
 
-The purpose of this property, when communicated with a reference is for anyone to validate later whether the reference still resolved to the same content that the reference resolved to when the encapsulated data value with reference was created. If the attribute is null, there is no integrityCheck.
-It is an error if the data resolved through the reference does not match the integrity check. 
-The integrity check is calculated according to the integrityCheckAlgorithm. By default, the Secure Hash Algorithm-1 (SHA-1) shall be used. The integrity check is binary encoded according to the rules of the integrity check algorithm. 
-The integrity check is calculated over the raw binary data that is contained in the data component, or that is accessible through the reference. No transformations are made before the integrity check is calculated. If the data is compressed, the Integrity Check is calculated over the compressed data. </xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="description" type="ST" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>An alternative description of the media where the media is not able to be rendered. 
-
-E.g. Short text description of an image or sound clip, etc. This attribute is not intended to be a complete substitute for the original. For complete substitutes, use the &amp;#34;translation&amp;#34; property.
-
-The intent of this property is to allow compliance with disability requirements such as those expressed in American&amp;#39;s with Disability Act (also known as &amp;#34;Section 508&amp;#34;), where there is a requirement to provide a short text description of included media in some form that can be read by a screen reader. This is similar to a very short thumbnail with mediaType = text/plain.</xs:documentation>
+A direct representation is provided for XML. This is because this specification includes an XML serialization of the data, and this xml attribute is handled specially in the serialisation form. The xml data is not different in any semantic sense to the same data if represented in the value or data attributes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="value" use="optional" type="xs:string">
-					<xs:annotation>
-						<xs:documentation>A simple sequence of characters that contains the content. 
-
-If value is used, the mediatype is fixed to text/plain and the charset must be consistent with the String Character Set. Refer to section 6.7.5 for more details</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
-				<xs:attribute name="mediaType" use="optional" default="text/plain" type="xs:string">
-					<xs:annotation>
-						<xs:documentation>Identifies the type of the encapsulated data and can be used to determine a method to interpret or render the content. 
-
-The IANA defined domain of media types is established by the IETF RFCs 2045 and 2046. mediaType has a default value of text/plain and cannot be null. If the media type is different to text/plain, the &amp;#60;i&amp;#62;mediaType&amp;#60;/i&amp;#62; attribute SHALL be populated.
-
-If the content is compressed using a specified compression algorithm, the mediaType SHALL refer the mediaType of the uncompressed data, whether the data is accessed by reference or not. </xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="charset" use="optional" type="Code">
 					<xs:annotation>
 						<xs:documentation>An Internet Assigned Numbers Authority (IANA) Charset Registered character set and character encoding for character-based encoding types&amp;#60;b&amp;#62;. &amp;#60;/b&amp;#62;
 
 Whenever the content of the ED is character type data in any form, the charset property needs to be known. If the content is provided directly in the value attribute, then the charset SHALL be a known character set consistent with the String Character Set. Refer to section 6.7.5 for more details. If the content is provided as a reference, and the access method does not provide the charset for the content (such as by a mime header), then the charset SHALL be conveyed as part of the ED</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="integrityCheckAlgorithm" use="optional" type="IntegrityCheckAlgorithm">
+					<xs:annotation>
+						<xs:documentation>The algorithm used to compute the integrityCheck value.
+If populated, the value of this attribute SHALL be taken from the HL7 IntegrityCheckAlgorithm code system.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="language" use="optional" type="Code">
@@ -684,10 +677,20 @@ Conformance profiles SHOULD define defaulting rules for language for a given usa
 Note: While language attribute usually alters the interpretation of the text, the language attribute does not alter the meaning of the characters in the text.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="integrityCheckAlgorithm" use="optional" type="IntegrityCheckAlgorithm">
+				<xs:attribute name="mediaType" use="optional" default="text/plain" type="xs:string">
 					<xs:annotation>
-						<xs:documentation>The algorithm used to compute the integrityCheck value.
-If populated, the value of this attribute SHALL be taken from the HL7 IntegrityCheckAlgorithm code system.</xs:documentation>
+						<xs:documentation>Identifies the type of the encapsulated data and can be used to determine a method to interpret or render the content. 
+
+The IANA defined domain of media types is established by the IETF RFCs 2045 and 2046. mediaType has a default value of text/plain and cannot be null. If the media type is different to text/plain, the &amp;#60;i&amp;#62;mediaType&amp;#60;/i&amp;#62; attribute SHALL be populated.
+
+If the content is compressed using a specified compression algorithm, the mediaType SHALL refer the mediaType of the uncompressed data, whether the data is accessed by reference or not. </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="value" use="optional" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A simple sequence of characters that contains the content. 
+
+If value is used, the mediatype is fixed to text/plain and the charset must be consistent with the String Character Set. Refer to section 6.7.5 for more details</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -725,31 +728,31 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="low" type="TS" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
-The low limit SHALL NOT be positive infinity.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="high" type="TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This is the high limit. If the high limit is not known, it may be null.
 The high limit SHALL NOT be negative infinity, and SHALL be higher than the low limit if one exists.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="low" type="TS" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This is the low limit. If the low limit is not known, it may be null.
+The low limit SHALL NOT be positive infinity.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
-					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
-
-Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
-					</xs:annotation>
-				</xs:attribute>
 				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+
+Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -793,15 +796,15 @@ Notes:
 		<xs:complexContent>
 			<xs:extension base="QTY">
 				<xs:sequence>
-					<xs:element name="numerator" type="PQ" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The quantity that is being divided in the ratio</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="denominator" type="PQ" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The quantity that divides the numerator in the ratio. 
 The denominator SHALL not be zero.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="numerator" type="PQ" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The quantity that is being divided in the ratio</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -810,7 +813,11 @@ The denominator SHALL not be zero.</xs:documentation>
 	</xs:complexType>
 	<xs:simpleType name="Uid">
 		<xs:annotation>
-			<xs:documentation>OID or GUID</xs:documentation>
+			<xs:documentation>A unique identifier string is a character string which identifies an object in a globally unique and timeless manner. The allowable formats and values and procedures of this data type are strictly controlled by HL7. At this time, user-assigned identifiers SHALL only be certain character representations of ISO Object Identifiers (OID) and DCE Universally Unique Identifiers (UUID). In addition, HL7 reserves the right to assign other forms of UIDs (RUID), such as mnemonic identifiers for code systems. 
+The sole purpose of UID is to be a globally and timelessly unique identifier. The form of UID, whether it is an OID, a UUID or a RUID, is entirely irrelevant. As far as HL7 is concerned, the only thing one can do with a UID is denote to the object for which it stands. Comparison of UIDs is literal, i.e. if two UIDs are literally identical, they are assumed to denote to the same object. If two UIDs are not literally identical they may not denote to the same object. Note that this comparison is case sensitive; (OID)s do not have letters subject to case, (UUID)s are fixed to uppercase, and (RUID)s have a fixed case. 
+protected type UniqueIdentifierString alias UID specializes ST.SIMPLE;
+No difference in semantics is recognized between the different allowed forms of UID. The different forms are not distinguished by a component within or aside from the identifier string itself. 
+Even though this specification recognizes no semantic difference between the different forms of the unique identifier forms, there are differences of how these identifiers are built and managed, which is the sole reason to define subtypes of UID for each of the variants. </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
@@ -819,143 +826,590 @@ The denominator SHALL not be zero.</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="TimeStamp">
 		<xs:annotation>
-			<xs:documentation>20101127235417.123+0930</xs:documentation>
+			<xs:documentation>Represents a timestamp such as 20101127235417.123+0930</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[1-2][0-9]{3,3}(((0[1-9])|(1[0-2]))(((0[1-9])|([1-2][0-9])|(3[0-1]))((([0-1][0-9])|(2[0-3]))(([0-5][0-9])(([0-5][0-9])(\.[0-9]{1,4})?)?)?)?)?)?([+\-](0[0-9]|1[0-3])([0-5][0-9]))?"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EntityNamePartType">
+		<xs:annotation>
+			<xs:documentation>Indicates whether the name part is a given name, family name, prefix, suffix, etc. 
+
+ValueSet OID: [TBD], CodeSystem "EntityNamePartType", OID: 2.16.840.1.113883.5.43. CodeSystem "EntityNamePartTypeR2", OID: 2.16.840.1.113883.5.1122, Owner: HL7 </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="FAM"/>
-			<xs:enumeration value="GIV"/>
-			<xs:enumeration value="TITLE"/>
-			<xs:enumeration value="DEL"/>
+			<xs:enumeration value="FAM">
+				<xs:annotation>
+					<xs:documentation>Family Name</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GIV">
+				<xs:annotation>
+					<xs:documentation>Given Name</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TITLE">
+				<xs:annotation>
+					<xs:documentation>Title</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DEL">
+				<xs:annotation>
+					<xs:documentation>Delimiter: Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EntityNamePartQualifier">
+		<xs:annotation>
+			<xs:documentation>The qualifier is a set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type. For example, a given name may be flagged as a nickname, a family name may be a pseudonym or a name of public records. 
+
+ValueSet OID: [TBD], CodeSystem "EntityNamePartTypeQualifier", OID: 2.16.840.1.113883.5.43. CodeSystem "EntityNamePartTypeQualifierR2", OID: 2.16.840.1.113883.5.1122, Owner: HL7 </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="LS"/>
-			<xs:enumeration value="AC"/>
-			<xs:enumeration value="NB"/>
-			<xs:enumeration value="PR"/>
-			<xs:enumeration value="HON"/>
-			<xs:enumeration value="BR"/>
-			<xs:enumeration value="AD"/>
-			<xs:enumeration value="SP"/>
-			<xs:enumeration value="MID"/>
-			<xs:enumeration value="CL"/>
-			<xs:enumeration value="IN"/>
-			<xs:enumeration value="PFX"/>
-			<xs:enumeration value="SFX"/>
+			<xs:enumeration value="LS">
+				<xs:annotation>
+					<xs:documentation>Legal Status</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AC">
+				<xs:annotation>
+					<xs:documentation>Academic</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NB">
+				<xs:annotation>
+					<xs:documentation>Nobility</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PR">
+				<xs:annotation>
+					<xs:documentation>Professional</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HON">
+				<xs:annotation>
+					<xs:documentation>Honorific</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BR">
+				<xs:annotation>
+					<xs:documentation>Birth</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AD">
+				<xs:annotation>
+					<xs:documentation>Acquired</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SP">
+				<xs:annotation>
+					<xs:documentation>Spouse</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MID">
+				<xs:annotation>
+					<xs:documentation>Middle Name</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CL">
+				<xs:annotation>
+					<xs:documentation>Call Me</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IN">
+				<xs:annotation>
+					<xs:documentation>Initial</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PFX">
+				<xs:annotation>
+					<xs:documentation>Prefix</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SFX">
+				<xs:annotation>
+					<xs:documentation>Suffix</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="set_EntityNamePartQualifier">
 		<xs:list itemType="dt:EntityNamePartQualifier"/>
 	</xs:simpleType>
 	<xs:simpleType name="AddressPartType">
+		<xs:annotation>
+			<xs:documentation>Specifies whether an address part names the street, city, country, postal code, post box, etc. If the type is NULL the address part is unclassified. 
+
+Concept Domain AddressPartType. ValueSet OID: 2.16.840.1.113883.11.10642. CodeSystem "AddressPartType", OID: 2.16.840.1.113883.5.16, Owner: HL7 </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="AL"/>
-			<xs:enumeration value="ADL"/>
-			<xs:enumeration value="UNID"/>
-			<xs:enumeration value="UNIT"/>
-			<xs:enumeration value="DAL"/>
-			<xs:enumeration value="DINST"/>
-			<xs:enumeration value="DINSTA"/>
-			<xs:enumeration value="DINSTQ"/>
-			<xs:enumeration value="DMOD"/>
-			<xs:enumeration value="DMODID"/>
-			<xs:enumeration value="SAL"/>
-			<xs:enumeration value="BNR"/>
-			<xs:enumeration value="BNN"/>
-			<xs:enumeration value="BNS"/>
-			<xs:enumeration value="STR"/>
-			<xs:enumeration value="STB"/>
-			<xs:enumeration value="STTYP"/>
-			<xs:enumeration value="DIR"/>
-			<xs:enumeration value="INT"/>
-			<xs:enumeration value="CAR"/>
-			<xs:enumeration value="CEN"/>
-			<xs:enumeration value="CNT"/>
-			<xs:enumeration value="CPA"/>
-			<xs:enumeration value="CTY"/>
-			<xs:enumeration value="DEL"/>
-			<xs:enumeration value="POB"/>
-			<xs:enumeration value="PRE"/>
-			<xs:enumeration value="STA"/>
-			<xs:enumeration value="ZIP"/>
-			<xs:enumeration value="DPID"/>
+			<xs:enumeration value="AL">
+				<xs:annotation>
+					<xs:documentation>Address Line: An address line is for either an additional locator, a delivery address or a street address. An address generally has only a delivery address line or a street address line, but not both. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ADL">
+				<xs:annotation>
+					<xs:documentation>Additional Locator: This can be a unit designator, such as apartment number, suite number, or floor. There may be several unit designators in an address (e.g., "3rd floor, Appt. 342".) This can also be a designator pointing away from the location (e.g. Across the street from). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UNID">
+				<xs:annotation>
+					<xs:documentation>Unit Identifier: The number or name of a specific unit contained within a building or complex, as assigned by that building or complex.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UNIT">
+				<xs:annotation>
+					<xs:documentation>Unit Designator: Indicates the type of specific unit contained within a building or complex. E.g. Appartment, Floor</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DAL">
+				<xs:annotation>
+					<xs:documentation>Delivery Address Line: A delivery address line is frequently used instead of breaking out delivery mode, delivery installation, etc. An address generally has only a delivery address line or a street address line, but not both. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DINST">
+				<xs:annotation>
+					<xs:documentation>Delivery Installation Type: Indicates the type of delivery installation (the facility to which the mail will be delivered prior to final shipping via the delivery mode.) Example: post office, letter carrier depot, community mail center, station, etc. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DINSTA">
+				<xs:annotation>
+					<xs:documentation>Delivery Installation Area: The location of the delivery installation, usually a town or city, and is only required if the area is different from the municipality. Area to which mail delivery service is provided from any postal facility or service such as an individual letter carrier, rural route, or postal route. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DINSTQ">
+				<xs:annotation>
+					<xs:documentation>Delivery Installation Qualifier: A number, letter or name identifying a delivery installation. E.g., for Station A, the delivery installation qualifier would be 'A'. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DMOD">
+				<xs:annotation>
+					<xs:documentation>Delivery Mode: Indicates the type of service offered, method of delivery. For example: post office box, rural route, general delivery, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DMODID">
+				<xs:annotation>
+					<xs:documentation>Delivery Mode Identifier: Represents the routing information such as a letter carrier route number. It is the identifying number of the designator (the box number or rural route number). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SAL">
+				<xs:annotation>
+					<xs:documentation>Street Address Line: A street address line is frequently used instead of breaking out build number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BNR">
+				<xs:annotation>
+					<xs:documentation>Building Number: The number of a building, house or lot alongside the street. Also known as "primary street number". This does not number the street but rather the building. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BNN">
+				<xs:annotation>
+					<xs:documentation>Building Number Numeric: The numeric portion of a building number</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BNS">
+				<xs:annotation>
+					<xs:documentation>Building Number Suffix: Any alphabetic character, fraction or other text that may appear after the numeric portion of a building number</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="STR">
+				<xs:annotation>
+					<xs:documentation>Street Name: The name of the street, including the type</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="STB">
+				<xs:annotation>
+					<xs:documentation>Street Name Base: The base name of a roadway or artery recognized by a municipality (excluding street type and direction)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="STTYP">
+				<xs:annotation>
+					<xs:documentation>Street Type: The designation given to the street. (e.g. Street, Avenue, Crescent, etc.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DIR">
+				<xs:annotation>
+					<xs:documentation>Direction (e.g., N, S, W, E)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="INT">
+				<xs:annotation>
+					<xs:documentation>Intersection: An intersection denotes that the actual address is located at or close to the intersection of two or more streets</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CAR">
+				<xs:annotation>
+					<xs:documentation>Care Of: The name of the party who will take receipt at the specified address, and will take on responsibility for ensuring delivery to the target recipient </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CEN">
+				<xs:annotation>
+					<xs:documentation>Census Tract: A geographic sub-unit delineated for demographic purposes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CNT">
+				<xs:annotation>
+					<xs:documentation>Country</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CPA">
+				<xs:annotation>
+					<xs:documentation>County or Parish: A sub-unit of a state or province. (49 of the United States of America use the term "county;" Louisiana uses the term "parish".)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CTY">
+				<xs:annotation>
+					<xs:documentation>Municipality: The name of the city, town, village, or other community or delivery center</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DEL">
+				<xs:annotation>
+					<xs:documentation>Delimiter: Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="POB">
+				<xs:annotation>
+					<xs:documentation>Post Box: A numbered box located in a post station.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PRE">
+				<xs:annotation>
+					<xs:documentation>Precinct: A subsection of a municipality</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="STA">
+				<xs:annotation>
+					<xs:documentation>State or Province: A sub-unit of a country with limited sovereignty in a federally organized country.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ZIP">
+				<xs:annotation>
+					<xs:documentation>Postal Code: A postal code designating a region defined by the postal service.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DPID">
+				<xs:annotation>
+					<xs:documentation>A value that uniquely identifies the postal address. (Often used in barcodes). </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TelecommunicationAddressUse">
+		<xs:annotation>
+			<xs:documentation>One or more codes advising a system or user which telecommunication address in a set of like addresses to select for a given telecommunication need. 
+
+ValueSet OID: 2.16.840.1.113883.11.201. CodeSystem "TelecommunicationAddressUse", OID: 2.16.840.1.113883.5.1011, Owner: HL7 </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="H"/>
-			<xs:enumeration value="HP"/>
-			<xs:enumeration value="HV"/>
-			<xs:enumeration value="WP"/>
-			<xs:enumeration value="DIR"/>
-			<xs:enumeration value="PUB"/>
-			<xs:enumeration value="BAD"/>
-			<xs:enumeration value="TMP"/>
-			<xs:enumeration value="AS"/>
-			<xs:enumeration value="EC"/>
-			<xs:enumeration value="MC"/>
-			<xs:enumeration value="PG"/>
+			<xs:enumeration value="H">
+				<xs:annotation>
+					<xs:documentation>Home Address: A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HP">
+				<xs:annotation>
+					<xs:documentation>Primary Home: The primary home, to reach a person after business hours.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HV">
+				<xs:annotation>
+					<xs:documentation>Vacation Home: vacation home, to reach a person while on vacation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WP">
+				<xs:annotation>
+					<xs:documentation>Work Place: An office address. First choice for business related contacts during business hours.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DIR">
+				<xs:annotation>
+					<xs:documentation>Direct: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PUB">
+				<xs:annotation>
+					<xs:documentation>Public: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BAD">
+				<xs:annotation>
+					<xs:documentation>Bad Address: A flag indicating that the address is bad, in fact, useless.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TMP">
+				<xs:annotation>
+					<xs:documentation>Temporary Address: A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AS">
+				<xs:annotation>
+					<xs:documentation>Answering Service: An automated answering machine used for less urgent cases and if the main purpose of contact is to leave a message or access an automated announcement. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EC">
+				<xs:annotation>
+					<xs:documentation>Emergency Contact: A contact specifically designated to be used for emergencies. This is the first choice in emergencies, independent of any other use codes. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MC">
+				<xs:annotation>
+					<xs:documentation>Mobile Contact: A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PG">
+				<xs:annotation>
+					<xs:documentation>Pager: A paging device suitable to solicit a callback or to leave a very short message.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="TelecommunicationCapability">
+		<xs:annotation>
+			<xs:documentation>One or more codes advising a system or user what telecommunication capabilities are known to be associated with the telecommunication address. 
+
+ValueSet OID: [to be assigned]. CodeSystem "TelecommunicationCapabilities", OID: 2.16.840.1.113883.5.1118, Owner: HL7 </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="voice"/>
-			<xs:enumeration value="fax"/>
-			<xs:enumeration value="data"/>
-			<xs:enumeration value="tty"/>
-			<xs:enumeration value="sms"/>
+			<xs:enumeration value="voice">
+				<xs:annotation>
+					<xs:documentation>Voice	This device can receive voice calls (i.e. talking to another person, or a recording device, or a voice activated computer)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fax">
+				<xs:annotation>
+					<xs:documentation>Fax	This device can receive faxes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="data">
+				<xs:annotation>
+					<xs:documentation>Data	This device can receive data calls (i.e. modem)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="tty">
+				<xs:annotation>
+					<xs:documentation>Text	This device is a text telephone.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sms">
+				<xs:annotation>
+					<xs:documentation>SMS	This device can receive SMS messages.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PostalAddressUse">
+		<xs:annotation>
+			<xs:documentation>A set of codes advising a system or user which address in a set of like addresses to select for a given purpose. 
+
+ValueSet OID: 2.16.840.1.113883.11.190. CodeSystem "PostalAddressUse", OID: 2.16.840.1.113883.5.1012, Owner: HL7 </xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="H"/>
-			<xs:enumeration value="HP"/>
-			<xs:enumeration value="HV"/>
-			<xs:enumeration value="WP"/>
-			<xs:enumeration value="DIR"/>
-			<xs:enumeration value="PUB"/>
-			<xs:enumeration value="BAD"/>
-			<xs:enumeration value="PHYS"/>
-			<xs:enumeration value="PST"/>
-			<xs:enumeration value="TMP"/>
-			<xs:enumeration value="ABC"/>
-			<xs:enumeration value="IDE"/>
-			<xs:enumeration value="SYL"/>
-			<xs:enumeration value="SRCH"/>
-			<xs:enumeration value="SNDX"/>
-			<xs:enumeration value="PHON"/>
+			<xs:enumeration value="H">
+				<xs:annotation>
+					<xs:documentation>Home Address: A communication address at a home, attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HP">
+				<xs:annotation>
+					<xs:documentation>Primary Home: The primary home, to reach a person after business hours.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HV">
+				<xs:annotation>
+					<xs:documentation>Vacation Home: A vacation home, to reach a person while on vacation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WP">
+				<xs:annotation>
+					<xs:documentation>Work Place: An office address. First choice for business related contacts during business hours.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DIR">
+				<xs:annotation>
+					<xs:documentation>Direct: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PUB">
+				<xs:annotation>
+					<xs:documentation>Public: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BAD">
+				<xs:annotation>
+					<xs:documentation>Bad Address: A flag indicating that the address is bad, in fact, useless.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PHYS">
+				<xs:annotation>
+					<xs:documentation>Physical Visit Address: Used primarily to visit an address.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PST">
+				<xs:annotation>
+					<xs:documentation>Postal Address: Used to send mail.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TMP">
+				<xs:annotation>
+					<xs:documentation>Temporary Address: A temporary address, may be good for visit or mailing. Note that an address history can provide more detailed information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ABC">
+				<xs:annotation>
+					<xs:documentation>Alphabetic: Alphabetic transcription of name (Japanese: romaji)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IDE">
+				<xs:annotation>
+					<xs:documentation>Ideographic: Ideographic representation of name (e.g., Japanese kanji, Chinese characters)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SYL">
+				<xs:annotation>
+					<xs:documentation>Syllabic: Syllabic transcription of name (e.g., Japanese kana, Korean hangul)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SRCH">
+				<xs:annotation>
+					<xs:documentation>Search Type Uses: A name intended for use in searching or matching.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SNDX">
+				<xs:annotation>
+					<xs:documentation>Soundex: An address spelled according to the SoundEx algorithm.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PHON">
+				<xs:annotation>
+					<xs:documentation>phonetic: The address as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the address, not based on a phonetic algorithm. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IntegrityCheckAlgorithm">
+		<xs:annotation>
+			<xs:documentation>The algorithm used to compute the integrityCheck value.</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="SHA1"/>
-			<xs:enumeration value="SHA256"/>
+			<xs:enumeration value="SHA1">
+				<xs:annotation>
+					<xs:documentation>secure hash algorithm - 1	
+This algorithm is defined in FIPS PUB 180-1: Secure Hash Standard. As of April 17, 1995.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SHA256">
+				<xs:annotation>
+					<xs:documentation>secure hash algorithm - 256	
+This algorithm is defined in FIPS PUB 180-2: Secure Hash Standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EntityNameUse">
+		<xs:annotation>
+			<xs:documentation>A set of codes advising a system or user which name in a set of names to select for a given purpose. 
+
+ValueSet OID: [TBD], CodeSystem "EntityNameUse", OID: 2.16.840.1.113883.5.45. CodeSystem "EntityNameUseR2", OID: 2.16.840.1.113883.5.1120, Owner: HL7</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="ABC"/>
-			<xs:enumeration value="SYL"/>
-			<xs:enumeration value="IDE"/>
-			<xs:enumeration value="C"/>
-			<xs:enumeration value="OR"/>
-			<xs:enumeration value="T"/>
-			<xs:enumeration value="I"/>
-			<xs:enumeration value="P"/>
-			<xs:enumeration value="ANON"/>
-			<xs:enumeration value="A"/>
-			<xs:enumeration value="R"/>
-			<xs:enumeration value="OLD"/>
-			<xs:enumeration value="DN"/>
-			<xs:enumeration value="M"/>
-			<xs:enumeration value="SRCH"/>
-			<xs:enumeration value="PHON"/>
+			<xs:enumeration value="ABC">
+				<xs:annotation>
+					<xs:documentation>Alphabetic: Alphabetic transcription of name (Japanese: romaji)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IDE">
+				<xs:annotation>
+					<xs:documentation>Ideographic: Ideographic representation of name (e.g., Japanese kanji, Chinese characters)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SYL">
+				<xs:annotation>
+					<xs:documentation>Syllabic: Syllabic transcription of name (e.g., Japanese kana, Korean hangul)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ASGN">
+				<xs:annotation>
+					<xs:documentation>Assigned: A name assigned to a person. Reasons some organizations assign alternate names may include not knowing the person's name, or to maintain anonymity. Some, but not necessarily all, of the name types that people call "alias" may fit into this category.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="C">
+				<xs:annotation>
+					<xs:documentation>License: As recorded on a license, record, certificate, etc. (only if different from legal name)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:documentation>Indigenous/Tribal: e.g. Chief Red Cloud</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="L">
+				<xs:annotation>
+					<xs:documentation>Known as/conventional/the one you use</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OR">
+				<xs:annotation>
+					<xs:documentation>official registry: The formal name as registered in an official (government) registry, but which name might not be commonly used. Particularly used in countries with a law system based on Napoleonic law.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="P">
+				<xs:annotation>
+					<xs:documentation>Pseudonym: A self asserted name that the person is using or has used.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="A">
+				<xs:annotation>
+					<xs:documentation>Artist/Stage: Includes writer's pseudonym, stage name, etc</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R">
+				<xs:annotation>
+					<xs:documentation>Religious: e.g. Sister Mary Francis, Brother John</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SRCH">
+				<xs:annotation>
+					<xs:documentation>Search Type Uses: A name intended for use in searching or matching.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PHON">
+				<xs:annotation>
+					<xs:documentation>Phonetic: The address as understood by the data enterer, i.e. a close approximation of a phonetic spelling of the address, not based on a phonetic algorithm. </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SNDX">
+				<xs:annotation>
+					<xs:documentation>A name spelled according to the SoundEx algorithm.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="T">
+				<xs:annotation>
+					<xs:documentation>Obsolete, meaning not known</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ANON">
+				<xs:annotation>
+					<xs:documentation>Anonymized name, designed to hide the actual identify of a person. (Obsolete, use ASGN instead)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OLD">
+				<xs:annotation>
+					<xs:documentation>Obsolete name, no longer in use</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DN">
+				<xs:annotation>
+					<xs:documentation>Obsolete, meaning not known</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="M">
+				<xs:annotation>
+					<xs:documentation>Married name (obsolete, use "C" for name as recorded on a certificate or license)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="set_PostalAddressUse">
@@ -969,18 +1423,5 @@ The denominator SHALL not be zero.</xs:documentation>
 	</xs:simpleType>
 	<xs:simpleType name="set_TelecommunicationCapability">
 		<xs:list itemType="dt:TelecommunicationCapability"/>
-	</xs:simpleType>
-	<xs:simpleType name="UncertaintyType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="U"/>
-			<xs:enumeration value="N"/>
-			<xs:enumeration value="LN"/>
-			<xs:enumeration value="G"/>
-			<xs:enumeration value="E"/>
-			<xs:enumeration value="X2"/>
-			<xs:enumeration value="T"/>
-			<xs:enumeration value="F"/>
-			<xs:enumeration value="B"/>
-		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
