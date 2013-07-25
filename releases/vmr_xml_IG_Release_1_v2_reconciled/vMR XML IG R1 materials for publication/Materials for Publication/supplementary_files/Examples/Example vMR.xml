@@ -18,7 +18,6 @@
 	</vmr:targetEntity>
 </vmr:relatedEntity>
 	
-	<!--<vmr:age value="3.14159" unit="y"/>-->
 	<vmr:birthTime value="19630525"/>
 	<vmr:ethnicity codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
 	<vmr:gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M" displayName="Male"/>
@@ -326,7 +325,7 @@
 
 <vmr:relatedEvaluatedPerson>
 	<vmr:targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
-	<vmr:evaluatedPerson xsi:type="vmr:EvaluatedPerson">
+	<vmr:otherEvaluatedPerson xsi:type="vmr:EvaluatedPerson">
 		<vmr:templateId root="2.16.840.1.113883.3.1829.11.2.4.2" identifierName="Patient Relative"/>
 		<vmr:age value="3.14159" unit="y"/>
 		<vmr:ageAtDeath value="68" unit="y"/>
@@ -334,21 +333,21 @@
 		<vmr:ethnicity codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
 		<vmr:gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M" displayName="Male"/>
 		<vmr:isDeceased value="false"/>
-	</vmr:evaluatedPerson>
+	</vmr:otherEvaluatedPerson>
 </vmr:relatedEvaluatedPerson>
 
 	<vmr:relatedEvaluatedPerson>
 		<vmr:targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
-		<vmr:evaluatedPerson xsi:type="vmr:EvaluatedPerson">
+		<vmr:otherEvaluatedPerson xsi:type="vmr:EvaluatedPerson">
 			<vmr:templateId root="2.16.840.1.113883.3.1829.11.2.5.2" identifierName="Patient Relative Minimal"/>
 			<vmr:ageAtDeath value="68" unit="y"/>
 			<vmr:gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M" displayName="Male"/>
-		</vmr:evaluatedPerson>
+		</vmr:otherEvaluatedPerson>
 	</vmr:relatedEvaluatedPerson>
 
 	<vmr:relatedEvaluatedPerson>
 		<vmr:targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
-		<vmr:evaluatedPerson xsi:type="vmr:EvaluatedPerson">
+		<vmr:otherEvaluatedPerson xsi:type="vmr:EvaluatedPerson">
 			<vmr:templateId root="2.16.840.1.113883.3.1829.11.2.5.2" identifierName="Patient Relative Minimal"/>
 			<vmr:ageAtDeath value="68" unit="y"/>
 			<vmr:gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M" displayName="Male"/>
@@ -359,7 +358,7 @@
 				<vmr:problemStatus codeSystem="OID for SNOMED CT" codeSystemName="SNOMED CT" code="[statusCode]" displayName="[statusName]"/>
 				<vmr:severity codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
 			</vmr:clinicalStatement>
-		</vmr:evaluatedPerson>
+		</vmr:otherEvaluatedPerson>
 	</vmr:relatedEvaluatedPerson>
 
 

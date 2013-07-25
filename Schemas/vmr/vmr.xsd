@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema targetNamespace="urn:hl7-org:v3:vmr:r2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:vmr:r2" xmlns:vmr="urn:hl7-org:v3:vmr:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:vmr:r2" xmlns:vmr="urn:hl7-org:v3:vmr:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" targetNamespace="urn:hl7-org:v3:vmr:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data about a patient relevant for CDS.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r2" schemaLocation="common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:v3:cdsdt:r2" schemaLocation="../common/datatypes.xsd"/>
 	<xs:complexType name="ClinicalStatement">
 		<xs:annotation>
 			<xs:documentation>A record of something of clinical relevance that is being done, has been done, can be done, or is intended or requested to be done.  A class that serves as the basis for other more specific clinical statements, such as ObservationEvent and ProcedureProposal. It is a concrete class that can be used as is or specialized as needed.
@@ -1088,7 +1088,7 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ProblemBase">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1300,6 +1300,23 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="Constituent">
+		<xs:annotation>
+			<xs:documentation>A component of a multi-component substance administration. May be an additive in a composite IV.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="substance" type="AdministrableSubstance" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Generally the ingredient of the constituent (e.g., dopamine) such as an additive in a composite IV.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="substanceAmount" type="dt:IVL_PQ" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The amount of the constituent that makes up the whole.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="DeniedAdverseEvent">
 		<xs:annotation>
 			<xs:documentation>A denial that the subject has or had the specified adverse event.  E.g., if adverseEventCode is hives, adverse event agent is penicillin, and documentation time is 2011-05-01, an assertion was made on 2011-05-01 that the subject does not get hives as a reaction to penicillin.
@@ -1316,7 +1333,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AdverseEventBase">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1552,19 +1569,14 @@ Common denials of adverse events to a class of agents can be expressed as follow
 	</xs:complexType>
 	<xs:complexType name="CompositeIVProposal">
 		<xs:annotation>
-			<xs:documentation>A class representing IV fluids that may consist of one or more diluents and additives.</xs:documentation>
+			<xs:documentation>A class representing IV fluid proposals that may consist of one or more additives mixed into a diluent (as represented by the substance attribute).</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationProposal">
 				<xs:sequence>
-					<xs:element name="additive" type="SubstanceAdministrationProposal" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="additive" type="Constituent" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A substance that is mixed with a diluent which enables intravenous delivery to a patient; the additive is an active ingredient</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="diluent" type="SubstanceAdministrationProposal" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A fluid base (sometimes called a "base solution") into which an additive is mixed in order to prepare IV fluids for patient administration; the diluent is an inactive ingredient</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -1893,7 +1905,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 		<xs:annotation>
 			<xs:documentation>Specification of the endpoint of a repetitive action.  Must be extended by either RepeatUntilCount or RepeatUntilTime.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence/>
+		
 	</xs:complexType>
 	<xs:complexType name="DietProposal">
 		<xs:annotation>
@@ -2106,19 +2118,14 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="CompositeIVOrder">
 		<xs:annotation>
-			<xs:documentation>A class representing IV fluid orders that may consist of one or more diluents and additives.</xs:documentation>
+			<xs:documentation>A class representing IV fluid orders that may consist of one or more additives mixed into a diluent (as represented by the substance attribute).</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationOrder">
 				<xs:sequence>
-					<xs:element name="additive" type="SubstanceAdministrationOrder" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="additive" type="Constituent" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A substance that is mixed with a diluent which enables intravenous delivery to a patient; the additive is an active ingredient</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="diluent" type="SubstanceAdministrationOrder" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A fluid base (sometimes called a "base solution") into which an additive is mixed in order to prepare IV fluids for patient administration; the diluent is an inactive ingredient</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2327,7 +2334,7 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 		<xs:complexContent>
 			<xs:extension base="RelationshipDescriptorBase">
 				<xs:sequence>
-					<xs:element name="evaluatedPerson" type="EvaluatedPerson" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="otherEvaluatedPerson" type="EvaluatedPerson" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2448,4 +2455,5 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="vMR" type="VMR"/>
 </xs:schema>

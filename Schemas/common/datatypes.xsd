@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema targetNamespace="urn:hl7-org:v3:cdsdt:r2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsdt:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsdt:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" targetNamespace="urn:hl7-org:v3:cdsdt:r2" elementFormDefault="qualified">
 	<xs:annotation>
-		<xs:documentation>Specifies data types used.  The data types are a simplified/constrained version of ISO 21090 data types, which is an implementable specification based on the abstract HL7 version 3 data types specification, release 2.</xs:documentation>
+		<xs:documentation>Specifies data types used.  The data types are a simplified/constrained version of the HL7 version 3 datatypes specification, release 2, which is itself based on the implementable specification of ISO 21090 data types.</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="Code">
 		<xs:annotation>
@@ -21,28 +21,28 @@ Note:  The intent of this datatype is to be a locator, not an identifier; this d
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="xs:anyURI">
+				
+				<xs:attribute name="value" type="xs:anyURI" use="required">
 					<xs:annotation>
 						<xs:documentation>A uniform resource identifier specified according to IETF RFC 2396. 
 The URI specifies the protocol and the contact point defined by that protocol for the resource. 
 Examples:  Notable uses of the telecommunication address datatype are for telephone and telefax numbers, e-mail addresses, Hypertext references, FTP references, etc.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="use" use="optional" type="set_TelecommunicationAddressUse">
+				<xs:attribute name="use" type="set_TelecommunicationAddressUse" use="optional">
 					<xs:annotation>
 						<xs:documentation>One or more codes advising system or user which telecommunication address in a set of like addresses to select for a given telecommunication need. 
 The telecommunication use code is not a complete classification for equipment types or locations. Its main purpose is to suggest or discourage the use of a particular telecommunication address. There are no easily defined rules that govern the selection of a telecommunication address. Conformance statements may clarify what rules may apply or how additional rules are applied.
 If populated, the values contained in this attribute SHALL be taken from the HL7 TelecommunicationAddressUse code system</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="capabilities" use="optional" type="set_TelecommunicationCapability">
+				<xs:attribute name="capabilities" type="set_TelecommunicationCapability" use="optional">
 					<xs:annotation>
 						<xs:documentation>One or more codes advising a system or user what telecommunication capabilities are known to be associated with the telecommunication address. 
 If populated, the values contained in this attribute SHALL be taken from the HL7 TelecommunicationCapability code system</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="useablePeriodOriginalText" use="optional" type="xs:string">
+				<xs:attribute name="useablePeriodOriginalText" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is equivalent to the originalText.value attribute within the useablePeriod attribute of this class in the ISO 21090 specification.
 
@@ -58,8 +58,8 @@ For a telephone number, this can indicate the time of day in which the party can
 		<xs:annotation>
 			<xs:documentation>A part of a name or address. Each part is a character string.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence/>
-		<xs:attribute name="value" use="required" type="xs:string">
+		
+		<xs:attribute name="value" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>The actual string value of the part.</xs:documentation>
 			</xs:annotation>
@@ -86,7 +86,7 @@ Though it would generally make sense, applications SHOULD not assume that the tr
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="value" use="optional" type="Decimal">
+				<xs:attribute name="value" type="Decimal" use="optional">
 					<xs:annotation>
 						<xs:documentation>A numerical value associated with the coded ordinal value.
 The value may be constrained to an integer in some contexts of use. If code is nonNull, value SHALL only be nonNull if the code system explicitly assigns a value to the concept.</xs:documentation>
@@ -143,14 +143,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
@@ -166,7 +166,7 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 
 This class is maintained despite the lack of attributes to maintain compatibility with the ISO 21090 data structure.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence/>
+		
 	</xs:complexType>
 	<xs:complexType name="QTY" abstract="true">
 		<xs:annotation>
@@ -174,7 +174,7 @@ This class is maintained despite the lack of attributes to maintain compatibilit
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -195,7 +195,7 @@ Entity names are essentially sequences of entity name parts, but add a "use" cod
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="use" use="optional" type="set_EntityNameUse">
+				<xs:attribute name="use" type="set_EntityNameUse" use="optional">
 					<xs:annotation>
 						<xs:documentation>A set of codes advising a system or user which name in a set of names to select for a given purpose. 
 A name without specific use code might be a default name useful for any purpose, but a name with a specific use code would be preferred for that respective purpose. Names SHOULD not be collected without at least one use code, but names MAY exist without use code, particularly for legacy data.
@@ -228,13 +228,13 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
@@ -249,8 +249,8 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="Decimal">
+				
+				<xs:attribute name="value" type="Decimal" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the REAL. </xs:documentation>
 					</xs:annotation>
@@ -266,8 +266,8 @@ A ST SHALL have at least one character or else be null.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="xs:string">
+				
+				<xs:attribute name="value" type="xs:string" use="required">
 					<xs:annotation>
 						<xs:documentation>The actual content of the string. </xs:documentation>
 					</xs:annotation>
@@ -281,13 +281,13 @@ A ST SHALL have at least one character or else be null.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="Decimal">
+				
+				<xs:attribute name="value" type="Decimal" use="required">
 					<xs:annotation>
 						<xs:documentation>The number which is multiplied by the unit to make the PQ.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="unit" use="required" type="Code">
+				<xs:attribute name="unit" type="Code" use="required">
 					<xs:annotation>
 						<xs:documentation>The unit of measure specified in the Unified Code for Units of Measure (UCUM). 
 UCUM defines two forms of expression, case sensitive and case insensitive. PQ uses the case sensitive codes. The codeSystem OID for the case sensitive form is 2.16.840.1.113883.6.8. The default value for unit is the UCUM code "1" (unity).
@@ -323,14 +323,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
@@ -346,8 +346,8 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="xs:int">
+				
+				<xs:attribute name="value" type="xs:int" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the INT. Note that this specification imposes no limitations on the size of integer, but most implementations will map this to a 32 or 64 bit integer.</xs:documentation>
 					</xs:annotation>
@@ -377,14 +377,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
@@ -400,8 +400,8 @@ Whether high is included in the IVL (is closed) or excluded from the IVL (is ope
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="XP">
-				<xs:sequence/>
-				<xs:attribute name="type" use="required" type="AddressPartType">
+				
+				<xs:attribute name="type" type="AddressPartType" use="required">
 					<xs:annotation>
 						<xs:documentation>Whether an address part names the street, city, country, postal code, post box, address line 1, etc.
 The value of this attribute SHALL be taken from the HL7 AddressPartType code system.</xs:documentation>
@@ -416,8 +416,8 @@ The value of this attribute SHALL be taken from the HL7 AddressPartType code sys
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="TimeStamp">
+				
+				<xs:attribute name="value" type="TimeStamp" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the TS. value is a string with the format "YYYY[MM[DD[HH[MM[SS[.U[U[U[U]]]]]]]]][+|-ZZzz]" that conforms to the constrained ISO 8601 defined in ISO 8824 (ASN.1) under clause 32 (generalized time). The format should be used to the degree of precision that is appropriate.</xs:documentation>
 					</xs:annotation>
@@ -431,14 +431,14 @@ The value of this attribute SHALL be taken from the HL7 AddressPartType code sys
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="XP">
-				<xs:sequence/>
-				<xs:attribute name="type" use="required" type="EntityNamePartType">
+				
+				<xs:attribute name="type" type="EntityNamePartType" use="required">
 					<xs:annotation>
 						<xs:documentation>Indicates whether the name part is a given name, family name, prefix, suffix, etc. 
 The value of this attribute SHALL be taken from the HL7 EntityNamePartType2 code system.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="qualifier" use="optional" type="set_EntityNamePartQualifier">
+				<xs:attribute name="qualifier" type="set_EntityNamePartQualifier" use="optional">
 					<xs:annotation>
 						<xs:documentation>The qualifier is a set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type.
 For example, a given name may be flagged as a nickname (CL), a family name may be a name acquired by marriage (SP) or a name from birth (BR).
@@ -454,8 +454,8 @@ If populated, the values contained in this attribute SHALL be taken from the HL7
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
-				<xs:attribute name="value" use="required" type="xs:boolean">
+				
+				<xs:attribute name="value" type="xs:boolean" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the BL.</xs:documentation>
 					</xs:annotation>
@@ -475,8 +475,8 @@ Information Processing Entities claiming direct or indirect conformance SHALL ne
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
-				<xs:attribute name="root" use="required" type="Uid">
+				
+				<xs:attribute name="root" type="Uid" use="required">
 					<xs:annotation>
 						<xs:documentation>A unique identifier that guarantees the global uniqueness of the instance identifier. 
 If root is populated, and there is no extension, then the root is a globally unique identifier in its own right. In the presence of a non-null extension, the root is the unique identifier for the "namespace" of the identifier in the extension. Note that this does NOT necessarily correlate with the organization that manages the issuing of the identifiers. A given organization may manage multiple identifier namespaces, and control over a given namespace may transfer from organization to organization over time while the root remains the same. 
@@ -485,7 +485,7 @@ Comparison of root values is always case sensitive. UUID's SHALL be represented 
 The root SHALL not be used to carry semantic meaning - all it does is ensure global computational uniqueness.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="extension" use="optional" type="xs:string">
+				<xs:attribute name="extension" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>A character string as a unique identifier within the scope of the identifier root. 
 The root and extension scheme means that the concatenation of root and extension SHALL be a globally unique identifier for the item that this II value identifies.
@@ -493,7 +493,7 @@ Some identifier schemes define certain style options to their code values. For e
 If no extension attribute is provided in a non-null II, then the root is the complete unique identifier. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="identifierName" use="optional" type="xs:string">
+				<xs:attribute name="identifierName" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>A human readable description for this identifier.</xs:documentation>
 					</xs:annotation>
@@ -509,21 +509,21 @@ A CD may also contain an original text or phrase that served as the basis of the
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
-				<xs:attribute name="code" use="optional" type="Code">
+				
+				<xs:attribute name="code" type="Code" use="optional">
 					<xs:annotation>
 						<xs:documentation>The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept. 
 Code SHALL be an exact match to a plain code symbol or expression defined by the code system. If the code system defines a code or expression that includes whitespace, the code SHALL include the whitespace. An expression can only be used where the codeSystem either defines an expression syntax, or there is a generally accepted syntax for the codeSystem. A code system may be defined that only defines an expression syntax with bindings to other code Systems for the elements of the expression. 
 It is at the discretion of the interpreting system whether to check for an expression instead of a simple code and evaluate the expression instead of treating the expression as a code. In some cases, it may be unclear or ambiguous whether the code represents a single symbol or an expression. This usually arises where the code system defines an expression language and then defines pre-coordinated concepts with symbols which match their expression, e.g. UCUM. In other cases, it is safe to treat the expression as a symbol. There is no guarantee that this is always safe: the definitions of the codeSystem should always be consulted to determine how to handle potential expressions.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeSystem" use="optional" type="Uid">
+				<xs:attribute name="codeSystem" type="Uid" use="optional">
 					<xs:annotation>
 						<xs:documentation>The code system that defines the code, or if no code was found, the codeSystem in which no code was found. 
 Code systems SHALL be referred to by a UID, which allows unambiguous reference to standard code systems and other local codesystems. Where either ISO or HL7 have assigned UID to code Systems, then these UIDs SHALL be used. Otherwise implementations SHALL use an appropriate ISO Object Identifier (OID) or UUID to construct a globally unique local coding system identifier.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="codeSystemName" use="optional" type="xs:string">
+				<xs:attribute name="codeSystemName" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>The common name of the coding system. 
 
@@ -534,14 +534,14 @@ Information Processing Entities claiming direct or indirect conformance SHALL NO
 Note:  The purpose of a code system name is to assist an unaided human interpreter of a code value to interpret codeSystem.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="displayName" use="optional" type="xs:string">
+				<xs:attribute name="displayName" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>A name, title, or representation for the code or expression as it exists in the code system.
 If populated, the displayName SHALL be a valid human readable representation of the concept as defined by the code system at the time of data entry. The displayName SHALL conform to any rules defined by the codingSystem; if the codeSystem does not define a human representation for the code or expression, then none can be provided. displayName is included both as a courtesy to an unaided human interpreter of a code value and as a documentation of the name used to display the concept to the user. The display name has no functional meaning; it SHALL never exist without a code; and it SHALL never modify the meaning of the code. A display name may not be present if the code is an expression for which no display name has been assigned or can be derived. Information Processing Entities claiming direct or indirect conformance MAY choose not to implement displayName but SHALL NOT reject instances because displayName is present.
 Display names SHALL not alter the meaning of the code value. Therefore, display names SHOULD NOT be presented to the user on a receiving application system without ascertaining that the display name adequately represents the concept referred to by the code value. Communication SHALL NOT simply rely on the display name. The display name's main purpose is to support implementation debugging.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="originalText" use="optional" type="xs:string">
+				<xs:attribute name="originalText" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>The text as seen and/or selected by the user who entered the data which represents the intended meaning of the user.  This attribute is equivalent to originalText.value in the ISO 21090 model.
 
@@ -581,14 +581,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
@@ -655,14 +655,14 @@ The intent of this property is to allow compliance with disability requirements 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="value" use="optional" type="xs:string">
+				<xs:attribute name="value" type="xs:string" use="optional">
 					<xs:annotation>
 						<xs:documentation>A simple sequence of characters that contains the content. 
 
 If value is used, the mediatype is fixed to text/plain and the charset must be consistent with the String Character Set. Refer to section 6.7.5 for more details</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="mediaType" use="optional" default="text/plain" type="xs:string">
+				<xs:attribute name="mediaType" type="xs:string" use="optional" default="text/plain">
 					<xs:annotation>
 						<xs:documentation>Identifies the type of the encapsulated data and can be used to determine a method to interpret or render the content. 
 
@@ -671,14 +671,14 @@ The IANA defined domain of media types is established by the IETF RFCs 2045 and 
 If the content is compressed using a specified compression algorithm, the mediaType SHALL refer the mediaType of the uncompressed data, whether the data is accessed by reference or not. </xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="charset" use="optional" type="Code">
+				<xs:attribute name="charset" type="Code" use="optional">
 					<xs:annotation>
 						<xs:documentation>An Internet Assigned Numbers Authority (IANA) Charset Registered character set and character encoding for character-based encoding types&amp;#60;b&amp;#62;. &amp;#60;/b&amp;#62;
 
 Whenever the content of the ED is character type data in any form, the charset property needs to be known. If the content is provided directly in the value attribute, then the charset SHALL be a known character set consistent with the String Character Set. Refer to section 6.7.5 for more details. If the content is provided as a reference, and the access method does not provide the charset for the content (such as by a mime header), then the charset SHALL be conveyed as part of the ED</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="language" use="optional" type="Code">
+				<xs:attribute name="language" type="Code" use="optional">
 					<xs:annotation>
 						<xs:documentation>The human language of the content. Valid codes are taken from the IETF RFC 3066. If this attribute is null, the language may be inferred from elsewhere, either from the context or from unicode language tags, for example.
 
@@ -687,7 +687,7 @@ Conformance profiles SHOULD define defaulting rules for language for a given usa
 Note: While language attribute usually alters the interpretation of the text, the language attribute does not alter the meaning of the characters in the text.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="integrityCheckAlgorithm" use="optional" type="IntegrityCheckAlgorithm">
+				<xs:attribute name="integrityCheckAlgorithm" type="IntegrityCheckAlgorithm" use="optional">
 					<xs:annotation>
 						<xs:documentation>The algorithm used to compute the integrityCheck value.
 If populated, the value of this attribute SHALL be taken from the HL7 IntegrityCheckAlgorithm code system.</xs:documentation>
@@ -710,7 +710,7 @@ Due to its highly restricted functionality, CS SHALL only be used for simple str
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence minOccurs="1" maxOccurs="1"/>
-				<xs:attribute name="code" use="required" type="xs:string">
+				<xs:attribute name="code" type="xs:string" use="required">
 					<xs:annotation>
 						<xs:documentation>The plain code symbol defined by the code system.  If the code value is empty or null, then there is no code in the code system that represents the concept.
 Code SHALL only contain characters that are either a letter, a digit, or one of '.', '-', '_' or ':'. Code systems that are used with CS SHALL NOT define code symbols or expression syntaxes that contain whitespace or any other characters not in this list.</xs:documentation>
@@ -741,14 +741,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="lowIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
-				<xs:attribute name="highIsInclusive" use="optional" type="xs:boolean">
+				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
 						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
 
@@ -775,7 +775,7 @@ Addresses are essentially sequences of address parts, but add a "use" code and a
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="use" use="optional" type="set_PostalAddressUse">
+				<xs:attribute name="use" type="set_PostalAddressUse" use="optional">
 					<xs:annotation>
 						<xs:documentation>A set of codes advising a system or user which address in a set of like addresses to select for a given purpose. 
 An address without specific use code might be a default address useful for any purpose, but an address with a specific use code would be preferred for that respective purpose.

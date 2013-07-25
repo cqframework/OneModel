@@ -356,29 +356,31 @@
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_0C37E49E_0B3A_46f3_9205_05CFA84FEC95" name="CompositeIVOrder" visibility="public">
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_2796B356_2FF5_4434_B2B5_0B5F2FBE8A35" name="additive" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-						<type xmi:idref="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612"/>
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000105_2FF5_4434_B2B5_0B5F2FBE8A35" value="0"/>
+						<type xmi:idref="EAID_312FD0A4_100C_47d0_8A49_35C5AB3F6BA7"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000105_2FF5_4434_B2B5_0B5F2FBE8A35" value="1"/>
 						<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_LI000106_2FF5_4434_B2B5_0B5F2FBE8A35" value="-1"/>
-					</ownedAttribute>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_A4CBD03A_4083_42d2_8C5B_DFBB5351CBFB" name="diluent" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-						<type xmi:idref="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612"/>
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000107_4083_42d2_8C5B_DFBB5351CBFB" value="0"/>
-						<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_LI000108_4083_42d2_8C5B_DFBB5351CBFB" value="-1"/>
 					</ownedAttribute>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_377819F6_0A51_43d2_B5D7_AC6E4C275164" general="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612"/>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_30D90AA0_FDA8_4bba_B2EE_208F708D0912" name="CompositeIVProposal" visibility="public">
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_E303BEB9_F061_44e4_A3E9_A77C9EFDA50A" name="additive" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-						<type xmi:idref="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8"/>
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000109_F061_44e4_A3E9_A77C9EFDA50A" value="0"/>
-						<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_LI000110_F061_44e4_A3E9_A77C9EFDA50A" value="-1"/>
-					</ownedAttribute>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_E34C38E0_AA9F_4460_A4F8_A5C9192469AE" name="diluent" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-						<type xmi:idref="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8"/>
-						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000111_AA9F_4460_A4F8_A5C9192469AE" value="0"/>
-						<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_LI000112_AA9F_4460_A4F8_A5C9192469AE" value="-1"/>
+						<type xmi:idref="EAID_312FD0A4_100C_47d0_8A49_35C5AB3F6BA7"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000107_F061_44e4_A3E9_A77C9EFDA50A" value="1"/>
+						<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_LI000108_F061_44e4_A3E9_A77C9EFDA50A" value="-1"/>
 					</ownedAttribute>
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_69A5E92E_613E_47a7_ADCC_ADAF6065C216" general="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Class" xmi:id="EAID_312FD0A4_100C_47d0_8A49_35C5AB3F6BA7" name="Constituent" visibility="public">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_D8064D5A_425B_41a5_B0A3_16DE9F181DD8" name="substance" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+						<type xmi:idref="EAID_94D0FD11_096A_420b_8834_A9B98B3D5636"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000109_425B_41a5_B0A3_16DE9F181DD8" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000110_425B_41a5_B0A3_16DE9F181DD8" value="1"/>
+					</ownedAttribute>
+					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_97F55710_17CB_4907_8FE1_9DCBD647BC5E" name="substanceAmount" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+						<type xmi:idref="EAID_B17CEB60_E8AB_4f3e_80BC_3FF36E6DEC67"/>
+						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000111_17CB_4907_8FE1_9DCBD647BC5E" value="1"/>
+						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000112_17CB_4907_8FE1_9DCBD647BC5E" value="1"/>
+					</ownedAttribute>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_1C68370D_9074_43c1_8081_C4CFCC33BCBE" name="DeniedAdverseEvent" visibility="public">
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_61585FB2_1C57_428c_99E6_FB895EADE8E4" general="EAID_C969BA13_0B00_4ae5_8156_096A84E0BF4A"/>
@@ -3010,13 +3012,13 @@
 			<element xmi:idref="EAID_94D0FD11_096A_420b_8834_A9B98B3D5636" xmi:type="uml:Class" name="AdministrableSubstance" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="111" ea_eleType="element"/>
 				<properties documentation="A material of a particular constitution that can be given to a person to enable a clinical effect.  It can have component administrable substances." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project version="1.0" phase="1.0" created="2011-01-24 18:27:42" modified="2013-07-17 02:29:52" complexity="1" status="Proposed"/>
+				<project version="1.0" phase="1.0" created="2011-01-24 18:27:42" modified="2013-07-25 07:17:01" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={C5B87CC0-6CF4-4f28-ACAF-3B7076D1F3AC}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={94D0FD11-096A-420b-8834-A9B98B3D5636}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{058B60D3-692F-4262-AA20-80E158407338}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{D8064D5A-425B-41a5-B0A3-16DE9F181DD8},{058B60D3-692F-4262-AA20-80E158407338}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_38CC7D78_9F91_4f55_8C16_7B0BCFAE28F7" name="form" scope="Public">
 						<initial/>
@@ -3452,13 +3454,13 @@
 			<element xmi:idref="EAID_6CF8EB0E_77A9_46ff_A107_26A1D7330B8C" xmi:type="uml:Class" name="BodySite" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="94" ea_eleType="element"/>
 				<properties documentation="A location on an EvaluatedPerson's body.  E.g., left breast, heart." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project version="1.0" phase="1.0" created="2011-01-20 14:03:26" modified="2013-07-17 02:29:52" complexity="1" status="Proposed"/>
+				<project version="1.0" phase="1.0" created="2011-01-20 14:03:26" modified="2013-07-25 07:17:01" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={E8CDEB07-4D7B-4d24-8234-4DD17DC25F1E}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={6CF8EB0E-77A9-46ff-A107-26A1D7330B8C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{8E05F68C-B956-40aa-A451-8EE2F5FD114F},{AF344DFA-FD3D-4c5b-A20A-20A0FF38CE98},{14A7E4B7-D610-4452-AA96-C1F503829F2B},{EAF69197-3E5E-4de2-87A0-5B03D548C62E},{3C53C1E0-942C-43f6-9A97-685898424DC1},{4FF3C21D-C2A9-4ae6-86BC-D93AA7C2103D},{D40F3664-3AB6-499f-BD9A-6FA0907455BD},{62B27C54-1062-46fd-BF40-5804D352F3E4},{85F12EAF-5531-41ec-9B7B-ABF32617E447}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{EAF69197-3E5E-4de2-87A0-5B03D548C62E},{D40F3664-3AB6-499f-BD9A-6FA0907455BD},{4FF3C21D-C2A9-4ae6-86BC-D93AA7C2103D},{AF344DFA-FD3D-4c5b-A20A-20A0FF38CE98},{14A7E4B7-D610-4452-AA96-C1F503829F2B},{8E05F68C-B956-40aa-A451-8EE2F5FD114F},{85F12EAF-5531-41ec-9B7B-ABF32617E447},{62B27C54-1062-46fd-BF40-5804D352F3E4},{3C53C1E0-942C-43f6-9A97-685898424DC1}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_FFC51BBC_621A_416f_9B83_149A68124BC8" name="bodySiteCode" scope="Public">
 						<initial/>
@@ -3495,7 +3497,7 @@
 			<element xmi:idref="EAID_9DFD8E0C_7609_4130_9B3D_96DBD379E2AE" xmi:type="uml:Class" name="ClinicalStatement" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="9" ea_eleType="element"/>
 				<properties documentation="A record of something of clinical relevance that is being done, has been done, can be done, or is intended or requested to be done.  A class that serves as the basis for other more specific clinical statements, such as ObservationEvent and ProcedureProposal. It is a concrete class that can be used as is or specialized as needed.&#xA;&#xA;&lt;b&gt;Naming and modeling conventions:&lt;/b&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;in general, &lt;b&gt;attribute names&lt;/b&gt; end in 'Code' if and only if the name of the attribute overlaps with the name of the parent class&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;&lt;b&gt;times &lt;/b&gt;are named as follows: &lt;b&gt;Time &lt;/b&gt;is the default suffix for these attributes.  &lt;b&gt;EventTime &lt;/b&gt;is used to distinguish the time an order is placed vs. when the ordered act should take place. &lt;b&gt;EffectiveTime &lt;/b&gt;and &lt;b&gt;TimeInterval &lt;/b&gt;are used when there is a desire to emphasize that a prolonged time interval (e.g., &amp;gt; 1 day) can be used rather than a point in time or a short time interval.  Note that regardless of the naming convention, &lt;b&gt;IVL_TS&lt;/b&gt; attributes allow time intervals of any length.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;&lt;b&gt;subjectEffectiveTime&lt;/b&gt; is the time that is primarily related to the subject's experience of disease or treatment events (or durations), rather than when those events were reported or recorded by the performer&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;&lt;b&gt;performerEventTime&lt;/b&gt; is the event time that is primarily related to the performer, rather than the subject.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;the &lt;b&gt;state between ordering and the ordered event occurring&lt;/b&gt; is modeled only in cases of procedures and encounters, due to the substantial rate at which orders do not result in events.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&lt;b&gt;Approaches to representing specific statements:&lt;/b&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;No known allergies --&amp;gt; DeniedAdverseEvent with adverseEventAgentCode that is the generic root-level code for substances and adverseEventCode that is the generic root-level code for adverse events.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;No known drug allergies --&amp;gt; DeniedAdverseEvent with adverseEventAgentCode that is the root-level code for medications and adverseEventCode that is the generic root-level code for adverse events.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;No known food allergies --&amp;gt; DeniedAdverseEvent with adverseEventAgentCode that is the root-level code for food and adverseEventCode that is the generic root-level code for adverse events.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;No known medications --&amp;gt; UndeliveredSubstanceAdministration with substance that is the root-level code for medications.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;No known problems --&amp;gt; DeniedProblem with problemCode that is the root-level code for problems or conditions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;Patient takes an unknown drug --&amp;gt; SubstanceAdministrationEvent where code for substance represents &quot;unknown medication&quot;.&lt;/li&gt;&#xA;&lt;/ul&gt;" isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project version="1.0" phase="1.0" created="2010-12-02 10:35:40" modified="2013-07-16 16:32:23" complexity="1" status="Proposed"/>
+				<project version="1.0" phase="1.0" created="2010-12-02 10:35:40" modified="2013-07-25 07:17:02" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -3604,7 +3606,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{9108A652-6589-4f19-8E46-B50E37CFEF84},{168F3D27-70B1-47f8-96F8-57677E5BA369},{3B0DC0B8-2684-490b-998F-19BF31BE5920},{6D1FEFA1-4C8E-4157-A819-D734C01CE282}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{3B0DC0B8-2684-490b-998F-19BF31BE5920},{6D1FEFA1-4C8E-4157-A819-D734C01CE282},{9108A652-6589-4f19-8E46-B50E37CFEF84},{168F3D27-70B1-47f8-96F8-57677E5BA369}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_C0981B09_46D8_42ff_9BE5_D28A83C9AF93" name="relevantConcept" scope="Public">
 						<initial/>
@@ -3635,7 +3637,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{247F8467-24BA-4da3-8ACC-99E624000880},{2A4B19AB-2A2E-4d39-B1FA-2905FFEC0BE9},{44F92DAC-E06A-4f02-86A6-C53483BDFF01}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{44F92DAC-E06A-4f02-86A6-C53483BDFF01},{2A4B19AB-2A2E-4d39-B1FA-2905FFEC0BE9},{247F8467-24BA-4da3-8ACC-99E624000880}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_EA038393_EF11_426e_86F3_6AC3103A900D" name="name" scope="Public">
 						<initial/>
@@ -3953,8 +3955,8 @@
 			</element>
 			<element xmi:idref="EAID_0C37E49E_0B3A_46f3_9205_05CFA84FEC95" xmi:type="uml:Class" name="CompositeIVOrder" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="572" ea_eleType="element"/>
-				<properties documentation="A class representing IV fluid orders that may consist of one or more diluents and additives." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-06-27 17:35:16" modified="2013-07-14 09:40:20" complexity="1" status="Proposed"/>
+				<properties documentation="A class representing IV fluid orders that may consist of one or more additives mixed into a diluent (as represented by the substance attribute)." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-06-27 17:35:16" modified="2013-07-24 17:56:34" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -3966,31 +3968,16 @@
 						<initial/>
 						<documentation value="A substance that is mixed with a diluent which enables intravenous delivery to a patient; the additive is an active ingredient"/>
 						<model ea_localid="1140" ea_guid="{2796B356-2FF5-4434-B2B5-0B5F2FBE8A35}"/>
-						<properties type="SubstanceAdministrationOrder" derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<properties type="Constituent" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="0"/>
 						<stereotype/>
-						<bounds lower="0" upper="*"/>
+						<bounds lower="1" upper="*"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
 						<xrefs value="$XREFPROP=$XID={85B2606A-8BBA-4dd8-A692-BE13B25F8B14}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2796B356-2FF5-4434-B2B5-0B5F2FBE8A35}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-					</attribute>
-					<attribute xmi:idref="EAID_A4CBD03A_4083_42d2_8C5B_DFBB5351CBFB" name="diluent" scope="Public">
-						<initial/>
-						<documentation value="A fluid base (sometimes called a &quot;base solution&quot;) into which an additive is mixed in order to prepare IV fluids for patient administration; the diluent is an inactive ingredient"/>
-						<model ea_localid="1139" ea_guid="{A4CBD03A-4083-42d2-8C5B-DFBB5351CBFB}"/>
-						<properties type="SubstanceAdministrationOrder" derived="0" collection="false" duplicates="0" changeability="changeable"/>
-						<coords ordered="0"/>
-						<containment containment="Not Specified" position="1"/>
-						<stereotype/>
-						<bounds lower="0" upper="*"/>
-						<options/>
-						<style/>
-						<styleex value="IsLiteral=0;volatile=0;"/>
-						<tags/>
-						<xrefs value="$XREFPROP=$XID={DF5A50A9-7B7F-4f01-8892-FD3541E1CDA2}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={A4CBD03A-4083-42d2-8C5B-DFBB5351CBFB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 				</attributes>
 				<links>
@@ -3999,8 +3986,8 @@
 			</element>
 			<element xmi:idref="EAID_30D90AA0_FDA8_4bba_B2EE_208F708D0912" xmi:type="uml:Class" name="CompositeIVProposal" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="536" ea_eleType="element"/>
-				<properties documentation="A class representing IV fluids that may consist of one or more diluents and additives." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-11 11:58:30" modified="2013-07-14 09:40:47" complexity="1" status="Proposed"/>
+				<properties documentation="A class representing IV fluid proposals that may consist of one or more additives mixed into a diluent (as represented by the substance attribute)." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-11 11:58:30" modified="2013-07-24 17:56:17" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -4012,36 +3999,64 @@
 						<initial/>
 						<documentation value="A substance that is mixed with a diluent which enables intravenous delivery to a patient; the additive is an active ingredient"/>
 						<model ea_localid="1043" ea_guid="{E303BEB9-F061-44e4-A3E9-A77C9EFDA50A}"/>
-						<properties type="SubstanceAdministrationProposal" derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<properties type="Constituent" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="0"/>
 						<stereotype/>
-						<bounds lower="0" upper="*"/>
+						<bounds lower="1" upper="*"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
 						<xrefs value="$XREFPROP=$XID={3B3EE046-4924-4b05-BC2E-FD0A75D2E82E}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={E303BEB9-F061-44e4-A3E9-A77C9EFDA50A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_E34C38E0_AA9F_4460_A4F8_A5C9192469AE" name="diluent" scope="Public">
-						<initial/>
-						<documentation value="A fluid base (sometimes called a &quot;base solution&quot;) into which an additive is mixed in order to prepare IV fluids for patient administration; the diluent is an inactive ingredient"/>
-						<model ea_localid="1042" ea_guid="{E34C38E0-AA9F-4460-A4F8-A5C9192469AE}"/>
-						<properties type="SubstanceAdministrationProposal" derived="0" collection="false" duplicates="0" changeability="changeable"/>
-						<coords ordered="0"/>
-						<containment containment="Not Specified" position="1"/>
-						<stereotype/>
-						<bounds lower="0" upper="*"/>
-						<options/>
-						<style/>
-						<styleex value="IsLiteral=0;volatile=0;"/>
-						<tags/>
-						<xrefs value="$XREFPROP=$XID={80EAF54D-BFAE-4f0d-94E0-563CB5B6E4D9}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={E34C38E0-AA9F-4460-A4F8-A5C9192469AE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-					</attribute>
 				</attributes>
 				<links>
 					<Generalization xmi:id="EAID_69A5E92E_613E_47a7_ADCC_ADAF6065C216" start="EAID_30D90AA0_FDA8_4bba_B2EE_208F708D0912" end="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8"/>
 				</links>
+			</element>
+			<element xmi:idref="EAID_312FD0A4_100C_47d0_8A49_35C5AB3F6BA7" xmi:type="uml:Class" name="Constituent" scope="public">
+				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="604" ea_eleType="element"/>
+				<properties documentation="A component of a multi-component substance administration. May be an additive in a composite IV." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-07-24 17:45:46" modified="2013-07-25 07:17:01" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<modelDocument/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{2796B356-2FF5-4434-B2B5-0B5F2FBE8A35},{E303BEB9-F061-44e4-A3E9-A77C9EFDA50A}"/>
+				<attributes>
+					<attribute xmi:idref="EAID_D8064D5A_425B_41a5_B0A3_16DE9F181DD8" name="substance" scope="Public">
+						<initial/>
+						<documentation value="Generally the ingredient of the constituent (e.g., dopamine) such as an additive in a composite IV."/>
+						<model ea_localid="1298" ea_guid="{D8064D5A-425B-41a5-B0A3-16DE9F181DD8}"/>
+						<properties type="AdministrableSubstance" derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<coords ordered="0"/>
+						<containment containment="Not Specified" position="0"/>
+						<stereotype/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="IsLiteral=0;volatile=0;"/>
+						<tags/>
+						<xrefs/>
+					</attribute>
+					<attribute xmi:idref="EAID_97F55710_17CB_4907_8FE1_9DCBD647BC5E" name="substanceAmount" scope="Public">
+						<initial/>
+						<documentation value="The amount of the constituent that makes up the whole."/>
+						<model ea_localid="1299" ea_guid="{97F55710-17CB-4907-8FE1-9DCBD647BC5E}"/>
+						<properties type="IVL_PQ" derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<coords ordered="0"/>
+						<containment containment="Not Specified" position="1"/>
+						<stereotype/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="IsLiteral=0;volatile=0;"/>
+						<tags/>
+						<xrefs/>
+					</attribute>
+				</attributes>
 			</element>
 			<element xmi:idref="EAID_1C68370D_9074_43c1_8081_C4CFCC33BCBE" xmi:type="uml:Class" name="DeniedAdverseEvent" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="165" ea_eleType="element"/>
@@ -4142,7 +4157,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{3328126F-97A1-4341-8D70-BA97050B3E56},{EA141172-DD7B-4639-A67D-5F2EF61128F5},{CACE62A3-1152-475b-95C7-341DD72E06E1},{196D340E-35DE-41c1-A908-0681221D07E8}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{EA141172-DD7B-4639-A67D-5F2EF61128F5},{3328126F-97A1-4341-8D70-BA97050B3E56},{196D340E-35DE-41c1-A908-0681221D07E8},{CACE62A3-1152-475b-95C7-341DD72E06E1}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_A52AA465_7EE1_4343_A810_9D994224D1A8" name="amount" scope="Public">
 						<initial/>
@@ -4194,13 +4209,13 @@
 			<element xmi:idref="EAID_E96297F2_C363_4b92_821E_0BE029A6F96C" xmi:type="uml:Class" name="Documentation" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="528" ea_eleType="element"/>
 				<properties documentation="This type may be used to represent documentation that is either free text or richer in format (e.g., XML or HTML) where provenance is not relevant. The type of the documentation is determined by a code that represents the type of documentation (&quot;e.g., a consult note, a provider instruction, a patient instruction, etc...). It is intended to represent comment fields and notes such as those associated with order entry forms. Either freeTextValue or content must be specified." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-06 15:59:26" modified="2013-07-16 17:00:13" complexity="1" status="Proposed"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-06 15:59:26" modified="2013-07-25 07:17:01" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{F528D42D-B8C3-4684-9E15-71F699B0EF8F},{45E74030-A710-4943-8D05-5B3D57802C23},{67D02DC3-6913-425f-B5FE-8B841B898482},{A3D9FFE7-03C2-40e3-92A7-0ADEADE5CE2A},{7A77A743-4E27-4db5-B652-77F514CCAC85},{20F155D0-E59D-42a0-96EE-9B594210292D},{AF5EAA7A-BD1B-4fdf-BC5B-2C927680738B},{68F1E4BF-0553-485e-BD43-A015056880EC},{C78942E6-A5AA-4020-8AFF-3D16381C36F7},{1D36366E-9835-433a-A0D7-732CAA755880},{4AD1E735-DD11-4548-804A-9F3AD94B1E48},{2660FCD4-76AB-4b24-82BC-2F5981FD81A3},{71AFFA8F-7C25-4eba-83D7-32433097F571}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{7A77A743-4E27-4db5-B652-77F514CCAC85},{68F1E4BF-0553-485e-BD43-A015056880EC},{71AFFA8F-7C25-4eba-83D7-32433097F571},{AF5EAA7A-BD1B-4fdf-BC5B-2C927680738B},{20F155D0-E59D-42a0-96EE-9B594210292D},{A3D9FFE7-03C2-40e3-92A7-0ADEADE5CE2A},{45E74030-A710-4943-8D05-5B3D57802C23},{67D02DC3-6913-425f-B5FE-8B841B898482},{2660FCD4-76AB-4b24-82BC-2F5981FD81A3},{F528D42D-B8C3-4684-9E15-71F699B0EF8F},{1D36366E-9835-433a-A0D7-732CAA755880},{C78942E6-A5AA-4020-8AFF-3D16381C36F7},{4AD1E735-DD11-4548-804A-9F3AD94B1E48}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_863BC5F3_5419_41d5_974D_AED062009E75" name="content" scope="Public">
 						<initial/>
@@ -4252,13 +4267,13 @@
 			<element xmi:idref="EAID_2348005F_146F_4cf7_A737_9719BF4EA59D" xmi:type="uml:Class" name="DoseRestriction" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="47" ea_eleType="element"/>
 				<properties documentation="Referred to in CDA release 2 as maxDoseQuantity.  Specifies the maximum dose that can be given in a specified time interval." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project version="1.0" phase="1.0" created="2011-01-07 15:03:23" modified="2013-07-17 02:29:52" complexity="1" status="Proposed"/>
+				<project version="1.0" phase="1.0" created="2011-01-07 15:03:23" modified="2013-07-25 07:17:02" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={EB1239BC-9287-497c-A263-4122FF6F2458}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2348005F-146F-4cf7-A737-9719BF4EA59D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{0AE6CF1D-3385-4c4c-BB09-BBE10AD807A5},{99DB8B5C-ABAC-4086-8899-BBA628BDC1CC},{CB7A7CBD-14FB-4671-96E1-3436353C53E2},{20831111-3455-42fa-A06E-9202774AC1C1},{900289BE-91D8-48e9-B8FE-46C6FF124FC1}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{0AE6CF1D-3385-4c4c-BB09-BBE10AD807A5},{CB7A7CBD-14FB-4671-96E1-3436353C53E2},{20831111-3455-42fa-A06E-9202774AC1C1},{900289BE-91D8-48e9-B8FE-46C6FF124FC1},{99DB8B5C-ABAC-4086-8899-BBA628BDC1CC}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_FAE76CB4_4EB5_41fb_AAD6_308DB093F50E" name="maxDoseForInterval" scope="Public">
 						<initial/>
@@ -4881,7 +4896,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{87F15F4D-B9C3-47ff-A90F-92570B5A8482},{9157AAE3-CADA-4aa2-94C4-A0247ABEDEA6},{ED2B6006-4F16-4dac-96B5-09EA6F77C901},{0335A709-2ECF-4a87-87CD-FB8CD4A6F0E3},{78CB3D6D-2799-4d80-92FA-C5B5D318065C},{E90952C9-AD49-483a-8B19-2B57D65A43C9},{00758686-FC9A-4de9-942B-2D204F84956F}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{87F15F4D-B9C3-47ff-A90F-92570B5A8482},{9157AAE3-CADA-4aa2-94C4-A0247ABEDEA6},{E90952C9-AD49-483a-8B19-2B57D65A43C9},{0335A709-2ECF-4a87-87CD-FB8CD4A6F0E3},{00758686-FC9A-4de9-942B-2D204F84956F},{ED2B6006-4F16-4dac-96B5-09EA6F77C901},{78CB3D6D-2799-4d80-92FA-C5B5D318065C}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_C69D2061_E84B_457e_8C47_D50E5430352A" name="frequencyStartType" scope="Public">
 						<initial/>
@@ -7322,7 +7337,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{F2E0B7D1-3D2D-480d-9324-FCEB6618F618},{48E43E42-E245-464e-8A37-082B8601D570}"/>
+				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{48E43E42-E245-464e-8A37-082B8601D570},{F2E0B7D1-3D2D-480d-9324-FCEB6618F618}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_5C3445E9_D6A5_4530_8923_BB7EEC650127" name="source" scope="Public">
 						<initial/>
@@ -7520,7 +7535,7 @@
 			<element xmi:idref="EAID_453FBA1B_187F_4a90_A0E9_08F22B167BC3" xmi:type="uml:Class" name="SubstanceAdministrationEvent" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="50" ea_eleType="element"/>
 				<properties documentation="The actual administration of the substance.&#xA;&#xA;Handling of entries in &quot;current medication list&quot; with no other data than current medications could be as follows:&#xA;- SubstanceAdministrationEvent with documentationTime = time when snapshot was taken of current medication list, administrationEventTime = null if no data provided on when medication was started or stopped, administrationTime with specified Low but null High if data only provided on when medication was started.&#xA;&#xA;To specify &quot;patient takes an unknown drug&quot;, use a code for substance that represents &quot;unknown medication&quot;." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project version="1.0" phase="1.0" created="2011-01-07 15:10:40" modified="2013-07-16 17:00:13" complexity="1" status="Proposed"/>
+				<project version="1.0" phase="1.0" created="2011-01-07 15:10:40" modified="2013-07-25 07:17:02" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -7617,7 +7632,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={A829D173-209D-4d58-BAC7-080003E58416}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D971F3CB-DCB2-45a9-923F-064B095B4612}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{A4CBD03A-4083-42d2-8C5B-DFBB5351CBFB},{2796B356-2FF5-4434-B2B5-0B5F2FBE8A35}"/>
+				<extendedProperties tagged="0" package_name="vmr"/>
 				<attributes>
 					<attribute xmi:idref="EAID_93AECE3F_CED8_41a0_BBBA_C1C0E1089592" name="administrationTimeInterval" scope="Public">
 						<initial/>
@@ -7786,7 +7801,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={770A5E6C-663E-42f9-9302-C94804340656}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={79C1F98B-840D-44ed-9E19-4B153224DFF8}$CLT;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="vmr" ea_attsclassified="{E303BEB9-F061-44e4-A3E9-A77C9EFDA50A},{E34C38E0-AA9F-4460-A4F8-A5C9192469AE}"/>
+				<extendedProperties tagged="0" package_name="vmr"/>
 				<attributes>
 					<attribute xmi:idref="EAID_F528D42D_B8C3_4684_9E15_71F699B0EF8F" name="comment" scope="Public">
 						<initial/>
@@ -8561,7 +8576,7 @@
 			<element xmi:idref="EAID_938E2A04_9836_4046_ABA2_5C07433D3F6A" xmi:type="uml:Class" name="UndeliveredSubstanceAdministration" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="167" ea_eleType="element"/>
 				<properties documentation="Documents the non-delivery of a substance.  E.g., documents that an influenza immunization was not given because the patient refused or had an adverse reaction to a previous flu vaccine." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project version="1.0" phase="1.0" created="2011-02-09 12:50:50" modified="2013-07-16 17:00:13" complexity="1" status="Proposed"/>
+				<project version="1.0" phase="1.0" created="2011-02-09 12:50:50" modified="2013-07-25 07:17:02" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -8776,7 +8791,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={B25F9AB2-3D92-4531-9076-227AF8EABCE9}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5E72FFE9-A309-4a68-A3F1-0E94CC393AA0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{E69C2121-A9F3-489e-81B9-469E1ED207EA},{33DC6C94-36CD-4302-A03A-0F916C423326},{E6FB988F-73C5-4ffe-95C3-EFF6AFEAF6EC}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{33DC6C94-36CD-4302-A03A-0F916C423326},{E6FB988F-73C5-4ffe-95C3-EFF6AFEAF6EC},{E69C2121-A9F3-489e-81B9-469E1ED207EA}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_647D9743_BA59_4ea2_9B77_A12A69C03E55" name="use" scope="Public">
 						<initial/>
@@ -8864,7 +8879,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={9EDB1005-53A6-4cf3-B117-E94BABF9FF37}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D72FD77F-1019-4392-9094-BF423D0B52D7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{084C3F6F-6B4A-4686-B4D2-224B1FC830BC},{A4843899-49CE-4132-8B62-465D24A530BC},{0FB8CF95-AC7D-4fe2-B183-FFDCDBB53122}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{0FB8CF95-AC7D-4fe2-B183-FFDCDBB53122},{A4843899-49CE-4132-8B62-465D24A530BC},{084C3F6F-6B4A-4686-B4D2-224B1FC830BC}"/>
 				<links>
 					<Generalization xmi:id="EAID_11E824C3_CE51_4617_BD14_FBC9360470C0" start="EAID_D349A5B0_C012_41f8_A0D3_F3E2E2909E56" end="EAID_D72FD77F_1019_4392_9094_BF423D0B52D7"/>
 					<Generalization xmi:id="EAID_1272EB86_CE52_4d75_B646_91BEB23D26D9" start="EAID_E6D0FE1E_EB17_4311_80D8_B438D6102C6D" end="EAID_D72FD77F_1019_4392_9094_BF423D0B52D7"/>
@@ -9357,7 +9372,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={8AD0E166-CA66-4e59-BD0B-819782EFF4FE}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={42B3AC61-A754-4ffa-9F7F-B56B467F5135}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{B558C26A-5326-43ce-839C-FFA2F993B78F},{519E6912-3267-48c1-9F0B-F7A00974F266},{9FB3B4EE-D023-4476-9A1D-CBBEAA3446F5},{C83EFB83-6472-4442-8963-04F96ABC403F},{181E01BE-61CC-4996-BD23-28AD96224D23},{1D223FC2-E71A-4fad-90F5-DB6D39A10BA7},{964119D6-383D-4957-B11D-1CB1D51FFE82},{6CB030D7-390D-429b-ADEB-685A16527262},{680E026C-40DE-42bc-B911-51F290DB4C15},{386EC27C-D78D-41dd-A889-59B8E42B9619},{EE33AA09-9615-47b3-9C0A-D6E10D6EE2B6}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{1D223FC2-E71A-4fad-90F5-DB6D39A10BA7},{181E01BE-61CC-4996-BD23-28AD96224D23},{680E026C-40DE-42bc-B911-51F290DB4C15},{386EC27C-D78D-41dd-A889-59B8E42B9619},{964119D6-383D-4957-B11D-1CB1D51FFE82},{C83EFB83-6472-4442-8963-04F96ABC403F},{519E6912-3267-48c1-9F0B-F7A00974F266},{B558C26A-5326-43ce-839C-FFA2F993B78F},{EE33AA09-9615-47b3-9C0A-D6E10D6EE2B6},{6CB030D7-390D-429b-ADEB-685A16527262},{9FB3B4EE-D023-4476-9A1D-CBBEAA3446F5}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_BF54DF87_CF6C_4e0e_989C_22B9503515C1" name="value" scope="Public">
 						<initial/>
@@ -9390,7 +9405,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={CF860397-F7D7-45ff-8EBD-D96BC7FE44C8}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={35FE5B29-50E0-4745-ADFE-86E41FABDF43}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{5CA7501C-CD1D-4954-A2E4-DD3B9420FC27},{E0DA143D-6DB8-4075-897B-B2E777E2ECB9},{5084CA66-AA5F-48c1-9C33-C5CA34926B9B},{C731A2E6-64B9-4719-92E2-2721301CA75D},{552BAB4A-C706-4d5f-B0CF-88583317676B},{FFC51BBC-621A-416f-9B83-149A68124BC8},{AFA42800-864E-4261-B9A7-FECAFB0E5CEE},{E4E0F436-821B-4428-AD47-C9C95D202FAA},{19E161F0-0518-41ef-8724-50407D3BCBB0},{D55CC898-5868-46c3-BD88-1FC1FEA30DA1},{A36ADA85-A6DB-4119-9183-408A9D2EAC1B},{9280C4BE-03A6-445d-ABAD-C8373DDD3C12},{655DE8D8-55B6-46ad-A336-BD46BBC3C7C0},{61364C97-4924-4e7f-A506-DAAD117CF6BC},{10869908-4032-44cb-BC1F-9832820C5020},{45EBE627-FAE2-417a-86AD-E9CD9E685BCF},{4637BE47-DB43-4f86-B9F2-BF949881C33C},{453DB30E-56F6-4f75-B5CF-B064A892E540},{A75BF61A-D74D-4c6a-BD53-6D4DBDF94C76},{A1311831-EEB2-4506-9C34-EB27492E94E6},{38CC7D78-9F91-4f55-8C16-7B0BCFAE28F7},{5C3445E9-D6A5-4530-8923-BB7EEC650127},{94271C88-2C2F-4f64-BE7F-8B4C915712ED},{1BF99111-476D-40b1-8072-D8313E250F4C},{DFB53F66-8D48-472b-850D-218687807412},{57887B09-C3C3-4b33-98AB-0D18CDC1E715},{1F35C936-1DE0-4294-B512-E9254A516B80},{EC02BB89-9005-4c10-BD70-7ABBEE40D59A},{12A24785-D34B-4374-93CA-6E884CE418C5},{3E3550A6-208D-4ec3-96EA-7110D471B105},{133219FD-3BF6-4048-AC26-ADAEBD0519F4},{EA038393-EF11-426e-86F3-6AC3103A900D},{D12BE00D-E087-44ed-97C4-9E3B0E7B71F0},{BE5C225F-0EFC-458e-8E06-E1C6485F0D8E},{FD07C93D-01BF-44bb-8FBE-7CD19076CA9B},{B58A3899-3232-4301-9455-0D47C5008BF4},{E7BE0F11-4D9A-4c02-819D-C1D9C9F95A0D},{005F6B99-445D-4998-A9A1-F3EEC0BC71CD},{539A2716-2C12-43ca-AF80-8D51CE030C6C},{1CB4255E-82A1-4743-AE91-E1CE3ECD82F0},{FA40C44C-AF7F-40e4-81E1-E9096DCC9C6B},{F8F7C515-34E2-4ca5-8D39-3AA1B15896D7},{A2B3BB92-0893-491f-B0F7-319048377837},{41C80015-C739-4b74-80BA-F047A8BA0795},{995A7ABF-4EA9-4ea3-8E3A-CC030096A83D},{12FB1C08-2342-4b60-BC2B-BD07F3286290},{0E9293FC-0D76-4e81-9E60-6ECF9F6F8E75},{A99A35E7-EF4D-4e2f-A7A9-42B2185FD9AD},{C37547D3-BF79-45a3-9190-2D19CB9C8023},{E3EF678C-0A9D-4722-9E96-3A39D649EA91},{CB484513-5E8C-491c-89DC-E08B2997D284},{94F0E9E5-4D64-4d00-AB23-37548A2FD671},{035C360B-A7A6-459b-8BE8-3E6515CAD2F2},{C2D25B56-168C-4ce0-8FA4-42EB482FB769},{0C3A9EDB-61B4-4ba7-BC26-83EBA12CEBE8},{8E647808-B39B-4207-86CE-3837B38C77FA},{BF44D4A4-04AF-426e-92D3-06ED114D5D69},{4DC4C969-E0F9-4a9e-9144-434E3C63124A},{1C68D136-D60D-45ab-ABF4-574A2E81D0BB},{ABAB68D5-27B5-4ad5-B8D0-6D23A4FF4E2A},{C1C4BBA8-2F03-4ad3-8C40-42B9DFEE3EB5},{63D9B40B-30A8-4cd4-82EB-ECA74795EC58},{19D2C267-8FC3-459e-A9C0-742257FB4F45},{9A39E9F2-DAE5-429a-8FC8-E0E8285B6BE7},{5A153C0A-8CE8-4ddf-9F6C-5C400CE69D07},{DE69A721-2208-44ad-9C20-9B3192D2C832},{A89CC50C-5152-4f8d-B10C-12E304833919},{5AF6685A-FE3D-469b-9AAB-73225F30F055},{3EB215D7-3B57-4917-8FA7-AA03F53CEDEE},{44F8AEB9-7FC7-4343-983A-AD4652DAA21B},{B6933994-3A3D-4469-BD25-DD29FFBF4981},{C0981B09-46D8-42ff-9BE5-D28A83C9AF93},{BB320BD3-1A11-4902-B2B2-201B4A731931},{AD694314-9CF1-4006-B8D7-B8454E5DCF5A},{859B2AB3-1948-4427-BD26-FCF8D94B8898},{D32B9040-6ADF-47e0-9918-31949F8BE42C},{E4E3BAA5-CAE6-4fad-A1D6-BF558A8782A1},{03D8B695-6487-4e03-A5A8-54204B08E0BC},{7A733308-3FC4-4622-A3B6-97278A8BAFA7},{07E945E1-9DC5-455c-9DB5-1489F2AD9A4B},{C9702E5F-FE7F-4386-B2C9-526C44B6EB66},{C3340090-ED0B-4daf-9077-C62F5673A53D},{C5DE88E1-B162-4a14-9AD1-010051175E9A},{789652ED-0446-4120-9496-7515E6F826EB},{549D3EB9-1DD0-457f-A3C4-49CD79930DCF},{737CFB81-F463-4f47-9B76-65E072BC6C24},{AC3B0D2E-2EC1-4b73-A2F7-4D27D3B55C6B},{B1CF8B2B-D227-4cfe-AD86-8B6E1CEDF41C},{25BB8C55-D24C-4e25-8761-0BC30D72F89B},{2B4EB920-E233-4c55-8CC6-987DD3EDFE2A},{D8BE03EC-3222-45ab-BD91-96BE4FCD00FB},{C251AE51-C212-404b-8B72-109353BC38A4},{79005D19-EA5B-4f2b-A8E9-6C3E81CA4C5D},{DB354ADD-DF59-41c9-9035-B484CC14EBB0},{67A0EDB8-B6F2-4801-8BDD-0B39EE19C152},{355F1A9B-C8AC-43ee-AC82-790EA944E66A},{64550E7C-9A55-4a82-A75C-9FCCC1860E9F},{DAE5FD5A-F687-4e32-8D1A-2718F643250D},{440FFF10-A28A-47a7-B2AF-C9BBE4DFC9F4},{B2090435-28BC-426a-B0A7-EDEB48B6F218},{126C1DFD-2A3E-4e45-9582-BD57B076D816},{AECCD28B-D16E-406b-BC3C-B133EC022DCE},{A5032397-F36D-4e10-82DF-386B973684AA},{C69D2061-E84B-457e-8C47-D50E5430352A},{6B28398B-FD5C-41ae-A28A-1F28D2D34B59},{88EAB140-8D2D-40dc-9CB9-6F35FD6BD8A9},{039913C9-EDC9-4adb-8FC6-4BD836B22122},{2D3030F7-22EB-458c-85AD-030AA1B2CE06},{6AE0649E-ACCB-4c2c-AA11-318191E21D1A},{0001BB2F-011B-452a-B60D-B4542BC0113A},{015C1CAA-A431-4ad2-B1C5-0DAD83376FC2},{6DF8C2A6-CC0F-4d78-B923-F71CE4D34892},{CDDAEC0B-DC50-4f3c-840F-5A25AF954AC9},{2A2B8361-921C-4a9a-8FA9-6BD54EF56570}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{A36ADA85-A6DB-4119-9183-408A9D2EAC1B},{C69D2061-E84B-457e-8C47-D50E5430352A},{655DE8D8-55B6-46ad-A336-BD46BBC3C7C0},{005F6B99-445D-4998-A9A1-F3EEC0BC71CD},{9A39E9F2-DAE5-429a-8FC8-E0E8285B6BE7},{AFA42800-864E-4261-B9A7-FECAFB0E5CEE},{5084CA66-AA5F-48c1-9C33-C5CA34926B9B},{6DF8C2A6-CC0F-4d78-B923-F71CE4D34892},{6AE0649E-ACCB-4c2c-AA11-318191E21D1A},{9280C4BE-03A6-445d-ABAD-C8373DDD3C12},{552BAB4A-C706-4d5f-B0CF-88583317676B},{CDDAEC0B-DC50-4f3c-840F-5A25AF954AC9},{DAE5FD5A-F687-4e32-8D1A-2718F643250D},{1BF99111-476D-40b1-8072-D8313E250F4C},{88EAB140-8D2D-40dc-9CB9-6F35FD6BD8A9},{E4E0F436-821B-4428-AD47-C9C95D202FAA},{539A2716-2C12-43ca-AF80-8D51CE030C6C},{12A24785-D34B-4374-93CA-6E884CE418C5},{BF44D4A4-04AF-426e-92D3-06ED114D5D69},{19E161F0-0518-41ef-8724-50407D3BCBB0},{94F0E9E5-4D64-4d00-AB23-37548A2FD671},{A89CC50C-5152-4f8d-B10C-12E304833919},{E7BE0F11-4D9A-4c02-819D-C1D9C9F95A0D},{0C3A9EDB-61B4-4ba7-BC26-83EBA12CEBE8},{ABAB68D5-27B5-4ad5-B8D0-6D23A4FF4E2A},{039913C9-EDC9-4adb-8FC6-4BD836B22122},{EA038393-EF11-426e-86F3-6AC3103A900D},{E0DA143D-6DB8-4075-897B-B2E777E2ECB9},{A1311831-EEB2-4506-9C34-EB27492E94E6},{0001BB2F-011B-452a-B60D-B4542BC0113A},{126C1DFD-2A3E-4e45-9582-BD57B076D816},{1F35C936-1DE0-4294-B512-E9254A516B80},{C2D25B56-168C-4ce0-8FA4-42EB482FB769},{57887B09-C3C3-4b33-98AB-0D18CDC1E715},{BE5C225F-0EFC-458e-8E06-E1C6485F0D8E},{B2090435-28BC-426a-B0A7-EDEB48B6F218},{C731A2E6-64B9-4719-92E2-2721301CA75D},{10869908-4032-44cb-BC1F-9832820C5020},{45EBE627-FAE2-417a-86AD-E9CD9E685BCF},{12FB1C08-2342-4b60-BC2B-BD07F3286290},{B58A3899-3232-4301-9455-0D47C5008BF4},{DFB53F66-8D48-472b-850D-218687807412},{5CA7501C-CD1D-4954-A2E4-DD3B9420FC27},{453DB30E-56F6-4f75-B5CF-B064A892E540},{63D9B40B-30A8-4cd4-82EB-ECA74795EC58},{07E945E1-9DC5-455c-9DB5-1489F2AD9A4B},{D55CC898-5868-46c3-BD88-1FC1FEA30DA1},{C37547D3-BF79-45a3-9190-2D19CB9C8023},{5C3445E9-D6A5-4530-8923-BB7EEC650127},{61364C97-4924-4e7f-A506-DAAD117CF6BC},{FD07C93D-01BF-44bb-8FBE-7CD19076CA9B},{5AF6685A-FE3D-469b-9AAB-73225F30F055},{41C80015-C739-4b74-80BA-F047A8BA0795},{AECCD28B-D16E-406b-BC3C-B133EC022DCE},{BB320BD3-1A11-4902-B2B2-201B4A731931},{AD694314-9CF1-4006-B8D7-B8454E5DCF5A},{859B2AB3-1948-4427-BD26-FCF8D94B8898},{DE69A721-2208-44ad-9C20-9B3192D2C832},{79005D19-EA5B-4f2b-A8E9-6C3E81CA4C5D},{19D2C267-8FC3-459e-A9C0-742257FB4F45},{44F8AEB9-7FC7-4343-983A-AD4652DAA21B},{789652ED-0446-4120-9496-7515E6F826EB},{737CFB81-F463-4f47-9B76-65E072BC6C24},{AC3B0D2E-2EC1-4b73-A2F7-4D27D3B55C6B},{3EB215D7-3B57-4917-8FA7-AA03F53CEDEE},{B1CF8B2B-D227-4cfe-AD86-8B6E1CEDF41C},{E4E3BAA5-CAE6-4fad-A1D6-BF558A8782A1},{6B28398B-FD5C-41ae-A28A-1F28D2D34B59},{5A153C0A-8CE8-4ddf-9F6C-5C400CE69D07},{67A0EDB8-B6F2-4801-8BDD-0B39EE19C152},{355F1A9B-C8AC-43ee-AC82-790EA944E66A},{7A733308-3FC4-4622-A3B6-97278A8BAFA7},{4637BE47-DB43-4f86-B9F2-BF949881C33C},{A75BF61A-D74D-4c6a-BD53-6D4DBDF94C76},{C1C4BBA8-2F03-4ad3-8C40-42B9DFEE3EB5},{DB354ADD-DF59-41c9-9035-B484CC14EBB0},{F8F7C515-34E2-4ca5-8D39-3AA1B15896D7},{2D3030F7-22EB-458c-85AD-030AA1B2CE06},{38CC7D78-9F91-4f55-8C16-7B0BCFAE28F7},{015C1CAA-A431-4ad2-B1C5-0DAD83376FC2},{2A2B8361-921C-4a9a-8FA9-6BD54EF56570},{94271C88-2C2F-4f64-BE7F-8B4C915712ED},{1CB4255E-82A1-4743-AE91-E1CE3ECD82F0},{A5032397-F36D-4e10-82DF-386B973684AA},{03D8B695-6487-4e03-A5A8-54204B08E0BC},{8E647808-B39B-4207-86CE-3837B38C77FA},{E3EF678C-0A9D-4722-9E96-3A39D649EA91},{FA40C44C-AF7F-40e4-81E1-E9096DCC9C6B},{2B4EB920-E233-4c55-8CC6-987DD3EDFE2A},{4DC4C969-E0F9-4a9e-9144-434E3C63124A},{133219FD-3BF6-4048-AC26-ADAEBD0519F4},{C3340090-ED0B-4daf-9077-C62F5673A53D},{035C360B-A7A6-459b-8BE8-3E6515CAD2F2},{D32B9040-6ADF-47e0-9918-31949F8BE42C},{995A7ABF-4EA9-4ea3-8E3A-CC030096A83D},{440FFF10-A28A-47a7-B2AF-C9BBE4DFC9F4},{B6933994-3A3D-4469-BD25-DD29FFBF4981},{C9702E5F-FE7F-4386-B2C9-526C44B6EB66},{FFC51BBC-621A-416f-9B83-149A68124BC8},{549D3EB9-1DD0-457f-A3C4-49CD79930DCF},{D12BE00D-E087-44ed-97C4-9E3B0E7B71F0},{1C68D136-D60D-45ab-ABF4-574A2E81D0BB},{A99A35E7-EF4D-4e2f-A7A9-42B2185FD9AD},{25BB8C55-D24C-4e25-8761-0BC30D72F89B},{0E9293FC-0D76-4e81-9E60-6ECF9F6F8E75},{A2B3BB92-0893-491f-B0F7-319048377837},{3E3550A6-208D-4ec3-96EA-7110D471B105},{D8BE03EC-3222-45ab-BD91-96BE4FCD00FB},{CB484513-5E8C-491c-89DC-E08B2997D284},{C251AE51-C212-404b-8B72-109353BC38A4},{C5DE88E1-B162-4a14-9AD1-010051175E9A},{EC02BB89-9005-4c10-BD70-7ABBEE40D59A},{C0981B09-46D8-42ff-9BE5-D28A83C9AF93},{64550E7C-9A55-4a82-A75C-9FCCC1860E9F}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_B27E589D_D8C5_440c_9EF0_62B3F9697D35" name="code" scope="Public">
 						<initial/>
@@ -9548,7 +9563,7 @@
 					<tag xmi:id="EAID_5AB94267_F39F_42a5_8D7E_8C12DC180416" name="modelGroup" value="sequence#NOTES#Values: all | sequence | choice&#xA;Default: sequence&#xA;Description: Overrides the package-level default model group&#xA;" modelElement="EAID_8CF087A1_72E8_463b_B50B_C84E398C33CB"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={9F7EC587-F762-425f-932A-D9C35098A274}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={8CF087A1-72E8-463b-B50B-C84E398C33CB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{9D3AA040-A63E-4e4a-A7D2-0A279980DBD8},{ADAF4185-88C9-4219-981B-1ED57E7C41CB},{468C14BC-003C-41b5-BAC2-7F7E6195B25F},{84F1D77C-AA74-4c59-B3E5-D740A1E969DC},{CD9B4F6E-2C7F-4040-8537-F9DC2C5C2579},{C647E596-206A-4434-9E58-0D6443EC832E}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{C647E596-206A-4434-9E58-0D6443EC832E},{468C14BC-003C-41b5-BAC2-7F7E6195B25F},{CD9B4F6E-2C7F-4040-8537-F9DC2C5C2579},{ADAF4185-88C9-4219-981B-1ED57E7C41CB},{9D3AA040-A63E-4e4a-A7D2-0A279980DBD8},{84F1D77C-AA74-4c59-B3E5-D740A1E969DC}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_DF046F77_9939_48aa_8CF3_E7ADB1CE65D8" name="code" scope="Public">
 						<initial/>
@@ -9594,7 +9609,7 @@
 					<tag xmi:id="EAID_F2F08CD9_3C4F_4960_83FE_D96B42C48718" name="whiteSpace" value="#NOTES#Description: As defined by XML Schema Datatypes specification&#xA;" modelElement="EAID_34D656E1_E383_4771_B378_2920051BA04A"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={8CF0B83C-0BED-4ea4-A67A-DC3471BC11C3}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDsimpleType;GUID={1B97BF7D-9B2C-4088-9136-E284DABB199E};@ENDSTEREO;$DES;$CLT={34D656E1-E383-4771-B378-2920051BA04A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{19513C93-C892-4c17-A2F2-13736B8D0DA9},{2CE43E9C-9FE6-4387-B5A0-5D6BB13AEF8E},{167F1747-5BBE-4ac2-8A22-B0B25E15F6B8},{B27E589D-D8C5-440c-9EF0-62B3F9697D35}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{19513C93-C892-4c17-A2F2-13736B8D0DA9},{2CE43E9C-9FE6-4387-B5A0-5D6BB13AEF8E},{B27E589D-D8C5-440c-9EF0-62B3F9697D35},{167F1747-5BBE-4ac2-8A22-B0B25E15F6B8}"/>
 			</element>
 			<element xmi:idref="EAID_021ED886_58C2_4d86_814E_EE37524C0CE9" xmi:type="uml:Class" name="Decimal" scope="public">
 				<model package="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9" tpos="0" ea_localid="583" ea_eleType="element"/>
@@ -9618,7 +9633,7 @@
 					<tag xmi:id="EAID_A3060509_8861_43cc_98A8_9C0D5C9D614A" name="whiteSpace" value="#NOTES#Description: As defined by XML Schema Datatypes specification&#xA;" modelElement="EAID_021ED886_58C2_4d86_814E_EE37524C0CE9"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={9405E167-FEC7-45d2-924B-E5BDB5D5ECE8}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDsimpleType;@ENDSTEREO;$DES;$CLT={021ED886-58C2-4d86-814E-EE37524C0CE9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{C5066F1A-56A8-44fa-ACE2-2367B41837C4},{9DC1EAF2-8C39-4fbc-93FC-1447994795F9},{88B1B351-60A8-4633-B1D4-CE2FFD3A81EA}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{C5066F1A-56A8-44fa-ACE2-2367B41837C4},{88B1B351-60A8-4633-B1D4-CE2FFD3A81EA},{9DC1EAF2-8C39-4fbc-93FC-1447994795F9}"/>
 			</element>
 			<element xmi:idref="EAID_55552FA4_6B0E_4190_913A_BA96BADD6478" xmi:type="uml:Class" name="ED" scope="public">
 				<model package="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9" tpos="0" ea_localid="532" ea_eleType="element"/>
@@ -9759,7 +9774,7 @@
 							<tag xmi:id="EAID_8AC17B95_3812_43f1_A7D2_4A5CD63AAEA9" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: Specifies if the role name is included in the element declaration for the UML attribute&#xA;"/>
 							<tag xmi:id="EAID_CEC7EE7F_46BB_4948_80D8_9BA307EA7241" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the attributeFormDefault for this schema&#xA;"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={3C69E9FD-529C-4eac-BA20-CB20F38F4B65}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={19513C93-C892-4c17-A2F2-13736B8D0DA9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={E4C2AF3B-F0F6-428e-AD95-2FF5CB6FBBFF}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={19513C93-C892-4c17-A2F2-13736B8D0DA9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={E4C2AF3B-F0F6-428e-AD95-2FF5CB6FBBFF}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={19513C93-C892-4c17-A2F2-13736B8D0DA9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={3C69E9FD-529C-4eac-BA20-CB20F38F4B65}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={19513C93-C892-4c17-A2F2-13736B8D0DA9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_2CE43E9C_9FE6_4387_B5A0_5D6BB13AEF8E" name="language" scope="Public">
 						<initial/>
@@ -9779,7 +9794,7 @@
 							<tag xmi:id="EAID_8468E35D_B6E6_43a6_8990_6553A62467F5" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: Specifies if the role name is included in the element declaration for the UML attribute&#xA;"/>
 							<tag xmi:id="EAID_3634D7BA_CD53_4f45_8A1C_9100031BE098" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the attributeFormDefault for this schema&#xA;"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={3597D2ED-8115-496d-9581-A8C7C0D0DC41}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2CE43E9C-9FE6-4387-B5A0-5D6BB13AEF8E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={9D61916E-BEE2-4459-89D9-0CACF6114B93}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={2CE43E9C-9FE6-4387-B5A0-5D6BB13AEF8E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={9D61916E-BEE2-4459-89D9-0CACF6114B93}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={2CE43E9C-9FE6-4387-B5A0-5D6BB13AEF8E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={3597D2ED-8115-496d-9581-A8C7C0D0DC41}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2CE43E9C-9FE6-4387-B5A0-5D6BB13AEF8E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_7F6C8816_CB43_4c6c_9AFA_6EAA2EA90BB2" name="integrityCheckAlgorithm" scope="Public">
 						<initial/>
@@ -9799,7 +9814,7 @@
 							<tag xmi:id="EAID_8F816D22_ECF7_4148_9224_39B795387142" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: Specifies if the role name is included in the element declaration for the UML attribute&#xA;"/>
 							<tag xmi:id="EAID_128D4473_176A_45cd_AFD1_92DA092F51C7" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the attributeFormDefault for this schema&#xA;"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={958881A1-8948-42ca-BD2D-04B39CD32305}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={7F6C8816-CB43-4c6c-9AFA-6EAA2EA90BB2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D1B9A198-1C30-4203-9237-26E58412FF7A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={7F6C8816-CB43-4c6c-9AFA-6EAA2EA90BB2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={D1B9A198-1C30-4203-9237-26E58412FF7A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={7F6C8816-CB43-4c6c-9AFA-6EAA2EA90BB2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={958881A1-8948-42ca-BD2D-04B39CD32305}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={7F6C8816-CB43-4c6c-9AFA-6EAA2EA90BB2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 				</attributes>
 				<links>
@@ -9815,7 +9830,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={1B8EEF78-ACDF-469f-AF37-210FCC636D98}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={4C931F73-3FBE-41cb-8313-481A639FE66A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{6AB2A9E0-A863-40d1-9081-E57EEAA642A2},{7000F7FF-6E96-4064-BD9D-C7611AF08801},{23F14B8D-6198-48d7-911C-C8A2CE6D7B70}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{23F14B8D-6198-48d7-911C-C8A2CE6D7B70},{7000F7FF-6E96-4064-BD9D-C7611AF08801},{6AB2A9E0-A863-40d1-9081-E57EEAA642A2}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_B662F486_A1B7_4ace_82B1_6D7D6903016E" name="part" scope="Public">
 						<initial/>
@@ -10504,7 +10519,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={F9830CE3-DF8C-492b-9F9E-CC2214C3CE6E}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={E6D0FE1E-EB17-4311-80D8-B438D6102C6D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{A7A590E7-93D1-4190-A031-61FA1AD04D26},{181B5B54-CE07-49b6-A5AB-34A8FF03A4E7},{4AF0BC91-5D2B-4f41-AEAD-6EB99DDDA833},{91943DBD-2F39-41b8-AEA8-56F0F93D4676},{F2850153-7D63-42b2-85D4-F04116FF787F},{2794AB84-BE08-4766-8E4C-8FAA62CF9F6B},{F92F092A-4DB2-4e7f-A947-53803FA343D6},{DA3EB822-E5CA-48ae-B1ED-AFEC38E59E7E}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{A7A590E7-93D1-4190-A031-61FA1AD04D26},{F2850153-7D63-42b2-85D4-F04116FF787F},{4AF0BC91-5D2B-4f41-AEAD-6EB99DDDA833},{181B5B54-CE07-49b6-A5AB-34A8FF03A4E7},{DA3EB822-E5CA-48ae-B1ED-AFEC38E59E7E},{F92F092A-4DB2-4e7f-A947-53803FA343D6},{2794AB84-BE08-4766-8E4C-8FAA62CF9F6B},{91943DBD-2F39-41b8-AEA8-56F0F93D4676}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_325A4EE3_44C3_4892_B19E_5EB465F40103" name="root" scope="Public">
 						<initial/>
@@ -10568,7 +10583,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={B65DC855-3D79-4265-B6FB-88381AE816B0}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={26F16ABC-BEDB-4a7b-A8B8-F99398E633E5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{64493F96-84D6-4945-B786-9142826B2B26},{0B8AE140-2B04-469a-BC6F-9734F9BE82EA},{6779D172-BEE8-4c44-87D7-4CF02C754365},{6243A334-4048-480f-A7BE-8F380DBB7920},{EB217B4A-439E-46d2-8875-9BA70AD47790},{F7A3820A-2611-4293-92FF-9B938182FEBD},{5381CF38-CD7E-4bcb-875A-63009C0249D5},{DEE96FA9-0346-43da-8846-292CFCE7FB0A},{F58797FC-7018-4d7d-9B23-4FC45983E33C},{B7E58F61-3044-4d4e-B157-590B3E96D918},{1EE1F0B6-E7A6-49ad-8562-CEFB12468B17},{6CDD2DFD-3C47-4206-A10B-C77C24A455E5}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{6CDD2DFD-3C47-4206-A10B-C77C24A455E5},{F58797FC-7018-4d7d-9B23-4FC45983E33C},{EB217B4A-439E-46d2-8875-9BA70AD47790},{5381CF38-CD7E-4bcb-875A-63009C0249D5},{6243A334-4048-480f-A7BE-8F380DBB7920},{0B8AE140-2B04-469a-BC6F-9734F9BE82EA},{B7E58F61-3044-4d4e-B157-590B3E96D918},{DEE96FA9-0346-43da-8846-292CFCE7FB0A},{1EE1F0B6-E7A6-49ad-8562-CEFB12468B17},{6779D172-BEE8-4c44-87D7-4CF02C754365},{64493F96-84D6-4945-B786-9142826B2B26},{F7A3820A-2611-4293-92FF-9B938182FEBD}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_62A33717_4B4B_4a73_BF09_03F9E1330CFF" name="value" scope="Public">
 						<initial/>
@@ -10677,7 +10692,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={35139C7A-AB5D-4348-B26A-0A57C4CFDD56}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={B17CEB60-E8AB-4f3e-80BC-3FF36E6DEC67}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{38FDFCCE-1974-4101-8830-2BB7BF7AB937},{92DE9ADB-D7F4-44d0-9573-CD1C887106DF},{6F670F88-DA0F-4f5c-8FDD-1FA178A6249F},{13C8EF01-3A5D-402f-AA22-8E04017064C9},{37C3B023-3EE8-4d18-95F8-6CC768F8CE56},{358A1397-08CE-40b5-95B6-8C00914EEEF6},{C3916915-57B4-4352-A2D1-1A29CF6E4A85},{EA8B0963-147C-4f6c-A264-17D2062C8230},{8B6A2830-B438-4cc7-B6EE-7A8479779B1C},{E9C96BAF-4522-4090-AC56-131FAF2E7F66},{BD21E8CE-529A-4c66-A2EC-B4FE3FAC9603},{CDC603B7-1136-4cb0-B197-7FE13A89D149},{827E971B-624B-4f8a-8129-E1098DF3C310},{BEE00E7C-7A9D-4fc0-BC4B-5A31B912C9C1},{41012A79-229F-40e5-977A-4815ED60C25C},{E2F67F04-C481-43fe-90CD-571D5E8DE9AA},{7CAD3C7F-B04D-4c44-BD84-6A1B194B7DA0},{5C1540A6-EAA8-420f-8DA8-1DCD5F84AE6E},{2D79567D-FBC2-465e-8350-31AC624BE4F1},{4C8B6134-F21E-4eca-B113-AAEB6116FB41},{4E89864E-E130-4326-9E7F-BBA20A3C03B0},{84B79925-C20F-4971-B304-473987141D7A},{4FEBDF8B-2791-4433-88DA-C21B81BEAE13},{8FEBFC5E-A931-4f34-BC1D-EDDD295E2312},{3C80BB56-1E2C-441d-857C-2867AEA8D897},{92C747F2-036A-4bb9-A5E3-949103663200},{DC8B2528-1091-454b-B232-ACF44F784531},{A52AA465-7EE1-4343-A810-9D994224D1A8},{E0E842F4-3163-4765-9846-2AE1E2E92F57},{7B199408-0C8C-48b4-9E19-B49E38F64AE2},{3E1FAF0A-CCFE-4de4-BEE3-9FC56738692C},{37B77BED-5F55-4f31-B49C-92D2087840DD},{F2F628CC-65C9-412d-95E2-1F753B30C8C3},{224EB828-C9E2-4cad-B5A5-FF624DF7CDFC},{CAB57012-B61A-4f81-B12F-93F86A5B823E},{6AC28B85-50B4-4937-8E73-8F9131C7043F},{38141D67-5C28-427d-BC8B-6CD90DC98D2C}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{E0E842F4-3163-4765-9846-2AE1E2E92F57},{4E89864E-E130-4326-9E7F-BBA20A3C03B0},{7B199408-0C8C-48b4-9E19-B49E38F64AE2},{E9C96BAF-4522-4090-AC56-131FAF2E7F66},{EA8B0963-147C-4f6c-A264-17D2062C8230},{97F55710-17CB-4907-8FE1-9DCBD647BC5E},{4C8B6134-F21E-4eca-B113-AAEB6116FB41},{37B77BED-5F55-4f31-B49C-92D2087840DD},{F2F628CC-65C9-412d-95E2-1F753B30C8C3},{6AC28B85-50B4-4937-8E73-8F9131C7043F},{CAB57012-B61A-4f81-B12F-93F86A5B823E},{37C3B023-3EE8-4d18-95F8-6CC768F8CE56},{38FDFCCE-1974-4101-8830-2BB7BF7AB937},{8B6A2830-B438-4cc7-B6EE-7A8479779B1C},{3E1FAF0A-CCFE-4de4-BEE3-9FC56738692C},{BD21E8CE-529A-4c66-A2EC-B4FE3FAC9603},{224EB828-C9E2-4cad-B5A5-FF624DF7CDFC},{827E971B-624B-4f8a-8129-E1098DF3C310},{BEE00E7C-7A9D-4fc0-BC4B-5A31B912C9C1},{13C8EF01-3A5D-402f-AA22-8E04017064C9},{CDC603B7-1136-4cb0-B197-7FE13A89D149},{92DE9ADB-D7F4-44d0-9573-CD1C887106DF},{41012A79-229F-40e5-977A-4815ED60C25C},{E2F67F04-C481-43fe-90CD-571D5E8DE9AA},{358A1397-08CE-40b5-95B6-8C00914EEEF6},{2D79567D-FBC2-465e-8350-31AC624BE4F1},{7CAD3C7F-B04D-4c44-BD84-6A1B194B7DA0},{5C1540A6-EAA8-420f-8DA8-1DCD5F84AE6E},{92C747F2-036A-4bb9-A5E3-949103663200},{8FEBFC5E-A931-4f34-BC1D-EDDD295E2312},{4FEBDF8B-2791-4433-88DA-C21B81BEAE13},{38141D67-5C28-427d-BC8B-6CD90DC98D2C},{C3916915-57B4-4352-A2D1-1A29CF6E4A85},{DC8B2528-1091-454b-B232-ACF44F784531},{A52AA465-7EE1-4343-A810-9D994224D1A8},{3C80BB56-1E2C-441d-857C-2867AEA8D897},{6F670F88-DA0F-4f5c-8FDD-1FA178A6249F},{84B79925-C20F-4971-B304-473987141D7A}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_C3E3E99A_B0F7_4072_A7C9_EC59BF868FF6" name="low" scope="Public">
 						<initial/>
@@ -10981,7 +10996,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={C79DE672-0D4D-40e9-ACC8-1852F4CE7D84}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={A32018D5-8F53-45cd-A707-5352400C5E41}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{B1AB49C5-CF16-43ab-85E8-D945E3FDCE2A},{5896278A-4B7D-43f5-886B-CB19A4F76F5E},{B9833193-F00B-43e2-936E-F9C1E99A2080},{A107A75A-2174-4052-BB64-CD151D293490},{1D9FDB70-BD43-4d79-8216-AC692C25DD30},{DF0C1CD4-62B8-4a53-A342-8BD9DA153762},{FD839666-4E57-40d9-AE1C-5A88C08D9DAD},{1C3914E1-E08E-4fee-9757-8B616C61D5CA},{9A2720BA-773E-4fc7-BBE5-8CE1291C06CE},{581508EE-9383-495e-BB50-6AA888488F14},{A27B1ECC-08E8-4f7c-B272-ACEE601075FF},{FE4F7029-B89E-4d55-9D09-DCDDE566CC96},{AA09DFD5-0301-4def-995E-7A55E6EA2AFC},{45F11447-9A77-4ebe-8CAC-FFF24A93E47D},{93AECE3F-CED8-41a0-BBBA-C1C0E1089592},{81188F22-AB84-4da4-9FF1-2DD6A319A691},{1EE62F08-92A3-4133-BD2F-D006DB1AB864},{E70C3FA5-2C21-4c1b-9BB1-E39FF8924D69},{767C6452-A7CE-4b44-B837-FB1C07F217A4},{AC27D03D-0636-4579-B88A-A4BD2DF0CB67},{80D7FAA9-1443-453f-A01D-83B5F11F7BC1},{0440B799-A36B-4111-9240-16D9DD595C17},{FBE6CC35-7779-4d81-ABBC-59EBD7150E9D},{F54DCB42-06E2-4897-9CC6-CD70FC7D2A73},{1F2F1612-D458-4ee6-AFD5-745E09DA7C5E},{80A55171-453F-4423-AB35-F17C1EED509E},{60DB2A00-BD35-4f0a-B718-8BAF6F06530E},{F4492C13-23DB-4f75-8187-B5EF4C9A6885},{FD0BF9EC-E8DA-44d5-8EFE-CDAC325083A5},{25A8F24B-3CB3-43dc-95E9-A2D8F96E78EC},{236C940C-1369-4ff5-9C4F-22A2CB3FE233},{9846C140-7F85-4a79-A7B6-99326F85D432},{8AC8500B-EF24-4967-B674-FDC8E6D54CBB},{9A9FCF6B-A48E-4c4c-9B5A-FD3E44B3F8B7},{82D18912-FC8A-41c0-8DDE-583D4F6CA40D},{0E04F841-53C4-468a-91B9-1F1BCDCFA0EA},{63F5CC47-DCE9-4c9f-A694-C592B153E157},{C4EBDD12-5321-4f6c-B93D-8BD136392C22},{36755FBF-A1F6-4727-8658-0A37DADD4B02},{65FFBE2D-5A24-4ffa-A12C-D22FC2CFDBB0},{BA222BC2-57B0-473d-B980-5721BEA94D30},{34507F28-8ADC-4f49-A191-E359CEE0AB49},{579A24C9-57AC-42a8-9804-70DCF9723A05}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{FD839666-4E57-40d9-AE1C-5A88C08D9DAD},{581508EE-9383-495e-BB50-6AA888488F14},{1C3914E1-E08E-4fee-9757-8B616C61D5CA},{AA09DFD5-0301-4def-995E-7A55E6EA2AFC},{1EE62F08-92A3-4133-BD2F-D006DB1AB864},{45F11447-9A77-4ebe-8CAC-FFF24A93E47D},{DF0C1CD4-62B8-4a53-A342-8BD9DA153762},{5896278A-4B7D-43f5-886B-CB19A4F76F5E},{1D9FDB70-BD43-4d79-8216-AC692C25DD30},{FE4F7029-B89E-4d55-9D09-DCDDE566CC96},{A107A75A-2174-4052-BB64-CD151D293490},{B9833193-F00B-43e2-936E-F9C1E99A2080},{B1AB49C5-CF16-43ab-85E8-D945E3FDCE2A},{81188F22-AB84-4da4-9FF1-2DD6A319A691},{9846C140-7F85-4a79-A7B6-99326F85D432},{FBE6CC35-7779-4d81-ABBC-59EBD7150E9D},{F54DCB42-06E2-4897-9CC6-CD70FC7D2A73},{1F2F1612-D458-4ee6-AFD5-745E09DA7C5E},{80A55171-453F-4423-AB35-F17C1EED509E},{65FFBE2D-5A24-4ffa-A12C-D22FC2CFDBB0},{0440B799-A36B-4111-9240-16D9DD595C17},{FD0BF9EC-E8DA-44d5-8EFE-CDAC325083A5},{80D7FAA9-1443-453f-A01D-83B5F11F7BC1},{236C940C-1369-4ff5-9C4F-22A2CB3FE233},{8AC8500B-EF24-4967-B674-FDC8E6D54CBB},{25A8F24B-3CB3-43dc-95E9-A2D8F96E78EC},{60DB2A00-BD35-4f0a-B718-8BAF6F06530E},{82D18912-FC8A-41c0-8DDE-583D4F6CA40D},{0E04F841-53C4-468a-91B9-1F1BCDCFA0EA},{63F5CC47-DCE9-4c9f-A694-C592B153E157},{C4EBDD12-5321-4f6c-B93D-8BD136392C22},{36755FBF-A1F6-4727-8658-0A37DADD4B02},{E70C3FA5-2C21-4c1b-9BB1-E39FF8924D69},{F4492C13-23DB-4f75-8187-B5EF4C9A6885},{AC27D03D-0636-4579-B88A-A4BD2DF0CB67},{9A2720BA-773E-4fc7-BBE5-8CE1291C06CE},{A27B1ECC-08E8-4f7c-B272-ACEE601075FF},{BA222BC2-57B0-473d-B980-5721BEA94D30},{767C6452-A7CE-4b44-B837-FB1C07F217A4},{9A9FCF6B-A48E-4c4c-9B5A-FD3E44B3F8B7},{579A24C9-57AC-42a8-9804-70DCF9723A05},{34507F28-8ADC-4f49-A191-E359CEE0AB49},{93AECE3F-CED8-41a0-BBBA-C1C0E1089592}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_145719A7_A32D_4627_BFC0_FB0A1DE2B65E" name="low" scope="Public">
 						<initial/>
@@ -11100,7 +11115,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={20F7B715-3975-4330-B390-97BFA7E70017}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={C3AA820F-AC9B-4a08-A740-D89BA24D0429}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{319B08DB-C250-4ec9-80B9-6416A94FD1F8},{53365CB3-0134-4412-835F-8D332A15382C},{4E6013A7-1832-46ae-9394-79045C3001E0},{AD79F708-312B-471b-855B-18F0BDA64EBF},{1B734501-D909-4b95-A351-79E6994CE161},{3EC458DA-77DB-46d6-90F7-D386AFEEE9C7},{F96711ED-3310-4eae-9338-93CB09026DAA},{C3E3E99A-B0F7-4072-A7C9-EC59BF868FF6},{140951D5-28A0-4df3-9E51-50F2102B2D32},{057254E3-5046-4c18-A385-E2B967E62750},{56F0A58D-632C-44af-8491-EE98F77051D2},{9570384D-0C1F-4758-AC74-E75EAFEEDCF9},{2D08B459-2F2B-49b8-A1A8-DAB63830DAAE},{77E36693-14D5-4f39-98BE-20F76A2D4ECD},{0F7549EA-9024-41be-B8C8-40B8AEFE6D10},{6CED0F88-1833-4b75-85E7-E5E2BCC75D8D},{92FA1D1E-B724-4318-AC90-AF847DCA8D66},{68CB6522-DD62-4898-B825-4F652FF6C36D},{FAE76CB4-4EB5-41fb-AAD6-308DB093F50E},{48545372-C34B-4de8-95CB-8F93388B7C3D},{EECBA9B3-DE19-4d53-84C7-66235388FDF2}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{F96711ED-3310-4eae-9338-93CB09026DAA},{C3E3E99A-B0F7-4072-A7C9-EC59BF868FF6},{68CB6522-DD62-4898-B825-4F652FF6C36D},{319B08DB-C250-4ec9-80B9-6416A94FD1F8},{53365CB3-0134-4412-835F-8D332A15382C},{92FA1D1E-B724-4318-AC90-AF847DCA8D66},{56F0A58D-632C-44af-8491-EE98F77051D2},{3EC458DA-77DB-46d6-90F7-D386AFEEE9C7},{77E36693-14D5-4f39-98BE-20F76A2D4ECD},{0F7549EA-9024-41be-B8C8-40B8AEFE6D10},{9570384D-0C1F-4758-AC74-E75EAFEEDCF9},{2D08B459-2F2B-49b8-A1A8-DAB63830DAAE},{EECBA9B3-DE19-4d53-84C7-66235388FDF2},{1B734501-D909-4b95-A351-79E6994CE161},{6CED0F88-1833-4b75-85E7-E5E2BCC75D8D},{057254E3-5046-4c18-A385-E2B967E62750},{140951D5-28A0-4df3-9E51-50F2102B2D32},{4E6013A7-1832-46ae-9394-79045C3001E0},{AD79F708-312B-471b-855B-18F0BDA64EBF},{48545372-C34B-4de8-95CB-8F93388B7C3D},{FAE76CB4-4EB5-41fb-AAD6-308DB093F50E}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_9DC1EAF2_8C39_4fbc_93FC_1447994795F9" name="value" scope="Public">
 						<initial/>
@@ -11427,7 +11442,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={84E9EDDE-9BE2-4aa2-BCD0-B61BD32974D0}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={EF41D07F-B04F-4533-8F9A-EE62415565C7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{C27F5B76-8D1B-4a56-83FA-FE3250704C83},{13E6F36B-B4D5-4951-A257-60E0D07D9C3E}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{13E6F36B-B4D5-4951-A257-60E0D07D9C3E},{C27F5B76-8D1B-4a56-83FA-FE3250704C83}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_88B1B351_60A8_4633_B1D4_CE2FFD3A81EA" name="value" scope="Public">
 						<initial/>
@@ -11464,7 +11479,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{E2BED4AB-DA59-4109-BC71-2204C700A89D},{CD9FC603-DE6D-4e39-8EE6-FCF14D6454D9}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{CD9FC603-DE6D-4e39-8EE6-FCF14D6454D9},{E2BED4AB-DA59-4109-BC71-2204C700A89D}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_F58797FC_7018_4d7d_9B23_4FC45983E33C" name="numerator" scope="Public">
 						<initial/>
@@ -11510,7 +11525,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={C80D5CC4-E873-4933-9583-7BD3C91AD405}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={0276B06B-AD33-47ff-8ED0-75CA52989F23}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{4E8990BC-6C15-44ae-AA30-9A16E17525F7},{7E535CF7-5EDE-4fff-9A69-21E723C6A47F},{00CB7323-A632-457f-AB45-E00ADC4FC41E}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{7E535CF7-5EDE-4fff-9A69-21E723C6A47F},{4E8990BC-6C15-44ae-AA30-9A16E17525F7},{00CB7323-A632-457f-AB45-E00ADC4FC41E}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_140951D5_28A0_4df3_9E51_50F2102B2D32" name="numerator" scope="Public">
 						<initial/>
@@ -11556,7 +11571,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={475A5AE3-FFE5-42a7-B2A4-61A34B91120A}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2F9B12DB-35AE-4d95-A6C2-7A6922D4D494}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{22376048-2BCC-4a3b-B9C2-F8C116B3B9FF},{CE99CAC5-5CFE-428f-9A2C-9B0B2107712A},{9BBE5ABE-77BD-47f7-BA1B-DD28F5E2A8BF},{4CDD971C-5E83-47ad-8937-B8701CEF2746},{7033A496-F239-48f2-872F-874C8A381C66},{D9817842-11E2-42be-9C8F-A1BD7E83356C}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{9BBE5ABE-77BD-47f7-BA1B-DD28F5E2A8BF},{CE99CAC5-5CFE-428f-9A2C-9B0B2107712A},{4CDD971C-5E83-47ad-8937-B8701CEF2746},{D9817842-11E2-42be-9C8F-A1BD7E83356C},{7033A496-F239-48f2-872F-874C8A381C66},{22376048-2BCC-4a3b-B9C2-F8C116B3B9FF}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_6FB944A0_0536_4505_A425_177FDEC789F9" name="value" scope="Public">
 						<initial/>
@@ -11589,7 +11604,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={5D6FC0F6-7870-487d-BC6A-F85829BC16D8}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={773F6D0E-370F-4df1-A77D-E578A19568C0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{680F3BD1-4EB5-4e03-BD98-0D7D1192CB71},{9CC2A7C9-CB30-4b74-8485-AAB3F65256CB},{BB90B3B6-7C4E-42b9-891D-B2C3C0399111},{A0F969B9-E094-4188-8E68-AA2F1EDC35D4}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{A0F969B9-E094-4188-8E68-AA2F1EDC35D4},{680F3BD1-4EB5-4e03-BD98-0D7D1192CB71},{9CC2A7C9-CB30-4b74-8485-AAB3F65256CB},{BB90B3B6-7C4E-42b9-891D-B2C3C0399111}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_D677A63C_D6B2_4571_887C_C3759BC63BD5" name="value" scope="Public">
 						<initial/>
@@ -11681,7 +11696,7 @@
 				<modelDocument/>
 				<tags/>
 				<xrefs value="$XREFPROP=$XID={754DC4A9-99B3-4d44-8876-9ABB8EF3E987}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={4D308EB5-6124-4cc9-942E-FF9E64D02F42}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{3F7378C2-B25F-449b-95E3-72251A11217C},{D09B17C7-917D-47cc-8835-305F960B169E},{145719A7-A32D-4627-BFC0-FB0A1DE2B65E},{CE139476-2115-4291-9B50-3A26B8673CDA}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{3F7378C2-B25F-449b-95E3-72251A11217C},{D09B17C7-917D-47cc-8835-305F960B169E},{CE139476-2115-4291-9B50-3A26B8673CDA},{145719A7-A32D-4627-BFC0-FB0A1DE2B65E}"/>
 				<attributes>
 					<attribute xmi:idref="EAID_C6870B25_D9E9_4943_A46B_3F21493A6B7B" name="value" scope="Public">
 						<initial/>
@@ -12042,7 +12057,7 @@
 					<tag xmi:id="EAID_07585873_E157_4f26_8D37_306B79BF69A0" name="whiteSpace" value="#NOTES#Description: As defined by XML Schema Datatypes specification&#xA;" modelElement="EAID_29A02C52_39B2_43ef_811A_07B774C57DA1"/>
 				</tags>
 				<xrefs value="$XREFPROP=$XID={C23606B4-3205-4cf8-8817-66C6F9434F5F}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDsimpleType;@ENDSTEREO;$DES;$CLT={29A02C52-39B2-43ef-811A-07B774C57DA1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{325A4EE3-44C3-4892-B19E-5EB465F40103},{A4197947-396A-4143-B2C6-3C9408046AB2}"/>
+				<extendedProperties tagged="0" package_name="dataTypes" ea_attsclassified="{A4197947-396A-4143-B2C6-3C9408046AB2},{325A4EE3-44C3-4892-B19E-5EB465F40103}"/>
 			</element>
 			<element xmi:idref="EAID_51B8AFD1_7B7B_4866_AB11_A04D29360134" xmi:type="uml:Class" name="XP" scope="public">
 				<model package="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9" tpos="0" ea_localid="214" ea_eleType="element"/>
@@ -18104,44 +18119,45 @@
 			<diagram xmi:id="EAID_3EA5E235_F561_43fb_A153_BC92B6AA1D4D">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" localID="27" owner="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="13"/>
 				<properties name="substanceAdministration" type="Logical"/>
-				<project author="kawam001" version="1.0" created="2011-07-15 15:31:06" modified="2013-07-16 18:39:26"/>
-				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=84;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=377076BF;"/>
+				<project author="kawam001" version="1.0" created="2011-07-15 15:31:06" modified="2013-07-25 07:17:01"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=113;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=46884728;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
 				<elements>
-					<element geometry="Left=668;Top=325;Right=812;Bottom=403;" subject="EAID_E96297F2_C363_4b92_821E_0BE029A6F96C" seqno="1" style="DUID=38151464;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
-					<element geometry="Left=583;Top=959;Right=773;Bottom=1073;" subject="EAID_9F02D19B_A130_4053_8BEC_4FE660128FA6" seqno="2" style="NSL=0;DUID=A9361857;"/>
-					<element geometry="Left=71;Top=596;Right=239;Bottom=671;" subject="EAID_6A1EA967_7B6E_4d18_906F_FA410207D622" seqno="3" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=4B5C9CBF;"/>
-					<element geometry="Left=71;Top=704;Right=306;Bottom=792;" subject="EAID_310837C3_2DAC_43bc_B11E_EA72426B181D" seqno="4" style="DUID=0518BC55;"/>
-					<element geometry="Left=71;Top=816;Right=323;Bottom=886;" subject="EAID_0C37E49E_0B3A_46f3_9205_05CFA84FEC95" seqno="5" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=B43F5274;"/>
-					<element geometry="Left=316;Top=959;Right=543;Bottom=1060;" subject="EAID_E87E3953_5982_4a5f_B9FD_E253D850CC18" seqno="6" style="DUID=60F14A4A;"/>
-					<element geometry="Left=538;Top=704;Right=773;Bottom=792;" subject="EAID_6A0A4758_ABB9_457b_9A76_D267D015423D" seqno="7" style="DUID=0C79A711;"/>
-					<element geometry="Left=521;Top=816;Right=773;Bottom=886;" subject="EAID_30D90AA0_FDA8_4bba_B2EE_208F708D0912" seqno="8" style="DUID=D822B425;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
-					<element geometry="Left=605;Top=596;Right=773;Bottom=671;" subject="EAID_D548B063_FC74_4c93_B9CF_15956CDD5DAD" seqno="9" style="DUID=40E88FE4;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
-					<element geometry="Left=668;Top=8;Right=812;Bottom=70;" subject="EAID_6CF8EB0E_77A9_46ff_A107_26A1D7330B8C" seqno="10" style="DUID=CC274664;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
-					<element geometry="Left=280;Top=201;Right=547;Bottom=380;" subject="EAID_DA123C8E_34F5_4857_B779_5CD249F00758" seqno="11" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=DCDBBC26;"/>
-					<element geometry="Left=627;Top=165;Right=812;Bottom=304;" subject="EAID_94D0FD11_096A_420b_8834_A9B98B3D5636" seqno="12" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=21873677;"/>
-					<element geometry="Left=311;Top=53;Right=514;Bottom=154;" subject="EAID_9DFD8E0C_7609_4130_9B3D_96DBD379E2AE" seqno="13" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=7A71A92A;"/>
-					<element geometry="Left=501;Top=425;Right=771;Bottom=567;" subject="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8" seqno="14" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=478B8CB5;"/>
-					<element geometry="Left=27;Top=281;Right=225;Bottom=361;" subject="EAID_938E2A04_9836_4046_ABA2_5C07433D3F6A" seqno="15" style="DUID=D1347E12;NSL=0;"/>
-					<element geometry="Left=27;Top=121;Right=250;Bottom=222;" subject="EAID_453FBA1B_187F_4a90_A0E9_08F22B167BC3" seqno="16" style="NSL=0;DUID=0FB7676D;"/>
-					<element geometry="Left=70;Top=959;Right=276;Bottom=1073;" subject="EAID_71BEE75A_05B3_4287_A31C_87863B35C0AD" seqno="17" style="NSL=0;DUID=29682BE1;"/>
-					<element geometry="Left=71;Top=404;Right=321;Bottom=570;" subject="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612" seqno="18" style="NSL=0;DUID=07450CB2;"/>
-					<element geometry="Left=661;Top=84;Right=812;Bottom=148;" subject="EAID_2348005F_146F_4cf7_A737_9719BF4EA59D" seqno="19" style="NSL=0;DUID=AF5FFAAB;"/>
-					<element geometry="SX=0;SY=0;EDGE=1;EX=-131;EY=-73;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=702:-926$426:-926$;" subject="EAID_CD9F35C3_1053_451a_B9B6_0E733B87B3BB" style="Mode=3;EOID=DCDBBC26;SOID=A9361857;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="EX=-117;EY=7;SX=-81;SY=-2;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=25:-636$25:-480$;" subject="EAID_E7CA22E0_5C2A_4efd_A823_9C453B50B115" style="Mode=3;EOID=07450CB2;SOID=4B5C9CBF;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=7;SY=13;EDGE=4;EX=-122;EY=-49;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=25:-742$25:-480$;" subject="EAID_0C7AE8F1_FFEC_4e7f_9F8A_485D49023739" style="Mode=3;EOID=07450CB2;SOID=0518BC55;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="EX=-122;EY=-19;SX=-114;SY=-2;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=25:-853$25:-480$;" subject="EAID_377819F6_0A51_43d2_B5D7_AC6E4C275164" style="Mode=3;EOID=07450CB2;SOID=B43F5274;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="Left=603;Top=339;Right=799;Bottom=409;" subject="EAID_312FD0A4_100C_47d0_8A49_35C5AB3F6BA7" seqno="1" style="DUID=6A89FFDA;"/>
+					<element geometry="Left=35;Top=23;Right=179;Bottom=101;" subject="EAID_E96297F2_C363_4b92_821E_0BE029A6F96C" seqno="2" style="DUID=38151464;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=583;Top=951;Right=773;Bottom=1065;" subject="EAID_9F02D19B_A130_4053_8BEC_4FE660128FA6" seqno="3" style="NSL=0;DUID=A9361857;"/>
+					<element geometry="Left=83;Top=596;Right=251;Bottom=671;" subject="EAID_6A1EA967_7B6E_4d18_906F_FA410207D622" seqno="4" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=4B5C9CBF;"/>
+					<element geometry="Left=83;Top=704;Right=318;Bottom=792;" subject="EAID_310837C3_2DAC_43bc_B11E_EA72426B181D" seqno="5" style="DUID=0518BC55;"/>
+					<element geometry="Left=83;Top=817;Right=335;Bottom=873;" subject="EAID_0C37E49E_0B3A_46f3_9205_05CFA84FEC95" seqno="6" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=B43F5274;"/>
+					<element geometry="Left=316;Top=951;Right=543;Bottom=1052;" subject="EAID_E87E3953_5982_4a5f_B9FD_E253D850CC18" seqno="7" style="DUID=60F14A4A;"/>
+					<element geometry="Left=523;Top=704;Right=758;Bottom=792;" subject="EAID_6A0A4758_ABB9_457b_9A76_D267D015423D" seqno="8" style="DUID=0C79A711;"/>
+					<element geometry="Left=506;Top=816;Right=758;Bottom=870;" subject="EAID_30D90AA0_FDA8_4bba_B2EE_208F708D0912" seqno="9" style="DUID=D822B425;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=590;Top=601;Right=758;Bottom=676;" subject="EAID_D548B063_FC74_4c93_B9CF_15956CDD5DAD" seqno="10" style="DUID=40E88FE4;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=655;Top=23;Right=799;Bottom=85;" subject="EAID_6CF8EB0E_77A9_46ff_A107_26A1D7330B8C" seqno="11" style="DUID=CC274664;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=295;Top=172;Right=562;Bottom=351;" subject="EAID_DA123C8E_34F5_4857_B779_5CD249F00758" seqno="12" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=DCDBBC26;"/>
+					<element geometry="Left=614;Top=182;Right=799;Bottom=321;" subject="EAID_94D0FD11_096A_420b_8834_A9B98B3D5636" seqno="13" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=21873677;"/>
+					<element geometry="Left=326;Top=23;Right=529;Bottom=124;" subject="EAID_9DFD8E0C_7609_4130_9B3D_96DBD379E2AE" seqno="14" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=7A71A92A;"/>
+					<element geometry="Left=486;Top=430;Right=756;Bottom=572;" subject="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8" seqno="15" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=478B8CB5;"/>
+					<element geometry="Left=35;Top=281;Right=233;Bottom=361;" subject="EAID_938E2A04_9836_4046_ABA2_5C07433D3F6A" seqno="16" style="DUID=D1347E12;NSL=0;"/>
+					<element geometry="Left=35;Top=121;Right=258;Bottom=222;" subject="EAID_453FBA1B_187F_4a90_A0E9_08F22B167BC3" seqno="17" style="NSL=0;DUID=0FB7676D;"/>
+					<element geometry="Left=70;Top=951;Right=276;Bottom=1065;" subject="EAID_71BEE75A_05B3_4287_A31C_87863B35C0AD" seqno="18" style="NSL=0;DUID=29682BE1;"/>
+					<element geometry="Left=83;Top=404;Right=333;Bottom=570;" subject="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612" seqno="19" style="NSL=0;DUID=07450CB2;"/>
+					<element geometry="Left=648;Top=102;Right=799;Bottom=166;" subject="EAID_2348005F_146F_4cf7_A737_9719BF4EA59D" seqno="20" style="NSL=0;DUID=AF5FFAAB;"/>
+					<element geometry="SX=0;SY=0;EDGE=1;EX=-131;EY=-73;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=704:-902$428:-902$;" subject="EAID_CD9F35C3_1053_451a_B9B6_0E733B87B3BB" style="Mode=3;EOID=DCDBBC26;SOID=A9361857;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="EX=-117;EY=7;SX=-81;SY=-2;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=37:-636$37:-480$;" subject="EAID_E7CA22E0_5C2A_4efd_A823_9C453B50B115" style="Mode=3;EOID=07450CB2;SOID=4B5C9CBF;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="SX=7;SY=13;EDGE=4;EX=-122;EY=-49;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=37:-742$37:-480$;" subject="EAID_0C7AE8F1_FFEC_4e7f_9F8A_485D49023739" style="Mode=3;EOID=07450CB2;SOID=0518BC55;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="EX=-122;EY=-19;SX=-114;SY=-2;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=37:-853$37:-480$;" subject="EAID_377819F6_0A51_43d2_B5D7_AC6E4C275164" style="Mode=3;EOID=07450CB2;SOID=B43F5274;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=3;SY=-45;EX=-20;EY=-84;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_95B4BAAB_8A99_4fdf_A5B5_942990E2E566" style="Mode=3;EOID=DCDBBC26;SOID=60F14A4A;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="EX=123;EY=66;EDGE=2;SX=83;SY=-34;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=808:-633$808:-469$;" subject="EAID_80377715_B45C_4015_9FCB_49010465A918" style="Mode=3;EOID=478B8CB5;SOID=40E88FE4;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=117;SY=-26;EX=134;EY=-1;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=808:-748$808:-469$;" subject="EAID_852BC99A_EB70_4192_A31D_AA6A05E5B205" style="Mode=3;EOID=478B8CB5;SOID=0C79A711;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="EX=132;EY=5;EDGE=2;SX=119;SY=-33;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=808:-851$808:-469$;" subject="EAID_69A5E92E_613E_47a7_ADCC_ADAF6065C216" style="Mode=3;EOID=478B8CB5;SOID=D822B425;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=-92;SY=0;EX=-131;EY=-89;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=175:-926$426:-926$;" subject="EAID_74EB2743_FA87_407f_813B_913DA4F4A2AF" style="Mode=3;EOID=DCDBBC26;SOID=29682BE1;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="EX=123;EY=66;EDGE=2;SX=83;SY=-34;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=793:-633$793:-469$;" subject="EAID_80377715_B45C_4015_9FCB_49010465A918" style="Mode=3;EOID=478B8CB5;SOID=40E88FE4;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="SX=117;SY=-26;EX=134;EY=-1;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=793:-748$793:-469$;" subject="EAID_852BC99A_EB70_4192_A31D_AA6A05E5B205" style="Mode=3;EOID=478B8CB5;SOID=0C79A711;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="EX=132;EY=5;EDGE=2;SX=119;SY=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=793:-851$793:-469$;" subject="EAID_69A5E92E_613E_47a7_ADCC_ADAF6065C216" style="Mode=3;EOID=478B8CB5;SOID=D822B425;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="SX=-92;SY=0;EX=-131;EY=-89;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=177:-901$428:-901$;" subject="EAID_74EB2743_FA87_407f_813B_913DA4F4A2AF" style="Mode=3;EOID=DCDBBC26;SOID=29682BE1;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_459152E0_83E8_47fb_ADF9_E3442C80E9DF" style="Mode=3;EOID=7A71A92A;SOID=DCDBBC26;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=-55;SY=-33;EX=-68;EY=-79;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=426:-446$;" subject="EAID_6CAFCED5_3A75_4934_8185_D389F8D360C5" style="Mode=3;EOID=DCDBBC26;SOID=07450CB2;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=-33;SY=3;EX=47;EY=-87;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=426:-468$;" subject="EAID_449ABFDE_5C50_49e2_B987_A8D72F6D5F0C" style="Mode=3;EOID=DCDBBC26;SOID=478B8CB5;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="SX=-53;SY=-33;EX=-68;EY=-79;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=428:-446$;" subject="EAID_6CAFCED5_3A75_4934_8185_D389F8D360C5" style="Mode=3;EOID=DCDBBC26;SOID=07450CB2;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="SX=-31;SY=2;EX=47;EY=-87;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=428:-469$;" subject="EAID_449ABFDE_5C50_49e2_B987_A8D72F6D5F0C" style="Mode=3;EOID=DCDBBC26;SOID=478B8CB5;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=111;SY=38;EX=-132;EY=53;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=188:-250$;" subject="EAID_DA7EE696_ADC3_4f82_8DB7_079D504A960D" style="Mode=3;EOID=DCDBBC26;SOID=0FB7676D;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=67;SY=26;EX=-18;EY=43;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=188:-250$;" subject="EAID_F044410D_3372_4c18_928A_C3F9E40451FC" style="Mode=3;EOID=DCDBBC26;SOID=D1347E12;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 				</elements>
