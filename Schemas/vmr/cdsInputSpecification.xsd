@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsinputspecification:r2" xmlns:vmr="urn:hl7-org:v3:cdsinputspecification:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" targetNamespace="urn:hl7-org:v3:cdsinputspecification:r2" elementFormDefault="qualified">
+<xs:schema targetNamespace="urn:hl7-org:v3:cdsinputspecification:r2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsinputspecification:r2" xmlns:vmr="urn:hl7-org:v3:cdsinputspecification:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS input data required for a specific CDS use case.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r2" schemaLocation="../common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:v3:cdsdt:r2" schemaLocation="common/datatypes.xsd"/>
 	<xs:complexType name="EvaluatedPersonInputSpecification" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Specifies the data required for an evaluated person.  Can include (i) a specification of the person attributes (e.g., gender) required; (ii) a specification of the templates that must be applied; (iii) a specification of the data required for related entities; and (iv) a specification of the clinical statements required.</xs:documentation>
@@ -55,7 +55,7 @@ Can include a detailed input specification for the focal patient as well as for 
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonInputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

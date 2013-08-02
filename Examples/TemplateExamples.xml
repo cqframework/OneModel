@@ -33,6 +33,7 @@
 		</vmr:attribute>
 	</vmr:targetEntity>
 </vmr:relatedEntity>
+
 	
 	<!--<vmr:age value="3.14159" unit="y"/>-->
 	<vmr:birthTime value="19630525"/>
@@ -349,36 +350,99 @@
 <procedureTime low="20130613080500" high="20130613080500"/>
 </procedureEvent>-->
 
-<!--<vmr:clinicalStatement xsi:type="vmr:CompositeIVProposal">
-	<vmr:doseQuantity><dt:low value="" unit=""/><dt:high value="" unit="" /></vmr:doseQuantity>
-	<vmr:substance>--><!--This is the diluent--><!--
+<vmr:clinicalStatement xsi:type="vmr:CompositeIVProposal">
+	<vmr:doseQuantity><dt:low value="1" unit=""/><dt:high value="2" unit="" /></vmr:doseQuantity>
+	<vmr:substance><!--This is the diluent-->
 		<vmr:substanceCode code="" codeSystem=""/> 
 	</vmr:substance>
 	<vmr:additive xsi:type="vmr:Constituent">
 		<vmr:substance>
 			<vmr:substanceCode code="" codeSystem=""/>
-			<vmr:substanceAmount><dt:low value="" unit=""/><dt:high value="" unit=""/></vmr:substanceAmount>
 		</vmr:substance>
+		<vmr:substanceAmount><dt:low value="2" unit=""/><dt:high value="3" unit=""/></vmr:substanceAmount>
 	</vmr:additive>
 </vmr:clinicalStatement>
--->
-<!--<vmr:clinicalStatement xsi:type="vmr:CompositeIVProposal">
-	<vmr:substance>
-		<vmr:substanceCode"/> --><!--This is required by schema, but not used--><!--
+
+<vmr:clinicalStatement xsi:type="vmr:CompositeIVProposal">
+	<vmr:templateId root="2.16.840.1.113883.3.1829.11.9.13.1" identifierName="Composite IV Proposal"/>
+	<vmr:deliveryRate/>
+	<vmr:deliveryRoute/>
+	<vmr:doseQuantity/>
+	<vmr:doseType/>
+	<vmr:substance><!-- diluent -->
+		<vmr:strength><dt:numerator value="200" unit="mg"/><dt:denominator value="1" unit="Tab"/></vmr:strength>
+		<vmr:substanceCode/>
 	</vmr:substance>
-	<vmr:additive xsi:type="vmr:SubstanceAdministrationProposal">
-		<vmr:doseQuantity xsi:type="dt:IVL_PQ"><dt:low value="" unit=""/><dt:high value="" unit=""/></vmr:doseQuantity>
+	<vmr:comment>
+		<vmr:freeTextValue value=""/>
+		<vmr:type code="" codeSystem="" displayName="" codeSystemName=""/>
+	</vmr:comment>
+	<vmr:doseRestriction>
+		<vmr:maxDoseForInterval value="100" unit="mg"/>
+		<vmr:timeInterval value="1" unit="hr"/>
+	</vmr:doseRestriction>
+	<vmr:infuseOver value="2" unit="hr"/>
+	<vmr:prnReason code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:proposedAdministrationTimeInterval><dt:low value="2012"/><dt:high value="2013"/></vmr:proposedAdministrationTimeInterval>
+	<vmr:urgency code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:validAdministrationTimeInterval><dt:low value="2012"/><dt:high value="2013"/></vmr:validAdministrationTimeInterval>
+	<vmr:additive>
 		<vmr:substance>
-			<vmr:substanceCode code="" codeSystem=""/>
+			<vmr:strength><dt:numerator value="200" unit="mg"/><dt:denominator value="1" unit="Tab"/></vmr:strength>
+			<vmr:substanceCode code="" codeSystem="" displayName="" codeSystemName=""/>
 		</vmr:substance>
+		<vmr:substanceAmount xsi:type="dt:IVL_PQ"><dt:low value="200" unit="mg"/><dt:high value="250" unit="mg"/></vmr:substanceAmount> 
 	</vmr:additive>
-	<vmr:diluent xsi:type="vmr:SubstanceAdministrationProposal">
-		<vmr:doseQuantity xsi:type="dt:IVL_PQ"><dt:low value="" unit=""/><dt:high value="" unit=""/></vmr:doseQuantity>
+</vmr:clinicalStatement>
+
+<vmr:clinicalStatement xsi:type="vmr:CompositeIVOrder">
+	<vmr:templateId root="2.16.840.1.113883.3.1829.11.9.14.1" identifierName="Composite IV Order"/>
+	<vmr:deliveryRate/>
+	<vmr:deliveryRoute/>
+	<vmr:doseQuantity/>
+	<vmr:doseType/>
+	<vmr:substance><!-- diluent -->
+		<vmr:strength><dt:numerator value="200" unit="mg"/><dt:denominator value="1" unit="Tab"/></vmr:strength>
+		<vmr:substanceCode/>
+	</vmr:substance>
+	<vmr:administrationTimeInterval><dt:low value="2012"/><dt:high value="2013"/></vmr:administrationTimeInterval>
+	<vmr:comment>
+		<vmr:freeTextValue value=""/>
+		<vmr:type code="" codeSystem="" displayName="" codeSystemName=""/>
+	</vmr:comment>
+	<vmr:doseRestriction>
+		<vmr:maxDoseForInterval value="100" unit="mg"/>
+		<vmr:timeInterval value="1" unit="hr"/>
+	</vmr:doseRestriction>
+	<vmr:infuseOver value="2" unit="hr"/>
+	<vmr:orderEventTime><dt:low value="2012"/><dt:high value="2013"/></vmr:orderEventTime>
+	<vmr:prnReason code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:urgency code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:validAdministrationTimeInterval><dt:low value="2012"/><dt:high value="2013"/></vmr:validAdministrationTimeInterval>
+	<vmr:additive>
 		<vmr:substance>
-			<vmr:substanceCode code="" codeSystem=""/>
+			<vmr:strength><dt:numerator value="200" unit="mg"/><dt:denominator value="1" unit="Tab"/></vmr:strength>
+			<vmr:substanceCode code="" codeSystem="" displayName="" codeSystemName=""/>
 		</vmr:substance>
-	</vmr:diluent>
-</vmr:clinicalStatement>-->
+		<vmr:substanceAmount xsi:type="dt:IVL_PQ"><dt:low value="200" unit="mg"/><dt:high value="250" unit="mg"/></vmr:substanceAmount>
+	</vmr:additive>
+</vmr:clinicalStatement>
+
+<vmr:clinicalStatement xsi:type="vmr:LaboratoryProposal">
+	<vmr:templateId root="2.16.840.1.113883.3.1829.11.8.3.3"/>
+	<vmr:procedureCode code="" codeSystem="2.16.840.1.113883.3.88.12.80.28" displayName="" codeSystemName=""/>
+	<vmr:procedureMethod code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:comment><vmr:type/></vmr:comment>
+	<vmr:frequency xsi:type="vmr:FrequencyAsCode"><vmr:frequencyCode/></vmr:frequency>
+	<vmr:proposedProcedureTime highIsInclusive="true" lowIsInclusive="true"></vmr:proposedProcedureTime>
+	<vmr:reason code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:urgency code="" codeSystem="2.16.840.1.113883.6.96" codeSystemName="" displayName=""/>
+	<vmr:collectionMethod code="" codeSystem="2.16.840.1.113883.12.488" displayName="" codeSystemName=""/>
+	<vmr:specialHandling code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:specimenSource code="" codeSystem="" displayName="" codeSystemName=""/>
+	<vmr:suspectedPathogen code="" codeSystem="2.16.840.1.113883.6.96" displayName="" codeSystemName=""/>
+</vmr:clinicalStatement>
+
 
 <!-- end of primary ClinicalStatements -->
 

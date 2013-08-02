@@ -1510,9 +1510,9 @@ Common denials of adverse events to a class of agents can be expressed as follow
 							<xs:documentation>Special instructions on how to handle a laboratory specimen. For example, 'Keep on ice'.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="specimen" type="Specimen" minOccurs="0" maxOccurs="1">
+					<xs:element name="specimenSource" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The source of the collected laboratory specimen</xs:documentation>
+							<xs:documentation>The source of the laboratory specimen to be collected.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
@@ -2035,9 +2035,9 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 							<xs:documentation>Special instructions on how to handle a laboratory specimen. For example, 'Keep on ice'.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="specimen" type="Specimen" minOccurs="0" maxOccurs="1">
+					<xs:element name="specimenSource" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The source of the collected laboratory specimen</xs:documentation>
+							<xs:documentation>The source of the laboratory specimen to be collected.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
