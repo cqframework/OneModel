@@ -1,1 +1,6 @@
-Note that these XML Schemas were initially auto-generated from the HL7 vMR Domain Analysis Model (DAM), Release 1 and subsequently manually modified in both structure and content to reflect new Health eDecisions requirements for the vMR DAM Release 2 and also to support easier implementation.
+Note that these XML Schemas were auto-generated from the HL7 vMR Domain Analysis Model (DAM), Release 2.  The only manual updates following the auto-generation are as follows:
+- Removed excess/empty auto-generated <xs:sequence/> 
+- Added root entry-point elements to the schemas in the vmr folder (note vMR element is lower case for first letter)
+- Corrected any file path errors for xs:include statements
+- Alphabetized order of schema complex types
+- Formatted XML using "Prettty Print" feature of Altova XMLSpy

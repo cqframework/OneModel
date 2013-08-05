@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdsInput xmlns="urn:hl7-org:v3/vmr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="urn:hl7-org:v3/vmr ../Schemas/cdsInput.xsd">
+	<!-- 2.16.840.1.113883.3.795.11.1.1 is the templateId for OpenCDS vMR version 1.0 -->
+	<templateId root="2.16.840.1.113883.3.795.11.1.1"/>
+	<vmrInput>
+		<templateId root="2.16.840.1.113883.3.795.11.1.1"/>
+		<patient>
+			<id root="4228c6d7-c300-4d7a-8a29-6f1dc41337a5"/>
+			<demographics></demographics>
+			<clinicalStatements>
+				<!-- current problems -->
+				<problems>
+					<problem>
+						<id root="d7ebd80c-a28f-438f-9457-d3f92ea124ad"/>
+						<!-- normal breast feeding -->
+						<problemCode codeSystem="2.16.840.1.113883.6.96" code="413712001"/>
+					</problem>
+					<problem>
+						<id root="3f0005c2-438e-436e-9ab0-abe402d7a095"/>
+						<!-- hypertension (ignoring "mild" for now) -->
+						<problemCode codeSystem="2.16.840.1.113883.6.96" code="38341003"/>
+					</problem>
+				</problems>
+				<!-- current medications -->
+				<substanceAdministrationEvents>
+					<substanceAdministrationEvent>
+						<id root="54277620-9128-4c13-8fc8-623a38532627"/>
+						<substance>
+							<id root="2c803900-c8d1-457d-9567-4c92d75a0e23"/>
+							<!-- Hydrochlorothiazide 25 MG Oral Tablet -->
+							<substanceCode codeSystem="2.16.840.1.113883.6.88" code="310798" />
+						</substance>
+						<documentationTime low="20110803" high="20110803"/>
+					</substanceAdministrationEvent>
+				</substanceAdministrationEvents>				
+				<!-- proposed medications -->
+				<substanceAdministrationProposals>
+					<substanceAdministrationProposal>
+						<id root="a899d3ad-ed48-4ea8-b478-26cff771ab27"/>
+						<substance>
+							<id root="1768109d-7ad8-43a4-b1e2-e7903b2f58de"/>
+							<!-- Sudafed Triple Action -->
+							<substanceCode codeSystem="2.16.840.1.113883.6.88" code="352166"/>
+						</substance>
+					</substanceAdministrationProposal>
+				</substanceAdministrationProposals>
+			</clinicalStatements>
+		</patient>
+	</vmrInput>
+</cdsInput>

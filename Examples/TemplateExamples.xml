@@ -164,9 +164,7 @@
 			<vmr:procedureCode codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
 			<vmr:procedureTime><dt:low value="20130613080500"/><dt:high value="20130613080500"/></vmr:procedureTime>
 		</vmr:targetClinicalStatement>
-	</vmr:relatedClinicalStatement>
-	
-	<vmr:encounterCode codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
+	</vmr:relatedClinicalStatement>	
 	<vmr:encounterType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD" displayName="TBD"/>
 	<vmr:encounterEventTime><dt:low value="20130613080500"/><dt:high value="20130613080500"/></vmr:encounterEventTime>
 </vmr:clinicalStatement>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsdt:r2" xmlns:dt="urn:hl7-org:v3:cdsdt:r2" targetNamespace="urn:hl7-org:v3:cdsdt:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data types used.  The data types are a simplified/constrained version of the HL7 version 3 datatypes specification, release 2, which is itself based on the implementable specification of ISO 21090 data types.</xs:documentation>
@@ -332,7 +331,6 @@ Due to its highly restricted functionality, CS SHALL only be used for simple str
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
 				<xs:attribute name="code" type="xs:string" use="required">
 					<xs:annotation>
 						<xs:documentation>The plain code symbol defined by the code system.  If the code value is empty or null, then there is no code in the code system that represents the concept.
@@ -457,7 +455,7 @@ Entity names are essentially sequences of entity name parts, but add a "use" cod
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
-					<xs:element name="part" type="ENXP" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="part" type="ENXP" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A sequence of name parts, such as given name or family name, prefix, suffix, etc.</xs:documentation>
 						</xs:annotation>
@@ -796,14 +794,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 				</xs:sequence>
 				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification and lowClosed in the HL7 Data Types R2 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification and highClosed in the HL7 Data Types R2 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
@@ -835,16 +833,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 				</xs:sequence>
 				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification and lowClosed in the HL7 Data Types R2 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
-
-Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
+						<xs:documentation>Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
@@ -874,14 +870,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 				</xs:sequence>
 				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification and lowClosed in the HL7 Data Types R2 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification and highClosed in the HL7 Data Types R2 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
@@ -914,13 +910,15 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 				</xs:sequence>
 				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification and lowClosed in the HL7 Data Types R2 specification.
+
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification and highClosed in the HL7 Data Types R2 specification.
+
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
@@ -951,14 +949,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 				</xs:sequence>
 				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification and lowClosed in the HL7 Data Types R2 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification and highClosed in the HL7 Data Types R2 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
@@ -990,14 +988,14 @@ The high limit SHALL NOT be negative infinity, and SHALL be higher than the low 
 				</xs:sequence>
 				<xs:attribute name="lowIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called lowIsClosed in the ISO 21090 specification and lowClosed in the HL7 Data Types R2 specification.
 
 Whether low is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="highIsInclusive" type="xs:boolean" use="optional">
 					<xs:annotation>
-						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification.
+						<xs:documentation>This attribute is called highIsClosed in the ISO 21090 specification and highClosed in the HL7 Data Types R2 specification.
 
 Whether high is included in the IVL (is closed) or excluded from the IVL (is open).</xs:documentation>
 					</xs:annotation>
@@ -1124,7 +1122,9 @@ The reason for this is that neither tablets or scoops are proper units. What kin
 			<xs:documentation>The quantity datatype is an abstract generalization for all datatypes whose domain values has an order relation (less-or-equal) and where difference is defined in all of the datatype's totally ordered value subsets.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ANY"/>
+			<xs:extension base="ANY">
+				
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="REAL">
@@ -1400,6 +1400,12 @@ The sole purpose of UID is to be a globally and timelessly unique identifier. Th
 protected type UniqueIdentifierString alias UID specializes ST.SIMPLE;
 No difference in semantics is recognized between the different allowed forms of UID. The different forms are not distinguished by a component within or aside from the identifier string itself. 
 Even though this specification recognizes no semantic difference between the different forms of the unique identifier forms, there are differences of how these identifiers are built and managed, which is the sole reason to define subtypes of UID for each of the variants. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Uri">
+		<xs:annotation>
+			<xs:documentation>Universal Resource Identifier</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
