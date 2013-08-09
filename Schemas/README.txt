@@ -1,4 +1,5 @@
 Note that these XML Schemas were auto-generated from the HL7 vMR Domain Analysis Model (DAM), Release 2.  The only manual updates following the auto-generation are as follows:
+- convert data type of URL from xs:string to xs:anyURI
 - Removed excess/empty auto-generated <xs:sequence/> 
 - Added root entry-point elements to the schemas in the vmr folder (note vMR element is lower case for first letter)
 - Corrected any file path errors for xs:include statements
