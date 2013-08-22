@@ -5,6 +5,7 @@
 	</xs:annotation>
 	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="common/datatypes.xsd"/>
 	<xs:import namespace="urn:hl7-org:v3:vmr:r3" schemaLocation="vmr/vmr.xsd"/>
+	<xs:element name="CDSInput" type="CDSInput"/>
 	<xs:complexType name="CDSInput">
 		<xs:annotation>
 			<xs:documentation>The parent class containing the data used by a CDS system to generate inferences. Includes an input vMR and optionally CDS context and/or CDS resource data.</xs:documentation>
@@ -20,6 +21,7 @@
 			<xs:element name="cdsContext" type="CDSContext" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSResource" type="CDSResource"/>
 	<xs:complexType name="CDSResource">
 		<xs:annotation>
 			<xs:documentation>A resource independent of individual patients, provided to a CDS engine to facilitate patient evaluation.  Includes, for example, local antibiogram data (local susceptibility profile of microbes to different antimicrobial agents), local formulary restrictions, or CDS system user preference on which guidelines to use for health maintenance (e.g., HEDIS vs. USPSTF).</xs:documentation>
@@ -42,6 +44,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSContext" type="CDSContext"/>
 	<xs:complexType name="CDSContext">
 		<xs:annotation>
 			<xs:documentation>The situation or context within which a CDS evaluation is made.  Included in CDS inputs for HL7 Context-Aware Knowledge Retrieval (Infobutton) Knowledge Request standard.  Used, for example, to generate human-readable care guidance in the end-user's preferred language.</xs:documentation>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:vmr:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" targetNamespace="urn:hl7-org:v3:vmr:r3" elementFormDefault="qualified">
+<xs:schema targetNamespace="urn:hl7-org:v3:vmr:r3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:vmr:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data about a patient relevant for CDS.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="common/datatypes.xsd"/>
+	<xs:element name="ClinicalStatement" type="ClinicalStatement"/>
 	<xs:complexType name="ClinicalStatement">
 		<xs:annotation>
 			<xs:documentation>A record of something of clinical relevance that is being done, has been done, can be done, or is intended or requested to be done.  A class that serves as the basis for other more specific clinical statements, such as ObservationEvent and ProcedureProposal. It is a concrete class that can be used as is or specialized as needed.
@@ -74,6 +75,7 @@ Approaches to representing specific statements:
 			<xs:element name="relatedClinicalStatement" type="RelatedClinicalStatement" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="ScheduledProcedure" type="ScheduledProcedure"/>
 	<xs:complexType name="ScheduledProcedure">
 		<xs:annotation>
 			<xs:documentation>A procedure that has been scheduled to take place.</xs:documentation>
@@ -90,6 +92,7 @@ Approaches to representing specific statements:
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="MissedAppointment" type="MissedAppointment"/>
 	<xs:complexType name="MissedAppointment">
 		<xs:annotation>
 			<xs:documentation>An appointment that was (i) scheduled, (ii) not rescheduled or canceled, and (iii) for which the EvaluatedPerson did not show up.</xs:documentation>
@@ -106,6 +109,7 @@ Approaches to representing specific statements:
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CommunicationOrder" type="CommunicationOrder"/>
 	<xs:complexType name="CommunicationOrder">
 		<xs:annotation>
 			<xs:documentation>An order to communicate. E.g., a physician requests to be notified when a lab result is available.</xs:documentation>
@@ -140,6 +144,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Entity" type="Entity"/>
 	<xs:complexType name="Entity">
 		<xs:annotation>
 			<xs:documentation>A physical thing, group of physical things or an organization. It is a concrete class that can be used as is or specialized as needed.</xs:documentation>
@@ -178,6 +183,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			<xs:element name="relatedEntity" type="RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RelationshipDescriptorBase" type="RelationshipDescriptorBase"/>
 	<xs:complexType name="RelationshipDescriptorBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The relationship between one class and another.</xs:documentation>
@@ -200,6 +206,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Goal" type="Goal"/>
 	<xs:complexType name="Goal">
 		<xs:annotation>
 			<xs:documentation>A clinical end or aim towards which effort is directed.</xs:documentation>
@@ -228,6 +235,7 @@ Characterizes impact on life, or durable impact on physiological function or on 
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="GoalProposal" type="GoalProposal"/>
 	<xs:complexType name="GoalProposal">
 		<xs:annotation>
 			<xs:documentation>Proposal, e.g., by a CDS system, for establishing the goal specified.</xs:documentation>
@@ -252,6 +260,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EnteralFeedingProposal" type="EnteralFeedingProposal"/>
 	<xs:complexType name="EnteralFeedingProposal">
 		<xs:annotation>
 			<xs:documentation>A class representing enteral nutrition proposals for the delivery of enteral-fed substances (eg, Nutren, Ensure, RenalCal) for patients who are unable to consume diets orally; enteral feedings can be delivered to the stomach or varying parts of the small intestines using a variety of tube placement methods, depending on the clinical scenario. For instance, Nutren via nasogastric tube, 20 ml/hour, increase by 20 ml every 4 hours, goal of 75 ml/hour, water flushes 125 ml every shift.</xs:documentation>
@@ -283,6 +292,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="DoseRestriction" type="DoseRestriction"/>
 	<xs:complexType name="DoseRestriction">
 		<xs:annotation>
 			<xs:documentation>Referred to in CDA release 2 as maxDoseQuantity.  Specifies the maximum dose that can be given in a specified time interval.</xs:documentation>
@@ -304,6 +314,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceAdministrationOrder" type="SubstanceAdministrationOrder"/>
 	<xs:complexType name="SubstanceAdministrationOrder">
 		<xs:annotation>
 			<xs:documentation>A clinical order for a substance administration.  Includes medication prescriptions.</xs:documentation>
@@ -346,7 +357,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.</xs:documentation>
 						</xs:annotation>
@@ -368,6 +379,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceDispensationEvent" type="SubstanceDispensationEvent"/>
 	<xs:complexType name="SubstanceDispensationEvent">
 		<xs:annotation>
 			<xs:documentation>This is the Event of a pharmacy filling a prescription.</xs:documentation>
@@ -409,6 +421,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceAdministrationEvent" type="SubstanceAdministrationEvent"/>
 	<xs:complexType name="SubstanceAdministrationEvent">
 		<xs:annotation>
 			<xs:documentation>The actual administration of the substance.
@@ -450,6 +463,7 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceAdministrationProposal" type="SubstanceAdministrationProposal"/>
 	<xs:complexType name="SubstanceAdministrationProposal">
 		<xs:annotation>
 			<xs:documentation>Proposal for a substance administration.  Used, for example, when a CDS system proposes that a medication or vaccination be given.</xs:documentation>
@@ -477,7 +491,7 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 							<xs:documentation>The number of fills allowed. Must be 1 or greater.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.</xs:documentation>
 						</xs:annotation>
@@ -504,6 +518,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceAdministrationBase" type="SubstanceAdministrationBase"/>
 	<xs:complexType name="SubstanceAdministrationBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for giving a material of a particular constitution to a person to enable a clinical effect.</xs:documentation>
@@ -541,7 +556,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The type of dose.  E.g., initial, maintenance, loading.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The interval in between substance administrations. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
@@ -565,6 +580,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RespiratoryCareOrder" type="RespiratoryCareOrder"/>
 	<xs:complexType name="RespiratoryCareOrder">
 		<xs:annotation>
 			<xs:documentation>Orders that encompass supplemental oxygen (eg, nasal cannula, face mask), BiPAP/CPAP, and mechanical ventilation.  While these are vastly different respiratory care concepts, the associated data elements can be constrained through templates.</xs:documentation>
@@ -652,6 +668,7 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProcedureProposal" type="ProcedureProposal"/>
 	<xs:complexType name="ProcedureProposal">
 		<xs:annotation>
 			<xs:documentation>Proposals for a procedure to take place, e.g., generated by a CDS system or by a consulting clinician. Proposals for making an observation  (e.g., Pneumonia Severity Index, blood pressure, or PHQ-9 Depression Assessment) are also included in the scope of ProcedureProposal.</xs:documentation>
@@ -664,7 +681,7 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The interval in between procedures. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
@@ -698,6 +715,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="AdministrableSubstance" type="AdministrableSubstance"/>
 	<xs:complexType name="AdministrableSubstance">
 		<xs:annotation>
 			<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.  It can have component administrable substances.</xs:documentation>
@@ -720,7 +738,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The organization that produces the substance.  This is a CD and not an II because there are managed code systems for manufacturers.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="strength" type="dt:RTO_PQ" minOccurs="0" maxOccurs="1">
+					<xs:element name="strength" type="dt:RTO" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The concentration of the substance.  E.g., 250 mg per 5 ml.</xs:documentation>
 						</xs:annotation>
@@ -744,6 +762,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SupplyEvent" type="SupplyEvent"/>
 	<xs:complexType name="SupplyEvent">
 		<xs:annotation>
 			<xs:documentation>The provision of some clinical material or equipment to the subject, such as a wheelchair.</xs:documentation>
@@ -760,6 +779,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Specimen" type="Specimen"/>
 	<xs:complexType name="Specimen">
 		<xs:annotation>
 			<xs:documentation>A sample of tissue, blood, urine, water, air, etc., taken for the purposes of diagnostic examination or evaluation.</xs:documentation>
@@ -776,6 +796,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ImagingProposal" type="ImagingProposal"/>
 	<xs:complexType name="ImagingProposal">
 		<xs:annotation>
 			<xs:documentation>A proposal for an Imaging Order. For instance, Chest Radiograph - PA and Lateral.</xs:documentation>
@@ -827,6 +848,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ObservationResult" type="ObservationResult"/>
 	<xs:complexType name="ObservationResult">
 		<xs:annotation>
 			<xs:documentation>The findings from an observation.</xs:documentation>
@@ -834,16 +856,6 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="ObservationBase">
 				<xs:sequence>
-					<xs:element name="interpretation" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Explanation of the results (e.g., fracture seen on x-ray), including an indication of the deviation of the result value from the reference range for the observation (e.g., high, low, within normal limits).</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="observationEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Time for the completion of the observation, including the interpretation.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="observationValue" type="Value" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Actual observed results.  E.g., 6.5 mg/dL, 5.7%.</xs:documentation>
@@ -853,6 +865,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Problem" type="Problem"/>
 	<xs:complexType name="Problem">
 		<xs:annotation>
 			<xs:documentation>An assertion regarding a clinical condition of the subject that needs to be treated or managed.</xs:documentation>
@@ -904,6 +917,7 @@ Includes concepts such as mild, moderate, severe</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="AdverseEvent" type="AdverseEvent"/>
 	<xs:complexType name="AdverseEvent">
 		<xs:annotation>
 			<xs:documentation>Unfavorable healthcare event (e.g., death, rash, difficulty breathing) that is thought to have been caused by some agent (e.g., a medication, immunization, food, or environmental agent).</xs:documentation>
@@ -934,6 +948,7 @@ Characterizes the intensity of the manifestation of the problem or observation o
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="UndeliveredProcedure" type="UndeliveredProcedure"/>
 	<xs:complexType name="UndeliveredProcedure">
 		<xs:annotation>
 			<xs:documentation>Documentation that a procedure was not delivered.  E.g., documentation that a surgery was not performed because the patient refused.</xs:documentation>
@@ -960,6 +975,7 @@ Characterizes the intensity of the manifestation of the problem or observation o
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProcedureOrder" type="ProcedureOrder"/>
 	<xs:complexType name="ProcedureOrder">
 		<xs:annotation>
 			<xs:documentation>An order for procedure to be done. Orders for making an observation (e.g., Pneumonia Severity Index, blood pressure, or PHQ-9 Depression Assessment) are also included in the scope of ProcedureOrder.</xs:documentation>
@@ -972,7 +988,7 @@ Characterizes the intensity of the manifestation of the problem or observation o
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The interval in between procedures. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
@@ -1016,6 +1032,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EvaluatedPerson" type="EvaluatedPerson"/>
 	<xs:complexType name="EvaluatedPerson">
 		<xs:annotation>
 			<xs:documentation>A person who is the subject of evaluation by a CDS system.  May be the focal patient or some other relevant person (e.g., a relative or a sexual contact). Includes demographic attributes, clinical statements, and related entities.</xs:documentation>
@@ -1073,6 +1090,7 @@ Included to support family history-based inferencing.</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProcedureEvent" type="ProcedureEvent"/>
 	<xs:complexType name="ProcedureEvent">
 		<xs:annotation>
 			<xs:documentation>The actual event of performing a procedure.</xs:documentation>
@@ -1089,6 +1107,7 @@ Included to support family history-based inferencing.</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="DeniedProblem" type="DeniedProblem"/>
 	<xs:complexType name="DeniedProblem">
 		<xs:annotation>
 			<xs:documentation>An assertion that the subject did not have the problem specified.  For example, if problemCode is diabetes and diagnosticEventTime is 2011-05-01, then an assertion was made on 2011-05-01 that the subject does not have diabetes.
@@ -1101,6 +1120,7 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EncounterEvent" type="EncounterEvent"/>
 	<xs:complexType name="EncounterEvent">
 		<xs:annotation>
 			<xs:documentation>EncounterEvent is the record of an interaction between an EvaluatedPerson and the healthcare system.  It can be used to group observations and interventions performed during that interaction, through the use of relatedClinicalStatements.</xs:documentation>
@@ -1117,6 +1137,7 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="BodySite" type="BodySite"/>
 	<xs:complexType name="BodySite">
 		<xs:annotation>
 			<xs:documentation>A location on an EvaluatedPerson's body.  E.g., left breast, heart.</xs:documentation>
@@ -1143,6 +1164,7 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="AppointmentRequest" type="AppointmentRequest"/>
 	<xs:complexType name="AppointmentRequest">
 		<xs:annotation>
 			<xs:documentation>A request by a provider to schedule an appointment.</xs:documentation>
@@ -1155,7 +1177,7 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>How often the requested appointments must take place.</xs:documentation>
 						</xs:annotation>
@@ -1184,6 +1206,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ScheduledAppointment" type="ScheduledAppointment"/>
 	<xs:complexType name="ScheduledAppointment">
 		<xs:annotation>
 			<xs:documentation>A clinical appointment that has been scheduled.  If rescheduled, the appointmentTime may change.</xs:documentation>
@@ -1200,6 +1223,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="AppointmentProposal" type="AppointmentProposal"/>
 	<xs:complexType name="AppointmentProposal">
 		<xs:annotation>
 			<xs:documentation>Proposal, e.g., by a CDS system, for an Encounter to take place.</xs:documentation>
@@ -1212,7 +1236,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>How often the proposed appointments must take place.</xs:documentation>
 						</xs:annotation>
@@ -1236,6 +1260,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SupplyProposal" type="SupplyProposal"/>
 	<xs:complexType name="SupplyProposal">
 		<xs:annotation>
 			<xs:documentation>Proposal, e.g., by a CDS system, for a Supply to be delivered.</xs:documentation>
@@ -1248,7 +1273,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The interval in between supply orders. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
@@ -1272,6 +1297,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SupplyOrder" type="SupplyOrder"/>
 	<xs:complexType name="SupplyOrder">
 		<xs:annotation>
 			<xs:documentation>A provider's order to deliver the supply.</xs:documentation>
@@ -1284,7 +1310,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Frequency" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="BaseFrequency" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The interval in between supply orders. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
@@ -1318,6 +1344,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Constituent" type="Constituent"/>
 	<xs:complexType name="Constituent">
 		<xs:annotation>
 			<xs:documentation>A component of a multi-component substance administration. May be an additive in a composite IV.</xs:documentation>
@@ -1339,6 +1366,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="DeniedAdverseEvent" type="DeniedAdverseEvent"/>
 	<xs:complexType name="DeniedAdverseEvent">
 		<xs:annotation>
 			<xs:documentation>A denial that the subject has or had the specified adverse event.  E.g., if adverseEventCode is hives, adverse event agent is penicillin, and documentation time is 2011-05-01, an assertion was made on 2011-05-01 that the subject does not get hives as a reaction to penicillin.
@@ -1359,6 +1387,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="UndeliveredSupply" type="UndeliveredSupply"/>
 	<xs:complexType name="UndeliveredSupply">
 		<xs:annotation>
 			<xs:documentation>Documentation that the indicated material was not provided to the subject.</xs:documentation>
@@ -1385,6 +1414,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="UndeliveredSubstanceAdministration" type="UndeliveredSubstanceAdministration"/>
 	<xs:complexType name="UndeliveredSubstanceAdministration">
 		<xs:annotation>
 			<xs:documentation>Documents the non-delivery of a substance.  E.g., documents that an influenza immunization was not given because the patient refused or had an adverse reaction to a previous flu vaccine.</xs:documentation>
@@ -1411,6 +1441,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ObservationBase" type="ObservationBase"/>
 	<xs:complexType name="ObservationBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The abstract base class for an observation, which is the act of recognizing and noting a fact.</xs:documentation>
@@ -1433,10 +1464,21 @@ Common denials of adverse events to a class of agents can be expressed as follow
 							<xs:documentation>The body site where the observation is being made.  E.g., left lung.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="interpretation" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Explanation of the results (e.g., fracture seen on x-ray), including an indication of the deviation of the result value from the reference range for the observation (e.g., high, low, within normal limits).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="observationEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Time for the completion of the observation, including the interpretation.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EncounterBase" type="EncounterBase"/>
 	<xs:complexType name="EncounterBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>The abstract base class for an encounter of an EvaluatedPerson with the healthcare system.  If an encounter or appointment has been canceled, it should simply not be provided using this model.  This allows the encounter and appointment classes to be used without an explicit encounter status check.</xs:documentation>
@@ -1453,6 +1495,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProcedureBase" type="ProcedureBase"/>
 	<xs:complexType name="ProcedureBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for a procedure, which is a series of steps taken on a subject to accomplish a clinical goal. Procedures include diagnostic testing, consultations, referrals, nursing procedures, making observations, and other clinical interventions excluding substance administrations.</xs:documentation>
@@ -1484,6 +1527,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SupplyBase" type="SupplyBase"/>
 	<xs:complexType name="SupplyBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for the provision of some clinical material or equipment to the subject, such as a wheelchair.</xs:documentation>
@@ -1510,6 +1554,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="LaboratoryProposal" type="LaboratoryProposal"/>
 	<xs:complexType name="LaboratoryProposal">
 		<xs:annotation>
 			<xs:documentation>A proposal for a laboratory test.</xs:documentation>
@@ -1541,6 +1586,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="PCAProposal" type="PCAProposal"/>
 	<xs:complexType name="PCAProposal">
 		<xs:annotation>
 			<xs:documentation>Order proposal represents a Patient Controlled Analgesic. For instance, morphine PCA, 5 mg loading dose, followed by 10 mg/hr basal rate, 1 mg demand dose, lockout interval 10 min.</xs:documentation>
@@ -1567,6 +1613,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CodedNameValuePair" type="CodedNameValuePair"/>
 	<xs:complexType name="CodedNameValuePair">
 		<xs:annotation>
 			<xs:documentation>Class that represents a generic Name-Value-Pair object where the name may be controlled by a terminology and the value may be any type deriving from ANY and/or defined by a template.</xs:documentation>
@@ -1579,7 +1626,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 							<xs:documentation>A code representing the name of the attribute.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="value" type="Value" minOccurs="1" maxOccurs="1">
+					<xs:element name="value" type="ExtendedVmrTypeBase" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The value of the attribute.</xs:documentation>
 						</xs:annotation>
@@ -1588,6 +1635,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CompositeIVProposal" type="CompositeIVProposal"/>
 	<xs:complexType name="CompositeIVProposal">
 		<xs:annotation>
 			<xs:documentation>A class representing IV fluid proposals that may consist of one or more additives mixed into a diluent (as represented by the substance attribute).</xs:documentation>
@@ -1604,11 +1652,12 @@ Common denials of adverse events to a class of agents can be expressed as follow
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CommunicationBase" type="CommunicationBase"/>
 	<xs:complexType name="CommunicationBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>A communication is a message sent between a sender and a recipient for a purpose and about a topic. 
 
-Senders and Recipients are identified through related entities. The general type of entity (e.g., Person or Organization) is identified by the Entity subclass used.  The specific type of entity (e.g., Attending Physician or Public Health Agency) is identified by the entityType in this case.  Whether the Entity is serving as a recipient or a sender is identified by the targetRole.
+The specific type of entity (e.g., Attending Physician or Public Health Agency) is identified by the entityType of the sender or recipient.  
 
 There maybe a related clinical statement that identifies the topic of the communication in greater detail.</xs:documentation>
 		</xs:annotation>
@@ -1630,10 +1679,21 @@ There maybe a related clinical statement that identifies the topic of the commun
 							<xs:documentation>An indication, purpose or reason for why this action is being proposed., e.g., notify, alert, remind.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="recipient" type="Entity" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication.  </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sender" type="Entity" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CommunicationProposal" type="CommunicationProposal"/>
 	<xs:complexType name="CommunicationProposal">
 		<xs:annotation>
 			<xs:documentation>A proposal to communicate. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.</xs:documentation>
@@ -1663,6 +1723,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ExtendedVmrTypeBase" type="ExtendedVmrTypeBase"/>
 	<xs:complexType name="ExtendedVmrTypeBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for extended vMR types.</xs:documentation>
@@ -1675,6 +1736,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RespiratoryCareProposal" type="RespiratoryCareProposal"/>
 	<xs:complexType name="RespiratoryCareProposal">
 		<xs:annotation>
 			<xs:documentation>Order proposals that encompass supplemental oxygen (eg, nasal cannula, face mask), BiPAP/CPAP, and mechanical ventilation.  While these are vastly different respiratory care concepts, the associated data elements can be constrained through templates.</xs:documentation>
@@ -1762,6 +1824,7 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="DietQualifier" type="DietQualifier"/>
 	<xs:complexType name="DietQualifier">
 		<xs:annotation>
 			<xs:documentation>"Diet qualifier allows the post-coordination of diets in cases where such post-coordination is required. Diets can vary greatly in how they are represented in terminologies. The most common use case for DietQualifier is to represent a nutrient that can be either stated as a quantity, a range, or as a code (e.g., 'Low Protein'). 
@@ -1790,6 +1853,7 @@ DietQualifier consists of the dietQualifierType (e.g., Sodium), the amount in th
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CommunicationEvent" type="CommunicationEvent"/>
 	<xs:complexType name="CommunicationEvent">
 		<xs:annotation>
 			<xs:documentation>A communication event that is occurring or has occurred. E.g., an alert that was sent, a Direct message that was sent.</xs:documentation>
@@ -1806,12 +1870,13 @@ DietQualifier consists of the dietQualifierType (e.g., Sodium), the amount in th
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="FrequencyAsInterval" type="FrequencyAsInterval"/>
 	<xs:complexType name="FrequencyAsInterval">
 		<xs:annotation>
 			<xs:documentation>A computable frequency representation that specifies the time span between events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="Frequency">
+			<xs:extension base="BaseFrequency">
 				<xs:sequence>
 					<xs:element name="intervalIsImportant" type="dt:BL" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
@@ -1827,12 +1892,13 @@ DietQualifier consists of the dietQualifierType (e.g., Sodium), the amount in th
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="FrequencyAsCode" type="FrequencyAsCode"/>
 	<xs:complexType name="FrequencyAsCode">
 		<xs:annotation>
 			<xs:documentation>The interval in between events represented as a code such as TID, BID, q8h, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="Frequency">
+			<xs:extension base="BaseFrequency">
 				<xs:sequence>
 					<xs:element name="frequencyCode" type="dt:CD" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
@@ -1843,6 +1909,7 @@ DietQualifier consists of the dietQualifierType (e.g., Sodium), the amount in th
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceDispensationProposal" type="SubstanceDispensationProposal"/>
 	<xs:complexType name="SubstanceDispensationProposal">
 		<xs:annotation>
 			<xs:documentation>Specifies that a substance needs to be dispensed but not administered to a patient (eg, &#8220;naloxone at bedside&#8221;).
@@ -1881,7 +1948,8 @@ Constrain all attributes out from SubstanceAdministrationBase except substance.<
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="Frequency" abstract="true">
+	<xs:element name="BaseFrequency" type="BaseFrequency"/>
+	<xs:complexType name="BaseFrequency" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Specification of the periodicity of recurring events, with both regular and irregular time intervals. The preferred approach to specifying a frequency is to use the FrequencyAsCode class. When a code is not available that meets the needs of the case, only then should the FrequencyAsInterval element be used.</xs:documentation>
 		</xs:annotation>
@@ -1926,6 +1994,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Repetition" type="Repetition"/>
 	<xs:complexType name="Repetition" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Specification of the endpoint of a repetitive action.  Must be extended by either RepeatUntilCount or RepeatUntilTime.</xs:documentation>
@@ -1936,6 +2005,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="DietProposal" type="DietProposal"/>
 	<xs:complexType name="DietProposal">
 		<xs:annotation>
 			<xs:documentation>A class representing a wide variety of allowable types of meals and/or specification of meal and/or nutrient restrictions for an individual patient, based on the patient's clinical condition</xs:documentation>
@@ -1952,6 +2022,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RepeatUntilCount" type="RepeatUntilCount"/>
 	<xs:complexType name="RepeatUntilCount">
 		<xs:annotation>
 			<xs:documentation>The total number of times the clinical action should be performed. For instance, "CPK every 8 hours x 3" is a request for a CPK level to be obtained now and again in 8 and 16 hours for a total of 3 CPK measurements.</xs:documentation>
@@ -1968,6 +2039,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RepeatUntilTime" type="RepeatUntilTime"/>
 	<xs:complexType name="RepeatUntilTime">
 		<xs:annotation>
 			<xs:documentation>The action should be repeated until the specified time. For instance, do X every 4 hours until Thursday at noon. </xs:documentation>
@@ -1984,6 +2056,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RelatedEntity" type="RelatedEntity"/>
 	<xs:complexType name="RelatedEntity">
 		<xs:annotation>
 			<xs:documentation>A class that specifies the nature of the relationship between a source and target entity.</xs:documentation>
@@ -1996,6 +2069,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RelatedClinicalStatement" type="RelatedClinicalStatement"/>
 	<xs:complexType name="RelatedClinicalStatement">
 		<xs:annotation>
 			<xs:documentation>The container for a relationship between a source and a target Clinical Statement.</xs:documentation>
@@ -2008,6 +2082,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CodedIdentifier" type="CodedIdentifier"/>
 	<xs:complexType name="CodedIdentifier">
 		<xs:annotation>
 			<xs:documentation>An II with an additional code to represent the associated concept. This is relevant for templates that are associated with a particular concept such as Barium Enema for instance.</xs:documentation>
@@ -2024,6 +2099,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Documentation" type="Documentation"/>
 	<xs:complexType name="Documentation">
 		<xs:annotation>
 			<xs:documentation>This type may be used to represent documentation that is either free text or richer in format (e.g., XML or HTML) where provenance is not relevant. The type of the documentation is determined by a code that represents the type of documentation ("e.g., a consult note, a provider instruction, a patient instruction, etc...). It is intended to represent comment fields and notes such as those associated with order entry forms. Either freeTextValue or content must be specified.</xs:documentation>
@@ -2041,7 +2117,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 							<xs:documentation>The free text representation of this document.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="type" type="dt:CD" minOccurs="1" maxOccurs="1">
+					<xs:element name="type" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 	- Code that specifies the type of document represented: E.g., 'Instructions to Provider', 'Patient Instructions', 'Special Handling', etc...</xs:documentation>
@@ -2051,6 +2127,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="LaboratoryOrder" type="LaboratoryOrder"/>
 	<xs:complexType name="LaboratoryOrder">
 		<xs:annotation>
 			<xs:documentation>An order for a laboratory test.</xs:documentation>
@@ -2082,6 +2159,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="DietOrder" type="DietOrder"/>
 	<xs:complexType name="DietOrder">
 		<xs:annotation>
 			<xs:documentation>A class representing a wide variety of allowable types of meals and/or specification of meal and/or nutrient restrictions for an individual patient, based on the patient's clinical condition</xs:documentation>
@@ -2098,6 +2176,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ImagingOrder" type="ImagingOrder"/>
 	<xs:complexType name="ImagingOrder">
 		<xs:annotation>
 			<xs:documentation>An order to perform an Imaging study. For instance, Chest Radiograph - PA and Lateral.</xs:documentation>
@@ -2149,6 +2228,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CompositeIVOrder" type="CompositeIVOrder"/>
 	<xs:complexType name="CompositeIVOrder">
 		<xs:annotation>
 			<xs:documentation>A class representing IV fluid orders that may consist of one or more additives mixed into a diluent (as represented by the substance attribute).</xs:documentation>
@@ -2165,6 +2245,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EnteralFeedingOrder" type="EnteralFeedingOrder"/>
 	<xs:complexType name="EnteralFeedingOrder">
 		<xs:annotation>
 			<xs:documentation>A class representing enteral nutrition orders for the delivery of enteral-fed substances (eg, Nutren, Ensure, RenalCal) for patients who are unable to consume diets orally; enteral feedings can be delivered to the stomach or varying parts of the small intestines using a variety of tube placement methods, depending on the clinical scenario. For instance, Nutren via nasogastric tube, 20 ml/hour, increase by 20 ml every 4 hours, goal of 75 ml/hour, water flushes 125 ml every shift.</xs:documentation>
@@ -2196,6 +2277,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="PCAOrder" type="PCAOrder"/>
 	<xs:complexType name="PCAOrder">
 		<xs:annotation>
 			<xs:documentation>Order represents a Patient Controlled Analgesic. For instance, morphine PCA, 5 mg loading dose, followed by 10 mg/hr basal rate, 1 mg demand dose, lockout interval 10 min.</xs:documentation>
@@ -2222,6 +2304,7 @@ PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="VMR" type="VMR"/>
 	<xs:complexType name="VMR">
 		<xs:annotation>
 			<xs:documentation>A virtual medical record (vMR) contains data about a patient relevant for CDS, either with regard to the data used for generating inferences (input) or the conclusions reached as a result of analyzing the data (output).  A vMR may contain, for example, problems and medications or CDS-generated assessments and recommended actions.  Note that CDS-generated assessments and recommended actions would typically be considered a CDS output but could also be used as a CDS input as well (e.g., prior CDS system recommendations could influence current CDS system recommendations).
@@ -2239,6 +2322,7 @@ Note that enumerations and value domains are anticipated to be specified in prof
 			<xs:element name="patient" type="EvaluatedPerson" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Person" type="Person"/>
 	<xs:complexType name="Person">
 		<xs:annotation>
 			<xs:documentation>A human being.</xs:documentation>
@@ -2265,6 +2349,7 @@ Note that enumerations and value domains are anticipated to be specified in prof
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Organization" type="Organization"/>
 	<xs:complexType name="Organization">
 		<xs:annotation>
 			<xs:documentation>An Entity representing a formalized group of persons or other organizations with a common purpose and the infrastructure to carry out that purpose.  E.g., a healthcare delivery organization.</xs:documentation>
@@ -2291,6 +2376,7 @@ Note that enumerations and value domains are anticipated to be specified in prof
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Facility" type="Facility"/>
 	<xs:complexType name="Facility">
 		<xs:annotation>
 			<xs:documentation>A property such as a building that has been established to enable the performance of specific activities, typically by organizations.  E.g., a hospital or clinic.</xs:documentation>
@@ -2317,6 +2403,7 @@ Note that enumerations and value domains are anticipated to be specified in prof
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="SubstanceDispensationOrder" type="SubstanceDispensationOrder"/>
 	<xs:complexType name="SubstanceDispensationOrder">
 		<xs:annotation>
 			<xs:documentation>A clinical order for a substance dispensation. That is the substance is to be dispensed but not administered.</xs:documentation>
@@ -2358,6 +2445,7 @@ Note that enumerations and value domains are anticipated to be specified in prof
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RelatedEvaluatedPerson" type="RelatedEvaluatedPerson"/>
 	<xs:complexType name="RelatedEvaluatedPerson">
 		<xs:annotation>
 			<xs:documentation>Person who has a clinical relationship to the patient and whose clinical data is relevant to that patient. This can include a relative, or sexual partner, etc...
@@ -2372,6 +2460,7 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="GoalBase" type="GoalBase"/>
 	<xs:complexType name="GoalBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for a goal, which is a clinical end or aim towards which effort is directed.</xs:documentation>
@@ -2409,6 +2498,7 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ProblemBase" type="ProblemBase"/>
 	<xs:complexType name="ProblemBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for problems, which are clinical conditions that need to be treated or managed.</xs:documentation>
@@ -2440,6 +2530,7 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="AdverseEventBase" type="AdverseEventBase"/>
 	<xs:complexType name="AdverseEventBase" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class for adverse events, which are unfavorable healthcare events (e.g., death, rash, difficulty breathing) that are thought to have been caused by some agent (e.g., a medication, immunization, food, or environmental agent). If a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events.</xs:documentation>
@@ -2476,6 +2567,7 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Value" type="Value"/>
 	<xs:complexType name="Value">
 		<xs:annotation>
 			<xs:documentation>Class that represents a generic value which may be of any type deriving from ANY.</xs:documentation>
@@ -2492,6 +2584,7 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="GroupingClinicalStatement" type="GroupingClinicalStatement"/>
 	<xs:complexType name="GroupingClinicalStatement">
 		<xs:annotation>
 			<xs:documentation>A clinical statement which serves to group other clinical statements.  For example, a grouping clinical statement could contain an intervention proposal and a substance administration proposal, one of which should be completed.</xs:documentation>
@@ -2508,5 +2601,43 @@ The end time of the interval may be "open" or not stated, if the goal is being i
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="vMR" type="VMR"/>
+	<xs:element name="CompositeObservationResult" type="CompositeObservationResult"/>
+	<xs:complexType name="CompositeObservationResult">
+		<xs:annotation>
+			<xs:documentation>The findings from an observation represented as a composition of child observation results.  CompositeObservationResult may consist of two or more ObservationResults, one or more CompositeObservationResults, or two or more of a combination of ObservationResult and CompositeObservationResult. E.g., Complete Blood Count, Basic Chemistry Panel. A </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ObservationBase">
+				<xs:sequence>
+					<xs:element name="observationResult" type="ObservationBase" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Component observation. May be either a simple ObservationResult or a CompositeObservationResult.  E.g., Hematocrit in a Complete Blood Count.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CodeableConcept" type="CodeableConcept"/>
+	<xs:complexType name="CodeableConcept">
+		<xs:annotation>
+			<xs:documentation>A concept that can be expressed as one or more codes or in human narrative form.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ExtendedVmrTypeBase">
+				<xs:sequence>
+					<xs:element name="code" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A term from a controlled terminology that semantically defines this concept.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="narrative" type="dt:ST" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A human-readable description of the concept.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>

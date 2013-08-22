@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsinputspecification:r3" xmlns:cdsis="urn:hl7-org:v3:cdsinputspecification:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" targetNamespace="urn:hl7-org:v3:cdsinputspecification:r3" elementFormDefault="qualified">
+<xs:schema targetNamespace="urn:hl7-org:v3:cdsinputspecification:r3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsinputspecification:r3" xmlns:cdsis="urn:hl7-org:v3:cdsinputspecification:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS input data required for a specific CDS use case.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:vmr:r3" schemaLocation="../vmr/vmr.xsd"/>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:v3:vmr:r3" schemaLocation="vmr/vmr.xsd"/>
+	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="common/datatypes.xsd"/>
+	<xs:element name="EvaluatedPersonInputSpecification" type="EvaluatedPersonInputSpecification"/>
 	<xs:complexType name="EvaluatedPersonInputSpecification" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Specifies the data required for an evaluated person.  Can include (i) a specification of the person attributes (e.g., gender) required; (ii) a specification of the templates that must be applied; (iii) a specification of the data required for related entities; and (iv) a specification of the clinical statements required.</xs:documentation>
@@ -24,6 +25,7 @@
 			<xs:element name="clinicalStatementInputSpecification" type="ClinicalStatementInputSpecification" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSInputSpecification" type="CDSInputSpecification"/>
 	<xs:complexType name="CDSInputSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class containing the data required by a specific CDS use case.  For example, this class can be used to specify that the evaluation of a patient for the need for a mammogram requires the following data: (i) gender; (ii) age; (iii) past mastectomy history; and (iv) past mammogram history.
@@ -55,6 +57,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			<xs:element name="relatedEvaluatedPersonInputSpecification" type="RelatedEvaluatedPersonInputSpecification" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="PatientInputSpecification" type="PatientInputSpecification"/>
 	<xs:complexType name="PatientInputSpecification">
 		<xs:annotation>
 			<xs:documentation>The data required for the patient.  Is a specialization of the EvaluatedPersonInputSpecification class.</xs:documentation>
@@ -65,6 +68,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="CodedAttributeRequirement" type="CodedAttributeRequirement"/>
 	<xs:complexType name="CodedAttributeRequirement">
 		<xs:annotation>
 			<xs:documentation>A requirement for a coded attribute of a clinical statement.  Specified in terms of the target coded attribute and the code(s) for that attribute that allow the requirement to be fulfilled.</xs:documentation>
@@ -82,6 +86,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RelatedEvaluatedPersonInputSpecification" type="RelatedEvaluatedPersonInputSpecification"/>
 	<xs:complexType name="RelatedEvaluatedPersonInputSpecification">
 		<xs:annotation>
 			<xs:documentation>The data required for evaluated persons related to the patient.  Is a specialization of the EvaluatedPersonInputSpecification class.  Includes a specification of the scope of evaluated persons that are required.</xs:documentation>
@@ -108,6 +113,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RelatedEntityInputSpecification" type="RelatedEntityInputSpecification"/>
 	<xs:complexType name="RelatedEntityInputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the data required regarding entities related to the evaluated person of interest.</xs:documentation>
@@ -135,6 +141,7 @@ Can include a detailed input specification for the focal patient as well as for 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="ClinicalStatementInputSpecification" type="ClinicalStatementInputSpecification"/>
 	<xs:complexType name="ClinicalStatementInputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the clinical statements required regarding the evaluated person of interest.  Can include CodedAttributeRequirements and TimeAttributeRequirements.
@@ -142,27 +149,16 @@ Can include a detailed input specification for the focal patient as well as for 
 If no CodedAttributeRequirement specified, all relevant clinical statements are required regardless of their coded attributes.  If no TimeAttributeRequirement specified, all relevant clinical statements are required regardless of their time attributes.  All specified CodedAttributeRequirements and TimeAttributeRequirements should be fulfilled in provided ClinicalStatements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="requiredGeneralClinicalStatementClass" type="dt:CS" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>The general class of clinical statement required.  E.g., Procedure, Observation.
-
-If only the general clinical statement type is specified (i.e., requiredSpecificClinicalStatementType is not specified), then it will be assumed that all members of the specified general clinical statement types are desired.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="requiredClinicalStatementTemplate" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Identifier of a set of constraints that must be placed on the ClinicalStatement.  Allows, for example, the specification of required detailed clinical models that correspond to templates.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="requiredSpecificClinicalStatementClass" type="dt:CS" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>The specific class of clinical statement required. E.g., ProcedureOrder, ObservationResult.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="codedAttributeRequirement" type="CodedAttributeRequirement" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="timeAttributeRequirement" type="TimeAttributeRequirement" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="TimeAttributeRequirement" type="TimeAttributeRequirement"/>
 	<xs:complexType name="TimeAttributeRequirement">
 		<xs:annotation>
 			<xs:documentation>A requirement for a time attribute of a clinical statement.  Specified in terms of the target time attribute and the required time interval for that attribute in relationship to the index evaluation time.  A searchBackTimePeriod and/or a searchForwardTimePeriod must be provided.</xs:documentation>
@@ -188,7 +184,7 @@ If only the general clinical statement type is specified (i.e., requiredSpecific
 					<xs:documentation>The maximum number of most recent clinical statements to return. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maxSamplingRate" type="dt:RTO_PQ" minOccurs="1" maxOccurs="1">
+			<xs:element name="maxSamplingRate" type="dt:RTO" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>In the case where there are large number of available clinical statements, it may be useful to specify a sampling rate to reduce the number to be evaluated.  For example, when there have been large numbers of vital signs taken by automated equipment, it may be useful to evaluate a subset of the entire group.</xs:documentation>
 				</xs:annotation>
