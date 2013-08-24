@@ -59,7 +59,7 @@ Can include a detailed output specification for the focal patient as well as for
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonOutputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -87,7 +87,7 @@ Can include a detailed output specification for the focal patient as well as for
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonOutputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -133,7 +133,7 @@ Can include a detailed output specification for the focal patient as well as for
 		<xs:annotation>
 			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. </xs:documentation>
 		</xs:annotation>
-		
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:complexType name="CDSOutputAsDataTypeSpecification">
 		<xs:annotation>
@@ -185,5 +185,4 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsOutputSpecification" type="CDSOutputSpecification"/>
 </xs:schema>

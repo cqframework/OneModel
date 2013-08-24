@@ -24,6 +24,13 @@
 						</vmr:value>
 					</vmr:value>
 				</vmr:attribute>
+				<vmr:relatedEntity xsi:type="vmr:RelatedEntity">
+					<vmr:targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<vmr:entity xsi:type="vmr:Organization">
+						<vmr:templateId root="TBD" identifierName=""/>
+						<vmr:name value="ABCDE Clinic"/>
+					</vmr:entity>
+				</vmr:relatedEntity>
 			</vmr:entity>
 		</vmr:relatedEntity>
 		<!--<vmr:age value="3.14159" unit="y"/>-->

@@ -61,7 +61,7 @@ Can include a detailed input specification for the focal patient as well as for 
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonInputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -183,5 +183,4 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsInputSpecification" type="CDSInputSpecification"/>
 </xs:schema>

@@ -114,5 +114,4 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsInput" type="CDSInput"/>
 </xs:schema>

@@ -48,5 +48,4 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="cdsOutput" type="CDSOutput"/>
 </xs:schema>
