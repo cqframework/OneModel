@@ -2004,7 +2004,7 @@
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_1879CF76_BB02_45b3_A4AE_54A7078676DF" name="xml" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
 						<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000637_BB02_45b3_A4AE_54A7078676DF" value="0"/>
 						<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000638_BB02_45b3_A4AE_54A7078676DF" value="1"/>
-						<type xmi:idref="EAJava_XML"/>
+						<type xmi:idref="EAJava_anyType"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_BB90B3B6_7C4E_42b9_891D_B2C3C0399111" name="reference" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
 						<type xmi:idref="EAID_773F6D0E_370F_4df1_A77D_E578A19568C0"/>
@@ -3092,6 +3092,12 @@
 		<thecustomprofile:enum base_Attribute="EAID_D00E1E59_8F67_4fd5_985A_F32CC99ACCEB"/>
 		<thecustomprofile:XSDsimpleType base_Class="EAID_021ED886_58C2_4d86_814E_EE37524C0CE9"/>
 		<thecustomprofile:derivation base_Class="EAID_021ED886_58C2_4d86_814E_EE37524C0CE9" derivation="restriction"/>
+		<thecustomprofile:XSDelement base_Attribute="EAID_8F6CC260_0E56_4c51_9ADF_F4752E010743"/>
+		<thecustomprofile:anonymousRole base_Attribute="EAID_1879CF76_BB02_45b3_A4AE_54A7078676DF" anonymousRole="false"/>
+		<thecustomprofile:XSDelement base_Attribute="EAID_1879CF76_BB02_45b3_A4AE_54A7078676DF"/>
+		<thecustomprofile:XSDelement base_Attribute="EAID_BB90B3B6_7C4E_42b9_891D_B2C3C0399111"/>
+		<thecustomprofile:XSDelement base_Attribute="EAID_5ED9447A_CE1E_4378_9910_5645DD95FA6A"/>
+		<thecustomprofile:XSDelement base_Attribute="EAID_4CDD971C_5E83_47ad_8937_B8701CEF2746"/>
 		<thecustomprofile:XSDattribute base_Attribute="EAID_2E74497D_B12F_4437_927F_A71F5F38B376"/>
 		<thecustomprofile:anonymousRole base_Attribute="EAID_88C3F59A_3FFE_4d39_A884_463F3892C92F" anonymousRole="false"/>
 		<thecustomprofile:XSDattribute base_Attribute="EAID_88C3F59A_3FFE_4d39_A884_463F3892C92F"/>
@@ -10036,7 +10042,7 @@
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
-						<xrefs value="$XREFPROP=$XID={7C43D592-748D-4d25-99B5-0DBC4E5B2C06}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={C5066F1A-56A8-44fa-ACE2-2367B41837C4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={23A3B866-39F8-47e2-8680-A2C5605FCCA2}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={C5066F1A-56A8-44fa-ACE2-2367B41837C4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={23A3B866-39F8-47e2-8680-A2C5605FCCA2}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={C5066F1A-56A8-44fa-ACE2-2367B41837C4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={7C43D592-748D-4d25-99B5-0DBC4E5B2C06}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={C5066F1A-56A8-44fa-ACE2-2367B41837C4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_BF44D4A4_04AF_426e_92D3_06ED114D5D69" name="code" scope="Public">
 						<initial/>
@@ -10504,7 +10510,7 @@
 			<element xmi:idref="EAID_55552FA4_6B0E_4190_913A_BA96BADD6478" xmi:type="uml:Class" name="ED" scope="public">
 				<model package="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9" tpos="0" ea_localid="532" ea_eleType="element"/>
 				<properties documentation="Data that is primarily intended for human interpretation or for further machine processing outside the scope of this specification. This includes unformatted or formatted written language, multimedia data, or structured information as defined by a different standard (e.g., XML-signatures.) &#xA;Encapsulated data can be present in two forms, inline or by reference. The content is the same whether it is located inline or remote. Inline data is communicated or moved as part of the encapsulated data value, whereas by-reference data may reside at a different  location: a URL/URI that provides reference to the information required to locate the data. Inline data may be provided in one of 3 different ways:&#xA;&#xA;1) as a plain sequence of characters (value)&#xA;2) as a binary (a sequence of bytes) (data&#xA;3) as xml content (xml)&#xA;&#xA;Content SHALL be provided if the ED has no nullFlavor. The content may be provided in-line (using only one of value, data or xml), or it may be provided as a reference.Content may be provided in-line and a reference also may be given; in these cases, it is expected that the content of the reference will be exactly the same as the in-line content. Information Processing Entities are not required to check this, but may regard it as an error condition if the content does not match" isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-07 08:35:10" modified="2013-08-14 17:31:47" complexity="1" status="Proposed"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-03-07 08:35:10" modified="2013-08-25 17:25:15" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -10519,28 +10525,33 @@
 						<properties type="base64Binary" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="0"/>
-						<stereotype/>
+						<stereotype stereotype="XSDelement"/>
 						<bounds lower="0" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
-						<xrefs value="$XREFPROP=$XID={A26FDE9E-1393-4ef5-B01F-F388520D42CF}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={8F6CC260-0E56-4c51-9ADF-F4752E010743}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={A26FDE9E-1393-4ef5-B01F-F388520D42CF}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={8F6CC260-0E56-4c51-9ADF-F4752E010743}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={C790A411-2803-4c6f-91FC-BD37CA4A71B6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDelement;GUID={2FD10AAC-B1B3-4c81-B15D-35C3FC300956};@ENDSTEREO;$DES;$CLT={8F6CC260-0E56-4c51-9ADF-F4752E010743}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_1879CF76_BB02_45b3_A4AE_54A7078676DF" name="xml" scope="Public">
 						<initial/>
 						<documentation value="The content represented in plain XML form.&#xA;&#xA;A direct representation is provided for XML. This is because this specification includes an XML serialization of the data, and this xml attribute is handled specially in the serialisation form. The xml data is not different in any semantic sense to the same data if represented in the value or data attributes."/>
 						<model ea_localid="1019" ea_guid="{1879CF76-BB02-45b3-A4AE-54A7078676DF}"/>
-						<properties type="XML" derived="0" collection="false" duplicates="0" changeability="changeable"/>
+						<properties type="anyType" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="1"/>
-						<stereotype/>
+						<stereotype stereotype="XSDelement"/>
 						<bounds lower="0" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
-						<tags/>
-						<xrefs value="$XREFPROP=$XID={C5B5B0E9-4B05-4d3e-A7BE-6B69DAD230BE}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={1879CF76-BB02-45b3-A4AE-54A7078676DF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<tags>
+							<tag xmi:id="EAID_6A985D51_0514_4e74_BB38_3820CFBFE573" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: The class type will be directly embedded within the complexType definition. Omit attribute or role type wrapper&#xA;"/>
+							<tag xmi:id="EAID_856AC6AA_5F48_4534_993B_E84FD648273F" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the elementFormDefault for this schema&#xA;"/>
+							<tag xmi:id="EAID_FEE61302_428E_4d8e_BF57_E2CD99922A5E" name="default" notes="Description: As defined in XML Schema sepecification&#xA;"/>
+							<tag xmi:id="EAID_7A4D53EB_34AB_437a_B1E8_71AEBC710E5E" name="fixed" notes="Description: As defined in XML Schema sepecification&#xA;"/>
+						</tags>
+						<xrefs value="$XREFPROP=$XID={C5B5B0E9-4B05-4d3e-A7BE-6B69DAD230BE}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={1879CF76-BB02-45b3-A4AE-54A7078676DF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={827650CA-FC2A-48b0-80C6-AB468EAAB12C}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDelement;GUID={2FD10AAC-B1B3-4c81-B15D-35C3FC300956};@ENDSTEREO;$DES;$CLT={1879CF76-BB02-45b3-A4AE-54A7078676DF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_BB90B3B6_7C4E_42b9_891D_B2C3C0399111" name="reference" scope="Public">
 						<initial/>
@@ -10549,13 +10560,13 @@
 						<properties type="TEL" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="2"/>
-						<stereotype/>
+						<stereotype stereotype="XSDelement"/>
 						<bounds lower="0" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
-						<xrefs value="$XREFPROP=$XID={080BD694-FDBD-44c1-B991-0870EA78F6C8}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={BB90B3B6-7C4E-42b9-891D-B2C3C0399111}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={2AA0D335-3A98-40c5-AA88-E323D82D2BC6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDelement;GUID={2FD10AAC-B1B3-4c81-B15D-35C3FC300956};@ENDSTEREO;$DES;$CLT={BB90B3B6-7C4E-42b9-891D-B2C3C0399111}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={080BD694-FDBD-44c1-B991-0870EA78F6C8}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={BB90B3B6-7C4E-42b9-891D-B2C3C0399111}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_5ED9447A_CE1E_4378_9910_5645DD95FA6A" name="integrityCheck" scope="Public">
 						<initial/>
@@ -10564,13 +10575,13 @@
 						<properties type="base64Binary" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="3"/>
-						<stereotype/>
+						<stereotype stereotype="XSDelement"/>
 						<bounds lower="0" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
-						<xrefs value="$XREFPROP=$XID={8C3CF65A-BA85-4311-B6C9-547D2AC9F5EE}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5ED9447A-CE1E-4378-9910-5645DD95FA6A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={8C3CF65A-BA85-4311-B6C9-547D2AC9F5EE}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5ED9447A-CE1E-4378-9910-5645DD95FA6A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={E31A2463-BFB2-449b-BB3D-995E139B09BB}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDelement;GUID={2FD10AAC-B1B3-4c81-B15D-35C3FC300956};@ENDSTEREO;$DES;$CLT={5ED9447A-CE1E-4378-9910-5645DD95FA6A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_4CDD971C_5E83_47ad_8937_B8701CEF2746" name="description" scope="Public">
 						<initial/>
@@ -10579,13 +10590,13 @@
 						<properties type="ST" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
 						<containment containment="Not Specified" position="4"/>
-						<stereotype/>
+						<stereotype stereotype="XSDelement"/>
 						<bounds lower="0" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
-						<xrefs value="$XREFPROP=$XID={D1F2ED86-DA63-494c-A5E9-5BE00CC9123A}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={4CDD971C-5E83-47ad-8937-B8701CEF2746}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={1419F7EE-B0B8-4f1e-9534-60C6C68E9E18}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDelement;GUID={2FD10AAC-B1B3-4c81-B15D-35C3FC300956};@ENDSTEREO;$DES;$CLT={4CDD971C-5E83-47ad-8937-B8701CEF2746}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D1F2ED86-DA63-494c-A5E9-5BE00CC9123A}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={4CDD971C-5E83-47ad-8937-B8701CEF2746}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_2E74497D_B12F_4437_927F_A71F5F38B376" name="value" scope="Public">
 						<initial/>
@@ -10620,7 +10631,7 @@
 							<tag xmi:id="EAID_EC6A2B56_342B_4e6c_850E_79C641165DA2" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: Specifies if the role name is included in the element declaration for the UML attribute&#xA;"/>
 							<tag xmi:id="EAID_4B0DF165_E1FA_47b3_A09E_3EC99B971314" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the attributeFormDefault for this schema&#xA;"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={E7AA6085-AF01-439a-AD3E-CAFA01A5AEB6}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={88C3F59A-3FFE-4d39-A884-463F3892C92F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D8C33F40-A753-437a-A27A-0F4F324680FF}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={88C3F59A-3FFE-4d39-A884-463F3892C92F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={D8C33F40-A753-437a-A27A-0F4F324680FF}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={88C3F59A-3FFE-4d39-A884-463F3892C92F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={E7AA6085-AF01-439a-AD3E-CAFA01A5AEB6}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={88C3F59A-3FFE-4d39-A884-463F3892C92F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_19513C93_C892_4c17_A2F2_13736B8D0DA9" name="charset" scope="Public">
 						<initial/>
@@ -10680,7 +10691,7 @@
 							<tag xmi:id="EAID_8F816D22_ECF7_4148_9926_C4780760262A" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: Specifies if the role name is included in the element declaration for the UML attribute&#xA;"/>
 							<tag xmi:id="EAID_128D4473_176A_45cd_9457_C61C1BAD0A6F" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the attributeFormDefault for this schema&#xA;"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={2C916CCE-208B-4067-9463-253612C61713}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={A5391AF3-CF1F-4803-A2CA-3211BA860DB4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={D125C4AD-9C9B-42c4-B803-9E3D82179F8A}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={A5391AF3-CF1F-4803-A2CA-3211BA860DB4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={D125C4AD-9C9B-42c4-B803-9E3D82179F8A}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={A5391AF3-CF1F-4803-A2CA-3211BA860DB4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={2C916CCE-208B-4067-9463-253612C61713}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={A5391AF3-CF1F-4803-A2CA-3211BA860DB4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_7F6C8816_CB43_4c6c_9AFA_6EAA2EA90BB2" name="integrityCheckAlgorithm" scope="Public">
 						<initial/>
@@ -11437,7 +11448,7 @@
 						<style/>
 						<styleex value="IsLiteral=0;volatile=0;"/>
 						<tags/>
-						<xrefs value="$XREFPROP=$XID={B81E6F60-6720-447d-B981-BBCD4DEFC09F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={FAB01696-2DD2-4e73-8BA0-91247B5FB330}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={9BB8159F-7E10-4877-A720-E3ABB8ADC808}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={FAB01696-2DD2-4e73-8BA0-91247B5FB330}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={9BB8159F-7E10-4877-A720-E3ABB8ADC808}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={FAB01696-2DD2-4e73-8BA0-91247B5FB330}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={B81E6F60-6720-447d-B981-BBCD4DEFC09F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;GUID={76ECC6A9-826E-45c5-A18D-D2186D5D67B1};@ENDSTEREO;$DES;$CLT={FAB01696-2DD2-4e73-8BA0-91247B5FB330}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 				</attributes>
 				<links>
@@ -11795,7 +11806,7 @@
 							<tag xmi:id="EAID_CD29C2BD_2AC5_41a7_A0DE_56373A008FA0" name="anonymousRole" value="false" notes="Values: true | false&#xA;Default: false&#xA;Description: Specifies if the role name is included in the element declaration for the UML attribute&#xA;"/>
 							<tag xmi:id="EAID_5F0D5CB1_7794_4f03_A722_F583264F5FCA" name="form" notes="Values: qualified | unqualified&#xA;Description: Overrides the attributeFormDefault for this schema&#xA;"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={EEC41702-C0D1-470e-9733-01D69F483907}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;@ENDSTEREO;$DES;$CLT={FB280733-752D-40e9-B673-1E66343F3AF6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={874D59BF-B1E6-4cf1-BACE-F6A402EB2189}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={FB280733-752D-40e9-B673-1E66343F3AF6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={874D59BF-B1E6-4cf1-BACE-F6A402EB2189}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={FB280733-752D-40e9-B673-1E66343F3AF6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={EEC41702-C0D1-470e-9733-01D69F483907}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=XSDattribute;@ENDSTEREO;$DES;$CLT={FB280733-752D-40e9-B673-1E66343F3AF6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 					<attribute xmi:idref="EAID_197B09E4_D29D_4b5d_98B4_ACA8159D221A" name="highClosed" scope="Public">
 						<initial/>
@@ -19547,7 +19558,7 @@
 				</packagedElement>
 				<packagedElement xmi:type="uml:Package" xmi:id="EAJavaTypesPackage" name="EA_Java_Types_Package" visibility="public">
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_base64Binary" name="base64Binary" visibility="public"/>
-					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_XML" name="XML" visibility="public"/>
+					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_anyType" name="anyType" visibility="public"/>
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_String" name="String" visibility="public"/>
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_Boolean" name="Boolean" visibility="public">
 						<generalization xmi:type="uml:Generalization" xmi:id="EAJava_Boolean_General">
@@ -20653,9 +20664,9 @@
 			<diagram xmi:id="EAID_14C5FCAE_0CC8_4b47_AF7F_76DAAA6289A2">
 				<model package="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9" localID="3" owner="EAPK_6E646EC9_3CC5_4ada_AAC6_3124F1E04EC9"/>
 				<properties name="dataTypes" type="Logical"/>
-				<project author="ds187" version="1.0" created="2010-12-02 10:36:47" modified="2013-08-24 05:28:05"/>
+				<project author="ds187" version="1.0" created="2010-12-02 10:36:47" modified="2013-08-25 17:25:35"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=113;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=3E24D9CD;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=80CABDEE;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
@@ -20663,7 +20674,7 @@
 					<element geometry="Left=642;Top=418;Right=822;Bottom=536;" subject="EAID_453FA72E_BB11_4196_9DC2_6130A589B33A" seqno="1" style="DUID=EA2599EA;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=54;Top=421;Right=220;Bottom=522;" subject="EAID_D349A5B0_C012_41f8_A0D3_F3E2E2909E56" seqno="2" style="DUID=197ABB1F;"/>
 					<element geometry="Left=691;Top=625;Right=822;Bottom=704;" subject="EAID_ED6839C0_B39E_48f4_8E96_1298FCB8B02D" seqno="3" style="DUID=B59D77D9;"/>
-					<element geometry="Left=418;Top=793;Right=705;Bottom=989;" subject="EAID_55552FA4_6B0E_4190_913A_BA96BADD6478" seqno="4" style="DUID=6153CD00;"/>
+					<element geometry="Left=418;Top=793;Right=705;Bottom=1006;" subject="EAID_55552FA4_6B0E_4190_913A_BA96BADD6478" seqno="4" style="DUID=6153CD00;"/>
 					<element geometry="Left=54;Top=747;Right=237;Bottom=815;" subject="EAID_42B3AC61_A754_4ffa_9F7F_B56B467F5135" seqno="5" style="DUID=49AAC0B8;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=704;Top=547;Right=822;Bottom=613;" subject="EAID_4D308EB5_6124_4cc9_942E_FF9E64D02F42" seqno="6" style="DUID=6CFE50B4;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=355;Top=680;Right=632;Bottom=785;" subject="EAID_773F6D0E_370F_4df1_A77D_E578A19568C0" seqno="7" style="DUID=599717A0;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
