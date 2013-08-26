@@ -60,7 +60,7 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 		<xs:sequence>
 			<xs:element name="targetCodedAttribute" type="dt:CS">
 				<xs:annotation>
-					<xs:documentation>The clinical statement's coded attribute that is the subject of restriction.  E.g., problem code, problem status.</xs:documentation>
+					<xs:documentation>The coded attribute subject to restriction. If the coded attribute is a direct attribute of the clinical statement, represented using the name of the coded attribute. E.g., problemCode, problemStatus. If the coded attribute resides within a class nested within the clinical statement, represented as [containing class attribute name].[coded attribute name]. E.g., affectedBodySite.bodySiteCode, substance.substanceCode.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="targetCode" type="dt:CD" maxOccurs="unbounded">
@@ -95,7 +95,7 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonInputSpecification">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

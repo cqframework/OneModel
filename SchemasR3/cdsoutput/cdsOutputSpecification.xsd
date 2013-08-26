@@ -163,7 +163,7 @@ Can include a detailed output specification for the focal patient as well as for
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonOutputSpecification">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -209,7 +209,7 @@ Can include a detailed output specification for the focal patient as well as for
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonOutputSpecification">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

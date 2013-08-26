@@ -337,19 +337,19 @@ Approaches to representing specific statements:
 	</xs:complexType>
 	<xs:complexType name="CodeableConcept">
 		<xs:annotation>
-			<xs:documentation>A concept that can be expressed as one or more codes or in human narrative form.</xs:documentation>
+			<xs:documentation>A concept that can be expressed as a code or in human narrative form.  If a code with the appropriate semantics is available, the code should be provided. If both a code and a narrative are provided, they should be semantically equivalent.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="code" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="code" type="dt:CD" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A term from a controlled terminology that semantically defines this concept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="narrative" type="dt:ST" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A human-readable description of the concept.</xs:documentation>
+							<xs:documentation>A human-readable description of the concept that is an alternative to the code, or is semantically equivalent to the code.  It is not intended to be a qualification of the code. It should be able to stand alone and give the same meaning as the code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -597,7 +597,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AdverseEventBase">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -609,7 +609,7 @@ To assert that the subject has no known problems, a DeniedProblem can be asserte
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ProblemBase">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -913,6 +913,11 @@ Included to support family history-based inferencing.</xs:documentation>
 			<xs:element name="templateId" type="CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The identifier of a set of constraints placed on an extended vMR data type.  If there are multiple templates specified for the element, then the element must satisfy ALL constraints defined in ANY template at that level.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="id" type="CodedIdentifier" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional unique identifier for the extended vmr type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1579,7 +1584,9 @@ Includes concepts such as mild, moderate, severe</xs:documentation>
 					</xs:element>
 					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Indication for the procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.</xs:documentation>
+							<xs:documentation>Indication for the procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
+
+If trying to further characterize the prnReason, use the available comment attribute rather than the narrative attribute of the CodeableConcept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="procedureTime" type="dt:IVL_TS" minOccurs="0">
@@ -1625,7 +1632,9 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 					</xs:element>
 					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.</xs:documentation>
+							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
+
+If trying to further characterize the prnReason, use the available comment attribute rather than the narrative attribute of the CodeableConcept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="proposedProcedureTime" type="dt:IVL_TS" minOccurs="0">
@@ -1750,7 +1759,7 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1976,7 +1985,7 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="StringNameStringValuePair">
+	<xs:complexType name="StringNameValuePair">
 		<xs:annotation>
 			<xs:documentation>Class that represents a generic StringName-StringValue-Pair object where the name is just an ST and the value is also an ST and defined by a template.</xs:documentation>
 		</xs:annotation>
@@ -2143,7 +2152,9 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 					</xs:element>
 					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.</xs:documentation>
+							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
+
+If trying to further characterize the prnReason, use the available comment attribute rather than the narrative attribute of the CodeableConcept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="urgency" type="dt:CD" minOccurs="0">
@@ -2192,7 +2203,9 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 					</xs:element>
 					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.</xs:documentation>
+							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
+
+If trying to further characterize the prnReason, use the available comment attribute rather than the narrative attribute of the CodeableConcept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="proposedAdministrationTimeInterval" type="dt:IVL_TS" minOccurs="0">

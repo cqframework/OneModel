@@ -24,7 +24,7 @@
 		<xs:complexContent>
 			<xs:extension base="CDSOutput">
 				<xs:sequence>
-					<xs:element name="value" type="vmr:Value" minOccurs="1" maxOccurs="1">
+					<xs:element name="value" type="vmr:Value">
 						<xs:annotation>
 							<xs:documentation>The value of the CDS output.</xs:documentation>
 						</xs:annotation>
@@ -40,7 +40,7 @@
 		<xs:complexContent>
 			<xs:extension base="CDSOutput">
 				<xs:sequence>
-					<xs:element name="stringNameValuePair" type="vmr:StringNameStringValuePair" maxOccurs="unbounded">
+					<xs:element name="stringNameValuePair" type="vmr:StringNameValuePair" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A pair of strings used to communicate an output result from CDS</xs:documentation>
 						</xs:annotation>
@@ -56,7 +56,7 @@
 		<xs:complexContent>
 			<xs:extension base="CDSOutput">
 				<xs:sequence>
-					<xs:element name="vmrOutput" type="vmr:VMR" minOccurs="1" maxOccurs="1">
+					<xs:element name="vmrOutput" type="vmr:VMR">
 						<xs:annotation>
 							<xs:documentation>Output from CDS structured as a VMR record</xs:documentation>
 						</xs:annotation>

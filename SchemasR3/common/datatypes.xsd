@@ -196,7 +196,7 @@ CodeSystem "AddressPartType", OID: 2.16.840.1.113883.5.16, Owner: HL7 </xs:docum
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="XP">
-				<xs:sequence/>
+				
 				<xs:attribute name="type" type="AddressPartType" use="required">
 					<xs:annotation>
 						<xs:documentation>Whether an address part names the street, city, country, postal code, post box, address line 1, etc.
@@ -218,7 +218,7 @@ We have also made it abstract to be consistent with the lack of support for null
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="HXIT">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -228,7 +228,7 @@ We have also made it abstract to be consistent with the lack of support for null
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="xs:boolean" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the BL.</xs:documentation>
@@ -471,7 +471,7 @@ Due to its highly restricted functionality, CS SHALL only be used for simple str
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 				<xs:attribute name="code" type="xs:string" use="required">
 					<xs:annotation>
 						<xs:documentation>The plain code symbol defined by the code system.  If the code value is empty or null, then there is no code in the code system that represents the concept.
@@ -838,7 +838,7 @@ Note that marriage naming customs vary greatly around the world.  This name use 
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="XP">
-				<xs:sequence/>
+				
 				<xs:attribute name="type" type="EntityNamePartType" use="required">
 					<xs:annotation>
 						<xs:documentation>Indicates whether the name part is a given name, family name, prefix, suffix, etc. 
@@ -864,7 +864,7 @@ The use of these attributes is generally subject to further constraints in the s
 
 This class is maintained here despite the lack of attributes to maintain compatibility with the ISO 21090 data structure.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence/>
+		
 	</xs:complexType>
 	<xs:complexType name="II">
 		<xs:annotation>
@@ -878,7 +878,7 @@ Information Processing Entities claiming direct or indirect conformance SHALL ne
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 				<xs:attribute name="root" type="Uid" use="required">
 					<xs:annotation>
 						<xs:documentation>A unique identifier that guarantees the global uniqueness of the instance identifier. 
@@ -910,7 +910,7 @@ If no extension attribute is provided in a non-null II, then the root is the com
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="xs:integer" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the INT. Note that this specification imposes no limitations on the size of integer, but most implementations will map this to a 32 or 64 bit integer.</xs:documentation>
@@ -946,7 +946,7 @@ This class is maintained here despite the lack of attributes to maintain compati
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QSET">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1320,7 +1320,7 @@ CodeSystem "PostalAddressUse", OID: 2.16.840.1.113883.5.1012, Owner: HL7 </xs:do
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="Decimal" use="required">
 					<xs:annotation>
 						<xs:documentation>The number which is multiplied by the unit to make the PQ.</xs:documentation>
@@ -1359,7 +1359,7 @@ This class is maintained here despite the lack of attributes to maintain compati
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1371,7 +1371,7 @@ The quantity type abstraction is needed in defining certain other types, such as
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -1381,7 +1381,7 @@ The quantity type abstraction is needed in defining certain other types, such as
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="Decimal" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the REAL. </xs:documentation>
@@ -1440,7 +1440,7 @@ A ST SHALL have at least one character or else be null.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="xs:string" use="required">
 					<xs:annotation>
 						<xs:documentation>The actual content of the string. </xs:documentation>
@@ -1461,7 +1461,7 @@ Note:  The intent of this datatype is to be a locator, not an identifier; this d
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="xs:anyURI" use="required">
 					<xs:annotation>
 						<xs:documentation>A uniform resource identifier specified according to IETF RFC 2396. 
@@ -1602,7 +1602,7 @@ CodeSystem "TelecommunicationCapabilities", OID: 2.16.840.1.113883.5.1118, Owner
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				<xs:sequence/>
+				
 				<xs:attribute name="value" type="TimeStamp" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the TS. value is a string with the format "YYYY[MM[DD[HH[MM[SS[.U[U[U[U]]]]]]]]][+|-ZZzz]" that conforms to the constrained ISO 8601 defined in ISO 8824 (ASN.1) under clause 32 (generalized time). The format should be used to the degree of precision that is appropriate.</xs:documentation>
@@ -1631,7 +1631,7 @@ Even though this specification recognizes no semantic difference between the dif
 		<xs:annotation>
 			<xs:documentation>A part of a name or address. Each part is a character string.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence/>
+		
 		<xs:attribute name="value" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>The actual string value of the part.</xs:documentation>
