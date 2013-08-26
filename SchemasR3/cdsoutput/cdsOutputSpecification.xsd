@@ -30,9 +30,9 @@
 		<xs:complexContent>
 			<xs:extension base="CDSOutputSpecification">
 				<xs:sequence>
-					<xs:element name="outputDataType" type="dt:CS" minOccurs="0">
+					<xs:element name="valueTemplate" type="vmr:CodedIdentifier" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Specifies the data type to be used in the output, e.g., BL, CD, etc.</xs:documentation>
+							<xs:documentation>Identifier of a set of constraints that SHALL be placed on the output value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -40,8 +40,24 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CDSOutputAsStringNameValuePairSpecification">
+		<xs:annotation>
+			<xs:documentation>The parent class specifying the string name value pair output to be provided by a specific CDS use case.  </xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="CDSOutputSpecification"/>
+			<xs:extension base="CDSOutputSpecification">
+				<xs:sequence>
+					<xs:element name="nameValuePairTemplate" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifier of a set of constraints that SHALL be placed on the string name value pair.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="potentialNameValuePairTemplate" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifier of a set of constraints that MAY be placed on the string name value pair.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="CDSOutputAsVMRSpecification">
@@ -78,7 +94,13 @@ Can include a detailed output specification for the focal patient as well as for
 		<xs:annotation>
 			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. </xs:documentation>
 		</xs:annotation>
-		<xs:sequence/>
+		<xs:sequence>
+			<xs:element name="cdsOutputTemplate" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Template to identify the output structure and specifications.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ClinicalStatementOutputSpecification">
 		<xs:annotation>
