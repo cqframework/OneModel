@@ -363,7 +363,23 @@
 				<dt:high value="20130613080500"/>
 			</vmr:observationEventTime>
 			<vmr:observationValue xsi:type="vmr:Value">
-				<vmr:value xsi:type="dt:PQ" unit="%" value="40"/>
+				<!--<vmr:value xsi:type="dt:PIVL_TS" alignment="DW" isFlexible="true">
+					<dt:phase xsi:type="dt:IVL_TS"><dt:low value="20130825"/><dt:high value="20130826"/></dt:phase>
+					<dt:frequency xsi:type="dt:RTO">
+						<dt:numerator xsi:type="dt:REAL" value="1.0"/>
+						<dt:denominator xsi:type="dt:REAL" value="1.0"/>
+					</dt:frequency>
+					<dt:count value="10"/>
+				</vmr:value>-->
+				<vmr:value xsi:type="dt:PIVL_TS" alignment="DW" isFlexible="true">
+					<dt:phase xsi:type="dt:IVL_TS"><dt:low value="20130825"/><dt:high value="20130826"/></dt:phase>
+					<dt:period value="1" unit="wk"/>
+					<dt:frequency xsi:type="dt:RTO">
+						<dt:numerator xsi:type="dt:REAL" value="1.0"/>
+						<dt:denominator xsi:type="dt:REAL" value="1.0"/>
+					</dt:frequency>
+					<dt:count value="10"/>
+				</vmr:value>
 			</vmr:observationValue>
 		</vmr:clinicalStatement>
 		<vmr:clinicalStatement xsi:type="vmr:ObservationResult">
