@@ -95,7 +95,7 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonInputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>

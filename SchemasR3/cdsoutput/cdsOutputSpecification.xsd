@@ -39,6 +39,11 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="CDSOutputAsStringNameValuePairSpecification">
+		<xs:complexContent>
+			<xs:extension base="CDSOutputSpecification"/>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="CDSOutputAsVMRSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class specifying the vMR output to be provided by a specific CDS use case.  For example, this class can be used to specify that the evaluation of a patient for the need for a mammogram will return a templated observation specifying whether the intervention is needed, and a templated observation specifying when the intervention was last done.
@@ -73,7 +78,7 @@ Can include a detailed output specification for the focal patient as well as for
 		<xs:annotation>
 			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. </xs:documentation>
 		</xs:annotation>
-		
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:complexType name="ClinicalStatementOutputSpecification">
 		<xs:annotation>
@@ -136,7 +141,7 @@ Can include a detailed output specification for the focal patient as well as for
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonOutputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -182,9 +187,11 @@ Can include a detailed output specification for the focal patient as well as for
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="EvaluatedPersonOutputSpecification">
-				
+				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="cdsOutputSpecification" type="CDSOutputSpecification" />
+	<xs:element name="cdsOutputAsDataTypeSpecification" type="CDSOutputAsDataTypeSpecification"/>
+	<xs:element name="cdsOutputAsStringNameValuePairSpecification" type="CDSOutputAsStringNameValuePairSpecification"/>
+	<xs:element name="cdsOutputAsVMRSpecification" type="CDSOutputAsVMRSpecification"/>
 </xs:schema>
