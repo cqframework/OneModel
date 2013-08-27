@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsoutputspecification:r3" xmlns:cdsos="urn:hl7-org:v3:cdsoutputspecification:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" targetNamespace="urn:hl7-org:v3:cdsoutputspecification:r3" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsoutputspecification:r3" xmlns:cdsos="urn:hl7-org:cdsoutputspecification:r3" xmlns:dt="urn:hl7-org:cdsdt:r3" xmlns:vmr="urn:hl7-org:vmr:r3" targetNamespace="urn:hl7-org:cdsoutputspecification:r3" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS output data produced for a specific CDS use case.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:vmr:r3" schemaLocation="../vmr/vmr.xsd"/>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:vmr:r3" schemaLocation="../vmr/vmr.xsd"/>
+	<xs:import namespace="urn:hl7-org:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
 	<xs:complexType name="AttributeOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the attributes contained in the source clinical statement regarding the evaluated person of interest.  </xs:documentation>
@@ -162,9 +162,7 @@ Can include a detailed output specification for the focal patient as well as for
 			<xs:documentation>The evaluation results to be returned for the patient.  Is a specialization of the EvaluatedPersonOutputSpecification class.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="EvaluatedPersonOutputSpecification">
-				
-			</xs:extension>
+			<xs:extension base="EvaluatedPersonOutputSpecification"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="RelatedClinicalStatementOutputSpecification">
@@ -208,9 +206,7 @@ Can include a detailed output specification for the focal patient as well as for
 			<xs:documentation>The results that will be provided for evaluated persons related to the patient.  Is a specialization of the EvaluatedPersonOutputSpecification class.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="EvaluatedPersonOutputSpecification">
-				
-			</xs:extension>
+			<xs:extension base="EvaluatedPersonOutputSpecification"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="cdsOutputAsDataTypeSpecification" type="CDSOutputAsDataTypeSpecification"/>

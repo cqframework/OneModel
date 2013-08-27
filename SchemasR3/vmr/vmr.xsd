@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:vmr:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" targetNamespace="urn:hl7-org:v3:vmr:r3" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:vmr:r3" xmlns:vmr="urn:hl7-org:vmr:r3" xmlns:dt="urn:hl7-org:cdsdt:r3" targetNamespace="urn:hl7-org:vmr:r3" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data about a patient relevant for CDS.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
 	<xs:complexType name="AdministrableSubstance">
 		<xs:annotation>
 			<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.  It can have component administrable substances.</xs:documentation>
@@ -596,9 +596,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 	- No known food allergies --&gt; DeniedAdverseEvent with adverseEventAgentCode that is the root-level code for food and adverseEventCode that is the generic root-level code for adverse events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AdverseEventBase">
-				
-			</xs:extension>
+			<xs:extension base="AdverseEventBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DeniedProblem">
@@ -608,9 +606,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 To assert that the subject has no known problems, a DeniedProblem can be asserted with a problemCode that is the root-level code for problems or conditions.  E.g., if for a DeniedProblem, problemCode is the root-level code for problems or conditionsand diagnosticEventTime is 2011-05-01, then an assertion was made on 2011-05-01 that the subject has no known problems as of that date.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ProblemBase">
-				
-			</xs:extension>
+			<xs:extension base="ProblemBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DietOrder">
@@ -1758,9 +1754,7 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 			<xs:documentation>Specification of the endpoint of a repetitive action.  Must be extended by either RepeatUntilCount or RepeatUntilTime.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ExtendedVmrTypeBase">
-				
-			</xs:extension>
+			<xs:extension base="ExtendedVmrTypeBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="RespiratoryCareOrder">

@@ -1,0 +1,2 @@
+Sample CCDA.xml
+Sample vMR of relevant CCDA content.xml

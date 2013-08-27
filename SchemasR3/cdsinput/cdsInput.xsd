@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3:cdsinput:r3" xmlns:cdsin="urn:hl7-org:v3:cdsinput:r3" xmlns:vmr="urn:hl7-org:v3:vmr:r3" xmlns:dt="urn:hl7-org:v3:cdsdt:r3" targetNamespace="urn:hl7-org:v3:cdsinput:r3" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsinput:r3" xmlns:cdsin="urn:hl7-org:cdsinput:r3" xmlns:vmr="urn:hl7-org:vmr:r3" xmlns:dt="urn:hl7-org:cdsdt:r3" targetNamespace="urn:hl7-org:cdsinput:r3" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies input data used by CDS systems.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="urn:hl7-org:v3:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
-	<xs:import namespace="urn:hl7-org:v3:vmr:r3" schemaLocation="../vmr/vmr.xsd"/>
+	<xs:import namespace="urn:hl7-org:cdsdt:r3" schemaLocation="../common/datatypes.xsd"/>
+	<xs:import namespace="urn:hl7-org:vmr:r3" schemaLocation="../vmr/vmr.xsd"/>
 	<xs:complexType name="CDSContext">
 		<xs:annotation>
 			<xs:documentation>The situation or context within which a CDS evaluation is made.  Included in CDS inputs for HL7 Context-Aware Knowledge Retrieval (Infobutton) Knowledge Request standard.  Used, for example, to generate human-readable care guidance in the end-user's preferred language.</xs:documentation>
