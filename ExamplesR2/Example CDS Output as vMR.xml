@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example vMR.  Note that templates are included in this example for illustrative purposes only.  For the definitive specification of templates, please see the HL7 vMR Templates specification.-->
+<cdsoutput:CDSOutputAsVMR xsi:schemaLocation="urn:hl7-org:cdsoutput:r2 ../SchemasR2/cdsoutput/cdsOutput.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:cdsoutput="urn:hl7-org:cdsoutput:r2" xmlns="urn:hl7-org:vmr:r2">
+	<cdsoutput:vmrOutput>
+		<patient>
+			<clinicalStatement xsi:type="ImagingProposal">
+			<id root="9a6d1bac-17d3-4195-89c4-1121bc809b5a"/>							
+			<procedureCode code="168731009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"><dt:displayName value="Chest X-Ray"/></procedureCode>
+			<proposedProcedureTime><dt:low value="20120826"/><dt:high value="20120826"/></proposedProcedureTime>						
+		</clinicalStatement>
+		</patient>
+	</cdsoutput:vmrOutput>
+</cdsoutput:CDSOutputAsVMR>

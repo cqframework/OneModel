@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsinput:r2" xmlns:cdsin="urn:hl7-org:cdsinput:r2" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" targetNamespace="urn:hl7-org:cdsinput:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies input data used by CDS systems.</xs:documentation>
@@ -78,6 +77,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSInput" type="CDSInput"/>
 	<xs:complexType name="CDSInput">
 		<xs:annotation>
 			<xs:documentation>The parent class containing the data used by a CDS system to generate inferences. Includes an input vMR and optionally CDS context and/or CDS resource data.</xs:documentation>
@@ -115,5 +115,4 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsInput" type="CDSInput"/>
 </xs:schema>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsinputspecification:r2" xmlns:cdsis="urn:hl7-org:cdsinputspecification:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2" targetNamespace="urn:hl7-org:cdsinputspecification:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS input data required for a specific CDS use case.</xs:documentation>
 	</xs:annotation>
 	<xs:import namespace="urn:hl7-org:vmr:r2" schemaLocation="../vmr/vmr.xsd"/>
 	<xs:import namespace="urn:hl7-org:cdsdt:r2" schemaLocation="../common/datatypes.xsd"/>
+	<xs:element name="CDSInputSpecification" type="CDSInputSpecification"/>
 	<xs:complexType name="CDSInputSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class containing the data required by a specific CDS use case.  For example, this class can be used to specify that the evaluation of a patient for the need for a mammogram requires the following data: (i) gender; (ii) age; (iii) past mastectomy history; and (iv) past mammogram history.
@@ -94,9 +94,7 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 			<xs:documentation>The data required for the patient.  Is a specialization of the EvaluatedPersonInputSpecification class.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="EvaluatedPersonInputSpecification">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="EvaluatedPersonInputSpecification"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="RelatedEntityInputSpecification">
@@ -184,5 +182,4 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="cdsInputSpecification" type="CDSInputSpecification"/>
 </xs:schema>

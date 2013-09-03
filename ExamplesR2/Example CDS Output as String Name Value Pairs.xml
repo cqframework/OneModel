@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example vMR.  Note that templates are included in this example for illustrative purposes only.  For the definitive specification of templates, please see the HL7 vMR Templates specification.-->
+<cdsoutput:CDSOutputAsStringNameValuePairs xsi:schemaLocation="urn:hl7-org:cdsoutput:r2 ../SchemasR2/cdsoutput/cdsOutput.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:cdsoutput="urn:hl7-org:cdsoutput:r2" xmlns="urn:hl7-org:vmr:r2">
+	<cdsoutput:stringNameValuePair>
+		<name value="Denominator criteria met"/>
+		<value value="true"/>
+	</cdsoutput:stringNameValuePair>
+	<cdsoutput:stringNameValuePair>
+		<name value="Numerator criteria met"/>
+		<value value="true"/>
+	</cdsoutput:stringNameValuePair>
+</cdsoutput:CDSOutputAsStringNameValuePairs>

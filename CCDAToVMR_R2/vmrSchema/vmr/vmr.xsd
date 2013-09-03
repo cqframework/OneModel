@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by Kensaku Kawamoto (Duke University) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:vmr:r2" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" targetNamespace="urn:hl7-org:vmr:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data about a patient relevant for CDS.</xs:documentation>
@@ -83,7 +82,9 @@ Characterizes the intensity of the manifestation of the problem or observation o
 	</xs:complexType>
 	<xs:complexType name="AdverseEventBase" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Abstract base class for adverse events, which are unfavorable healthcare events (e.g., death, rash, difficulty breathing) that are thought to have been caused by some agent (e.g., a medication, immunization, food, or environmental agent). If a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events.</xs:documentation>
+			<xs:documentation>Abstract base class for adverse events, which are unfavorable healthcare events (e.g., death, rash, difficulty breathing) that are thought to have been caused by some agent (e.g., a medication, immunization, food, or environmental agent). If a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events.
+
+Note that allergies are represented as problems, whereas individual adverse events are represented as adverse events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
@@ -386,7 +387,7 @@ Approaches to representing specific statements:
 					</xs:element>
 					<xs:element name="value" type="ExtendedVmrTypeBase">
 						<xs:annotation>
-							<xs:documentation>The value of the attribute.</xs:documentation>
+							<xs:documentation>The value of the attribute.  Can be any value extended from ExtendedVmrTypeBase, including ANY.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -596,9 +597,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 	- No known food allergies --&gt; DeniedAdverseEvent with adverseEventAgentCode that is the root-level code for food and adverseEventCode that is the generic root-level code for adverse events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AdverseEventBase">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="AdverseEventBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DeniedProblem">
@@ -608,9 +607,7 @@ Common denials of adverse events to a class of agents can be expressed as follow
 To assert that the subject has no known problems, a DeniedProblem can be asserted with a problemCode that is the root-level code for problems or conditions.  E.g., if for a DeniedProblem, problemCode is the root-level code for problems or conditionsand diagnosticEventTime is 2011-05-01, then an assertion was made on 2011-05-01 that the subject has no known problems as of that date.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ProblemBase">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="ProblemBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DietOrder">
@@ -1122,7 +1119,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Designation of whether or not the imaging procedure should be performed at the patient's bedside (Yes) or if the procedure can be conducted in the location of the performing department (No)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="sedation" type="dt:BL">
+					<xs:element name="sedation" type="dt:BL" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>'true' if patient will require sedation for this procedure.</xs:documentation>
 						</xs:annotation>
@@ -1484,7 +1481,9 @@ Includes concepts such as mild, moderate, severe</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="ProblemBase" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Abstract base class for problems, which are clinical conditions that need to be treated or managed.</xs:documentation>
+			<xs:documentation>Abstract base class for problems, which are clinical conditions that need to be treated or managed.
+
+Note that allergies are represented as problems, whereas individual adverse events are represented as adverse events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
@@ -1763,9 +1762,7 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 			<xs:documentation>Specification of the endpoint of a repetitive action.  Must be extended by either RepeatUntilCount or RepeatUntilTime.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ExtendedVmrTypeBase">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="ExtendedVmrTypeBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="RespiratoryCareOrder">
@@ -2159,6 +2156,8 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 						<xs:annotation>
 							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
 
+If this attribute is specified, it implies that the substance administration is prn (i.e., as needed).
+
 If trying to further characterize the prnReason, use the available comment attribute rather than the narrative attribute of the CodeableConcept.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -2209,6 +2208,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
+
+If this attribute is specified, it implies that the substance administration is prn (i.e., as needed).
 
 If trying to further characterize the prnReason, use the available comment attribute rather than the narrative attribute of the CodeableConcept.</xs:documentation>
 						</xs:annotation>
@@ -2591,6 +2592,4 @@ Note that enumerations and value domains are anticipated to be specified in prof
 			<xs:element name="patient" type="EvaluatedPerson"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="vmrInput" type="VMR"/>
-	<xs:element name="vmrOutput" type="VMR"/>
 </xs:schema>
