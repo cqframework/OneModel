@@ -1,0 +1,2993 @@
+@prefix : <http://www.meliorix.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.meliorix.com> .
+
+<http://www.meliorix.com> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.meliorix.com#oid
+
+:oid rdf:type owl:DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.meliorix.com#AllergyIntoleranceAdverseEvent
+
+:AllergyIntoleranceAdverseEvent rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Assessment
+
+:Assessment rdf:type owl:Class ;
+            
+            rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#CCDA_Admission_Medication
+
+:CCDA_Admission_Medication rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Advance_Directive_Observation
+
+:CCDA_Advance_Directive_Observation rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf :Characteristic ,
+                                                    :Observation .
+
+
+
+###  http://www.meliorix.com#CCDA_Age_Observation
+
+:CCDA_Age_Observation rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :Observation ,
+                                      :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#CCDA_Allergy_-_Intolerance_Observation
+
+:CCDA_Allergy_-_Intolerance_Observation rdf:type owl:Class ;
+                                        
+                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Allergy_Problem_Act
+
+:CCDA_Allergy_Problem_Act rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Allergy_Status_Observation
+
+:CCDA_Allergy_Status_Observation rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Assessment_Scale_Observation
+
+:CCDA_Assessment_Scale_Observation rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Assessment_Scale_Supporting_Observation
+
+:CCDA_Assessment_Scale_Supporting_Observation rdf:type owl:Class ;
+                                              
+                                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Authorization_Activity
+
+:CCDA_Authorization_Activity rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Boundary_Observation
+
+:CCDA_Boundary_Observation rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Caregiver_Characteristics
+
+:CCDA_Caregiver_Characteristics rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Code_Observations
+
+:CCDA_Code_Observations rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Cognitive_Status_Problem_Observation
+
+:CCDA_Cognitive_Status_Problem_Observation rdf:type owl:Class ;
+                                           
+                                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Cognitive_Status_Result_Observation
+
+:CCDA_Cognitive_Status_Result_Observation rdf:type owl:Class ;
+                                          
+                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Cognitive_Status_Result_Organizer
+
+:CCDA_Cognitive_Status_Result_Organizer rdf:type owl:Class ;
+                                        
+                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Comment_Activity
+
+:CCDA_Comment_Activity rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Coverage_Activity
+
+:CCDA_Coverage_Activity rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Deceased_Observation
+
+:CCDA_Deceased_Observation rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :Observation ,
+                                           :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#CCDA_Discharge_Medication
+
+:CCDA_Discharge_Medication rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Drug_Vehicle
+
+:CCDA_Drug_Vehicle rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Encounter_Activities
+
+:CCDA_Encounter_Activities rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Encounter_Diagnosis
+
+:CCDA_Encounter_Diagnosis rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :Diagnosis ,
+                                          :Observation .
+
+
+
+###  http://www.meliorix.com#CCDA_Estimated_Date_of_Delivery
+
+:CCDA_Estimated_Date_of_Delivery rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Family_History_Death_Observation
+
+:CCDA_Family_History_Death_Observation rdf:type owl:Class ;
+                                       
+                                       rdfs:subClassOf :Observation ,
+                                                       :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#CCDA_Family_History_Observation
+
+:CCDA_Family_History_Observation rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Family_History_Organizer
+
+:CCDA_Family_History_Organizer rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf :Observation ,
+                                               :Organizer .
+
+
+
+###  http://www.meliorix.com#CCDA_Functional_Status_Problem_Observation
+
+:CCDA_Functional_Status_Problem_Observation rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Functional_Status_Result_Observation
+
+:CCDA_Functional_Status_Result_Observation rdf:type owl:Class ;
+                                           
+                                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Functional_Status_Result_Organizer
+
+:CCDA_Functional_Status_Result_Organizer rdf:type owl:Class ;
+                                         
+                                         rdfs:subClassOf :Finding ,
+                                                         :Organizer .
+
+
+
+###  http://www.meliorix.com#CCDA_Health_Status_Observation
+
+:CCDA_Health_Status_Observation rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Highest_Pressure_Ulcer_Stage
+
+:CCDA_Highest_Pressure_Ulcer_Stage rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf :Observation ,
+                                                   :PhysicalExamFinding .
+
+
+
+###  http://www.meliorix.com#CCDA_Hospital_Admission_Diagnosis
+
+:CCDA_Hospital_Admission_Diagnosis rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Hospital_Discharge_Diagnosis
+
+:CCDA_Hospital_Discharge_Diagnosis rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Immunization_Activity
+
+:CCDA_Immunization_Activity rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Immunization_Medication_Information
+
+:CCDA_Immunization_Medication_Information rdf:type owl:Class ;
+                                          
+                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Immunization_Refusal_Reason
+
+:CCDA_Immunization_Refusal_Reason rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Indication
+
+:CCDA_Indication rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Instructions
+
+:CCDA_Instructions rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Medication_Activity
+
+:CCDA_Medication_Activity rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :MedicationAdministration ,
+                                          owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Medication_Dispense
+
+:CCDA_Medication_Dispense rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :MedicationAdministration ,
+                                          :Supply .
+
+
+
+###  http://www.meliorix.com#CCDA_Medication_Information
+
+:CCDA_Medication_Information rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Medication_Supply_Order
+
+:CCDA_Medication_Supply_Order rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Medication_Use_-_None_Known_(deprecated)
+
+<http://www.meliorix.com#CCDA_Medication_Use_-_None_Known_(deprecated)> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Non-Medicinal_Supply_Activity
+
+:CCDA_Non-Medicinal_Supply_Activity rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Number_of_Pressure_Ulcers_Observation
+
+:CCDA_Number_of_Pressure_Ulcers_Observation rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Plan_of_Care_Activity_Act
+
+:CCDA_Plan_of_Care_Activity_Act rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Plan_of_Care_Activity_Encounter
+
+:CCDA_Plan_of_Care_Activity_Encounter rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Plan_of_Care_Activity_Observation
+
+:CCDA_Plan_of_Care_Activity_Observation rdf:type owl:Class ;
+                                        
+                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Plan_of_Care_Activity_Procedure
+
+:CCDA_Plan_of_Care_Activity_Procedure rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Plan_of_Care_Activity_Substance_Administration
+
+:CCDA_Plan_of_Care_Activity_Substance_Administration rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Plan_of_Care_Activity_Supply
+
+:CCDA_Plan_of_Care_Activity_Supply rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Policy_Activity
+
+:CCDA_Policy_Activity rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Postprocedure_Diagnosis
+
+:CCDA_Postprocedure_Diagnosis rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf :Diagnosis ,
+                                              :Observation .
+
+
+
+###  http://www.meliorix.com#CCDA_Precondition_for_Substance_Administration
+
+:CCDA_Precondition_for_Substance_Administration rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Pregnancy_Observation
+
+:CCDA_Pregnancy_Observation rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Preoperative_Diagnosis
+
+:CCDA_Preoperative_Diagnosis rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Pressure_Ulcer_Observation
+
+:CCDA_Pressure_Ulcer_Observation rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf :Finding ,
+                                                 :Observation .
+
+
+
+###  http://www.meliorix.com#CCDA_Problem_Concern_Act_(Condition)
+
+<http://www.meliorix.com#CCDA_Problem_Concern_Act_(Condition)> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Problem_Observation
+
+:CCDA_Problem_Observation rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Problem_Status
+
+:CCDA_Problem_Status rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Procedure_Activity_Act
+
+:CCDA_Procedure_Activity_Act rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Procedure_Activity_Observation
+
+:CCDA_Procedure_Activity_Observation rdf:type owl:Class ;
+                                     
+                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Procedure_Activity_Procedure
+
+:CCDA_Procedure_Activity_Procedure rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Procedure_Context
+
+:CCDA_Procedure_Context rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Product_Instance
+
+:CCDA_Product_Instance rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Purpose_of_Reference_Observation
+
+:CCDA_Purpose_of_Reference_Observation rdf:type owl:Class ;
+                                       
+                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Quantity_Measurement_Observation
+
+:CCDA_Quantity_Measurement_Observation rdf:type owl:Class ;
+                                       
+                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Reaction_Observation
+
+:CCDA_Reaction_Observation rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Referenced_Frames_Observation
+
+:CCDA_Referenced_Frames_Observation rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Result_Observation
+
+:CCDA_Result_Observation rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Result_Organizer
+
+:CCDA_Result_Organizer rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :Finding ,
+                                       :Organizer .
+
+
+
+###  http://www.meliorix.com#CCDA_SOP_Instance_Observation
+
+:CCDA_SOP_Instance_Observation rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Series_Act
+
+:CCDA_Series_Act rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Service_Delivery_Location
+
+:CCDA_Service_Delivery_Location rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Severity_Observation
+
+:CCDA_Severity_Observation rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Smoking_Status_Observation
+
+:CCDA_Smoking_Status_Observation rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Social_History_Observation
+
+:CCDA_Social_History_Observation rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf :Observation ,
+                                                 :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#CCDA_Study_Act
+
+:CCDA_Study_Act rdf:type owl:Class ;
+                
+                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Substance_or_Device_Allergy_-_Intolerance_Observation
+
+:CCDA_Substance_or_Device_Allergy_-_Intolerance_Observation rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Text_Observation
+
+:CCDA_Text_Observation rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Tobacco_Use
+
+:CCDA_Tobacco_Use rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#CCDA_Vital_Sign_Observation
+
+:CCDA_Vital_Sign_Observation rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf :Observation ,
+                                             :PhysicalExamFinding .
+
+
+
+###  http://www.meliorix.com#CCDA_Vital_Signs_Organizer
+
+:CCDA_Vital_Signs_Organizer rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#Characteristic
+
+:Characteristic rdf:type owl:Class ;
+                
+                rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Communication
+
+:Communication rdf:type owl:Class ;
+               
+               rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Diagnosis
+
+:Diagnosis rdf:type owl:Class ;
+           
+           rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#DiagnosticStudy
+
+:DiagnosticStudy rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Procedure .
+
+
+
+###  http://www.meliorix.com#ElementCategory
+
+:ElementCategory rdf:type owl:Class .
+
+
+
+###  http://www.meliorix.com#Encounter
+
+:Encounter rdf:type owl:Class ;
+           
+           rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Finding
+
+:Finding rdf:type owl:Class ;
+         
+         rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Goal
+
+:Goal rdf:type owl:Class ;
+      
+      rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#MedicationAdministration
+
+:MedicationAdministration rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#NonProcedureIntervention
+
+:NonProcedureIntervention rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#NotApplicable
+
+:NotApplicable rdf:type owl:Class .
+
+
+
+###  http://www.meliorix.com#Observation
+
+:Observation rdf:type owl:Class ;
+             
+             rdfs:subClassOf :PhaseCategory .
+
+
+
+###  http://www.meliorix.com#Order
+
+:Order rdf:type owl:Class ;
+       
+       rdfs:subClassOf :PhaseCategory .
+
+
+
+###  http://www.meliorix.com#Organizer
+
+:Organizer rdf:type owl:Class ;
+           
+           rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Performance
+
+:Performance rdf:type owl:Class ;
+             
+             rdfs:subClassOf :PhaseCategory .
+
+
+
+###  http://www.meliorix.com#PhaseCategory
+
+:PhaseCategory rdf:type owl:Class .
+
+
+
+###  http://www.meliorix.com#PhysicalExamFinding
+
+:PhysicalExamFinding rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :Finding .
+
+
+
+###  http://www.meliorix.com#Plan
+
+:Plan rdf:type owl:Class ;
+      
+      rdfs:subClassOf :PhaseCategory .
+
+
+
+###  http://www.meliorix.com#Procedure
+
+:Procedure rdf:type owl:Class ;
+           
+           rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#Proposal
+
+:Proposal rdf:type owl:Class ;
+          
+          rdfs:subClassOf :PhaseCategory .
+
+
+
+###  http://www.meliorix.com#QDM_Care_Goal
+
+:QDM_Care_Goal rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Goal ,
+                               :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Communication:_From_Patient_to_Provider
+
+<http://www.meliorix.com#QDM_Communication:_From_Patient_to_Provider> rdf:type owl:Class ;
+                                                                      
+                                                                      rdfs:subClassOf :Communication ,
+                                                                                      :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Communication:_From_Provider_to_Patient
+
+<http://www.meliorix.com#QDM_Communication:_From_Provider_to_Patient> rdf:type owl:Class ;
+                                                                      
+                                                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Communication:_From_Provider_to_Provider
+
+<http://www.meliorix.com#QDM_Communication:_From_Provider_to_Provider> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf :Communication ,
+                                                                                       :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Device,_Adverse_Event
+
+<http://www.meliorix.com#QDM_Device,_Adverse_Event> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                    :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Device,_Allergy
+
+<http://www.meliorix.com#QDM_Device,_Allergy> rdf:type owl:Class ;
+                                              
+                                              rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                              :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Device,_Applied
+
+<http://www.meliorix.com#QDM_Device,_Applied> rdf:type owl:Class ;
+                                              
+                                              rdfs:subClassOf :Performance ,
+                                                              :SupplyOrDeviceApplication .
+
+
+
+###  http://www.meliorix.com#QDM_Device,_Intolerance
+
+<http://www.meliorix.com#QDM_Device,_Intolerance> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Device,_Order
+
+<http://www.meliorix.com#QDM_Device,_Order> rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Device,_Recommended
+
+<http://www.meliorix.com#QDM_Device,_Recommended> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf :Proposal ,
+                                                                  :SupplyOrDeviceApplication .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnosis,_Active
+
+<http://www.meliorix.com#QDM_Diagnosis,_Active> rdf:type owl:Class ;
+                                                
+                                                owl:equivalentClass :QRDA_Diagnosis_Active ;
+                                                
+                                                rdfs:subClassOf :Diagnosis ,
+                                                                :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnosis,_Family_History
+
+<http://www.meliorix.com#QDM_Diagnosis,_Family_History> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnosis,_Inactive
+
+<http://www.meliorix.com#QDM_Diagnosis,_Inactive> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnosis,_Resolved
+
+<http://www.meliorix.com#QDM_Diagnosis,_Resolved> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnostic_Study,_Intolerance
+
+<http://www.meliorix.com#QDM_Diagnostic_Study,_Intolerance> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                            :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnostic_Study,_Order
+
+<http://www.meliorix.com#QDM_Diagnostic_Study,_Order> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf :DiagnosticStudy ,
+                                                                      :Order .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnostic_Study,_Performed
+
+<http://www.meliorix.com#QDM_Diagnostic_Study,_Performed> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf :DiagnosticStudy ,
+                                                                          :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnostic_Study,_Recommended
+
+<http://www.meliorix.com#QDM_Diagnostic_Study,_Recommended> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnostic_Study,_Result
+
+<http://www.meliorix.com#QDM_Diagnostic_Study,_Result> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf :Finding ,
+                                                                       :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Diagnostic_Study_Adverse_Event
+
+:QDM_Diagnostic_Study_Adverse_Event rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Discharge_Medication__(Health_Record_Field_Flow_Attribute)
+
+<http://www.meliorix.com#QDM_Discharge_Medication__(Health_Record_Field_Flow_Attribute)> rdf:type owl:Class ;
+                                                                                         
+                                                                                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Encounter,_Active
+
+<http://www.meliorix.com#QDM_Encounter,_Active> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf :Encounter ,
+                                                                :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Encounter,_Order
+
+<http://www.meliorix.com#QDM_Encounter,_Order> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Encounter,_Performed
+
+<http://www.meliorix.com#QDM_Encounter,_Performed> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf :Encounter ,
+                                                                   :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Encounter,_Recommended
+
+<http://www.meliorix.com#QDM_Encounter,_Recommended> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Facility_Location_(attribute)
+
+<http://www.meliorix.com#QDM_Facility_Location_(attribute)> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Functional_Status,_Order
+
+<http://www.meliorix.com#QDM_Functional_Status,_Order> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Functional_Status,_Performed
+
+<http://www.meliorix.com#QDM_Functional_Status,_Performed> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Functional_Status,_Recommended
+
+<http://www.meliorix.com#QDM_Functional_Status,_Recommended> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf :Assessment ,
+                                                                             :Proposal .
+
+
+
+###  http://www.meliorix.com#QDM_Functional_Status,_Result
+
+<http://www.meliorix.com#QDM_Functional_Status,_Result> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Incision_Datetime_(attribute)
+
+<http://www.meliorix.com#QDM_Incision_Datetime_(attribute)> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Intervention,_Adverse_Event
+
+<http://www.meliorix.com#QDM_Intervention,_Adverse_Event> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf :AllergyIntoleranceAdverseEvent .
+
+
+
+###  http://www.meliorix.com#QDM_Intervention,_Intolerance
+
+<http://www.meliorix.com#QDM_Intervention,_Intolerance> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf :AllergyIntoleranceAdverseEvent .
+
+
+
+###  http://www.meliorix.com#QDM_Intervention,_Order
+
+<http://www.meliorix.com#QDM_Intervention,_Order> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Intervention,_Performed
+
+<http://www.meliorix.com#QDM_Intervention,_Performed> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Intervention,_Recommended
+
+<http://www.meliorix.com#QDM_Intervention,_Recommended> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf :NonProcedureIntervention ,
+                                                                        :Proposal .
+
+
+
+###  http://www.meliorix.com#QDM_Intervention,_Result
+
+<http://www.meliorix.com#QDM_Intervention,_Result> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Laboratory_Test,_Adverse_Event
+
+<http://www.meliorix.com#QDM_Laboratory_Test,_Adverse_Event> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Laboratory_Test,_Intolerance
+
+<http://www.meliorix.com#QDM_Laboratory_Test,_Intolerance> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Laboratory_Test,_Order
+
+<http://www.meliorix.com#QDM_Laboratory_Test,_Order> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf :DiagnosticStudy ,
+                                                                     :Order .
+
+
+
+###  http://www.meliorix.com#QDM_Laboratory_Test,_Performed
+
+<http://www.meliorix.com#QDM_Laboratory_Test,_Performed> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf :DiagnosticStudy ,
+                                                                         :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Laboratory_Test,_Recommended
+
+<http://www.meliorix.com#QDM_Laboratory_Test,_Recommended> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf :DiagnosticStudy ,
+                                                                           :Proposal .
+
+
+
+###  http://www.meliorix.com#QDM_Laboratory_Test,_Result
+
+<http://www.meliorix.com#QDM_Laboratory_Test,_Result> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf :Finding ,
+                                                                      :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Active
+
+<http://www.meliorix.com#QDM_Medication,_Active> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Administered
+
+<http://www.meliorix.com#QDM_Medication,_Administered> rdf:type owl:Class ;
+                                                       
+                                                       owl:equivalentClass :QRDA_Medication_Administered ;
+                                                       
+                                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Adverse_Effects
+
+<http://www.meliorix.com#QDM_Medication,_Adverse_Effects> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Allergy
+
+<http://www.meliorix.com#QDM_Medication,_Allergy> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                  :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Dispensed
+
+<http://www.meliorix.com#QDM_Medication,_Dispensed> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Intolerance
+
+<http://www.meliorix.com#QDM_Medication,_Intolerance> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Medication,_Order
+
+<http://www.meliorix.com#QDM_Medication,_Order> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf :MedicationAdministration ,
+                                                                :Order .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Care_Experience
+
+:QDM_Patient_Care_Experience rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Characteristic_Clinical_Trial_Participant
+
+:QDM_Patient_Characteristic_Clinical_Trial_Participant rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Characteristic_Expired
+
+:QDM_Patient_Characteristic_Expired rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Characteristic_Gestational_Age
+
+:QDM_Patient_Characteristic_Gestational_Age rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Characteristic_Payer
+
+:QDM_Patient_Characteristic_Payer rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Charactersitic,_ECOG_Performance_Status_Poor
+
+<http://www.meliorix.com#QDM_Patient_Charactersitic,_ECOG_Performance_Status_Poor> rdf:type owl:Class ;
+                                                                                   
+                                                                                   rdfs:subClassOf :Finding ,
+                                                                                                   :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Charactersitic,_Estimated_Date_of_Conception
+
+<http://www.meliorix.com#QDM_Patient_Charactersitic,_Estimated_Date_of_Conception> rdf:type owl:Class ;
+                                                                                   
+                                                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Charactersitic,_Tobacco_user_and_Non-User
+
+<http://www.meliorix.com#QDM_Patient_Charactersitic,_Tobacco_user_and_Non-User> rdf:type owl:Class ;
+                                                                                
+                                                                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Patient_Preference_(attribute)
+
+<http://www.meliorix.com#QDM_Patient_Preference_(attribute)> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Physical_Exam,_Finding
+
+<http://www.meliorix.com#QDM_Physical_Exam,_Finding> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Physical_Exam,_Order
+
+<http://www.meliorix.com#QDM_Physical_Exam,_Order> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Physical_Exam,_Performed
+
+<http://www.meliorix.com#QDM_Physical_Exam,_Performed> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Physical_Exam,_Recommended
+
+<http://www.meliorix.com#QDM_Physical_Exam,_Recommended> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf :Proposal ,
+                                                                         owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Procedure,_Adverse_Event
+
+<http://www.meliorix.com#QDM_Procedure,_Adverse_Event> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                       :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Procedure,_Intolerance
+
+<http://www.meliorix.com#QDM_Procedure,_Intolerance> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Procedure,_Order
+
+<http://www.meliorix.com#QDM_Procedure,_Order> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf :Order ,
+                                                               :Procedure .
+
+
+
+###  http://www.meliorix.com#QDM_Procedure,_Performed
+
+<http://www.meliorix.com#QDM_Procedure,_Performed> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Procedure,_Recommended
+
+<http://www.meliorix.com#QDM_Procedure,_Recommended> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf :Proposal ,
+                                                                     owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Procedure,_Result
+
+<http://www.meliorix.com#QDM_Procedure,_Result> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf :Finding ,
+                                                                :Observation .
+
+
+
+###  http://www.meliorix.com#QDM_Provider_Care_Experience
+
+:QDM_Provider_Care_Experience rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Provider_Preference_(attribute)
+
+<http://www.meliorix.com#QDM_Provider_Preference_(attribute)> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf :Characteristic .
+
+
+
+###  http://www.meliorix.com#QDM_Radiation_Dosage_(attribute)
+
+<http://www.meliorix.com#QDM_Radiation_Dosage_(attribute)> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Radiation_Duration_(attribute)
+
+<http://www.meliorix.com#QDM_Radiation_Duration_(attribute)> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Reaction_(attribute)
+
+<http://www.meliorix.com#QDM_Reaction_(attribute)> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Reason_(attribute)
+
+<http://www.meliorix.com#QDM_Reason_(attribute)> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Result_(attribute)
+
+<http://www.meliorix.com#QDM_Result_(attribute)> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Risk_Category_Assessment
+
+:QDM_Risk_Category_Assessment rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf :Assessment .
+
+
+
+###  http://www.meliorix.com#QDM_Severity_(attribute)
+
+<http://www.meliorix.com#QDM_Severity_(attribute)> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Status_(attribute)
+
+<http://www.meliorix.com#QDM_Status_(attribute)> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Substance,_Administered
+
+<http://www.meliorix.com#QDM_Substance,_Administered> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf :MedicationAdministration ,
+                                                                      :Performance .
+
+
+
+###  http://www.meliorix.com#QDM_Substance,_Adverse_Event
+
+<http://www.meliorix.com#QDM_Substance,_Adverse_Event> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Substance,_Allergy
+
+<http://www.meliorix.com#QDM_Substance,_Allergy> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Substance,_Intolerance
+
+<http://www.meliorix.com#QDM_Substance,_Intolerance> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Substance,_Order
+
+<http://www.meliorix.com#QDM_Substance,_Order> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf :MedicationAdministration ,
+                                                               :Order .
+
+
+
+###  http://www.meliorix.com#QDM_Substance,_Recommended
+
+<http://www.meliorix.com#QDM_Substance,_Recommended> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf :MedicationAdministration ,
+                                                                     :Proposal .
+
+
+
+###  http://www.meliorix.com#QDM_Symptom,_Active
+
+<http://www.meliorix.com#QDM_Symptom,_Active> rdf:type owl:Class ;
+                                              
+                                              owl:equivalentClass :QRDA_Symptom_Active ;
+                                              
+                                              rdfs:subClassOf :Observation ,
+                                                              :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#QDM_Symptom,_Assessed
+
+<http://www.meliorix.com#QDM_Symptom,_Assessed> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Symptom,_Inactive
+
+<http://www.meliorix.com#QDM_Symptom,_Inactive> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QDM_Symptom,_Resolved
+
+<http://www.meliorix.com#QDM_Symptom,_Resolved> rdf:type owl:Class ;
+                                                
+                                                owl:equivalentClass :QRDA_Symptom_Resolved ;
+                                                
+                                                rdfs:subClassOf :Observation ,
+                                                                :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#QRDA_Act_Intolerance_or_Adverse_Event_Observation
+
+:QRDA_Act_Intolerance_or_Adverse_Event_Observation rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Care_Goal
+
+:QRDA_Care_Goal rdf:type owl:Class ;
+                
+                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Communication_from_Patient_to_Provider
+
+:QRDA_Communication_from_Patient_to_Provider rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Communication_from_Provider_to_Patient
+
+:QRDA_Communication_from_Provider_to_Patient rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf :Communication ,
+                                                             :Performance .
+
+
+
+###  http://www.meliorix.com#QRDA_Communication_from_Provider_to_Provider
+
+:QRDA_Communication_from_Provider_to_Provider rdf:type owl:Class ;
+                                              
+                                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Device_Adverse_Event
+
+:QRDA_Device_Adverse_Event rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                           :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Device_Allergy
+
+:QRDA_Device_Allergy rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Device_Applied
+
+:QRDA_Device_Applied rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Device_Intolerance
+
+:QRDA_Device_Intolerance rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Device_Order
+
+:QRDA_Device_Order rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Device_Recommended
+
+:QRDA_Device_Recommended rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :Proposal ,
+                                         :SupplyOrDeviceApplication .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnosis_Active
+
+:QRDA_Diagnosis_Active rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :Diagnosis ,
+                                       :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnosis_Family_History
+
+:QRDA_Diagnosis_Family_History rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf :Observation ,
+                                               :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnosis_Inactive
+
+:QRDA_Diagnosis_Inactive rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :Diagnosis ,
+                                         :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnosis_Resolved
+
+:QRDA_Diagnosis_Resolved rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnostic_Study_Adverse_Event
+
+:QRDA_Diagnostic_Study_Adverse_Event rdf:type owl:Class ;
+                                     
+                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnostic_Study_Intolerance
+
+:QRDA_Diagnostic_Study_Intolerance rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                   :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnostic_Study_Order
+
+:QRDA_Diagnostic_Study_Order rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnostic_Study_Performed
+
+:QRDA_Diagnostic_Study_Performed rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnostic_Study_Recommended
+
+:QRDA_Diagnostic_Study_Recommended rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Diagnostic_Study_Result
+
+:QRDA_Diagnostic_Study_Result rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Discharge_Medication_-_Active_Medication
+
+:QRDA_Discharge_Medication_-_Active_Medication rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Encounter_Active
+
+:QRDA_Encounter_Active rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Encounter_Order
+
+:QRDA_Encounter_Order rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :Encounter ,
+                                      :Order .
+
+
+
+###  http://www.meliorix.com#QRDA_Encounter_Performed
+
+:QRDA_Encounter_Performed rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :Encounter ,
+                                          :Performance .
+
+
+
+###  http://www.meliorix.com#QRDA_Encounter_Recommended
+
+:QRDA_Encounter_Recommended rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Functional_Status_Order
+
+:QRDA_Functional_Status_Order rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Functional_Status_Performed
+
+:QRDA_Functional_Status_Performed rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf :Assessment ,
+                                                  :Performance .
+
+
+
+###  http://www.meliorix.com#QRDA_Functional_Status_Recommended
+
+:QRDA_Functional_Status_Recommended rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Functional_Status_Result
+
+:QRDA_Functional_Status_Result rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Incision_Datetime
+
+:QRDA_Incision_Datetime rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#QRDA_Intervention_Adverse_Event
+
+:QRDA_Intervention_Adverse_Event rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                 :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Intervention_Intolerance
+
+:QRDA_Intervention_Intolerance rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Intervention_Order
+
+:QRDA_Intervention_Order rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :NonProcedureIntervention ,
+                                         :Order .
+
+
+
+###  http://www.meliorix.com#QRDA_Intervention_Performed
+
+:QRDA_Intervention_Performed rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf :NonProcedureIntervention ,
+                                             :Performance .
+
+
+
+###  http://www.meliorix.com#QRDA_Intervention_Recommended
+
+:QRDA_Intervention_Recommended rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf :NonProcedureIntervention ,
+                                               :Proposal .
+
+
+
+###  http://www.meliorix.com#QRDA_Intervention_Result
+
+:QRDA_Intervention_Result rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Laboratory_Test_Adverse_Event
+
+:QRDA_Laboratory_Test_Adverse_Event rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                    :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Laboratory_Test_Intolerance
+
+:QRDA_Laboratory_Test_Intolerance rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf :AllergyIntoleranceAdverseEvent .
+
+
+
+###  http://www.meliorix.com#QRDA_Laboratory_Test_Order
+
+:QRDA_Laboratory_Test_Order rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf :DiagnosticStudy ,
+                                            :Order .
+
+
+
+###  http://www.meliorix.com#QRDA_Laboratory_Test_Performed
+
+:QRDA_Laboratory_Test_Performed rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf :DiagnosticStudy ,
+                                                :Performance .
+
+
+
+###  http://www.meliorix.com#QRDA_Laboratory_Test_Recommended
+
+:QRDA_Laboratory_Test_Recommended rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf :DiagnosticStudy ,
+                                                  :Proposal .
+
+
+
+###  http://www.meliorix.com#QRDA_Laboratory_Test_Result
+
+:QRDA_Laboratory_Test_Result rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Measure_Reference
+
+:QRDA_Measure_Reference rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Active
+
+:QRDA_Medication_Active rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Administered
+
+:QRDA_Medication_Administered rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf :MedicationAdministration ,
+                                              :Performance .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Adverse_Effect
+
+:QRDA_Medication_Adverse_Effect rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Allergy
+
+:QRDA_Medication_Allergy rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Dispensed
+
+:QRDA_Medication_Dispensed rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Intolerance
+
+:QRDA_Medication_Intolerance rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Order
+
+:QRDA_Medication_Order rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Medication_Supply_Request
+
+:QRDA_Medication_Supply_Request rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Care_Experience
+
+:QRDA_Patient_Care_Experience rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Characteristic_Clinical_Trial_Participant
+
+:QRDA_Patient_Characteristic_Clinical_Trial_Participant rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Characteristic_Estimated_Date_of_Conception
+
+:QRDA_Patient_Characteristic_Estimated_Date_of_Conception rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Characteristic_Expired
+
+:QRDA_Patient_Characteristic_Expired rdf:type owl:Class ;
+                                     
+                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Characteristic_Gestational_Age
+
+:QRDA_Patient_Characteristic_Gestational_Age rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Characteristic_Observation_Assertion
+
+:QRDA_Patient_Characteristic_Observation_Assertion rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Characteristic_Payer
+
+:QRDA_Patient_Characteristic_Payer rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Patient_Preference
+
+:QRDA_Patient_Preference rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Physical_Exam_Finding
+
+:QRDA_Physical_Exam_Finding rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf :Observation ,
+                                            :PhysicalExamFinding .
+
+
+
+###  http://www.meliorix.com#QRDA_Physical_Exam_Order
+
+:QRDA_Physical_Exam_Order rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Physical_Exam_Performed
+
+:QRDA_Physical_Exam_Performed rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Physical_Exam_Recommended
+
+:QRDA_Physical_Exam_Recommended rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Problem_Status_Active
+
+:QRDA_Problem_Status_Active rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Problem_Status_Inactive
+
+:QRDA_Problem_Status_Inactive rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Problem_Status_Resolved
+
+:QRDA_Problem_Status_Resolved rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Procedure_Adverse_Event
+
+:QRDA_Procedure_Adverse_Event rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Procedure_Intolerance
+
+:QRDA_Procedure_Intolerance rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Procedure_Order
+
+:QRDA_Procedure_Order rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Procedure_Performed
+
+:QRDA_Procedure_Performed rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Procedure_Recommended
+
+:QRDA_Procedure_Recommended rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf :Procedure ,
+                                            :Proposal .
+
+
+
+###  http://www.meliorix.com#QRDA_Procedure_Result
+
+:QRDA_Procedure_Result rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Provider_Care_Experience
+
+:QRDA_Provider_Care_Experience rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Provider_Preference
+
+:QRDA_Provider_Preference rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Radiation_Dosage_and_Duration
+
+:QRDA_Radiation_Dosage_and_Duration rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Reaction
+
+:QRDA_Reaction rdf:type owl:Class ;
+               
+               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Reason
+
+:QRDA_Reason rdf:type owl:Class ;
+             
+             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Reporting_Parameters_Act
+
+:QRDA_Reporting_Parameters_Act rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Result
+
+:QRDA_Result rdf:type owl:Class ;
+             
+             rdfs:subClassOf :Finding ,
+                             :Observation .
+
+
+
+###  http://www.meliorix.com#QRDA_Risk_Category_Assessment
+
+:QRDA_Risk_Category_Assessment rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Status
+
+:QRDA_Status rdf:type owl:Class ;
+             
+             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Substance_Recommended
+
+:QRDA_Substance_Recommended rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Symptom_Active
+
+:QRDA_Symptom_Active rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :Observation ,
+                                     :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#QRDA_Symptom_Assessed
+
+:QRDA_Symptom_Assessed rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#QRDA_Symptom_Inactive
+
+:QRDA_Symptom_Inactive rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#QRDA_Symptom_Resolved
+
+:QRDA_Symptom_Resolved rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :Observation ,
+                                       :SymptomHistory .
+
+
+
+###  http://www.meliorix.com#QRDA_eMeasure_Reference_QDM
+
+:QRDA_eMeasure_Reference_QDM rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#Supply
+
+:Supply rdf:type owl:Class ;
+        
+        rdfs:subClassOf :PhaseCategory .
+
+
+
+###  http://www.meliorix.com#SupplyOrDeviceApplication
+
+:SupplyOrDeviceApplication rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#SymptomHistory
+
+:SymptomHistory rdf:type owl:Class ;
+                
+                rdfs:subClassOf :ElementCategory .
+
+
+
+###  http://www.meliorix.com#VMR_Active_Problem_List_Entry_(Code_Only)
+
+<http://www.meliorix.com#VMR_Active_Problem_List_Entry_(Code_Only)> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Adverse_Event_Detail
+
+:VMR_Adverse_Event_Detail rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                          :Observation .
+
+
+
+###  http://www.meliorix.com#VMR_Adverse_Event_to_Food
+
+:VMR_Adverse_Event_to_Food rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Adverse_Event_to_Medication_or_Immunization
+
+:VMR_Adverse_Event_to_Medication_or_Immunization rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Adverse_Event_to_Other_Substance
+
+:VMR_Adverse_Event_to_Other_Substance rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Anti-microbial_Substance
+
+:VMR_Anti-microbial_Substance rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Consultation_Proposal
+
+:VMR_Consultation_Proposal rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Consulting_Provider
+
+:VMR_Consulting_Provider rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Current_Goal_List_Entry_(Code,_Time,_and_Target_Only)
+
+<http://www.meliorix.com#VMR_Current_Goal_List_Entry_(Code,_Time,_and_Target_Only)> rdf:type owl:Class ;
+                                                                                    
+                                                                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Current_Goal_List_Entry_(Code_and_Target_Only)
+
+<http://www.meliorix.com#VMR_Current_Goal_List_Entry_(Code_and_Target_Only)> rdf:type owl:Class ;
+                                                                             
+                                                                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Current_Medication_List_Entry_(Code_Only)
+
+<http://www.meliorix.com#VMR_Current_Medication_List_Entry_(Code_Only)> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Deliverable_Message
+
+:VMR_Deliverable_Message rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Denied_Adverse_Event
+
+:VMR_Denied_Adverse_Event rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Denied_Problem
+
+:VMR_Denied_Problem rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :Diagnosis ,
+                                    :Observation .
+
+
+
+###  http://www.meliorix.com#VMR_Diagnosis_History_Entry_(Code,_Time_Range,_Criticality,_and_Status_Only)
+
+<http://www.meliorix.com#VMR_Diagnosis_History_Entry_(Code,_Time_Range,_Criticality,_and_Status_Only)> rdf:type owl:Class ;
+                                                                                                       
+                                                                                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Diet_Proposal
+
+:VMR_Diet_Proposal rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Displayable_Message
+
+:VMR_Displayable_Message rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Each_Assessment_for_Intervention_for_Condition
+
+:VMR_Each_Assessment_for_Intervention_for_Condition rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Encounter_Detail
+
+:VMR_Encounter_Detail rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Encounter_Diagnosis
+
+:VMR_Encounter_Diagnosis rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Encounter_List_Entry
+
+:VMR_Encounter_List_Entry rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Facility
+
+:VMR_Facility rdf:type owl:Class ;
+              
+              rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Family_Medical_History_Entry_(Code,_Time_Range,_Criticality,_and_Status_Only)
+
+<http://www.meliorix.com#VMR_Family_Medical_History_Entry_(Code,_Time_Range,_Criticality,_and_Status_Only)> rdf:type owl:Class ;
+                                                                                                            
+                                                                                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Genetic_Relationship
+
+:VMR_Genetic_Relationship rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Identified_Microorganism_Species
+
+:VMR_Identified_Microorganism_Species rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Imaging_Proposal
+
+:VMR_Imaging_Proposal rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :DiagnosticStudy ,
+                                      :Proposal .
+
+
+
+###  http://www.meliorix.com#VMR_Immediate_Family_Relationship
+
+:VMR_Immediate_Family_Relationship rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Immunization_Detail
+
+:VMR_Immunization_Detail rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Immunization_Proposal
+
+:VMR_Immunization_Proposal rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Intravenous_Fluid
+
+:VMR_Intravenous_Fluid rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Knowledge_Module_Reference
+
+:VMR_Knowledge_Module_Reference rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Medicaments
+
+:VMR_Medicaments rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Medication_Proposal
+
+:VMR_Medication_Proposal rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :MedicationAdministration ,
+                                         :Proposal .
+
+
+
+###  http://www.meliorix.com#VMR_Medication_Sensitivity
+
+:VMR_Medication_Sensitivity rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Microbiology_Lab_Result
+
+:VMR_Microbiology_Lab_Result rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Microbiology_Laboratory_Proposal
+
+:VMR_Microbiology_Laboratory_Proposal rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Microorganism_Found
+
+:VMR_Microorganism_Found rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Most_Recent_Intervention_of_Interest
+
+:VMR_Most_Recent_Intervention_of_Interest rdf:type owl:Class ;
+                                          
+                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Natural_Parent_Of_Evaluated_Person
+
+:VMR_Natural_Parent_Of_Evaluated_Person rdf:type owl:Class ;
+                                        
+                                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Need_for_Intervention_for_Condition
+
+:VMR_Need_for_Intervention_for_Condition rdf:type owl:Class ;
+                                         
+                                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Nutritional_Substance_for_Enteral_Feeding
+
+:VMR_Nutritional_Substance_for_Enteral_Feeding rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Observation_Result_with_Interpretation
+
+:VMR_Observation_Result_with_Interpretation rdf:type owl:Class ;
+                                            
+                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Organization
+
+:VMR_Organization rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Part_of_an_Encounter
+
+:VMR_Part_of_an_Encounter rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_(Age,_Gender_only)
+
+<http://www.meliorix.com#VMR_Patient_(Age,_Gender_only)> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_(DOB_and_Gender_only)
+
+<http://www.meliorix.com#VMR_Patient_(DOB_and_Gender_only)> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_Care_Assessment
+
+:VMR_Patient_Care_Assessment rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_Care_Encounter_Assessment
+
+:VMR_Patient_Care_Encounter_Assessment rdf:type owl:Class ;
+                                       
+                                       rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_Minimal
+
+:VMR_Patient_Minimal rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_Relative
+
+:VMR_Patient_Relative rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Patient_Relative_Minimal
+
+:VMR_Patient_Relative_Minimal rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Person_Role_to_Evaluated_Person
+
+:VMR_Person_Role_to_Evaluated_Person rdf:type owl:Class ;
+                                     
+                                     rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Prescription
+
+:VMR_Prescription rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :MedicationAdministration ,
+                                  :Order .
+
+
+
+###  http://www.meliorix.com#VMR_Procedure_Proposal
+
+:VMR_Procedure_Proposal rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Proposed_Goal
+
+:VMR_Proposed_Goal rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Goal ,
+                                   :Proposal .
+
+
+
+###  http://www.meliorix.com#VMR_Proposed_Intervention
+
+:VMR_Proposed_Intervention rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Provider
+
+:VMR_Provider rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Reason_for_an_Encounter
+
+:VMR_Reason_for_an_Encounter rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Relevant_Facility
+
+:VMR_Relevant_Facility rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Relevant_Organization
+
+:VMR_Relevant_Organization rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Simple_Immunization_History_List_Entry_(Code_and_Date_Only)
+
+<http://www.meliorix.com#VMR_Simple_Immunization_History_List_Entry_(Code_and_Date_Only)> rdf:type owl:Class ;
+                                                                                          
+                                                                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Simple_Lab_Result
+
+:VMR_Simple_Lab_Result rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :Finding ,
+                                       :Observation .
+
+
+
+###  http://www.meliorix.com#VMR_Simple_Laboratory_Proposal
+
+:VMR_Simple_Laboratory_Proposal rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf :DiagnosticStudy ,
+                                                :Proposal .
+
+
+
+###  http://www.meliorix.com#VMR_Simple_Procedure_History_(Code_and_Date_Only)
+
+<http://www.meliorix.com#VMR_Simple_Procedure_History_(Code_and_Date_Only)> rdf:type owl:Class ;
+                                                                            
+                                                                            rdfs:subClassOf :Performance ,
+                                                                                            :Procedure .
+
+
+
+###  http://www.meliorix.com#VMR_Simple_Procedure_History_with_Target_Body_Site_(Code,_Target_Body_Site_and_Date_Only)
+
+<http://www.meliorix.com#VMR_Simple_Procedure_History_with_Target_Body_Site_(Code,_Target_Body_Site_and_Date_Only)> rdf:type owl:Class ;
+                                                                                                                    
+                                                                                                                    rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Specimen_Collection_for_Lab_Analysis
+
+:VMR_Specimen_Collection_for_Lab_Analysis rdf:type owl:Class ;
+                                          
+                                          rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Specimen_Source
+
+:VMR_Specimen_Source rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Subject_of_an_Encounter
+
+:VMR_Subject_of_an_Encounter rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Substance_Dispensation_Event
+
+:VMR_Substance_Dispensation_Event rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf :MedicationAdministration ,
+                                                  owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Undelivered_Immunization
+
+:VMR_Undelivered_Immunization rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Undelivered_Medication
+
+:VMR_Undelivered_Medication rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.meliorix.com#VMR_Undelivered_Procedure
+
+:VMR_Undelivered_Procedure rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :Performance ,
+                                           :Procedure .
+
+
+
+###  http://www.meliorix.com#VMR_Vaccine
+
+:VMR_Vaccine rdf:type owl:Class ;
+             
+             rdfs:subClassOf :NotApplicable .
+
+
+
+###  http://www.meliorix.com#VMR_Vital_Signs
+
+:VMR_Vital_Signs rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf owl:Thing .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
