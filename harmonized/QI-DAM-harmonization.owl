@@ -893,6 +893,8 @@
 
 <http://www.meliorix.com#QDM_Communication:_From_Patient_to_Provider> rdf:type owl:Class ;
                                                                       
+                                                                      owl:equivalentClass :QRDA_Communication_from_Patient_to_Provider ;
+                                                                      
                                                                       rdfs:subClassOf :Communication ,
                                                                                       :Performance .
 
@@ -902,13 +904,18 @@
 
 <http://www.meliorix.com#QDM_Communication:_From_Provider_to_Patient> rdf:type owl:Class ;
                                                                       
-                                                                      rdfs:subClassOf owl:Thing .
+                                                                      owl:equivalentClass :QRDA_Communication_from_Provider_to_Patient ;
+                                                                      
+                                                                      rdfs:subClassOf :Communication ,
+                                                                                      :Observation .
 
 
 
 ###  http://www.meliorix.com#QDM_Communication:_From_Provider_to_Provider
 
 <http://www.meliorix.com#QDM_Communication:_From_Provider_to_Provider> rdf:type owl:Class ;
+                                                                       
+                                                                       owl:equivalentClass :QRDA_Communication_from_Provider_to_Provider ;
                                                                        
                                                                        rdfs:subClassOf :Communication ,
                                                                                        :Performance .
@@ -919,6 +926,8 @@
 
 <http://www.meliorix.com#QDM_Device,_Adverse_Event> rdf:type owl:Class ;
                                                     
+                                                    owl:equivalentClass :QRDA_Device_Adverse_Event ;
+                                                    
                                                     rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
                                                                     :Observation .
 
@@ -927,6 +936,8 @@
 ###  http://www.meliorix.com#QDM_Device,_Allergy
 
 <http://www.meliorix.com#QDM_Device,_Allergy> rdf:type owl:Class ;
+                                              
+                                              owl:equivalentClass :QRDA_Device_Allergy ;
                                               
                                               rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
                                                               :Observation .
@@ -937,6 +948,8 @@
 
 <http://www.meliorix.com#QDM_Device,_Applied> rdf:type owl:Class ;
                                               
+                                              owl:equivalentClass :QRDA_Device_Applied ;
+                                              
                                               rdfs:subClassOf :Performance ,
                                                               :SupplyOrDeviceApplication .
 
@@ -946,7 +959,10 @@
 
 <http://www.meliorix.com#QDM_Device,_Intolerance> rdf:type owl:Class ;
                                                   
-                                                  rdfs:subClassOf owl:Thing .
+                                                  owl:equivalentClass :QRDA_Device_Intolerance ;
+                                                  
+                                                  rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                  :Observation .
 
 
 
@@ -954,7 +970,10 @@
 
 <http://www.meliorix.com#QDM_Device,_Order> rdf:type owl:Class ;
                                             
-                                            rdfs:subClassOf owl:Thing .
+                                            owl:equivalentClass :QRDA_Device_Order ;
+                                            
+                                            rdfs:subClassOf :Order ,
+                                                            :SupplyOrDeviceApplication .
 
 
 
@@ -1005,6 +1024,8 @@
 ###  http://www.meliorix.com#QDM_Diagnostic_Study,_Intolerance
 
 <http://www.meliorix.com#QDM_Diagnostic_Study,_Intolerance> rdf:type owl:Class ;
+                                                            
+                                                            owl:equivalentClass :QRDA_Diagnostic_Study_Intolerance ;
                                                             
                                                             rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
                                                                             :Observation .
@@ -1149,6 +1170,8 @@
 
 <http://www.meliorix.com#QDM_Intervention,_Adverse_Event> rdf:type owl:Class ;
                                                           
+                                                          owl:equivalentClass :QRDA_Intervention_Adverse_Event ;
+                                                          
                                                           rdfs:subClassOf :AllergyIntoleranceAdverseEvent .
 
 
@@ -1156,6 +1179,8 @@
 ###  http://www.meliorix.com#QDM_Intervention,_Intolerance
 
 <http://www.meliorix.com#QDM_Intervention,_Intolerance> rdf:type owl:Class ;
+                                                        
+                                                        owl:equivalentClass :QRDA_Intervention_Intolerance ;
                                                         
                                                         rdfs:subClassOf :AllergyIntoleranceAdverseEvent .
 
@@ -1198,6 +1223,8 @@
 
 <http://www.meliorix.com#QDM_Laboratory_Test,_Adverse_Event> rdf:type owl:Class ;
                                                              
+                                                             owl:equivalentClass :QRDA_Laboratory_Test_Adverse_Event ;
+                                                             
                                                              rdfs:subClassOf owl:Thing .
 
 
@@ -1205,6 +1232,8 @@
 ###  http://www.meliorix.com#QDM_Laboratory_Test,_Intolerance
 
 <http://www.meliorix.com#QDM_Laboratory_Test,_Intolerance> rdf:type owl:Class ;
+                                                           
+                                                           owl:equivalentClass :QRDA_Laboratory_Test_Intolerance ;
                                                            
                                                            rdfs:subClassOf owl:Thing .
 
@@ -1275,6 +1304,8 @@
 ###  http://www.meliorix.com#QDM_Medication,_Allergy
 
 <http://www.meliorix.com#QDM_Medication,_Allergy> rdf:type owl:Class ;
+                                                  
+                                                  owl:equivalentClass :QRDA_Medication_Allergy ;
                                                   
                                                   rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
                                                                   :Observation .
@@ -1415,6 +1446,8 @@
 ###  http://www.meliorix.com#QDM_Procedure,_Adverse_Event
 
 <http://www.meliorix.com#QDM_Procedure,_Adverse_Event> rdf:type owl:Class ;
+                                                       
+                                                       owl:equivalentClass :QRDA_Procedure_Adverse_Event ;
                                                        
                                                        rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
                                                                        :Observation .
@@ -1651,9 +1684,7 @@
 
 ###  http://www.meliorix.com#QRDA_Communication_from_Patient_to_Provider
 
-:QRDA_Communication_from_Patient_to_Provider rdf:type owl:Class ;
-                                             
-                                             rdfs:subClassOf owl:Thing .
+:QRDA_Communication_from_Patient_to_Provider rdf:type owl:Class .
 
 
 
@@ -1668,9 +1699,7 @@
 
 ###  http://www.meliorix.com#QRDA_Communication_from_Provider_to_Provider
 
-:QRDA_Communication_from_Provider_to_Provider rdf:type owl:Class ;
-                                              
-                                              rdfs:subClassOf owl:Thing .
+:QRDA_Communication_from_Provider_to_Provider rdf:type owl:Class .
 
 
 
@@ -1709,9 +1738,7 @@
 
 ###  http://www.meliorix.com#QRDA_Device_Order
 
-:QRDA_Device_Order rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf owl:Thing .
+:QRDA_Device_Order rdf:type owl:Class .
 
 
 
