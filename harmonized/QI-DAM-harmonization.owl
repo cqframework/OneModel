@@ -51,7 +51,8 @@
 
 :CCDA_Admission_Medication rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :MedicationAdministration ,
+                                           :Observation .
 
 
 
@@ -77,7 +78,8 @@
 
 :CCDA_Allergy_-_Intolerance_Observation rdf:type owl:Class ;
                                         
-                                        rdfs:subClassOf owl:Thing .
+                                        rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                        :Observation .
 
 
 
@@ -85,7 +87,9 @@
 
 :CCDA_Allergy_Problem_Act rdf:type owl:Class ;
                           
-                          rdfs:subClassOf owl:Thing .
+                          rdfs:subClassOf :Organizer ;
+                          
+                          rdfs:comment "Used to capture relationships between an allergy and other problems. Contains one allergy and multiple entryRelationships"^^xsd:string .
 
 
 
@@ -93,7 +97,7 @@
 
 :CCDA_Allergy_Status_Observation rdf:type owl:Class ;
                                  
-                                 rdfs:subClassOf owl:Thing .
+                                 rdfs:subClassOf :NotApplicable .
 
 
 
@@ -101,7 +105,7 @@
 
 :CCDA_Assessment_Scale_Observation rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf owl:Thing .
+                                   rdfs:subClassOf :NotApplicable .
 
 
 
@@ -109,7 +113,7 @@
 
 :CCDA_Assessment_Scale_Supporting_Observation rdf:type owl:Class ;
                                               
-                                              rdfs:subClassOf owl:Thing .
+                                              rdfs:subClassOf :NotApplicable .
 
 
 
@@ -117,7 +121,7 @@
 
 :CCDA_Authorization_Activity rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :Organizer .
 
 
 
@@ -125,7 +129,7 @@
 
 :CCDA_Boundary_Observation rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :Organizer .
 
 
 
@@ -133,7 +137,7 @@
 
 :CCDA_Caregiver_Characteristics rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf owl:Thing .
+                                rdfs:subClassOf :Organizer .
 
 
 
@@ -141,7 +145,7 @@
 
 :CCDA_Code_Observations rdf:type owl:Class ;
                         
-                        rdfs:subClassOf owl:Thing .
+                        rdfs:subClassOf :Organizer .
 
 
 
@@ -149,7 +153,8 @@
 
 :CCDA_Cognitive_Status_Problem_Observation rdf:type owl:Class ;
                                            
-                                           rdfs:subClassOf owl:Thing .
+                                           rdfs:subClassOf :Finding ,
+                                                           :Observation .
 
 
 
@@ -157,7 +162,8 @@
 
 :CCDA_Cognitive_Status_Result_Observation rdf:type owl:Class ;
                                           
-                                          rdfs:subClassOf owl:Thing .
+                                          rdfs:subClassOf :Finding ,
+                                                          :Observation .
 
 
 
@@ -165,7 +171,7 @@
 
 :CCDA_Cognitive_Status_Result_Organizer rdf:type owl:Class ;
                                         
-                                        rdfs:subClassOf owl:Thing .
+                                        rdfs:subClassOf :Organizer .
 
 
 
@@ -173,7 +179,7 @@
 
 :CCDA_Comment_Activity rdf:type owl:Class ;
                        
-                       rdfs:subClassOf owl:Thing .
+                       rdfs:subClassOf :NotApplicable .
 
 
 
@@ -181,7 +187,7 @@
 
 :CCDA_Coverage_Activity rdf:type owl:Class ;
                         
-                        rdfs:subClassOf owl:Thing .
+                        rdfs:subClassOf :Organizer .
 
 
 
@@ -198,7 +204,7 @@
 
 :CCDA_Discharge_Medication rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           owl:equivalentClass :QRDA_Discharge_Medication_-_Active_Medication .
 
 
 
@@ -206,7 +212,7 @@
 
 :CCDA_Drug_Vehicle rdf:type owl:Class ;
                    
-                   rdfs:subClassOf owl:Thing .
+                   rdfs:subClassOf :NotApplicable .
 
 
 
@@ -214,7 +220,8 @@
 
 :CCDA_Encounter_Activities rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :Communication ,
+                                           :Observation .
 
 
 
@@ -231,7 +238,8 @@
 
 :CCDA_Estimated_Date_of_Delivery rdf:type owl:Class ;
                                  
-                                 rdfs:subClassOf owl:Thing .
+                                 rdfs:subClassOf :Characteristic ,
+                                                 :Observation .
 
 
 
@@ -248,7 +256,8 @@
 
 :CCDA_Family_History_Observation rdf:type owl:Class ;
                                  
-                                 rdfs:subClassOf owl:Thing .
+                                 rdfs:subClassOf :Observation ,
+                                                 :SymptomHistory .
 
 
 
@@ -265,7 +274,8 @@
 
 :CCDA_Functional_Status_Problem_Observation rdf:type owl:Class ;
                                             
-                                            rdfs:subClassOf owl:Thing .
+                                            rdfs:subClassOf :Assessment ,
+                                                            :Observation .
 
 
 
@@ -273,7 +283,8 @@
 
 :CCDA_Functional_Status_Result_Observation rdf:type owl:Class ;
                                            
-                                           rdfs:subClassOf owl:Thing .
+                                           rdfs:subClassOf :Finding ,
+                                                           :Observation .
 
 
 
@@ -290,7 +301,8 @@
 
 :CCDA_Health_Status_Observation rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf owl:Thing .
+                                rdfs:subClassOf :Assessment ,
+                                                :Observation .
 
 
 
@@ -307,7 +319,8 @@
 
 :CCDA_Hospital_Admission_Diagnosis rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf owl:Thing .
+                                   rdfs:subClassOf :Diagnosis ,
+                                                   :Observation .
 
 
 
@@ -315,7 +328,8 @@
 
 :CCDA_Hospital_Discharge_Diagnosis rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf owl:Thing .
+                                   rdfs:subClassOf :Diagnosis ,
+                                                   :Observation .
 
 
 
@@ -323,7 +337,9 @@
 
 :CCDA_Immunization_Activity rdf:type owl:Class ;
                             
-                            rdfs:subClassOf owl:Thing .
+                            rdfs:subClassOf :MedicationAdministration ,
+                                            :Performance ,
+                                            :Proposal .
 
 
 
@@ -331,7 +347,7 @@
 
 :CCDA_Immunization_Medication_Information rdf:type owl:Class ;
                                           
-                                          rdfs:subClassOf owl:Thing .
+                                          rdfs:subClassOf :NotApplicable .
 
 
 
@@ -339,7 +355,7 @@
 
 :CCDA_Immunization_Refusal_Reason rdf:type owl:Class ;
                                   
-                                  rdfs:subClassOf owl:Thing .
+                                  rdfs:subClassOf :NotApplicable .
 
 
 
@@ -347,7 +363,7 @@
 
 :CCDA_Indication rdf:type owl:Class ;
                  
-                 rdfs:subClassOf owl:Thing .
+                 rdfs:subClassOf :NotApplicable .
 
 
 
@@ -355,7 +371,7 @@
 
 :CCDA_Instructions rdf:type owl:Class ;
                    
-                   rdfs:subClassOf owl:Thing .
+                   rdfs:subClassOf :NotApplicable .
 
 
 
@@ -364,7 +380,8 @@
 :CCDA_Medication_Activity rdf:type owl:Class ;
                           
                           rdfs:subClassOf :MedicationAdministration ,
-                                          owl:Thing .
+                                          :Performance ,
+                                          :Plan .
 
 
 
@@ -381,7 +398,7 @@
 
 :CCDA_Medication_Information rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :NotApplicable .
 
 
 
@@ -389,7 +406,8 @@
 
 :CCDA_Medication_Supply_Order rdf:type owl:Class ;
                               
-                              rdfs:subClassOf owl:Thing .
+                              rdfs:subClassOf :Order ,
+                                              :SupplyOrDeviceApplication .
 
 
 
@@ -397,7 +415,7 @@
 
 <http://www.meliorix.com#CCDA_Medication_Use_-_None_Known_(deprecated)> rdf:type owl:Class ;
                                                                         
-                                                                        rdfs:subClassOf owl:Thing .
+                                                                        rdfs:subClassOf :NotApplicable .
 
 
 
@@ -405,7 +423,8 @@
 
 :CCDA_Non-Medicinal_Supply_Activity rdf:type owl:Class ;
                                     
-                                    rdfs:subClassOf owl:Thing .
+                                    rdfs:subClassOf :Performance ,
+                                                    :SupplyOrDeviceApplication .
 
 
 
@@ -413,7 +432,8 @@
 
 :CCDA_Number_of_Pressure_Ulcers_Observation rdf:type owl:Class ;
                                             
-                                            rdfs:subClassOf owl:Thing .
+                                            rdfs:subClassOf :Finding ,
+                                                            :Observation .
 
 
 
@@ -421,7 +441,7 @@
 
 :CCDA_Plan_of_Care_Activity_Act rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf owl:Thing .
+                                rdfs:subClassOf :Plan .
 
 
 
@@ -429,7 +449,8 @@
 
 :CCDA_Plan_of_Care_Activity_Encounter rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf owl:Thing .
+                                      rdfs:subClassOf :Encounter ,
+                                                      :Plan .
 
 
 
@@ -437,7 +458,7 @@
 
 :CCDA_Plan_of_Care_Activity_Observation rdf:type owl:Class ;
                                         
-                                        rdfs:subClassOf owl:Thing .
+                                        rdfs:subClassOf :Plan .
 
 
 
@@ -445,7 +466,8 @@
 
 :CCDA_Plan_of_Care_Activity_Procedure rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf owl:Thing .
+                                      rdfs:subClassOf :Plan ,
+                                                      :Procedure .
 
 
 
@@ -453,7 +475,8 @@
 
 :CCDA_Plan_of_Care_Activity_Substance_Administration rdf:type owl:Class ;
                                                      
-                                                     rdfs:subClassOf owl:Thing .
+                                                     rdfs:subClassOf :MedicationAdministration ,
+                                                                     :Plan .
 
 
 
@@ -461,7 +484,8 @@
 
 :CCDA_Plan_of_Care_Activity_Supply rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf owl:Thing .
+                                   rdfs:subClassOf :Plan ,
+                                                   :SupplyOrDeviceApplication .
 
 
 
@@ -469,7 +493,7 @@
 
 :CCDA_Policy_Activity rdf:type owl:Class ;
                       
-                      rdfs:subClassOf owl:Thing .
+                      rdfs:subClassOf :NotApplicable .
 
 
 
@@ -486,7 +510,7 @@
 
 :CCDA_Precondition_for_Substance_Administration rdf:type owl:Class ;
                                                 
-                                                rdfs:subClassOf owl:Thing .
+                                                rdfs:subClassOf :NotApplicable .
 
 
 
@@ -494,7 +518,8 @@
 
 :CCDA_Pregnancy_Observation rdf:type owl:Class ;
                             
-                            rdfs:subClassOf owl:Thing .
+                            rdfs:subClassOf :Finding ,
+                                            :Observation .
 
 
 
@@ -502,7 +527,8 @@
 
 :CCDA_Preoperative_Diagnosis rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :Diagnosis ,
+                                             :Observation .
 
 
 
@@ -519,7 +545,7 @@
 
 <http://www.meliorix.com#CCDA_Problem_Concern_Act_(Condition)> rdf:type owl:Class ;
                                                                
-                                                               rdfs:subClassOf owl:Thing .
+                                                               rdfs:subClassOf :Organizer .
 
 
 
@@ -527,7 +553,8 @@
 
 :CCDA_Problem_Observation rdf:type owl:Class ;
                           
-                          rdfs:subClassOf owl:Thing .
+                          rdfs:subClassOf :Diagnosis ,
+                                          :Observation .
 
 
 
@@ -535,7 +562,7 @@
 
 :CCDA_Problem_Status rdf:type owl:Class ;
                      
-                     rdfs:subClassOf owl:Thing .
+                     rdfs:subClassOf :NotApplicable .
 
 
 
@@ -543,7 +570,8 @@
 
 :CCDA_Procedure_Activity_Act rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :NonProcedureIntervention ,
+                                             :Performance .
 
 
 
@@ -551,7 +579,8 @@
 
 :CCDA_Procedure_Activity_Observation rdf:type owl:Class ;
                                      
-                                     rdfs:subClassOf owl:Thing .
+                                     rdfs:subClassOf :NonProcedureIntervention ,
+                                                     :Observation .
 
 
 
@@ -559,7 +588,8 @@
 
 :CCDA_Procedure_Activity_Procedure rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf owl:Thing .
+                                   rdfs:subClassOf :Performance ,
+                                                   :Procedure .
 
 
 
@@ -567,7 +597,7 @@
 
 :CCDA_Procedure_Context rdf:type owl:Class ;
                         
-                        rdfs:subClassOf owl:Thing .
+                        rdfs:subClassOf :Organizer .
 
 
 
@@ -575,7 +605,8 @@
 
 :CCDA_Product_Instance rdf:type owl:Class ;
                        
-                       rdfs:subClassOf owl:Thing .
+                       rdfs:subClassOf :Observation ,
+                                       :SupplyOrDeviceApplication .
 
 
 
@@ -583,7 +614,7 @@
 
 :CCDA_Purpose_of_Reference_Observation rdf:type owl:Class ;
                                        
-                                       rdfs:subClassOf owl:Thing .
+                                       rdfs:subClassOf :NotApplicable .
 
 
 
@@ -591,7 +622,7 @@
 
 :CCDA_Quantity_Measurement_Observation rdf:type owl:Class ;
                                        
-                                       rdfs:subClassOf owl:Thing .
+                                       rdfs:subClassOf :NotApplicable .
 
 
 
@@ -599,7 +630,8 @@
 
 :CCDA_Reaction_Observation rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                           :Observation .
 
 
 
@@ -607,7 +639,7 @@
 
 :CCDA_Referenced_Frames_Observation rdf:type owl:Class ;
                                     
-                                    rdfs:subClassOf owl:Thing .
+                                    rdfs:subClassOf :NotApplicable .
 
 
 
@@ -615,7 +647,8 @@
 
 :CCDA_Result_Observation rdf:type owl:Class ;
                          
-                         rdfs:subClassOf owl:Thing .
+                         rdfs:subClassOf :Finding ,
+                                         :Observation .
 
 
 
@@ -632,7 +665,7 @@
 
 :CCDA_SOP_Instance_Observation rdf:type owl:Class ;
                                
-                               rdfs:subClassOf owl:Thing .
+                               rdfs:subClassOf :NotApplicable .
 
 
 
@@ -640,7 +673,7 @@
 
 :CCDA_Series_Act rdf:type owl:Class ;
                  
-                 rdfs:subClassOf owl:Thing .
+                 rdfs:subClassOf :NotApplicable .
 
 
 
@@ -648,7 +681,7 @@
 
 :CCDA_Service_Delivery_Location rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf owl:Thing .
+                                rdfs:subClassOf :NotApplicable .
 
 
 
@@ -656,7 +689,8 @@
 
 :CCDA_Severity_Observation rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :Finding ,
+                                           :Observation .
 
 
 
@@ -664,7 +698,8 @@
 
 :CCDA_Smoking_Status_Observation rdf:type owl:Class ;
                                  
-                                 rdfs:subClassOf owl:Thing .
+                                 rdfs:subClassOf :Characteristic ,
+                                                 :Observation .
 
 
 
@@ -681,7 +716,8 @@
 
 :CCDA_Study_Act rdf:type owl:Class ;
                 
-                rdfs:subClassOf owl:Thing .
+                rdfs:subClassOf :DiagnosticStudy ,
+                                :Performance .
 
 
 
@@ -689,7 +725,8 @@
 
 :CCDA_Substance_or_Device_Allergy_-_Intolerance_Observation rdf:type owl:Class ;
                                                             
-                                                            rdfs:subClassOf owl:Thing .
+                                                            rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                            :Observation .
 
 
 
@@ -697,7 +734,7 @@
 
 :CCDA_Text_Observation rdf:type owl:Class ;
                        
-                       rdfs:subClassOf owl:Thing .
+                       rdfs:subClassOf :Observation .
 
 
 
@@ -705,7 +742,8 @@
 
 :CCDA_Tobacco_Use rdf:type owl:Class ;
                   
-                  rdfs:subClassOf owl:Thing .
+                  rdfs:subClassOf :Characteristic ,
+                                  :Observation .
 
 
 
@@ -722,7 +760,7 @@
 
 :CCDA_Vital_Signs_Organizer rdf:type owl:Class ;
                             
-                            rdfs:subClassOf owl:Thing .
+                            rdfs:subClassOf :Organizer .
 
 
 
