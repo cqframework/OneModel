@@ -6,7 +6,29 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.meliorix.com> .
 
-<http://www.meliorix.com> rdf:type owl:Ontology .
+<http://www.meliorix.com> rdf:type owl:Ontology ;
+                          
+                          rdfs:comment """                          rdfs:comment \"\"\"QDM Datatypes:
+CDAR2_QRDA_DSTU_R2_2012JUL, Appendix B, Table 323, Column 1
+CDAR2_QRDA_DSTU_R2_2012JUL, Appendix B, Table 326, Column 1
+
+QRDA Templates Names:
+CDAR2_QRDA_DSTU_R2_2012JUL, Appendix B, Table 323, Column 1
+
+VMR Template Names
+https://docs.google.com/spreadsheet/ccc?key=0AiAfdYPeAnM-dGJvN1Z5SmliWERGYU1YQnRmS2F4Unc&usp=sharing, (from Template Metadata tab, selected column G, Template Name, where column D, Submitted to HL7 Ballot = Y, filtered out certain categories like VMR Extended Datatypes and Entities ).
+
+CCDA
+Obtained from trifolia on 10/1/2013 following these instructions from Crystal
+use Trifolia (https://www.lantanagroup.com/newsroom/press-releasesbob-dolin-elected-hl7-chair/trifolia-workbench-hl7-web-edition/) to export Consolidation (that is the name of C-CDA R1 in the system; we don’t believe R2 is available yet). You will get all templates and conformance statements in an appendix (if you select that option), which can then be copy/pasted from MS Word to Excel.
+
+Couple of things you should choose when doing the export.
+
+·         Go to Export/Export IG to MS Word. Scroll to the bottom and choose:
+
+o    template sort order: alpha hierarchical; document tables: list; template tables (i prefer just context - but totally his choice; include xml example, Value set settings: Yes for included tables, Create as appendix no
+
+"""^^xsd:string .
 
 
 #################################################################
