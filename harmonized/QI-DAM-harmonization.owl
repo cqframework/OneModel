@@ -6,7 +6,29 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.meliorix.com> .
 
-<http://www.meliorix.com> rdf:type owl:Ontology .
+<http://www.meliorix.com> rdf:type owl:Ontology ;
+                          
+                          rdfs:comment """                          rdfs:comment \"\"\"QDM Datatypes:
+CDAR2_QRDA_DSTU_R2_2012JUL, Appendix B, Table 323, Column 1
+CDAR2_QRDA_DSTU_R2_2012JUL, Appendix B, Table 326, Column 1
+
+QRDA Templates Names:
+CDAR2_QRDA_DSTU_R2_2012JUL, Appendix B, Table 323, Column 1
+
+VMR Template Names
+https://docs.google.com/spreadsheet/ccc?key=0AiAfdYPeAnM-dGJvN1Z5SmliWERGYU1YQnRmS2F4Unc&usp=sharing, (from Template Metadata tab, selected column G, Template Name, where column D, Submitted to HL7 Ballot = Y, filtered out certain categories like VMR Extended Datatypes and Entities ).
+
+CCDA
+Obtained from trifolia on 10/1/2013 following these instructions from Crystal
+use Trifolia (https://www.lantanagroup.com/newsroom/press-releasesbob-dolin-elected-hl7-chair/trifolia-workbench-hl7-web-edition/) to export Consolidation (that is the name of C-CDA R1 in the system; we don’t believe R2 is available yet). You will get all templates and conformance statements in an appendix (if you select that option), which can then be copy/pasted from MS Word to Excel.
+
+Couple of things you should choose when doing the export.
+
+·         Go to Export/Export IG to MS Word. Scroll to the bottom and choose:
+
+o    template sort order: alpha hierarchical; document tables: list; template tables (i prefer just context - but totally his choice; include xml example, Value set settings: Yes for included tables, Create as appendix no
+
+"""^^xsd:string .
 
 
 #################################################################
@@ -810,6 +832,14 @@
 
 
 
+###  http://www.meliorix.com#Experience
+
+:Experience rdf:type owl:Class ;
+            
+            rdfs:subClassOf :ElementCategory .
+
+
+
 ###  http://www.meliorix.com#Finding
 
 :Finding rdf:type owl:Class ;
@@ -1429,7 +1459,8 @@
                              
                              owl:equivalentClass :QRDA_Patient_Care_Experience ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :Experience ,
+                                             :Observation .
 
 
 
@@ -1628,7 +1659,8 @@
                               
                               owl:equivalentClass :QRDA_Provider_Care_Experience ;
                               
-                              rdfs:subClassOf owl:Thing .
+                              rdfs:subClassOf :Experience ,
+                                              :Observation .
 
 
 
@@ -2225,7 +2257,8 @@
 
 :QRDA_Patient_Care_Experience rdf:type owl:Class ;
                               
-                              rdfs:subClassOf owl:Thing .
+                              rdfs:subClassOf :Experience ,
+                                              :Observation .
 
 
 
@@ -2389,7 +2422,10 @@
 
 ###  http://www.meliorix.com#QRDA_Provider_Care_Experience
 
-:QRDA_Provider_Care_Experience rdf:type owl:Class .
+:QRDA_Provider_Care_Experience rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf :Experience ,
+                                               :Observation .
 
 
 
@@ -2535,7 +2571,8 @@
 
 <http://www.meliorix.com#VMR_Active_Problem_List_Entry_(Code_Only)> rdf:type owl:Class ;
                                                                     
-                                                                    rdfs:subClassOf owl:Thing .
+                                                                    rdfs:subClassOf :Diagnosis ,
+                                                                                    :Observation .
 
 
 
@@ -2552,7 +2589,8 @@
 
 :VMR_Adverse_Event_to_Food rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                           :Observation .
 
 
 
@@ -2560,7 +2598,8 @@
 
 :VMR_Adverse_Event_to_Medication_or_Immunization rdf:type owl:Class ;
                                                  
-                                                 rdfs:subClassOf owl:Thing .
+                                                 rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                                 :Observation .
 
 
 
@@ -2568,7 +2607,8 @@
 
 :VMR_Adverse_Event_to_Other_Substance rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf owl:Thing .
+                                      rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                                      :Observation .
 
 
 
@@ -2576,7 +2616,8 @@
 
 :VMR_Anti-microbial_Substance rdf:type owl:Class ;
                               
-                              rdfs:subClassOf owl:Thing .
+                              rdfs:subClassOf :MedicationAdministration ,
+                                              :Supply .
 
 
 
@@ -2584,7 +2625,8 @@
 
 :VMR_Consultation_Proposal rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :Encounter ,
+                                           :Proposal .
 
 
 
@@ -2600,7 +2642,8 @@
 
 <http://www.meliorix.com#VMR_Current_Goal_List_Entry_(Code,_Time,_and_Target_Only)> rdf:type owl:Class ;
                                                                                     
-                                                                                    rdfs:subClassOf owl:Thing .
+                                                                                    rdfs:subClassOf :Goal ,
+                                                                                                    :Plan .
 
 
 
@@ -2608,7 +2651,8 @@
 
 <http://www.meliorix.com#VMR_Current_Goal_List_Entry_(Code_and_Target_Only)> rdf:type owl:Class ;
                                                                              
-                                                                             rdfs:subClassOf owl:Thing .
+                                                                             rdfs:subClassOf :Goal ,
+                                                                                             :Plan .
 
 
 
@@ -2616,7 +2660,8 @@
 
 <http://www.meliorix.com#VMR_Current_Medication_List_Entry_(Code_Only)> rdf:type owl:Class ;
                                                                         
-                                                                        rdfs:subClassOf owl:Thing .
+                                                                        rdfs:subClassOf :MedicationAdministration ,
+                                                                                        :Observation .
 
 
 
@@ -2624,7 +2669,8 @@
 
 :VMR_Deliverable_Message rdf:type owl:Class ;
                          
-                         rdfs:subClassOf owl:Thing .
+                         rdfs:subClassOf :Communication ,
+                                         :Performance .
 
 
 
@@ -2632,7 +2678,8 @@
 
 :VMR_Denied_Adverse_Event rdf:type owl:Class ;
                           
-                          rdfs:subClassOf owl:Thing .
+                          rdfs:subClassOf :AllergyIntoleranceAdverseEvent ,
+                                          :Observation .
 
 
 
@@ -2649,7 +2696,8 @@
 
 <http://www.meliorix.com#VMR_Diagnosis_History_Entry_(Code,_Time_Range,_Criticality,_and_Status_Only)> rdf:type owl:Class ;
                                                                                                        
-                                                                                                       rdfs:subClassOf owl:Thing .
+                                                                                                       rdfs:subClassOf :Diagnosis ,
+                                                                                                                       :Observation .
 
 
 
@@ -2657,7 +2705,8 @@
 
 :VMR_Diet_Proposal rdf:type owl:Class ;
                    
-                   rdfs:subClassOf owl:Thing .
+                   rdfs:subClassOf :MedicationAdministration ,
+                                   :Proposal .
 
 
 
@@ -2665,7 +2714,7 @@
 
 :VMR_Displayable_Message rdf:type owl:Class ;
                          
-                         rdfs:subClassOf owl:Thing .
+                         rdfs:subClassOf :Communication .
 
 
 
@@ -2673,7 +2722,8 @@
 
 :VMR_Each_Assessment_for_Intervention_for_Condition rdf:type owl:Class ;
                                                     
-                                                    rdfs:subClassOf owl:Thing .
+                                                    rdfs:subClassOf :Assessment ,
+                                                                    :Performance .
 
 
 
@@ -2681,7 +2731,8 @@
 
 :VMR_Encounter_Detail rdf:type owl:Class ;
                       
-                      rdfs:subClassOf owl:Thing .
+                      rdfs:subClassOf :Encounter ,
+                                      :Observation .
 
 
 
@@ -2689,7 +2740,8 @@
 
 :VMR_Encounter_Diagnosis rdf:type owl:Class ;
                          
-                         rdfs:subClassOf owl:Thing .
+                         rdfs:subClassOf :Diagnosis ,
+                                         :Observation .
 
 
 
@@ -2697,7 +2749,8 @@
 
 :VMR_Encounter_List_Entry rdf:type owl:Class ;
                           
-                          rdfs:subClassOf owl:Thing .
+                          rdfs:subClassOf :Encounter ,
+                                          :Performance .
 
 
 
@@ -2713,7 +2766,8 @@
 
 <http://www.meliorix.com#VMR_Family_Medical_History_Entry_(Code,_Time_Range,_Criticality,_and_Status_Only)> rdf:type owl:Class ;
                                                                                                             
-                                                                                                            rdfs:subClassOf owl:Thing .
+                                                                                                            rdfs:subClassOf :Observation ,
+                                                                                                                            :SymptomHistory .
 
 
 
@@ -2729,7 +2783,8 @@
 
 :VMR_Identified_Microorganism_Species rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf owl:Thing .
+                                      rdfs:subClassOf :Finding ,
+                                                      :Observation .
 
 
 
@@ -2746,7 +2801,8 @@
 
 :VMR_Immediate_Family_Relationship rdf:type owl:Class ;
                                    
-                                   rdfs:subClassOf owl:Thing .
+                                   rdfs:subClassOf :Observation ,
+                                                   :SymptomHistory .
 
 
 
@@ -2754,7 +2810,8 @@
 
 :VMR_Immunization_Detail rdf:type owl:Class ;
                          
-                         rdfs:subClassOf owl:Thing .
+                         rdfs:subClassOf :MedicationAdministration ,
+                                         :Performance .
 
 
 
@@ -2762,7 +2819,8 @@
 
 :VMR_Immunization_Proposal rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :MedicationAdministration ,
+                                           :Proposal .
 
 
 
@@ -2770,7 +2828,8 @@
 
 :VMR_Intravenous_Fluid rdf:type owl:Class ;
                        
-                       rdfs:subClassOf owl:Thing .
+                       rdfs:subClassOf :MedicationAdministration ,
+                                       :Performance .
 
 
 
@@ -2778,7 +2837,7 @@
 
 :VMR_Knowledge_Module_Reference rdf:type owl:Class ;
                                 
-                                rdfs:subClassOf owl:Thing .
+                                rdfs:subClassOf :NotApplicable .
 
 
 
@@ -2786,7 +2845,8 @@
 
 :VMR_Medicaments rdf:type owl:Class ;
                  
-                 rdfs:subClassOf owl:Thing .
+                 rdfs:subClassOf :MedicationAdministration ,
+                                 :Observation .
 
 
 
@@ -2803,7 +2863,8 @@
 
 :VMR_Medication_Sensitivity rdf:type owl:Class ;
                             
-                            rdfs:subClassOf owl:Thing .
+                            rdfs:subClassOf :MedicationAdministration ,
+                                            :Observation .
 
 
 
@@ -2811,7 +2872,8 @@
 
 :VMR_Microbiology_Lab_Result rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :Finding ,
+                                             :Observation .
 
 
 
@@ -2819,7 +2881,8 @@
 
 :VMR_Microbiology_Laboratory_Proposal rdf:type owl:Class ;
                                       
-                                      rdfs:subClassOf owl:Thing .
+                                      rdfs:subClassOf :Finding ,
+                                                      :Proposal .
 
 
 
@@ -2827,7 +2890,8 @@
 
 :VMR_Microorganism_Found rdf:type owl:Class ;
                          
-                         rdfs:subClassOf owl:Thing .
+                         rdfs:subClassOf :Finding ,
+                                         :Observation .
 
 
 
@@ -2835,7 +2899,8 @@
 
 :VMR_Most_Recent_Intervention_of_Interest rdf:type owl:Class ;
                                           
-                                          rdfs:subClassOf owl:Thing .
+                                          rdfs:subClassOf :NonProcedureIntervention ,
+                                                          :Performance .
 
 
 
@@ -2843,7 +2908,8 @@
 
 :VMR_Natural_Parent_Of_Evaluated_Person rdf:type owl:Class ;
                                         
-                                        rdfs:subClassOf owl:Thing .
+                                        rdfs:subClassOf :Observation ,
+                                                        :SymptomHistory .
 
 
 
@@ -2851,7 +2917,8 @@
 
 :VMR_Need_for_Intervention_for_Condition rdf:type owl:Class ;
                                          
-                                         rdfs:subClassOf owl:Thing .
+                                         rdfs:subClassOf :Finding ,
+                                                         :Observation .
 
 
 
@@ -2859,7 +2926,8 @@
 
 :VMR_Nutritional_Substance_for_Enteral_Feeding rdf:type owl:Class ;
                                                
-                                               rdfs:subClassOf owl:Thing .
+                                               rdfs:subClassOf :MedicationAdministration ,
+                                                               :Performance .
 
 
 
@@ -2867,7 +2935,8 @@
 
 :VMR_Observation_Result_with_Interpretation rdf:type owl:Class ;
                                             
-                                            rdfs:subClassOf owl:Thing .
+                                            rdfs:subClassOf :Finding ,
+                                                            :Observation .
 
 
 
@@ -2875,7 +2944,7 @@
 
 :VMR_Organization rdf:type owl:Class ;
                   
-                  rdfs:subClassOf owl:Thing .
+                  rdfs:subClassOf :NotApplicable .
 
 
 
@@ -2883,7 +2952,8 @@
 
 :VMR_Part_of_an_Encounter rdf:type owl:Class ;
                           
-                          rdfs:subClassOf owl:Thing .
+                          rdfs:subClassOf :Encounter ,
+                                          :Performance .
 
 
 
@@ -2891,7 +2961,8 @@
 
 <http://www.meliorix.com#VMR_Patient_(Age,_Gender_only)> rdf:type owl:Class ;
                                                          
-                                                         rdfs:subClassOf owl:Thing .
+                                                         rdfs:subClassOf :Characteristic ,
+                                                                         :Observation .
 
 
 
@@ -2899,7 +2970,8 @@
 
 <http://www.meliorix.com#VMR_Patient_(DOB_and_Gender_only)> rdf:type owl:Class ;
                                                             
-                                                            rdfs:subClassOf owl:Thing .
+                                                            rdfs:subClassOf :Characteristic ,
+                                                                            :Observation .
 
 
 
@@ -2907,7 +2979,8 @@
 
 :VMR_Patient_Care_Assessment rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :Assessment ,
+                                             :Performance .
 
 
 
@@ -2915,7 +2988,8 @@
 
 :VMR_Patient_Care_Encounter_Assessment rdf:type owl:Class ;
                                        
-                                       rdfs:subClassOf owl:Thing .
+                                       rdfs:subClassOf :Assessment ,
+                                                       :Performance .
 
 
 
@@ -2923,7 +2997,8 @@
 
 :VMR_Patient_Minimal rdf:type owl:Class ;
                      
-                     rdfs:subClassOf owl:Thing .
+                     rdfs:subClassOf :Characteristic ,
+                                     :Observation .
 
 
 
@@ -2931,7 +3006,8 @@
 
 :VMR_Patient_Relative rdf:type owl:Class ;
                       
-                      rdfs:subClassOf owl:Thing .
+                      rdfs:subClassOf :Observation ,
+                                      :SymptomHistory .
 
 
 
@@ -2947,7 +3023,8 @@
 
 :VMR_Person_Role_to_Evaluated_Person rdf:type owl:Class ;
                                      
-                                     rdfs:subClassOf owl:Thing .
+                                     rdfs:subClassOf :Observation ,
+                                                     :SymptomHistory .
 
 
 
@@ -2964,7 +3041,8 @@
 
 :VMR_Procedure_Proposal rdf:type owl:Class ;
                         
-                        rdfs:subClassOf owl:Thing .
+                        rdfs:subClassOf :Procedure ,
+                                        :Proposal .
 
 
 
@@ -2981,7 +3059,8 @@
 
 :VMR_Proposed_Intervention rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :NonProcedureIntervention ,
+                                           :Proposal .
 
 
 
@@ -2989,7 +3068,7 @@
 
 :VMR_Provider rdf:type owl:Class ;
               
-              rdfs:subClassOf owl:Thing .
+              rdfs:subClassOf :NotApplicable .
 
 
 
@@ -2997,7 +3076,7 @@
 
 :VMR_Reason_for_an_Encounter rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :NotApplicable .
 
 
 
@@ -3013,7 +3092,7 @@
 
 :VMR_Relevant_Organization rdf:type owl:Class ;
                            
-                           rdfs:subClassOf owl:Thing .
+                           rdfs:subClassOf :NotApplicable .
 
 
 
@@ -3021,7 +3100,8 @@
 
 <http://www.meliorix.com#VMR_Simple_Immunization_History_List_Entry_(Code_and_Date_Only)> rdf:type owl:Class ;
                                                                                           
-                                                                                          rdfs:subClassOf owl:Thing .
+                                                                                          rdfs:subClassOf :MedicationAdministration ,
+                                                                                                          :Performance .
 
 
 
@@ -3056,7 +3136,8 @@
 
 <http://www.meliorix.com#VMR_Simple_Procedure_History_with_Target_Body_Site_(Code,_Target_Body_Site_and_Date_Only)> rdf:type owl:Class ;
                                                                                                                     
-                                                                                                                    rdfs:subClassOf owl:Thing .
+                                                                                                                    rdfs:subClassOf :Performance ,
+                                                                                                                                    :Procedure .
 
 
 
@@ -3064,7 +3145,8 @@
 
 :VMR_Specimen_Collection_for_Lab_Analysis rdf:type owl:Class ;
                                           
-                                          rdfs:subClassOf owl:Thing .
+                                          rdfs:subClassOf :Performance ,
+                                                          :Procedure .
 
 
 
@@ -3080,7 +3162,7 @@
 
 :VMR_Subject_of_an_Encounter rdf:type owl:Class ;
                              
-                             rdfs:subClassOf owl:Thing .
+                             rdfs:subClassOf :NotApplicable .
 
 
 
@@ -3089,7 +3171,7 @@
 :VMR_Substance_Dispensation_Event rdf:type owl:Class ;
                                   
                                   rdfs:subClassOf :MedicationAdministration ,
-                                                  owl:Thing .
+                                                  :Supply .
 
 
 
@@ -3097,7 +3179,8 @@
 
 :VMR_Undelivered_Immunization rdf:type owl:Class ;
                               
-                              rdfs:subClassOf owl:Thing .
+                              rdfs:subClassOf :MedicationAdministration ,
+                                              :Observation .
 
 
 
@@ -3105,7 +3188,8 @@
 
 :VMR_Undelivered_Medication rdf:type owl:Class ;
                             
-                            rdfs:subClassOf owl:Thing .
+                            rdfs:subClassOf :MedicationAdministration ,
+                                            :Observation .
 
 
 
@@ -3130,7 +3214,8 @@
 
 :VMR_Vital_Signs rdf:type owl:Class ;
                  
-                 rdfs:subClassOf owl:Thing .
+                 rdfs:subClassOf :Finding ,
+                                 :Observation .
 
 
 
