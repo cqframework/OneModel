@@ -2641,37 +2641,41 @@ Note that allergies are represented as problems, whereas individual adverse even
 		<xs:annotation>
 			<xs:documentation>Abstract class denoting a repeating schedule element.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="when" type="dt:CD" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Identifies the occurrence of daily life that determine timing.
+		<xs:complexContent>
+			<xs:extension base="ExtendedVmrTypeBase">
+				<xs:sequence>
+					<xs:element name="when" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Identifies the occurrence of daily life that determine timing.
 
 EventTiming : Real world event that the schedule relates to (see http://hl7.org/fhir/event-timing for values)
 
 Either frequency or when SHALL be present, but not both (xpath: exists(f:frequency) != exists(f:when))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="count" type="dt:INT" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A total count of the desired number of repetitions.
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="count" type="dt:INT" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A total count of the desired number of repetitions.
 
 Repetitions may be limited by end time or total occurrences. An end need not be specified.
 
 At most, only one of count and end can be present (xpath: not(exists(f:count) and exists(f:end)))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="end" type="dt:TS" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>When to stop repeats.
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="end" type="dt:TS" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>When to stop repeats.
 
 Repetitions may be limited by end time or total occurrences.
 
 An end need not be specified.
 
 At most, only one of count and end can be present (xpath: not(exists(f:count) and exists(f:end)))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="GroupingClinicalStatement" type="GroupingClinicalStatement"/>
 	<xs:complexType name="GroupingClinicalStatement">
@@ -2800,62 +2804,27 @@ Schedule.repeat.frequency = 2
 Schedule.repeat.duration = 1
 Schedule.repeat.units = d</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="when" type="dt:CD" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Identifies the occurrence of daily life that determine timing.
-
-EventTiming : Real world event that the schedule relates to (see http://hl7.org/fhir/event-timing for values)
-
-Either frequency or when SHALL be present, but not both (xpath: exists(f:frequency) != exists(f:when))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="count" type="dt:INT" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A total count of the desired number of repetitions.
-
-Repetitions may be limited by end time or total occurrences. An end need not be specified.
-
-At most, only one of count and end can be present (xpath: not(exists(f:count) and exists(f:end)))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="end" type="dt:TS" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>When to stop repeats.
-
-Repetitions may be limited by end time or total occurrences.
-
-An end need not be specified.
-
-At most, only one of count and end can be present (xpath: not(exists(f:count) and exists(f:end)))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="templateId" type="CodedIdentifier" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The identifier of a set of constraints placed on an extended vMR data type.  If there are multiple templates specified for the element, then the element must satisfy ALL constraints defined in ANY template at that level.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="id" type="CodedIdentifier" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Optional unique identifier for the extended vmr type.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="frequency" type="dt:INT" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Indicates how often the event should occur.
+		<xs:complexContent>
+			<xs:extension base="BaseRepeat">
+				<xs:sequence>
+					<xs:element name="frequency" type="dt:INT" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Indicates how often the event should occur.
 
 Either frequency or when SHALL be present, but not both (xpath: exists(f:frequency) != exists(f:when))</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="duration" type="dt:PQ" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>How long each repetition should last. 
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="duration" type="dt:PQ" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>How long each repetition should last. 
 
 Some activities are not instantaneous and need to be maintained for a period of time.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="intervalIsImportant" type="dt:BL" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="intervalIsImportant" type="dt:BL" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="DeniedAllergyOrIntolerance" type="DeniedAllergyOrIntolerance"/>
 	<xs:complexType name="DeniedAllergyOrIntolerance">
