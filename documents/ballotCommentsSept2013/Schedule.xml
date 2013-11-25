@@ -18,7 +18,7 @@
     <cycleTiming>
         <pointInCycle value='15' unit='d'/>
         <span value='1' unit='d'/>
-        <repeat>
+        <repeat  xsi:type='RepeatAsInterval'>
             <frequency value='3'/>
             <duration value='24' unit='h'/>
             <intervalIsImportant value='true'/>
