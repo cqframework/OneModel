@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cycle>
+<Cycle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr.xsd urn:hl7-org:cdsdt:r2 ../../sandbox/schemata/datatypes.xsd"
+ xmlns="urn:hl7-org:vmr:r2">
     <cycleLength value='27' unit='d'/>
     <cycleRepeatCount value='5'/>
-    <lead value='0' unit='d'/>
-    <lag value='0' unit='d'/>
+    <cycleLeadTime value='0' unit='d'/>
+    <cycleLagTime value='0' unit='d'/>
     <cycleTiming>
         <pointInCycle value='4' unit='d'/>
         <span value='3' unit='d'/>
-        <repeat>
+        <repeat xsi:type='RepeatAsInterval'>
             <frequency value='3'/>
             <duration value='24' unit='h'/>
             <intervalIsImportant value='true'/>
@@ -22,4 +24,4 @@
             <intervalIsImportant value='true'/>
         </repeat>
     </cycleTiming>
-</cycle>
+</Cycle>
