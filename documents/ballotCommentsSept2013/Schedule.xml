@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cycle>
+    <cycleLength value='27' unit='d'/>
+    <cycleRepeatCount value='5'/>
+    <lead value='0' unit='d'/>
+    <lag value='0' unit='d'/>
+    <cycleTiming>
+        <pointInCycle value='4' unit='d'/>
+        <span value='3' unit='d'/>
+        <repeat>
+            <frequency value='3'/>
+            <duration value='24' unit='h'/>
+            <intervalIsImportant value='true'/>
+        </repeat>
+    </cycleTiming>
+    <cycleTiming>
+        <pointInCycle value='15' unit='d'/>
+        <span value='1' unit='d'/>
+        <repeat>
+            <frequency value='3'/>
+            <duration value='24' unit='h'/>
+            <intervalIsImportant value='true'/>
+        </repeat>
+    </cycleTiming>
+</cycle>
