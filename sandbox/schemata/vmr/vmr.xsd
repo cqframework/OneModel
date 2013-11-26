@@ -2987,7 +2987,7 @@ NutrientModification consists of the nutrient (e.g., Sodium) and the amount in t
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="cycleLength" type="dt:PQ" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="cycleLength" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="cycleRepeatCount" type="dt:INT" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Number of times to repeat the cycle. When not specified, assumed to be 1.</xs:documentation>
@@ -3006,13 +3006,13 @@ NutrientModification consists of the nutrient (e.g., Sodium) and the amount in t
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="when" type="dt:CD" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="when" type="dt:CD" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="RecurringEventCode" type="RecurringEventCode"/>
-	<xs:complexType name="RecurringEventCode">
+	<xs:element name="CodedRecurringEvent" type="CodedRecurringEvent"/>
+	<xs:complexType name="CodedRecurringEvent">
 		<xs:complexContent>
 			<xs:extension base="CycleEventTiming">
 				<xs:sequence>
