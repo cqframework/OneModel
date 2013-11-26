@@ -2993,21 +2993,53 @@ NutrientModification consists of the nutrient (e.g., Sodium) and the amount in t
 							<xs:documentation>Number of times to repeat the cycle. When not specified, assumed to be 1.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="endOn" type="dt:TS" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="cycleLeadTime" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="cycleLagTime" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="cycleTiming" type="CycleTiming" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="cycleTiming" type="CycleEventTiming" minOccurs="1" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="CycleTiming" type="CycleTiming"/>
-	<xs:complexType name="CycleTiming">
+	<xs:element name="CycleEventTiming" type="CycleEventTiming"/>
+	<xs:complexType name="CycleEventTiming" abstract="true">
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
+					<xs:element name="when" type="dt:CD" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RecurringEventCode" type="RecurringEventCode"/>
+	<xs:complexType name="RecurringEventCode">
+		<xs:complexContent>
+			<xs:extension base="CycleEventTiming">
+				<xs:sequence>
+					<xs:element name="repeatCode" type="dt:CD" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="AnchoredEvent" type="AnchoredEvent"/>
+	<xs:complexType name="AnchoredEvent">
+		<xs:complexContent>
+			<xs:extension base="CycleEventTiming">
+				<xs:sequence>
 					<xs:element name="pointInCycle" type="dt:PQ" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="span" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="repeat" type="BaseRepeat" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="cycle" type="Cycle" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RecurringEvent" type="RecurringEvent"/>
+	<xs:complexType name="RecurringEvent">
+		<xs:complexContent>
+			<xs:extension base="CycleEventTiming">
+				<xs:sequence>
+					<xs:element name="frequencyPerCycle" type="dt:INT" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="intervalIsImportant" type="dt:BL" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
