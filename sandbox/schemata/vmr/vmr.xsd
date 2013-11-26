@@ -2988,9 +2988,13 @@ NutrientModification consists of the nutrient (e.g., Sodium) and the amount in t
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
 					<xs:element name="cycleLength" type="dt:PQ" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="cycleRepeatCount" type="dt:INT" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="cycleLeadTime" type="dt:PQ" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="cycleLagTime" type="dt:PQ" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="cycleRepeatCount" type="dt:INT" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Number of times to repeat the cycle. When not specified, assumed to be 1.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="cycleLeadTime" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="cycleLagTime" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="cycleTiming" type="CycleTiming" minOccurs="1" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
