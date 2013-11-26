@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Cycle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr.xsd urn:hl7-org:cdsdt:r2 ../../sandbox/schemata/datatypes.xsd"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr/vmr.xsd"
  xmlns="urn:hl7-org:vmr:r2">
     <cycleLength value='27' unit='d'/>
     <cycleRepeatCount value='5'/>
