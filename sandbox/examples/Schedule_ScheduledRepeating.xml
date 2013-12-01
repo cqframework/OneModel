@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Deliver medication (TID) at 8am, 12noon, 5pm for 2 weeks -->
+<!-- Administer medication (TID) at 8am, 12noon, 5pm for 2 weeks -->
 <Cycle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr/vmr.xsd"
     xmlns="urn:hl7-org:vmr:r2">
     <cycleLength value='24' unit='h'/>
     <cycleRepeatCount value='14'/>
-    <cycleTiming>
+    <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='8' unit='h'/>
     </cycleTiming>
-    <cycleTiming>
+    <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='12' unit='h'/>
     </cycleTiming>
-    <cycleTiming>
+    <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='17' unit='h'/>
     </cycleTiming>
 </Cycle>
