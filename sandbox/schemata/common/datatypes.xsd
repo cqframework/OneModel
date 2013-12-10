@@ -506,6 +506,21 @@ A CD may also contain an original text or phrase that served as the basis of the
 		<xs:complexContent>
 			<xs:extension base="ANY">
 				<xs:sequence>
+					<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>If applicable, a version descriptor defined specifically for the given code system.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="valueSet" type="Uid" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The value set that applied when this CD was created.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="valueSetVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The version of the valueSet in which the code was found.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="displayName" type="ST" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A name, title, or representation for the code or expression as it exists in the code system.
