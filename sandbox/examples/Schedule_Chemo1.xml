@@ -5,14 +5,13 @@
  xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr/vmr.xsd"
  xmlns="urn:hl7-org:vmr:r2">
     <cycleLength value='27' unit='d'/>
-    <cycleRepeatCount value='5'/>
+    <totalCycleCount value='5'/>
     <cycleLagTime value='7' unit='d'/>
     <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='4' unit='d'/>
-        <span value='3' unit='d'/>
         <cycle>
             <cycleLength value='24' unit='h'/>
-            <cycleRepeatCount value='3'/> <!-- Unnecessary -->
+            <totalCycleCount value='3'/> <!-- Unnecessary -->
             <cycleTiming xsi:type='RecurringEvent'>
                 <frequencyPerCycle value='3'/>
                 <intervalIsImportant value='true'/>
@@ -21,10 +20,9 @@
     </cycleTiming>
     <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='15' unit='d'/>
-        <span value='1' unit='d'/>
         <cycle>
             <cycleLength value='24' unit='h'/>
-            <cycleRepeatCount value='1'/> <!-- Unnecessary -->
+            <totalCycleCount value='1'/> <!-- Unnecessary -->
             <cycleTiming xsi:type='RecurringEvent'>
                 <frequencyPerCycle value='2'/>
                 <intervalIsImportant value='true'/>

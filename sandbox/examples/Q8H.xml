@@ -4,7 +4,7 @@
     xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr/vmr.xsd"
     xmlns="urn:hl7-org:vmr:r2">
     <cycleLength value='24' unit='h'/>
-    <cycleRepeatCount value="5"/>
+    <totalCycleCount value="5"/>
     <cycleTiming xsi:type='RecurringEvent'>
         <frequencyPerCycle value='3'/>
         <intervalIsImportant value='true'/>
