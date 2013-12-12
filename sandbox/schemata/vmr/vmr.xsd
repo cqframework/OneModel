@@ -522,7 +522,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
-					<xs:element name="substance" type="AdministrableSubstance" minOccurs="1" maxOccurs="1">
+					<xs:element name="substance" type="AdministrableSubstance" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.</xs:documentation>
 						</xs:annotation>
@@ -2627,6 +2627,13 @@ Note that allergies are represented as problems, whereas individual adverse even
 							<xs:documentation>The causative agent of the adverse event, identified with as much specificity as available, or as required by a template.  E.g., penicillin, peanuts.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="certainty" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Code indicating whether adverse reaction to agent is 'Known' or 'Suspected'.
+
+Note: This field is only intended to state the degree of certainty one has about an agent causing the adverse reaction. It is not intended to state the level of certainty of the adverse event statement itself.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="adverseEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time that reflects when the subject experienced the adverse event (in the case of AdverseEvent) or when the subject did not experience the adverse event (in the case of DeniedAdverseEvent).</xs:documentation>
@@ -2852,7 +2859,7 @@ Some activities are not instantaneous and need to be maintained for a period of 
 		<xs:annotation>
 			<xs:documentation>An statement denying the presence of an allergy or intolerance to an agent in particular or to a group of substances or all substances in general. 
 
-Use this class to model 'No known allergies' or 'No known drug allergies'. In these cases, the conditition code may state the absence of the condition. The'double negative' that results from both the code and the semantics of the class is not to be interpreted as a positive statement.
+Use this class to model 'No known allergies' or 'No known drug allergies'. In these cases, the condition code may state the absence of the condition. The 'double negative' that results from both the code and the semantics of the class is not to be interpreted as a positive statement.
 
 Common denials of allergies or intolerances to a class of agents can be expressed as follows:
 

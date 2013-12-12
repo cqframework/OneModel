@@ -4,6 +4,7 @@
     xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
     <patient>
         <clinicalStatement xsi:type="GroupingClinicalStatement">
+            <!-- Glucose measurement, blood, test strip -->
             <relatedClinicalStatement>
                 <targetRole>
                     <dt:displayName value="component"/>
@@ -23,6 +24,7 @@
                     </frequency>
                 </clinicalStatement>
             </relatedClinicalStatement>
+            <!--Insulin Regular 2 unit subcutaneously qac and qhs PRN fingerstick blood glucose 150-199 milligram/deciliter-->
             <relatedClinicalStatement>
                 <targetRole>
                     <dt:displayName value="component"/>
@@ -69,6 +71,7 @@
                     </dose>
                 </clinicalStatement>
             </relatedClinicalStatement>
+            <!--Insulin Regular 4 unit subcutaneously qac and qhs PRN fingerstick blood glucose 200-249 milligram/deciliter-->
             <relatedClinicalStatement>
                 <targetRole>
                     <dt:displayName value="component"/>
@@ -115,6 +118,7 @@
                     </dose>
                 </clinicalStatement>
             </relatedClinicalStatement>
+            <!--Insulin Regular 6 unit subcutaneously qac and qhs PRN fingerstick blood glucose 250-299 milligram/deciliter-->
             <relatedClinicalStatement>
                 <targetRole>
                     <dt:displayName value="component"/>
@@ -161,6 +165,7 @@
                     </dose>
                 </clinicalStatement>
             </relatedClinicalStatement>
+            <!--Insulin Regular 8 unit subcutaneously qac and qhs PRN fingerstick blood glucose 300-349 milligram/deciliter-->
             <relatedClinicalStatement>
                 <targetRole>
                     <dt:displayName value="component"/>
@@ -207,6 +212,7 @@
                     </dose>
                 </clinicalStatement>
             </relatedClinicalStatement>
+            <!--Insulin Regular 10 unit subcutaneously qac and qhs PRN fingerstick blood glucose 350-399 milligram/deciliter-->
             <relatedClinicalStatement>
                 <targetRole>
                     <dt:displayName value="component"/>

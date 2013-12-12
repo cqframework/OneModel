@@ -43,7 +43,6 @@
                     </dose>
                 </clinicalStatement>
             </relatedClinicalStatement>
-            
             <!-- PREDNIZONE 10MG TAB (Dose 5MG, Freq: BID, Route Oral, Duration: 3 Days) -->
             <relatedClinicalStatement>
                 <targetRole>
