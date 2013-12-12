@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Here is an example Parenteral Nutrition order with some potential areas for CDS rules:
+3-in-1 system compounded from 10% amino acid, 70% dextrose, 20% lipid solution – 
+Total Fluid = 1724 mL
+  5.5% amino acid
+  2.5% lipid
+  22.7% dextrose
+Adult Multivitamin combination pkg
+Plus Trace Element with Selenium Pkg 
+60 mEq sodium chloride
+45 mEq potassium chloride 
+30 mEq potassium phosphate
+16 mEq calcium gluconate
+24 mEq magnesium sulfate
+
+*Verify CHO load is < 5.0 mg/kg/min  (this is a good CDS kind of rule check)
+-->
+<CompositeSubstanceProposal xmlns="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+    <comment>
+        <type>
+            <dt:displayName value="Instructions to care provider"/>
+        </type>
+        <content value="Verify CHO load is less than 5.0 mg/kg/min"/>
+    </comment>
+    <substance>
+        <substanceCode>
+            <dt:displayName value="Total Parenteral Nutrition Solution"/>
+        </substanceCode>
+    </substance>
+    <constituent>
+        <constituentType>
+            <dt:displayName value="Additive"/>
+        </constituentType>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Amino Acid"/>
+            </substanceCode>
+            <strength>
+                <dt:numerator xsi:type="dt:PQ" value="10" unit="percent"/>
+                <dt:denominator xsi:type="dt:INT" value="1"/>
+            </strength>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="5.5" unit="percent"/>
+            <dt:high value="5.5" unit="percent"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <constituentType>
+            <dt:displayName value="Additive"/>
+        </constituentType>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Lipid"/>
+            </substanceCode>
+            <strength>
+                <dt:numerator xsi:type="dt:PQ" value="70" unit="percent"/>
+                <dt:denominator xsi:type="dt:INT" value="1"/>
+            </strength>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="2.5" unit="percent"/>
+            <dt:high value="2.5" unit="percent"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <constituentType>
+            <dt:displayName value="Additive"/>
+        </constituentType>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Dextrose"/>
+            </substanceCode>
+            <strength>
+                <dt:numerator xsi:type="dt:PQ" value="20" unit="percent"/>
+                <dt:denominator xsi:type="dt:INT" value="1"/>
+            </strength>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="22.7" unit="percent"/>
+            <dt:high value="22.7" unit="percent"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <constituentType>
+            <dt:displayName value="Additive"/>
+        </constituentType>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Adult Multivitamin Combination"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="1" unit="package"/>
+            <dt:high value="1" unit="package"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <constituentType>
+            <dt:displayName value="Additive"/>
+        </constituentType>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Trace Elements with Selenium"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="1" unit="package"/>
+            <dt:high value="1" unit="package"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Sodium Chloride"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="60" unit="mEq"/>
+            <dt:high value="60" unit="mEq"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Potassium Chloride"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="45" unit="mEq"/>
+            <dt:high value="45" unit="mEq"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Potassium Phosphate"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="30" unit="mEq"/>
+            <dt:high value="30" unit="mEq"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Calcium Gluconate"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="16" unit="mEq"/>
+            <dt:high value="16" unit="mEq"/>
+        </substanceAmount>
+    </constituent>
+    <constituent>
+        <substance>
+            <substanceCode>
+                <dt:displayName value="Magnesium Sulphate"/>
+            </substanceCode>
+        </substance>
+        <substanceAmount lowClosed="true" highClosed="true">
+            <dt:low value="24" unit="mEq"/>
+            <dt:high value="24" unit="mEq"/>
+        </substanceAmount>
+    </constituent>
+    <totalVolume lowClosed="true" highClosed="true">
+        <dt:low value="1724" unit="ml"/>
+        <dt:high value="1724" unit="ml"/>
+    </totalVolume>
+</CompositeSubstanceProposal>

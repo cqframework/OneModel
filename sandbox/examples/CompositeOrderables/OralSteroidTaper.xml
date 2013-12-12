@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VMR xmlns="urn:hl7-org:vmr:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:dt="urn:hl7-org:cdsdt:r2"
+    xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+    <patient>
+        <clinicalStatement xsi:type="GroupingClinicalStatement">
+            <!-- PREDNIZONE 10MG TAB (Dose 10MG, Freq: BID, Route Oral, Duration: 2 Days) -->
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="Component"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode>
+                            <dt:displayName value="Prednizone"/>
+                        </substanceCode>
+                        <strength>
+                            <dt:numerator xsi:type="dt:PQ" value="10" unit="mg"/>
+                            <dt:denominator xsi:type="dt:PQ" value="1" unit="tablet"/>
+                        </strength>
+                        <form>
+                            <dt:displayName value="Tablet"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <doseQuantity lowClosed="true" highClosed="true">
+                            <dt:low value="10" unit="mg"/>
+                            <dt:high value="10" unit="mg"/>
+                        </doseQuantity>
+                        <deliveryRoute>
+                            <dt:displayName value="PO"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="2" unit="day"/>
+                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                    <repeatCode>
+                                        <dt:displayName value="BID"/>
+                                    </repeatCode>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            
+            <!-- PREDNIZONE 10MG TAB (Dose 5MG, Freq: BID, Route Oral, Duration: 3 Days) -->
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="Component"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode>
+                            <dt:displayName value="Prednizone"/>
+                        </substanceCode>
+                        <strength>
+                            <dt:numerator xsi:type="dt:PQ" value="10" unit="mg"/>
+                            <dt:denominator xsi:type="dt:PQ" value="1" unit="tablet"/>
+                        </strength>
+                        <form>
+                            <dt:displayName value="Tablet"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <doseQuantity lowClosed="true" highClosed="true">
+                            <dt:low value="5" unit="mg"/>
+                            <dt:high value="5" unit="mg"/>
+                        </doseQuantity>
+                        <deliveryRoute>
+                            <dt:displayName value="PO"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="3" unit="day"/>
+                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                    <repeatCode>
+                                        <dt:displayName value="BID"/>
+                                    </repeatCode>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <!-- PREDNIZONE 10MG TAB (Dose 1MG, Freq: BID, Route Oral, Duration: 3 Days) -->
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="Component"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode>
+                            <dt:displayName value="Prednizone"/>
+                        </substanceCode>
+                        <strength>
+                            <dt:numerator xsi:type="dt:PQ" value="10" unit="mg"/>
+                            <dt:denominator xsi:type="dt:PQ" value="1" unit="tablet"/>
+                        </strength>
+                        <form>
+                            <dt:displayName value="Tablet"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <doseQuantity lowClosed="true" highClosed="true">
+                            <dt:low value="1" unit="mg"/>
+                            <dt:high value="1" unit="mg"/>
+                        </doseQuantity>
+                        <deliveryRoute>
+                            <dt:displayName value="PO"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="3" unit="day"/>
+                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                    <repeatCode>
+                                        <dt:displayName value="BID"/>
+                                    </repeatCode>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <!-- PREDNIZONE 10MG TAB (Dose 1MG, Freq: QD, Route Oral, Duration: 2 Days) -->
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="Component"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode>
+                            <dt:displayName value="Prednizone"/>
+                        </substanceCode>
+                        <strength>
+                            <dt:numerator xsi:type="dt:PQ" value="10" unit="mg"/>
+                            <dt:denominator xsi:type="dt:PQ" value="1" unit="tablet"/>
+                        </strength>
+                        <form>
+                            <dt:displayName value="Tablet"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <doseQuantity lowClosed="true" highClosed="true">
+                            <dt:low value="1" unit="mg"/>
+                            <dt:high value="1" unit="mg"/>
+                        </doseQuantity>
+                        <deliveryRoute>
+                            <dt:displayName value="PO"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="2" unit="day"/>
+                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                    <repeatCode>
+                                        <dt:displayName value="QD"/>
+                                    </repeatCode>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <!-- PREDNIZONE 10MG TAB (Dose 1MG, Freq: TID, Route Oral, Duration: 1 Days) -->
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="Component"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode>
+                            <dt:displayName value="Prednizone"/>
+                        </substanceCode>
+                        <strength>
+                            <dt:numerator xsi:type="dt:PQ" value="10" unit="mg"/>
+                            <dt:denominator xsi:type="dt:PQ" value="1" unit="tablet"/>
+                        </strength>
+                        <form>
+                            <dt:displayName value="Tablet"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <doseQuantity lowClosed="true" highClosed="true">
+                            <dt:low value="1" unit="mg"/>
+                            <dt:high value="1" unit="mg"/>
+                        </doseQuantity>
+                        <deliveryRoute>
+                            <dt:displayName value="PO"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="1" unit="day"/>
+                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                    <repeatCode>
+                                        <dt:displayName value="TID"/>
+                                    </repeatCode>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <!-- PREDNIZONE 10MG TAB (Dose 0.5MG, Freq: QID, Route Oral, Duration: 5 Days) -->
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="Component"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode>
+                            <dt:displayName value="Prednizone"/>
+                        </substanceCode>
+                        <strength>
+                            <dt:numerator xsi:type="dt:PQ" value="10" unit="mg"/>
+                            <dt:denominator xsi:type="dt:PQ" value="1" unit="tablet"/>
+                        </strength>
+                        <form>
+                            <dt:displayName value="Tablet"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <doseQuantity lowClosed="true" highClosed="true">
+                            <dt:low value="0.5" unit="mg"/>
+                            <dt:high value="0.5" unit="mg"/>
+                        </doseQuantity>
+                        <deliveryRoute>
+                            <dt:displayName value="PO"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="5" unit="day"/>
+                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                    <repeatCode>
+                                        <dt:displayName value="QID"/>
+                                    </repeatCode>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <groupingConcept>
+                <dt:displayName value="Oral Steroid Taper"/>
+            </groupingConcept>
+            <componentRequirements>
+                <dt:displayName value="All or None"/>
+            </componentRequirements>
+        </clinicalStatement>
+    </patient>
+</VMR>

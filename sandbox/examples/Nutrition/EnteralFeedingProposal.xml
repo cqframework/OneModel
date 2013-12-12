@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnteralFeedingProposal xmlns="urn:hl7-org:vmr:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+    <comment>
+        <type>
+            <dt:displayName value="Instructions to provider"/>
+        </type>
+        <content value="Keep head of bed elevated to 30°-45°"/>
+    </comment>
+    <comment>
+        <type>
+            <dt:displayName value="Instructions to provider"/>
+        </type>
+        <content value="Weigh once daily"/>
+    </comment>
+    <substance>
+        <substanceCode>
+            <dt:displayName value="Standard/Fiber"/>
+        </substanceCode>
+    </substance>
+    <dose>
+        <doseType>
+            <dt:displayName value="Initial"/>
+        </doseType>
+        <approachBodySite>
+            <bodySiteCode>
+                <dt:displayName value="Nasogastric"/>
+            </bodySiteCode>
+        </approachBodySite>
+        <deliveryMethod>
+            <dt:displayName value="Pump-assisted"/>
+        </deliveryMethod>
+        <deliveryRate>
+            <dt:low value="100" unit="ml/hour"/>
+            <dt:high value="100" unit="ml/hour"/>
+        </deliveryRate>
+        <deliveryRateIncrement>
+            <dt:low value="25" unit="ml/hour"/>
+            <dt:high value="25" unit="ml/hour"/>
+        </deliveryRateIncrement>
+        <deliveryRateGoal>
+            <dt:low value="200" unit="ml/hour"/>
+            <dt:high value="200" unit="ml/hour"/>
+        </deliveryRateGoal>
+    </dose>
+    <caloricDensity>
+        <dt:low value="1000" unit="kcal"/>
+        <dt:high value="1000" unit="kcal"/>
+    </caloricDensity>
+</EnteralFeedingProposal>
