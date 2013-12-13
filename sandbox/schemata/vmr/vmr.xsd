@@ -248,11 +248,6 @@ Characterizes impact on life, or durable impact on physiological function or on 
 		<xs:complexContent>
 			<xs:extension base="GoalBase">
 				<xs:sequence>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="urgency" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Urgency:
@@ -324,7 +319,7 @@ Medication prescription represents both the dispense of a medication and dosing 
 							<xs:documentation>The number of fills allowed. Must be 1 or greater.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the ordered procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
 
@@ -478,7 +473,7 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 							<xs:documentation>The number of fills allowed. Must be 1 or greater.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
 
@@ -680,7 +675,7 @@ If RepeatUntilCount.count &gt;= 2, then specifies requested period within which 
 							<xs:documentation>The interval in between procedures. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the proposed procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
 
@@ -936,7 +931,13 @@ Includes concepts such as mild, moderate, severe</xs:documentation>
 	<xs:element name="AdverseEvent" type="AdverseEvent"/>
 	<xs:complexType name="AdverseEvent">
 		<xs:annotation>
-			<xs:documentation>Unfavorable healthcare event (e.g., death, rash, difficulty breathing) that is thought to have been caused by some agent (e.g., a medication, immunization, food, or environmental agent).</xs:documentation>
+			<xs:documentation>Unfavorable healthcare event (e.g., death, rash, difficulty breathing, a fall, or an adverse surgical event) that may or may not have been caused by some agent (e.g., a medication, immunization, food, or environmental agent).
+
+Use AdverseEvent to model adverse reaction. An adverse reaction is type of adverse event that is characterized by an undesired or unexpected negative reaction to an agent (generally a medication or a food item). 
+
+An adverse reactions can range from a mild reaction, such as a harmless rash to a severe and life-threatening reaction. They can occur immediately or develop over time. 
+
+For example, a patient may develop a rash after taking a particular medication. </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AdverseEventBase">
@@ -1011,7 +1012,7 @@ If RepeatUntilCount.count &gt;= 2, then specifies period within which the proced
 							<xs:documentation>The interval in between procedures. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prnReason" type="CodeableConcept" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Indication for the procedure such as shortness of breath; Reasons such as "SpO2 less than x%" should be addressed as a PRN Instruction rather than a PRN Reason as it is unlikely that a value set can be identified for such range of possible observations. For example, Pain, Shortness of Breath, Insomnia, Nausea.
 
@@ -1851,45 +1852,6 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="FrequencyAsInterval" type="FrequencyAsInterval"/>
-	<xs:complexType name="FrequencyAsInterval">
-		<xs:annotation>
-			<xs:documentation>A computable frequency representation that specifies the time span between events.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="BaseFrequency">
-				<xs:sequence>
-					<xs:element name="intervalIsImportant" type="dt:BL" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Together with dosingPeriod, identifies the frequency of substance administration.  dosingPeriod identifies the periodicity of doses within a 24 hour timeframe, whereas dosingPeriodIntervalIsImportant identifies whether doses should be equally spaced within that 24 hour period.  E.g., a dosingPeriod of 8 hr would signify q8h if dosingPeriodIntervalIsImportant is true, and TID if dosingPeriodIntervalIsImportant is false.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="period" type="dt:PQ" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Together with dosingPeriodIntervalIsImportant, identifies the frequency of substance administration.  dosingPeriod identifies the periodicity of doses within a specified timeframe, which is often 24 hours (but may be different for some uses).  E.g., a dosingPeriod of 3 times every 24 hrs would signify q8h if dosingPeriodIntervalIsImportant is true, and TID if dosingPeriodIntervalIsImportant is false.  Other possibilities include 20 minutes every 2 hours for an infusion, or 30 minutes every 2 days for a medicated compress, etc.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="FrequencyAsCode" type="FrequencyAsCode"/>
-	<xs:complexType name="FrequencyAsCode">
-		<xs:annotation>
-			<xs:documentation>The interval in between events represented as a code such as TID, BID, q8h, etc.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="BaseFrequency">
-				<xs:sequence>
-					<xs:element name="frequencyCode" type="dt:CD" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The interval in between events specified as a code originating in a standard terminology. For instance, TID, BID, q8h, etc.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="SubstanceDispenseProposal" type="SubstanceDispenseProposal"/>
 	<xs:complexType name="SubstanceDispenseProposal">
 		<xs:annotation>
@@ -1985,63 +1947,6 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="BaseFrequency" type="BaseFrequency"/>
-	<xs:complexType name="BaseFrequency" abstract="true">
-		<xs:annotation>
-			<xs:documentation>Specification of the periodicity of recurring events, with both regular and irregular time intervals. The preferred approach to specifying a frequency is to use the FrequencyAsCode class. When a code is not available that meets the needs of the case, only then should the FrequencyAsInterval element be used.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="ExtendedVmrTypeBase">
-				<xs:sequence>
-					<xs:element name="frequencyStartType" type="dt:CD" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Characterization of when to begin a specified cycle of frequencies; can be on a rolling or scheduled basis. With a “rolling” frequency, the first repetition occurs relative to an event (e.g., immediately after an order is processed).  With a “scheduled” frequency, the first repetition occurs according to a predefined timetable (e.g., a hospital nursing unit might define “every 12 hours” to be 8:00 AM and 8:00 PM so after an order is processed, the first occurrence will not happen until the next instance in the timetable)</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="repetitions" type="Repetition" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The total number of times the procedure is requested. For instance, "CPK every 8 hours x 3" is a request for a CPK level to be obtained now and again in 8 and 16 hours for a total of 3 CPK measurements</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="timingEvent" type="dt:CD" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Events in a patient's life that may be used to trigger a clinical action.
-
-Examples:
-https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes.html#section-Properties-of-Event-Related-Periodic-Interval-of-Time-(EIVL)
-
-Table 46: Domain TimingEven (partial)t:
-code	name	definition
-AC		before meal (from lat. ante cibus)
-ACD		before lunch (from lat. ante cibus diurnus)
-ACM		before breakfast (from lat. ante cibus matutinus)
-ACV		before dinner (from lat. ante cibus vespertinus)
-HS		the hour of sleep (e.g., H18-22)
-IC		between meals (from lat. inter cibus)
-ICD		between lunch and dinner
-ICM		between breakfast and lunch
-ICV		between dinner and the hour of sleep
-PC		after meal (from lat. post cibus)
-PCD		after lunch (from lat. post cibus diurnus)
-PCM		after breakfast (from lat. post cibus matutinus)
-PCV		after dinner (from lat. post cibus vespertinus)</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Repetition" type="Repetition"/>
-	<xs:complexType name="Repetition" abstract="true">
-		<xs:annotation>
-			<xs:documentation>Specification of the endpoint of a repetitive action.  Must be extended by either RepeatUntilCount or RepeatUntilTime.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="ExtendedVmrTypeBase">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="DietProposal" type="DietProposal"/>
 	<xs:complexType name="DietProposal">
 		<xs:annotation>
@@ -2055,43 +1960,9 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 					<xs:element name="dietType" type="dt:CD" minOccurs="1" maxOccurs="unbounded"/>
 					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="isEffective" type="dt:BL" minOccurs="0" maxOccurs="1">
+					<xs:element name="isInEffect" type="dt:BL" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the diet proposal item is currently in effect for the patient. </xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="RepeatUntilCount" type="RepeatUntilCount"/>
-	<xs:complexType name="RepeatUntilCount">
-		<xs:annotation>
-			<xs:documentation>The total number of times the clinical action should be performed. For instance, "CPK every 8 hours x 3" is a request for a CPK level to be obtained now and again in 8 and 16 hours for a total of 3 CPK measurements.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="Repetition">
-				<xs:sequence>
-					<xs:element name="count" type="dt:INT" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The total number of times the clinical action should be performed.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="RepeatUntilTime" type="RepeatUntilTime"/>
-	<xs:complexType name="RepeatUntilTime">
-		<xs:annotation>
-			<xs:documentation>The action should be repeated until the specified time. For instance, do X every 4 hours until Thursday at noon. </xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="Repetition">
-				<xs:sequence>
-					<xs:element name="time" type="dt:TS" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The action should be repeated until the specified time.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2209,7 +2080,7 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 					<xs:element name="dietType" type="dt:CD" minOccurs="1" maxOccurs="unbounded"/>
 					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="isEffective" type="dt:BL" minOccurs="0" maxOccurs="1">
+					<xs:element name="isInEffect" type="dt:BL" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the diet order item is currently in effect for the patient. </xs:documentation>
 						</xs:annotation>
@@ -2665,47 +2536,6 @@ Note: This field is only intended to state the degree of certainty one has about
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="BaseRepeat" type="BaseRepeat"/>
-	<xs:complexType name="BaseRepeat" abstract="true">
-		<xs:annotation>
-			<xs:documentation>Abstract class denoting a repeating schedule element.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="ExtendedVmrTypeBase">
-				<xs:sequence>
-					<xs:element name="when" type="dt:CD" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Identifies the occurrence of daily life that determine timing.
-
-EventTiming : Real world event that the schedule relates to (see http://hl7.org/fhir/event-timing for values)
-
-Either frequency or when SHALL be present, but not both (xpath: exists(f:frequency) != exists(f:when))</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="count" type="dt:INT" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>A total count of the desired number of repetitions.
-
-Repetitions may be limited by end time or total occurrences. An end need not be specified.
-
-At most, only one of count and end can be present (xpath: not(exists(f:count) and exists(f:end)))</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="end" type="dt:TS" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>When to stop repeats.
-
-Repetitions may be limited by end time or total occurrences.
-
-An end need not be specified.
-
-At most, only one of count and end can be present (xpath: not(exists(f:count) and exists(f:end)))</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="GroupingClinicalStatement" type="GroupingClinicalStatement"/>
 	<xs:complexType name="GroupingClinicalStatement">
 		<xs:annotation>
@@ -2739,28 +2569,6 @@ At most, only one of count and end can be present (xpath: not(exists(f:count) an
 					<xs:element name="observationResult" type="ObservationBase" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Component observation. May be either a simple ObservationResult or a CompositeObservationResult.  E.g., Hematocrit in a Complete Blood Count.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="CodeableConcept" type="CodeableConcept"/>
-	<xs:complexType name="CodeableConcept">
-		<xs:annotation>
-			<xs:documentation>A concept that can be expressed as a code or in human narrative form.  If a code with the appropriate semantics is available, the code should be provided. If both a code and a narrative are provided, the narrative must match the code exactly based on the code system used.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="ExtendedVmrTypeBase">
-				<xs:sequence>
-					<xs:element name="code" type="dt:CD" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>A term from a controlled terminology that semantically defines this concept.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="narrative" type="dt:ST" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>A human-readable description of the concept that is an alternative to the code, or is semantically equivalent to the code.  It is not intended to be a qualification of the code. It should be able to stand alone and give the same meaning as the code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2817,39 +2625,6 @@ Some schedules are just explicit lists of times.</xs:documentation>
 If present, the Schedule.event indicates the time of the first occurrence.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="RepeatAsInterval" type="RepeatAsInterval"/>
-	<xs:complexType name="RepeatAsInterval">
-		<xs:annotation>
-			<xs:documentation>Specification of a repetitive schedule element as an interval.
-
-Example: BID
-
-Schedule.repeat.frequency = 2
-Schedule.repeat.duration = 1
-Schedule.repeat.units = d</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="BaseRepeat">
-				<xs:sequence>
-					<xs:element name="frequency" type="dt:INT" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Indicates how often the event should occur.
-
-Either frequency or when SHALL be present, but not both (xpath: exists(f:frequency) != exists(f:when))</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="duration" type="dt:PQ" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>How long each repetition should last. 
-
-Some activities are not instantaneous and need to be maintained for a period of time.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="intervalIsImportant" type="dt:BL" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2936,19 +2711,6 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 							<xs:documentation>A further modification to the texture, eg. Pudding Thick.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="RepeatAsCode" type="RepeatAsCode"/>
-	<xs:complexType name="RepeatAsCode">
-		<xs:annotation>
-			<xs:documentation>Specification of a repetitive schedule element as a code.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="BaseRepeat">
-				<xs:sequence>
-					<xs:element name="repeatCode" type="dt:CD" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -3095,27 +2857,6 @@ PCV	PCV	event occurs [duration] after dinner (from the Latin post cibus vesperti
 					<xs:element name="repeatCode" type="dt:CD" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A code indicating the frequency of the occurrence. For instance, Q8H or TID.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="AdverseReaction" type="AdverseReaction"/>
-	<xs:complexType name="AdverseReaction">
-		<xs:annotation>
-			<xs:documentation>An adverse reaction is type of adverse event that is characterized by an undesired or unexpected negative reaction to an agent (generally a medication or a food item). 
-
-An adverse reactions can range from a mild reaction, such as a harmless rash to a severe and life-threatening reaction. They can occur immediately or develop over time. 
-
-For example, a patient may develop a rash after taking a particular medication. </xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="AdverseEvent">
-				<xs:sequence>
-					<xs:element name="reactionType" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>(Indicates a predictable reaction to exposure an agent). A code that indicates the specific adverse reaction that occurred. Example: Rash, Hives, immune-mediated.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -3275,23 +3016,6 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>The interval in between dosings. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Practitioner" type="Practitioner"/>
-	<xs:complexType name="Practitioner">
-		<xs:annotation>
-			<xs:documentation>Demographics and qualification information for an individual who is directly or indirectly involved in the provisioning of healthcare.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="Person">
-				<xs:sequence>
-					<xs:element name="organization" type="Organization" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="role" type="dt:CD" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="specialty" type="dt:CD" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="communication" type="dt:CD" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="period" type="dt:IVL_TS" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
