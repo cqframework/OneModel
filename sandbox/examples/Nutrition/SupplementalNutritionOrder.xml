@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubstanceDispenseProposal xmlns="urn:hl7-org:vmr:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+    <substance>
+        <substanceCode>
+            <dt:displayName value="Nutritional shake"/>
+        </substanceCode>
+    </substance>
+    <dose>
+        <frequency>
+            <cycle>
+                <cycleTiming xsi:type="CodedRecurringEvent">
+                    <when>
+                        <dt:displayName value="Post Cibus"/>
+                    </when>
+                    <repeatCode>
+                        <dt:displayName value="QD"/>
+                    </repeatCode>
+                </cycleTiming>
+            </cycle>
+        </frequency>
+    </dose>
+    <proposedDispenseTime lowClosed="true" highClosed="false">
+        <dt:low value="20130910"/>
+        <dt:high value="20130917"/>
+    </proposedDispenseTime>
+    <dispenseQuantity value="7" unit="unit"/>
+    <numberOfFillsAllowed value="1"/>
+    <proposalEventTime>
+        <dt:low value="20130910"/>
+        <dt:high value="20130910"/>
+    </proposalEventTime>
+</SubstanceDispenseProposal>

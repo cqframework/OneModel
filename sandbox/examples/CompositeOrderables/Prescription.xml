@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VMR xmlns="urn:hl7-org:vmr:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+    <patient>
+        <clinicalStatement xsi:type="GroupingClinicalStatement">
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="reasonForPrescribing"/>
+                </targetRole>
+                <clinicalStatement xsi:type="Problem">
+                    <conditionCode code="13645005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                        <dt:displayName value="Chronic obstructive pulmonary disease"/>
+                    </conditionCode>
+                    <conditionStatus>
+                        <dt:displayName value="active"/>
+                    </conditionStatus>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="dispense"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceDispenseProposal">
+                    <substance>
+                        <substanceCode code="320442002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                            <dt:displayName value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler"/>
+                        </substanceCode>
+                        <form code="420317006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                            <dt:displayName value="Inhaler (qualifier value)"/>
+                        </form>
+                    </substance>
+                    <dispenseQuantity value="100" unit="mcg"/>
+                    <numberOfFillsAllowed value="20"/>
+                    <supplyDuration value="40" unit="days"/>
+                    <validityPeriod>
+                        <dt:low value="20130408"/>
+                        <dt:high value="20130530"/>
+                    </validityPeriod>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <relatedClinicalStatement>
+                <targetRole>
+                    <dt:displayName value="administer"/>
+                </targetRole>
+                <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+                    <substance>
+                        <substanceCode code="320442002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                            <dt:displayName value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler"/>
+                        </substanceCode>
+                        <form code="420317006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                            <dt:displayName value="Inhaler (qualifier value)"/>
+                        </form>
+                    </substance>
+                    <dose>
+                        <dosageInstructionText value="1 vial 3 times daily"/>
+                        <additionalInstructions>
+                            <dt:displayName value="for use during pregnancy, contact physician"/>
+                        </additionalInstructions>
+                        <doseQuantity>
+                            <dt:low  value="10" unit="ml"/>
+                            <dt:high  value="10" unit="ml"/>
+                        </doseQuantity>
+                        <approachBodySite>
+                            <bodySiteCode code="181220002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                                <dt:displayName value="Entire oral cavity"/>
+                            </bodySiteCode>
+                        </approachBodySite>
+                        <deliveryRoute code="394899003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                            <dt:displayName value="oral administration of treatment"/>
+                        </deliveryRoute>
+                        <frequency>
+                            <cycle>
+                                <cycleLength value="24" unit="hours"/>
+                                <cycleTiming xsi:type="RecurringEvent">
+                                    <frequencyPerCycle value="3"/>
+                                    <intervalIsImportant value="false"/>
+                                </cycleTiming>
+                            </cycle>
+                        </frequency>
+                    </dose>
+                </clinicalStatement>
+            </relatedClinicalStatement>
+            <groupingConcept>
+                <dt:displayName value="Prescription"/>
+            </groupingConcept>
+            <componentRequirements>
+                <dt:displayName value="AND"/>
+            </componentRequirements>
+        </clinicalStatement>
+    </patient>
+</VMR>

@@ -76,6 +76,11 @@ Approaches to representing specific statements:
 					<xs:documentation>A user-specified attribute for this class. The field 'attribute' supports user-defined attribute extensions for clinical concepts. New concepts defined in this manner need to have an associated template. Refer to Implementation Guide for details.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="relatedEntity" type="RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="relatedClinicalStatement" type="RelatedClinicalStatement" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -122,11 +127,6 @@ Approaches to representing specific statements:
 		<xs:complexContent>
 			<xs:extension base="CommunicationBase">
 				<xs:sequence>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="orderEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time when the order was made.</xs:documentation>
@@ -307,7 +307,9 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 	<xs:element name="SubstanceAdministrationOrder" type="SubstanceAdministrationOrder"/>
 	<xs:complexType name="SubstanceAdministrationOrder">
 		<xs:annotation>
-			<xs:documentation>A clinical order for a substance administration.  Includes medication prescriptions.</xs:documentation>
+			<xs:documentation>A clinical order for the administration of a substance. Describes the event of a patient being given a dose of a medication. This may be as simple as swallowing a tablet or it may be a long running infusion. 
+
+Medication prescription represents both the dispense of a medication and dosing instructions. It can be modeled using both a SubstanceAdministrationOrder and a SubstanceDispenseOrder related by a RelatedClinicalStatement or grouped under a GroupedClinicalStatement.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
@@ -344,11 +346,6 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Acceptable time for administering the substance. Distinct from administrationTimeInterval that this time includes acceptable but suboptimal administration times.  This is an important aspect of immunizations, which have recommended and acceptable/valid timeframes for administration that can differ.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the order. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="orderEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when order was made.</xs:documentation>
@@ -366,12 +363,12 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 	<xs:element name="SubstanceDispenseEvent" type="SubstanceDispenseEvent"/>
 	<xs:complexType name="SubstanceDispenseEvent">
 		<xs:annotation>
-			<xs:documentation>This is the Event of a pharmacy filling a prescription.</xs:documentation>
+			<xs:documentation>This is the Event of a pharmacy filling a prescription or a record of a substance being dispensed but not administered.  (E.g.,, “naloxone at bedside”).</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
 				<xs:sequence>
-					<xs:element name="dispenseType" type="dt:CD" minOccurs="1" maxOccurs="1">
+					<xs:element name="dispenseType" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
 
@@ -427,9 +424,9 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>The number of fills remaining on prescription.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="daysSupply" type="dt:INT" minOccurs="0" maxOccurs="1">
+					<xs:element name="supplyDuration" type="dt:PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The number of days this dispensation should last.</xs:documentation>
+							<xs:documentation>The duration (generally in days) this dispensation should last.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -503,11 +500,6 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Acceptable time for administering the substance.  Distinct from proposedAdministrationTimeInterval that this time includes acceptable but suboptimal administration times.  This is an important aspect of immunizations, which have recommended and acceptable/valid timeframes for administration that can differ.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when proposal was made.</xs:documentation>
@@ -530,7 +522,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
-					<xs:element name="substance" type="AdministrableSubstance" minOccurs="1" maxOccurs="1">
+					<xs:element name="substance" type="AdministrableSubstance" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.</xs:documentation>
 						</xs:annotation>
@@ -708,11 +700,6 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="originationMode" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
@@ -730,29 +717,14 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 	<xs:element name="AdministrableSubstance" type="AdministrableSubstance"/>
 	<xs:complexType name="AdministrableSubstance">
 		<xs:annotation>
-			<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.  It can have component administrable substances.</xs:documentation>
+			<xs:documentation>A material, generally but not exclusively a medication or antigen, of a particular constitution that can be given to a person to enable a clinical effect.  An administrable substance may have component administrable substances.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="Entity">
 				<xs:sequence>
-					<xs:element name="form" type="dt:CD" minOccurs="0" maxOccurs="1">
+					<xs:element name="substanceCode" type="dt:CD" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The physical form of the substance as presented to the subject. E.g., tablet, patch, injectable, inhalant.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="lotNo" type="dt:ST" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The number assigned by the manufacturer to the batch of manufactured substances in which this substance instance belongs.  Used for quality control purposes.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="strength" type="dt:RTO" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The concentration of the administrable substance. E.g., 250 mg per 5 ml.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="manufacturer" type="dt:CD" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The organization that produces the substance.  This is a CD and not an II because there are managed code systems for manufacturers.</xs:documentation>
+							<xs:documentation>The code that identifies the substance with as much specificity as appropriate, or as required by a template.  E.g., aspirin, lisinopril.  May be either a generic or brand code, unless otherwise restricted by a template.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="substanceBrandCode" type="dt:CD" minOccurs="0" maxOccurs="1">
@@ -760,14 +732,24 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>A code describing the product as a branded or trademarked entity from a controlled vocabulary.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="substanceCode" type="dt:CD" minOccurs="1" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The code that identifies the substance with as much specificity as appropriate, or as required by a template.  E.g., aspirin, lisinopril.  May be either a generic or brand code, unless otherwise restricted by a template.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="substanceGenericCode" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A code describing the product as a substance produced and distributed without patent protection.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="manufacturer" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The organization that produces the substance.  This is a CD and not an II because there are managed code systems for manufacturers.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="strength" type="dt:RTO" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The concentration or amount of the administrable substance. E.g., 250 mg per 5 ml or 250 mg per tablet.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="form" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The physical form of the substance as presented to the subject. E.g., tablet, patch, injectable, inhalant.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="expirationDate" type="dt:TS" minOccurs="0" maxOccurs="1">
@@ -782,7 +764,16 @@ Requirement: This is useful input for an Immunization CDS engine. Expired admini
 							<xs:documentation>Contains information about the protocol under which the vaccine was administered.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ingredient" type="AdministrableSubstance" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="lotNo" type="dt:ST" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The number assigned by the manufacturer to the batch of manufactured substances in which this substance instance belongs.  Used for quality control purposes.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ingredient" type="AdministrableSubstance" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The ingredients of a composite substance. E.g., a polyvalent vaccine or a composite medication.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1040,11 +1031,6 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="originationMode" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
@@ -1216,11 +1202,6 @@ Included to support family history-based inferencing.</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="EncounterBase">
 				<xs:sequence>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="frequency" type="Schedule" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>How often the requested appointments must take place.</xs:documentation>
@@ -1275,11 +1256,6 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="EncounterBase">
 				<xs:sequence>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="frequency" type="Schedule" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>How often the proposed appointments must take place.</xs:documentation>
@@ -1337,11 +1313,6 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="originationMode" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The mode the proposal was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
@@ -1389,11 +1360,6 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="originationMode" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
@@ -1438,17 +1404,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 	<xs:element name="DeniedAdverseEvent" type="DeniedAdverseEvent"/>
 	<xs:complexType name="DeniedAdverseEvent">
 		<xs:annotation>
-			<xs:documentation>A denial that the subject has or had the specified adverse event.  E.g., if adverseEventCode is hives, adverse event agent is penicillin, and documentation time is 2011-05-01, an assertion was made on 2011-05-01 that the subject does not get hives as a reaction to penicillin.
-
-Common denials of adverse events to a class of agents can be expressed as follows:
-
-	- No known allergies --&gt; DeniedAdverseEvent with adverseEventAgentCode that is the generic root-level code for substances and adverseEventCode that is the generic root-level code for adverse events.
-
-
-	- No known drug allergies --&gt; DeniedAdverseEvent with adverseEventAgentCode that is the root-level code for medications and adverseEventCode that is the generic root-level code for adverse events.
-
-
-	- No known food allergies --&gt; DeniedAdverseEvent with adverseEventAgentCode that is the root-level code for food and adverseEventCode that is the generic root-level code for adverse events.</xs:documentation>
+			<xs:documentation>A denial that the subject has or had the specified adverse event.  E.g., if adverseEventCode is hives, adverse event agent is penicillin, and documentation time is 2011-05-01, an assertion was made on 2011-05-01 that the subject does not get hives as a reaction to penicillin.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AdverseEventBase">
@@ -1755,11 +1711,6 @@ There maybe a related clinical statement that identifies the topic of the commun
 		<xs:complexContent>
 			<xs:extension base="CommunicationBase">
 				<xs:sequence>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="proposedCommunicationTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time interval in which the communication is proposed to be sent</xs:documentation>
@@ -1942,14 +1893,14 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 	<xs:element name="SubstanceDispenseProposal" type="SubstanceDispenseProposal"/>
 	<xs:complexType name="SubstanceDispenseProposal">
 		<xs:annotation>
-			<xs:documentation>Specifies that a substance needs to be dispensed but not administered to a patient (eg, “naloxone at bedside”).
+			<xs:documentation>A clinical order for provision of a supply of a medication generally with the intention that it is subsequently consumed by a patient (usually in response to a prescription). 
 
-Constrain all attributes out from SubstanceAdministrationBase except substance.</xs:documentation>
+An proposal for a substance to be dispensed but not administered.  (E.g.,, “naloxone at bedside”).</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
 				<xs:sequence>
-					<xs:element name="dispenseType" type="dt:CD" minOccurs="1" maxOccurs="1">
+					<xs:element name="dispenseType" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
 
@@ -2000,9 +1951,9 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="daysSupply" type="dt:INT" minOccurs="0" maxOccurs="1">
+					<xs:element name="supplyDuration" type="dt:PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The number of days this dispensation should last.</xs:documentation>
+							<xs:documentation>The duration (generally in days) this dispensation should last.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="reason" type="dt:CD" minOccurs="0" maxOccurs="1">
@@ -2018,11 +1969,6 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 					<xs:element name="validityPeriod" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This indicates the validity period of a prescription (stale dating the Prescription) It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
@@ -2203,15 +2149,15 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="content" type="dt:ED" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>This element may be used to capture both the free text expression of the content, and/or the content of this document in encapsulated data format such as XML, XHTML or PDF.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="type" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 	- Code that specifies the type of document represented: E.g., 'Instructions to Provider', 'Patient Instructions', 'Special Handling', etc...</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="content" type="dt:ED" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>This element may be used to capture both the free text expression of the content, and/or the content of this document in encapsulated data format such as XML, XHTML or PDF.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2482,12 +2428,14 @@ Note that enumerations and value domains are anticipated to be specified in prof
 	<xs:element name="SubstanceDispenseOrder" type="SubstanceDispenseOrder"/>
 	<xs:complexType name="SubstanceDispenseOrder">
 		<xs:annotation>
-			<xs:documentation>A clinical order for dispensing a substance. That is the substance is to be dispensed but not administered.</xs:documentation>
+			<xs:documentation>A clinical order for provision of a supply of a medication generally with the intention that it is subsequently consumed by a patient (usually in response to a prescription). 
+
+An order for a substance to be dispensed but not administered.  (E.g.,, “naloxone at bedside”).</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
 				<xs:sequence>
-					<xs:element name="dispenseType" type="dt:CD" minOccurs="1" maxOccurs="1">
+					<xs:element name="dispenseType" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
 
@@ -2538,7 +2486,7 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="daysSupply" type="dt:INT" minOccurs="0" maxOccurs="1">
+					<xs:element name="supplyDuration" type="dt:PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The number of days this dispensation should last.</xs:documentation>
 						</xs:annotation>
@@ -2556,11 +2504,6 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 					<xs:element name="validityPeriod" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>This indicates the validity period of a prescription (stale dating the Prescription) It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="orderEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
@@ -2676,12 +2619,19 @@ Note that allergies are represented as problems, whereas individual adverse even
 				<xs:sequence>
 					<xs:element name="adverseEventCode" type="dt:CD" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Coded nature of the effects of the adverse event; maps to the "value" of an adverse event observation.  For an adverse event due to an identified agent, this is the reaction code.  E.g., hives, difficulty breathing.</xs:documentation>
+							<xs:documentation>Coded nature of the effects of the adverse event; maps to the "value" of an adverse event observation. For an adverse event due to an identified agent, this is the reaction code.  E.g., hives, difficulty breathing.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="adverseEventAgent" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The causative agent of the adverse event, identified with as much specificity as available, or as required by a template.  E.g., penicillin, peanuts.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="certainty" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Code indicating whether adverse reaction to agent is 'Known' or 'Suspected'.
+
+Note: This field is only intended to state the degree of certainty one has about an agent causing the adverse reaction. It is not intended to state the level of certainty of the adverse event statement itself.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="adverseEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
@@ -2764,6 +2714,11 @@ At most, only one of count and end can be present (xpath: not(exists(f:count) an
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
+					<xs:element name="groupingConcept" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The clinical concept motivating the composition. E.g., Insulin Sliding Scale, Steroid Taper, etc...</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="componentRequirements" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The requirements for the contained components.  E.g., do at least one, do all.</xs:documentation>
@@ -2901,6 +2856,18 @@ Some activities are not instantaneous and need to be maintained for a period of 
 	</xs:complexType>
 	<xs:element name="DeniedAllergyOrIntolerance" type="DeniedAllergyOrIntolerance"/>
 	<xs:complexType name="DeniedAllergyOrIntolerance">
+		<xs:annotation>
+			<xs:documentation>An statement denying the presence of an allergy or intolerance to an agent in particular or to a group of substances or all substances in general. 
+
+Use this class to model 'No known allergies' or 'No known drug allergies'. In these cases, the condition code may state the absence of the condition. The 'double negative' that results from both the code and the semantics of the class is not to be interpreted as a positive statement.
+
+Common denials of allergies or intolerances to a class of agents can be expressed as follows:
+
+
+	- No known allergies --&gt; DeniedAllergyOrIntolerance with a conditionCode stating 'No known allergies'. No agent is provided. 
+	- No known drug allergies --&gt; DeniedAllergyOrIntolerance  with conditionCode stating 'No known drug allergies'.  No agent is provided. 
+	- No known food allergies --&gt; DeniedAllergyOrIntolerance  with conditionCode stating 'No known food allergies'.  No agent is provided. </xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AbstractDeniedCondition">
 				<xs:sequence>
@@ -2911,6 +2878,9 @@ Some activities are not instantaneous and need to be maintained for a period of 
 	</xs:complexType>
 	<xs:element name="DeniedProblem" type="DeniedProblem"/>
 	<xs:complexType name="DeniedProblem">
+		<xs:annotation>
+			<xs:documentation>An statement denying the presence of a clinical condition.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AbstractDeniedCondition">
 				<xs:sequence/>
@@ -2985,6 +2955,9 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 	</xs:complexType>
 	<xs:element name="EnteralFeedingDispenseOrder" type="EnteralFeedingDispenseOrder"/>
 	<xs:complexType name="EnteralFeedingDispenseOrder">
+		<xs:annotation>
+			<xs:documentation>A clinical order for dispensing an enteral feeding product.  That is, the product is to be dispensed but not administered to the patient.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceDispenseOrder">
 				<xs:sequence>
@@ -2999,6 +2972,9 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 	</xs:complexType>
 	<xs:element name="EnteralFeedingDispenseProposal" type="EnteralFeedingDispenseProposal"/>
 	<xs:complexType name="EnteralFeedingDispenseProposal">
+		<xs:annotation>
+			<xs:documentation>A clinical proposal for dispensing an enteral feeding product.  That is, the product is to be dispensed but not administered to the patient.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceDispenseProposal">
 				<xs:sequence>
@@ -3022,6 +2998,11 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 					<xs:element name="agent" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>An agent that causes or contributes to the allergy or intolerance, identified with as much specificity as available, or as required by a template.  Used for allergies, intolerances, and other reactions to a known agent.  E.g., penicillin, peanuts, latex.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="associatedReactionType" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A code that indicates specific reactions that occurred. Example: Rash, Hives, immune-mediated.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -3134,7 +3115,7 @@ For example, a patient may develop a rash after taking a particular medication. 
 				<xs:sequence>
 					<xs:element name="reactionType" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>A code that indicates the specific adverse reaction that occurred. Example: Rash, Hives, immune-mediated.</xs:documentation>
+							<xs:documentation>(Indicates a predictable reaction to exposure an agent). A code that indicates the specific adverse reaction that occurred. Example: Rash, Hives, immune-mediated.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
