@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-Here is an example Parenteral Nutrition order with some potential areas for CDS rules:
+
+Here is an highly tentative of example Parenteral Nutrition order with some potential areas for CDS rules:
 3-in-1 system compounded from 10% amino acid, 70% dextrose, 20% lipid solution – 
-Total Fluid = 1724 mL
+Total Fluid = 1724 mL (Is it per day or per bag?)
   5.5% amino acid
   2.5% lipid
   22.7% dextrose
@@ -15,6 +16,9 @@ Plus Trace Element with Selenium Pkg
 24 mEq magnesium sulfate
 
 *Verify CHO load is < 5.0 mg/kg/min  (this is a good CDS kind of rule check)
+
+NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
+
 -->
 <CompositeSubstanceProposal xmlns="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

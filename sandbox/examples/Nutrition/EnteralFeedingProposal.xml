@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EnteralFeedingProposal xmlns="urn:hl7-org:vmr:r2"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="urn:hl7-org:cdsdt:r2"
- xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+<EnteralFeedingProposal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xmlns="urn:hl7-org:vmr:r2">
     <comment>
         <type>
             <dt:displayName value="Instructions to provider"/>
@@ -13,6 +13,12 @@
             <dt:displayName value="Instructions to provider"/>
         </type>
         <content value="Weigh once daily"/>
+    </comment>
+    <comment>
+        <type>
+            <dt:displayName value="Instructions to provider"/>
+        </type>
+        <content value="Administer as tolerated"/>
     </comment>
     <substance>
         <substanceCode>
@@ -49,3 +55,5 @@
         <dt:high value="1000" unit="kcal"/>
     </caloricDensity>
 </EnteralFeedingProposal>
+<!-- Specify type of tube. Should we model a device? -->
+<!-- Flush tube daily -->
