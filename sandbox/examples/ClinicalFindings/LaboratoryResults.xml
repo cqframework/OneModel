@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VMR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xmlns="urn:hl7-org:vmr:r2">
+    <patient>
+        <clinicalStatement xsi:type="ObservationResult">
+            <observationFocus code="6690-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                <dt:displayName value="Leukocytes [#/​volume] in Blood by Automated count"/>
+            </observationFocus>
+            <observationValue>
+                <value xsi:type="dt:PQ" value="7200" unit="white blood cells/mcL"/>
+            </observationValue>
+        </clinicalStatement>
+    </patient>
+</VMR>
+
