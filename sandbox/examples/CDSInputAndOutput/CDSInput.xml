@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is an example CDSInput -->
+<CDSInput xmlns="urn:hl7-org:cdsinput:r2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:cdsinput:r2 ../../schemata/cdsinput/cdsInput.xsd"
+    xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2">
+    <vmrInput>
+        <vmr:patient xmlns="urn:hl7-org:vmr:r2">
+            <birthTime value="19630525"/>
+            <gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M"/>
+            <clinicalStatement xsi:type="Problem">
+                <templateId root="2.16.840.1.113883.3.1829.11.7.2.4" identifierName="ActiveProblemListEntryCodeOnly"/>
+                <conditionCode codeSystem="OID for ICD9CM" codeSystemName="ICD9CM" code="250.00">
+                    <dt:displayName value="Diabetes mellitus"/>
+                </conditionCode>
+            </clinicalStatement>
+        </vmr:patient>
+    </vmrInput>
+</CDSInput>
+
+
+

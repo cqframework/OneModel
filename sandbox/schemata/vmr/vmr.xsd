@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="urn:hl7-org:vmr:r2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:vmr:r2" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" elementFormDefault="qualified">
+<xs:schema targetNamespace="urn:hl7-org:vmr:r2" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="urn:hl7-org:vmr:r2" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
+	elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data about a patient relevant for CDS.</xs:documentation>
 	</xs:annotation>
@@ -71,7 +73,8 @@ Approaches to representing specific statements:
 					<xs:documentation>The 'owner' of this clinical statement.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="attribute" type="CodedNameValuePair" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="attribute" type="CodedNameValuePair" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A user-specified attribute for this class. The field 'attribute' supports user-defined attribute extensions for clinical concepts. New concepts defined in this manner need to have an associated template. Refer to Implementation Guide for details.</xs:documentation>
 				</xs:annotation>
@@ -81,8 +84,10 @@ Approaches to representing specific statements:
 					<xs:documentation>A comment, instruction, or note associated with the proposal. The type specifies the type of comment (e.g., 'Provider Instruction', 'Patient Instruction', 'Reason for Procedure', 'Consult Note', etc...) and the value of the comment represents the free text value.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relatedEntity" type="RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="relatedClinicalStatement" type="RelatedClinicalStatement" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="relatedEntity" type="RelatedEntity" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="relatedClinicalStatement" type="RelatedClinicalStatement"
+				minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="ScheduledProcedure" type="ScheduledProcedure"/>
@@ -180,12 +185,14 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 					<xs:documentation>The ID of the evaluated person that this entity has a direct relationship to, generally the patient, but may be a different evaluatedPersonId when family history data is included, or related data pertinent to the patient but directly belonging to another evaluated person is present. This element is not normally needed when all relevant patient data is included in a single structured vMR, but may be essential when pieces of the vMR are furnished or referenced as separate structures in CDS inputs or outputs.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="attribute" type="CodedNameValuePair" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="attribute" type="CodedNameValuePair" minOccurs="0"
+				maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>A user-specified attribute for this class. The field 'attribute' supports user-defined attribute extensions for entities. New concepts defined in this manner need to have an associated template. Refer to Implementation Guide for details.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relatedEntity" type="RelatedEntity" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="relatedEntity" type="RelatedEntity" minOccurs="0"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="RelationshipDescriptorBase" type="RelationshipDescriptorBase"/>
@@ -226,7 +233,8 @@ Applies to things about a patient - problems, observations, etc. (does not apply
 Characterizes impact on life, or durable impact on physiological function or on quality of life. Includes concepts such as life-threatening, or potential loss of function or capacity. E.g., Life threatening, potentially requires hospitalization, self-resolving. Different from severity in that a moderate subarachnoid hemorrhage is likely to be highly important, whereas a moderate headache is not.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="goalObserverEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="goalObserverEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time that the observer made a note of the goal.  It is primarily related to the creator or observer of the goal, rather than the subject.</xs:documentation>
 						</xs:annotation>
@@ -309,7 +317,8 @@ Medication prescription represents both the dispense of a medication and dosing 
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
 				<xs:sequence>
-					<xs:element name="administrationTimeInterval" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="administrationTimeInterval" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Ordered time for administering the substance.</xs:documentation>
 						</xs:annotation>
@@ -336,7 +345,8 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="validAdministrationTimeInterval" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="validAdministrationTimeInterval" type="dt:IVL_TS"
+						minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Acceptable time for administering the substance. Distinct from administrationTimeInterval that this time includes acceptable but suboptimal administration times.  This is an important aspect of immunizations, which have recommended and acceptable/valid timeframes for administration that can differ.</xs:documentation>
 						</xs:annotation>
@@ -441,12 +451,14 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
 				<xs:sequence>
-					<xs:element name="administrationTimeInterval" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="administrationTimeInterval" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time when the substance is administered.  An unspecified high time interval signifies that the administration is ongoing.  Left optional to allow use for a medication list that does not have this data.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="informationAttestationType" type="dt:CD" minOccurs="0" maxOccurs="1">
+					<xs:element name="informationAttestationType" type="dt:CD" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>How the substance administration was claimed or verified.  E.g., patient-reported, observed by care provider, performed by care provider.  Can be used as a gauge of reliability, or when verified substance administration (e.g., for tuberculosis treatment) is required.</xs:documentation>
 						</xs:annotation>
@@ -463,7 +475,8 @@ To specify "patient takes an unknown drug", use a code for substance that repres
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationBase">
 				<xs:sequence>
-					<xs:element name="proposedAdministrationTimeInterval" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposedAdministrationTimeInterval" type="dt:IVL_TS"
+						minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Proposed time for administering the substance.</xs:documentation>
 						</xs:annotation>
@@ -490,12 +503,14 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="validAdministrationTimeInterval" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="validAdministrationTimeInterval" type="dt:IVL_TS"
+						minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Acceptable time for administering the substance.  Distinct from proposedAdministrationTimeInterval that this time includes acceptable but suboptimal administration times.  This is an important aspect of immunizations, which have recommended and acceptable/valid timeframes for administration that can differ.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when proposal was made.</xs:documentation>
 						</xs:annotation>
@@ -517,12 +532,14 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
-					<xs:element name="substance" type="AdministrableSubstance" minOccurs="0" maxOccurs="1">
+					<xs:element name="substance" type="AdministrableSubstance" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>A material of a particular constitution that can be given to a person to enable a clinical effect.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="substanceAdministrationGeneralPurpose" type="dt:CD" minOccurs="0" maxOccurs="1">
+					<xs:element name="substanceAdministrationGeneralPurpose" type="dt:CD"
+						minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The general purpose for the substance administration.  E.g., medication, immunization.</xs:documentation>
 						</xs:annotation>
@@ -610,7 +627,8 @@ RR	http://hl7.org/fhir/v3/ActReason	regulatory requirement</xs:documentation>
 							<xs:documentation>Specification of the maximum allowable rate of airflow delivered by a mechanical ventilator. For example, 60 L/min.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="peakInspiratoryPressure" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
+					<xs:element name="peakInspiratoryPressure" type="dt:IVL_PQ" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Specification of the maximum airway pressure allowed to be delivered by the ventilator in order to prevent barotrauma, applies to volume-controlled ventilation modes. For example, 35 cmH2O.</xs:documentation>
 						</xs:annotation>
@@ -663,7 +681,8 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 		<xs:complexContent>
 			<xs:extension base="ProcedureBase">
 				<xs:sequence>
-					<xs:element name="proposedProcedureTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposedProcedureTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Requested time for procedure.  
 
@@ -700,7 +719,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time when the order was proposed.</xs:documentation>
 						</xs:annotation>
@@ -754,7 +774,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 Requirement: This is useful input for an Immunization CDS engine. Expired administrations can not count and must be repeated.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="vaccinationProtocol" type="VaccinationProtocol" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="vaccinationProtocol" type="VaccinationProtocol" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Contains information about the protocol under which the vaccine was administered.</xs:documentation>
 						</xs:annotation>
@@ -764,7 +785,8 @@ Requirement: This is useful input for an Immunization CDS engine. Expired admini
 							<xs:documentation>The number assigned by the manufacturer to the batch of manufactured substances in which this substance instance belongs.  Used for quality control purposes.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ingredient" type="AdministrableSubstance" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="ingredient" type="AdministrableSubstance" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The ingredients of a composite substance. E.g., a polyvalent vaccine or a composite medication.</xs:documentation>
 						</xs:annotation>
@@ -973,7 +995,8 @@ Characterizes the intensity of the manifestation of the problem or observation o
 		<xs:complexContent>
 			<xs:extension base="ProcedureBase">
 				<xs:sequence>
-					<xs:element name="documentationTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="documentationTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when the non-delivery of the procedure was documented.</xs:documentation>
 						</xs:annotation>
@@ -983,7 +1006,8 @@ Characterizes the intensity of the manifestation of the problem or observation o
 							<xs:documentation>The reason the procedure was not performed.  E.g., patient refused, inadequate time.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subjectEffectiveTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="subjectEffectiveTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when procedure might have been done, but was not. Optional, as may simply want to note that a procedure was never done.</xs:documentation>
 						</xs:annotation>
@@ -1103,8 +1127,10 @@ Included to support family history-based inferencing.</xs:documentation>
 							<xs:documentation>The person's race.  Race is a classification of humans into large groups by various factors, such as heritable phenotypic characteristics or geographic ancestry.  E.g., White, Asian.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="clinicalStatement" type="ClinicalStatement" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="relatedEvaluatedPerson" type="RelatedEvaluatedPerson" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="clinicalStatement" type="ClinicalStatement" minOccurs="0"
+						maxOccurs="unbounded"/>
+					<xs:element name="relatedEvaluatedPerson" type="RelatedEvaluatedPerson"
+						minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1159,7 +1185,8 @@ Included to support family history-based inferencing.</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="EncounterBase">
 				<xs:sequence>
-					<xs:element name="encounterEventTime" type="dt:IVL_TS" minOccurs="1" maxOccurs="1">
+					<xs:element name="encounterEventTime" type="dt:IVL_TS" minOccurs="1"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time of the encounter.</xs:documentation>
 						</xs:annotation>
@@ -1208,14 +1235,16 @@ Included to support family history-based inferencing.</xs:documentation>
 							<xs:documentation>How often the requested appointments must take place.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="requestedAppointmentTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="requestedAppointmentTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Requested time for appointment.  
 
 If RepeatUntilCount.count &gt;= 2, then specifies requested period within which the appointments should take place.  In these cases, it is assumed that the appointments should be evenly distributed within the timeframe.  E.g., if requested time is 1/1/2011 to 12/31/2011, and RepeatUntilCount.count is 3, ideal appointment times would be 1/1/2011, 12/31/2011, and in the middle of the year.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="requestIssuanceTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="requestIssuanceTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when the encounter appointment was requested by the provider, as opposed to the time it was requested for.</xs:documentation>
 						</xs:annotation>
@@ -1262,7 +1291,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>How often the proposed appointments must take place.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="proposedAppointmentTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposedAppointmentTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Proposed time for appointment.  Optional, as the proposer (e.g., a CDS system) may wish to simply propose an appointment of a type (e.g., encounter with eye professional) without specifying a specific appointment time interval. 
 
@@ -1289,7 +1319,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="SupplyBase">
 				<xs:sequence>
-					<xs:element name="proposedSupplyTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposedSupplyTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Requested time for supply.  
 
@@ -1319,7 +1350,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The mode the proposal was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time when the supply was proposed.</xs:documentation>
 						</xs:annotation>
@@ -1388,7 +1420,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Indicates the category of the constituent. For instance, for a composite IV, the constituent may be either a 'diluent' or an 'additive'. For a TPN order, the constituent category may be a nutrient grouping such as 'electrolyte' or 'lipid', etc...</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="substance" type="AdministrableSubstance" minOccurs="1" maxOccurs="1">
+					<xs:element name="substance" type="AdministrableSubstance" minOccurs="1"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Generally the ingredient of the constituent (e.g., dopamine) such as an additive in a composite IV.</xs:documentation>
 						</xs:annotation>
@@ -1426,7 +1459,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The reason the supply was not provided.  E.g., patient refused, inadequate time.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subjectEffectiveTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="subjectEffectiveTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when the supply should have been delivered, but was not. Optional, as may simply want to note that a supply was never done.</xs:documentation>
 						</xs:annotation>
@@ -1448,7 +1482,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Reason why the substance was not administered.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="subjectEffectiveTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="subjectEffectiveTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time interval when subject did not receive substance.  Optional, as may simply want to note that a particular substance was never administered.</xs:documentation>
 						</xs:annotation>
@@ -1480,12 +1515,14 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The body site where the observation is being made.  E.g., left lung.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="interpretation" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="interpretation" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Explanation of the results (e.g., fracture seen on x-ray), including an indication of the deviation of the result value from the reference range for the observation (e.g., high, low, within normal limits).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="observationEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="observationEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time for the completion of the observation, including the interpretation.</xs:documentation>
 						</xs:annotation>
@@ -1583,7 +1620,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Specification of how the laboratory specimen should be obtained</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="specialHandling" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="specialHandling" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Special instructions on how to handle a laboratory specimen. For example, 'Keep on ice'.</xs:documentation>
 						</xs:annotation>
@@ -1593,7 +1631,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>The source of the laboratory specimen to be collected.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The pathogen or pathogens that are felt to be the most likely cause of the patient's condition that led to the laboratory procedure proposal. For instance, Staphylococcus, Streptococcus, Pseudomonas, Neisseria.</xs:documentation>
 						</xs:annotation>
@@ -1649,7 +1688,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationProposal">
 				<xs:sequence>
-					<xs:element name="constituent" type="Constituent" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="constituent" type="Constituent" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A substance that composes this composite medication such as an additive or diluent in a composite IV.</xs:documentation>
 						</xs:annotation>
@@ -1712,7 +1752,8 @@ There maybe a related clinical statement that identifies the topic of the commun
 		<xs:complexContent>
 			<xs:extension base="CommunicationBase">
 				<xs:sequence>
-					<xs:element name="proposedCommunicationTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposedCommunicationTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time interval in which the communication is proposed to be sent</xs:documentation>
 						</xs:annotation>
@@ -1790,7 +1831,8 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Specification of the maximum allowable rate of airflow delivered by a mechanical ventilator. For example, 60 L/min.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="peakInspiratoryPressure" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
+					<xs:element name="peakInspiratoryPressure" type="dt:IVL_PQ" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Specification of the maximum airway pressure allowed to be delivered by the ventilator in order to prevent barotrauma, applies to volume-controlled ventilation modes. For example, 35 cmH2O.</xs:documentation>
 						</xs:annotation>
@@ -1843,7 +1885,8 @@ Examples:Assist Control (AC), Synchronized Intermittent Mandatory Ventilation (S
 		<xs:complexContent>
 			<xs:extension base="CommunicationBase">
 				<xs:sequence>
-					<xs:element name="communicationTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="communicationTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when the communication was conducted.</xs:documentation>
 						</xs:annotation>
@@ -1898,7 +1941,8 @@ TBS	http://hl7.org/fhir/v3/ActCode	trial balance partial strength
 UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="proposedDispenseTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposedDispenseTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Proposed time for dispensing the substance.</xs:documentation>
 						</xs:annotation>
@@ -1908,7 +1952,8 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>The amount of substance to be provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="numberOfFillsAllowed" type="dt:INT" minOccurs="0" maxOccurs="1">
+					<xs:element name="numberOfFillsAllowed" type="dt:INT" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.</xs:documentation>
 						</xs:annotation>
@@ -1933,7 +1978,8 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>This indicates the validity period of a prescription (stale dating the Prescription) It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="proposalEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Time when proposal was made.</xs:documentation>
 						</xs:annotation>
@@ -1958,8 +2004,10 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 			<xs:extension base="SupplyProposal">
 				<xs:sequence>
 					<xs:element name="dietType" type="dt:CD" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="nutrient" type="NutrientModification" minOccurs="0"
+						maxOccurs="unbounded"/>
+					<xs:element name="texture" type="TextureModification" minOccurs="0"
+						maxOccurs="unbounded"/>
 					<xs:element name="isInEffect" type="dt:BL" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the diet proposal item is currently in effect for the patient. </xs:documentation>
@@ -1990,7 +2038,8 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 		<xs:complexContent>
 			<xs:extension base="RelationshipDescriptorBase">
 				<xs:sequence>
-					<xs:element name="clinicalStatement" type="ClinicalStatement" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="clinicalStatement" type="ClinicalStatement" minOccurs="1"
+						maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2048,7 +2097,8 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 							<xs:documentation>Specification of how the laboratory specimen should be obtained</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="specialHandling" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="specialHandling" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Special instructions on how to handle a laboratory specimen. For example, 'Keep on ice'.</xs:documentation>
 						</xs:annotation>
@@ -2058,7 +2108,8 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 							<xs:documentation>The source of the laboratory specimen to be collected.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="suspectedPathogen" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The pathogen or pathogens that are felt to be the most likely cause of the patient's condition that led to the laboratory procedure proposal. For instance, Staphylococcus, Streptococcus, Pseudomonas, Neisseria.</xs:documentation>
 						</xs:annotation>
@@ -2078,8 +2129,10 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 			<xs:extension base="SupplyOrder">
 				<xs:sequence>
 					<xs:element name="dietType" type="dt:CD" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="nutrient" type="NutrientModification" minOccurs="0"
+						maxOccurs="unbounded"/>
+					<xs:element name="texture" type="TextureModification" minOccurs="0"
+						maxOccurs="unbounded"/>
 					<xs:element name="isInEffect" type="dt:BL" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the diet order item is currently in effect for the patient. </xs:documentation>
@@ -2149,7 +2202,8 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 		<xs:complexContent>
 			<xs:extension base="SubstanceAdministrationOrder">
 				<xs:sequence>
-					<xs:element name="constituent" type="Constituent" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="constituent" type="Constituent" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A substance that composes this composite medication such as an additive or diluent in a composite IV.</xs:documentation>
 						</xs:annotation>
@@ -2197,7 +2251,7 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="VMR" type="VMR"/>
+	<xs:element name="vMR" type="VMR"/>
 	<xs:complexType name="VMR">
 		<xs:annotation>
 			<xs:documentation>A virtual medical record (vMR) contains data about a patient relevant for CDS, either with regard to the data used for generating inferences (input) or the conclusions reached as a result of analyzing the data (output).  A vMR may contain, for example, problems and medications or CDS-generated assessments and recommended actions.  Note that CDS-generated assessments and recommended actions would typically be considered a CDS output but could also be used as a CDS input as well (e.g., prior CDS system recommendations could influence current CDS system recommendations).
@@ -2352,7 +2406,8 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>The amount of substance provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="numberOfFillsAllowed" type="dt:INT" minOccurs="0" maxOccurs="1">
+					<xs:element name="numberOfFillsAllowed" type="dt:INT" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>An integer indicating the number of repeats of the Dispense. UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.</xs:documentation>
 						</xs:annotation>
@@ -2401,7 +2456,8 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 		<xs:complexContent>
 			<xs:extension base="RelationshipDescriptorBase">
 				<xs:sequence>
-					<xs:element name="otherEvaluatedPerson" type="EvaluatedPerson" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="otherEvaluatedPerson" type="EvaluatedPerson" minOccurs="1"
+						maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2414,7 +2470,8 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
-					<xs:element name="goalAchievementTargetTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="goalAchievementTargetTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time that is targeted for the goal to be attained.  For example, there may be a goal to reach a weight of X pounds by a particular date.</xs:documentation>
 						</xs:annotation>
@@ -2424,7 +2481,8 @@ Notes to implementers: Do not use RelatedEntity to describe persons related to t
 							<xs:documentation>This is the code that identifies the metric that is the clinical subject of the goal with as much specificity as available, or as required by a template.  Typically a measurable clinical attribute of the subject.  E.g., weight, blood pressure, hemoglobin A1c level.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="goalPursuitEffectiveTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="goalPursuitEffectiveTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time in which the subject pursues the goal.  This includes pursuing maintenance of a goal that has already been achieved.  
 The end time of the interval may be "open" or not stated, if the goal is being indefinitely pursued.  This time is optional, as, for example, a CDS system may simply wish to propose weight loss without specifying a pursuit effective time.</xs:documentation>
@@ -2454,7 +2512,8 @@ Note that allergies are represented as problems, whereas individual adverse even
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
-					<xs:element name="affectedBodySite" type="BodySite" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="affectedBodySite" type="BodySite" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A body site affected by the problem (in the case of Problem) or not affected by the problem (in the case of DeniedProblem).</xs:documentation>
 						</xs:annotation>
@@ -2464,12 +2523,14 @@ Note that allergies are represented as problems, whereas individual adverse even
 							<xs:documentation>This is the code that identifies the problem or condition with as much specificity as available, or as required by a template.  It might be an ICD9, ICD10, or SNOMED code, or whatever vocabularies are appropriate to describe the problem or condition.  E.g., diabetes mellitus, congestive heart failure.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="conditionEffectiveTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="conditionEffectiveTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time that is primarily related to the subject's experience of the disease or condition, rather than when those events were reported or recorded by the evaluator.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="diagnosticEventTime" type="dt:IVL_TS" minOccurs="0" maxOccurs="1">
+					<xs:element name="diagnosticEventTime" type="dt:IVL_TS" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The time when the evaluator identified the subject as having the condition (in the case of Problem) or as not having the condition (in the case of DeniedProblem).</xs:documentation>
 						</xs:annotation>
@@ -2510,7 +2571,8 @@ Note: This field is only intended to state the degree of certainty one has about
 							<xs:documentation>The time that reflects when the subject experienced the adverse event (in the case of AdverseEvent) or when the subject did not experience the adverse event (in the case of DeniedAdverseEvent).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="affectedBodySite" type="BodySite" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="affectedBodySite" type="BodySite" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A body site affected by the adverse event.</xs:documentation>
 						</xs:annotation>
@@ -2549,7 +2611,8 @@ Note: This field is only intended to state the degree of certainty one has about
 							<xs:documentation>The clinical concept motivating the composition. E.g., Insulin Sliding Scale, Steroid Taper, etc...</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="componentRequirements" type="dt:CD" minOccurs="0" maxOccurs="1">
+					<xs:element name="componentRequirements" type="dt:CD" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The requirements for the contained components.  E.g., do at least one, do all.</xs:documentation>
 						</xs:annotation>
@@ -2566,7 +2629,8 @@ Note: This field is only intended to state the degree of certainty one has about
 		<xs:complexContent>
 			<xs:extension base="ObservationBase">
 				<xs:sequence>
-					<xs:element name="observationResult" type="ObservationBase" minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="observationResult" type="ObservationBase" minOccurs="1"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Component observation. May be either a simple ObservationResult or a CompositeObservationResult.  E.g., Hematocrit in a Complete Blood Count.</xs:documentation>
 						</xs:annotation>
@@ -2762,7 +2826,8 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 							<xs:documentation>An agent that causes or contributes to the allergy or intolerance, identified with as much specificity as available, or as required by a template.  Used for allergies, intolerances, and other reactions to a known agent.  E.g., penicillin, peanuts, latex.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="associatedReactionType" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="associatedReactionType" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A code that indicates specific reactions that occurred. Example: Rash, Hives, immune-mediated.</xs:documentation>
 						</xs:annotation>
@@ -2807,7 +2872,8 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 							<xs:documentation>Positive offset between the end of the first cycle and the start of the second one. That is, the start of the next cycle shall start after then end of the previous cycle.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="cycleTiming" type="CycleEventTiming" minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="cycleTiming" type="CycleEventTiming" minOccurs="1"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Identifies a repeating pattern to the intended time periods such as the number of occurrences in a given time period, the days in a multi-day cycle, or a code representing the frequency of occurrence for a given cycle.</xs:documentation>
 						</xs:annotation>
@@ -2926,12 +2992,14 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="dosageInstructionText" type="dt:ST" minOccurs="0" maxOccurs="1">
+					<xs:element name="dosageInstructionText" type="dt:ST" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Free text dosage instructions for cases where the instructions are too complex to code.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="additionalInstructions" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="additionalInstructions" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Additional instructions such as "Swallow with plenty of water" which may or may not be coded.</xs:documentation>
 						</xs:annotation>
@@ -2946,7 +3014,8 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>The amount of substance.  E.g., 1 tab, 325 mg, 1-2 tabs.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="doseRestriction" type="DoseRestriction" minOccurs="0" maxOccurs="1">
+					<xs:element name="doseRestriction" type="DoseRestriction" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Specifies the maximum dose that can be given in a specified time interval.</xs:documentation>
 						</xs:annotation>
@@ -2981,12 +3050,14 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>Rate of substance administration.  E.g., 1000 mL/hr.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="deliveryRateIncrement" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
+					<xs:element name="deliveryRateIncrement" type="dt:IVL_PQ" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Change in the dosing rate; usually an increase for a patient who is initiating tube feeding. E.g., 20 mL.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="deliveryRateIncrementInterval" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
+					<xs:element name="deliveryRateIncrementInterval" type="dt:IVL_PQ" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Period of time after which the deliveryRateIncrement should be attempted. E.g., 4 hours.</xs:documentation>
 						</xs:annotation>
@@ -3006,7 +3077,8 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>The maximum rate of substance administration. This value may be used as a stopping condition when a deliveryRateIncrement is specified without a count.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="maximumDeliveredVolume" type="dt:PQ" minOccurs="0" maxOccurs="1">
+					<xs:element name="maximumDeliveredVolume" type="dt:PQ" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The maximum volume of fluid to administer to a patient.</xs:documentation>
 						</xs:annotation>
@@ -3033,7 +3105,8 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>One possible path to achieve presumed immunity against a disease - within the context of an authority. E.g., 3-dose Hepatitis B Series</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="numberOfDosesInSeries" type="dt:INT" minOccurs="0" maxOccurs="1">
+					<xs:element name="numberOfDosesInSeries" type="dt:INT" minOccurs="0"
+						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The recommended number of doses to achieve immunity.</xs:documentation>
 						</xs:annotation>
@@ -3048,7 +3121,8 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>The organization that issues the vaccination protocol.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="targetedDisease" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="targetedDisease" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The targeted disease.</xs:documentation>
 						</xs:annotation>
@@ -3063,7 +3137,8 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 							<xs:documentation>Indicates if the immunization event should "count" against the protocol. Values may include substandard (recalled, expired), invalid, extraneous/unnecessary, valid</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="evaluationStatusReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="evaluationStatusReason" type="dt:CD" minOccurs="0"
+						maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Provides an explanation as to why an immunization event should or should not count against the protocol.</xs:documentation>
 						</xs:annotation>

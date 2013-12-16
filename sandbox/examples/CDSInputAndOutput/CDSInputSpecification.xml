@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDSInputSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:cdsinputspecification:r2 ../../schemata/cdsinput/cdsInputSpecification.xsd"
+ xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns="urn:hl7-org:cdsinputspecification:r2"
+ xmlns:vmr="urn:hl7-org:vmr:r2">
+    <patientInputSpecification>
+        <!-- Provide patient with DOB and gender -->
+        <requiredEvaluatedPersonTemplate root="2.16.840.1.113883.3.1829.11.2.1.2" identifierName="PatientDOBAndGenderOnly"/>
+        <!-- Provide active problem list -->
+        <clinicalStatementInputSpecification>
+            <requiredClinicalStatementTemplate root="2.16.840.1.113883.3.1829.11.7.2.4" identifierName="ActiveProblemListEntryCodeOnly"/>
+        </clinicalStatementInputSpecification>
+        <!-- Provide immunizations (specifically, pneumococcal vaccinations) -->
+        <clinicalStatementInputSpecification>
+            <requiredClinicalStatementTemplate root="2.16.840.1.113883.3.1829.11.9.1.11" identifierName="SimpleImmunizationHistoryListEntryCodeAndDateOnly"/>
+            <codedAttributeRequirement>
+                <targetCodedAttribute code="substance.substanceCode"/>
+                <targetCode codeSystem="OID for CVX" code="133"/>
+                <targetCode codeSystem="OID for CVX" code="100"/>
+                <targetCode codeSystem="OID for CVX" code="152"/>
+                <targetCode codeSystem="OID for CVX" code="33"/>
+                <targetCode codeSystem="OID for CVX" code="109"/>
+            </codedAttributeRequirement>
+        </clinicalStatementInputSpecification>
+    </patientInputSpecification>
+</CDSInputSpecification>

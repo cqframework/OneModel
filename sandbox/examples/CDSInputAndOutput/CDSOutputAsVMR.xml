@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is an example CDSOutput where the output is represented in vMR format -->
+<CDSOutputAsVMR xmlns="urn:hl7-org:cdsoutput:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xsi:schemaLocation="urn:hl7-org:cdsoutput:r2 ../../schemata/cdsoutput/cdsOutput.xsd">
+    <vmrOutput>
+        <vmr:patient xmlns="urn:hl7-org:vmr:r2">
+            <clinicalStatement xsi:type="vmr:ImagingProposal">
+                <id root="9a6d1bac-17d3-4195-89c4-1121bc809b5a"/>       
+                <procedureCode code="168731009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT">
+                    <dt:displayName value="Chest X-Ray"/>
+                </procedureCode>
+                <proposedProcedureTime>
+                    <dt:low value="20120826"/>
+                    <dt:high value="20120826"/>
+                </proposedProcedureTime>                      
+            </clinicalStatement>
+        </vmr:patient>
+    </vmrOutput>
+</CDSOutputAsVMR>
+
+

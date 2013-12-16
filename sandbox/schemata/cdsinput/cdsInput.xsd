@@ -8,7 +8,9 @@
 	<xs:element name="CDSInput" type="CDSInput"/>
 	<xs:complexType name="CDSInput">
 		<xs:annotation>
-			<xs:documentation>The parent class containing the data used by a CDS system to generate inferences. Includes an input vMR and optionally CDS context and/or CDS resource data.</xs:documentation>
+			<xs:documentation>The parent class containing the data used by a CDS system to generate inferences. Includes an input vMR and optionally CDS context and/or CDS resource data.
+
+ As a specific example, a CDSInput may be used as the primary input data payload for a CDS guidance service compliant with the HL7 Decision Support Service standard.  Further information regarding this type of use case can be found in the HL7 Decision Support Service specification and the HL7 Decision Support Service Implementation Guide.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="templateId" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">

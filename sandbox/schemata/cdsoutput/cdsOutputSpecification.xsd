@@ -131,7 +131,9 @@ Can include a detailed output specification for the focal patient as well as for
 	</xs:complexType>
 	<xs:complexType name="CDSOutputSpecification" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. </xs:documentation>
+			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. 
+
+ As a specific example, a CDSOutputSpecification may be used to specify details on the CDS output that will be returned by a CDS guidance service compliant with the HL7 Decision Support Service standard.  Specifically, this type of specification can be encapsulated within the “CDS output specification” section of a Decision Support Service’s specification of knowledge module evaluation result semantics.  Further information regarding this type of use case can be found in the HL7 Decision Support Service specification and the HL7 Decision Support Service Implementation Guide.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="cdsOutputTemplate" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Specifies that CDS output must be a boolean value -->
+<CDSOutputAsDataTypeSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:cdsoutputspecification:r2 ../../schemata/cdsoutput/cdsOutputSpecification.xsd"
+ xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns="urn:hl7-org:cdsoutputspecification:r2"
+ xmlns:vmr="urn:hl7-org:vmr:r2">
+    <valueTemplate root="2.16.840.1.113883.3.1829.11.14.11.2" identifierName="ValueDatatypeBL"/>
+</CDSOutputAsDataTypeSpecification>
