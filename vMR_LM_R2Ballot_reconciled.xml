@@ -5292,7 +5292,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_C5420CA3_B860_483a_A030_8A7FEA35E413" name="agent" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="An agent that causes or contributes to the allergy or intolerance, identified with as much specificity as available, or as required by a template.  Used for allergies, intolerances, and other reactions to a known agent.  E.g., penicillin, peanuts, latex."/>
 						<model ea_localid="1520" ea_guid="{C5420CA3-B860-483a-A030-8A7FEA35E413}"/>
 						<properties type="CD" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -5327,7 +5327,7 @@
 			<element xmi:idref="EAID_BE38EAD9_E96B_47f3_8FDC_B3247B7A168D" xmi:type="uml:Class" name="DietOrder" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="570" ea_eleType="element"/>
 				<properties documentation="A class representing a wide variety of allowable types of meals and/or specification of meal and/or nutrient restrictions for an individual patient, based on the patient's clinical condition.&#xA;&#xA;Includes diet- and nutrition-related orders for a patient/resident including orders for oral diet, either general or therapeutic (medical) nutritional supplements." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-06-27 17:33:39" modified="2013-12-10 21:51:15" complexity="1" status="Proposed"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-06-27 17:33:39" modified="2013-12-16 07:25:20" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -5337,7 +5337,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_B72C59AB_324D_46bc_9EC8_E526A7756548" name="dietType" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="Specifies the type of diet ordered. Note that for oral diet orders, supplyCode should be a code for Oral Diet. The dietCode may specify what kind of diet is ordered such as 'Consistent carbohydrate diet'."/>
 						<model ea_localid="1485" ea_guid="{B72C59AB-324D-46bc-9EC8-E526A7756548}"/>
 						<properties type="CD" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -5352,7 +5352,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_017BE4A1_A759_4bb6_8F27_D4FC6C78E2FE" name="nutrient" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="Consists of the nutrient (e.g., Sodium) and the amount in the diet (e.g., 20-30g)."/>
 						<model ea_localid="1480" ea_guid="{017BE4A1-A759-4bb6-8F27-D4FC6C78E2FE}"/>
 						<properties type="NutrientModification" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -5367,7 +5367,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_3A10F768_F7DF_46a2_BBB0_E5DA0E1F099A" name="texture" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="Specifies or modifies the texture for one or more types of food in a diet. "/>
 						<model ea_localid="1481" ea_guid="{3A10F768-F7DF-46a2-BBB0-E5DA0E1F099A}"/>
 						<properties type="TextureModification" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -5402,8 +5402,8 @@
 			</element>
 			<element xmi:idref="EAID_AB03B468_9700_41a7_B445_3A1BBB8E99F7" xmi:type="uml:Class" name="DietProposal" scope="public">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="0" ea_localid="491" ea_eleType="element"/>
-				<properties documentation="A class representing a wide variety of allowable types of meals and/or specification of meal and/or nutrient restrictions for an individual patient, based on the patient's clinical condition.&#xA;&#xA;Includes diet- and nutrition-related orders for a patient/resident including orders for oral diet, either general or therapeutic (medical) nutritional supplements." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-02-28 17:12:32" modified="2013-12-10 21:51:28" complexity="1" status="Proposed"/>
+				<properties documentation="A class representing a wide variety of allowable types of meals and/or specification of meal and/or nutrient restrictions for an individual patient, based on the patient's clinical condition.&#xA;&#xA;Includes diet- and nutrition-related proposals for a patient/resident including proposals for oral diet, either general or therapeutic (medical) nutritional supplements." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="NanjoCl01" version="1.0" phase="1.0" created="2013-02-28 17:12:32" modified="2013-12-16 07:26:26" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -5413,7 +5413,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_5BE753D5_3F2D_4603_9B2F_D2F90650E580" name="dietType" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="Specifies the type of diet ordered. Note that for oral diet orders, supplyCode should be a code for Oral Diet. The dietCode may specify what kind of diet is ordered such as 'Consistent carbohydrate diet'."/>
 						<model ea_localid="1492" ea_guid="{5BE753D5-3F2D-4603-9B2F-D2F90650E580}"/>
 						<properties type="CD" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -5428,7 +5428,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_5ABD8FFF_FDA9_419a_9859_3F1FE7154815" name="nutrient" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="Consists of the nutrient (e.g., Sodium) and the amount in the diet (e.g., 20-30g)."/>
 						<model ea_localid="1493" ea_guid="{5ABD8FFF-FDA9-419a-9859-3F1FE7154815}"/>
 						<properties type="NutrientModification" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -5443,7 +5443,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_3E32BCAA_A2A0_4f22_8027_9A6317A6FF32" name="texture" scope="Public">
 						<initial/>
-						<documentation/>
+						<documentation value="Specifies or modifies the texture for one or more types of food in a diet. "/>
 						<model ea_localid="1494" ea_guid="{3E32BCAA-A2A0-4f22-8027-9A6317A6FF32}"/>
 						<properties type="TextureModification" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -22246,26 +22246,26 @@
 			<diagram xmi:id="EAID_645DCB0D_FD45_449e_8E94_18E2071C87B9">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" localID="25" owner="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="18"/>
 				<properties name="supply" type="Logical"/>
-				<project author="kawam001" version="1.0" created="2011-07-15 15:30:30" modified="2013-12-11 10:31:18"/>
+				<project author="kawam001" version="1.0" created="2011-07-15 15:30:30" modified="2013-12-16 07:37:35"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=122;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=1070FDD6;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=B21C6810;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
 				<elements>
-					<element geometry="Left=653;Top=163;Right=846;Bottom=251;" subject="EAID_AB03B468_9700_41a7_B445_3A1BBB8E99F7" seqno="1" style="DUID=9ED25C0C;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
-					<element geometry="Left=653;Top=298;Right=846;Bottom=386;" subject="EAID_BE38EAD9_E96B_47f3_8FDC_B3247B7A168D" seqno="2" style="DUID=2C177418;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=613;Top=158;Right=806;Bottom=246;" subject="EAID_AB03B468_9700_41a7_B445_3A1BBB8E99F7" seqno="1" style="DUID=9ED25C0C;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=614;Top=296;Right=807;Bottom=384;" subject="EAID_BE38EAD9_E96B_47f3_8FDC_B3247B7A168D" seqno="2" style="DUID=2C177418;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=45;Top=47;Right=248;Bottom=174;" subject="EAID_9DFD8E0C_7609_4130_9B3D_96DBD379E2AE" seqno="3" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=EF7CCCDE;"/>
 					<element geometry="Left=46;Top=223;Right=249;Bottom=299;" subject="EAID_1BFFCA51_7417_4665_AA38_188F11EFF9D0" seqno="4" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=33F1555D;"/>
 					<element geometry="Left=358;Top=61;Right=553;Bottom=123;" subject="EAID_9FE0EE0E_DA02_4913_8F23_C17EA4CDC4FB" seqno="5" style="DUID=20AE2194;NSL=0;"/>
 					<element geometry="Left=357;Top=286;Right=538;Bottom=401;" subject="EAID_A2DC2524_2927_4d6d_B073_DB0C41195F82" seqno="6" style="DUID=3EC5DD26;NSL=0;"/>
 					<element geometry="Left=360;Top=147;Right=560;Bottom=260;" subject="EAID_ED55FA90_DF2C_4409_B89C_A26285F53687" seqno="7" style="DUID=32FDBC53;NSL=0;"/>
-					<element geometry="Left=365;Top=440;Right=519;Bottom=487;" subject="EAID_CA9521A2_7874_463f_B3CF_A541401B26E3" seqno="8" style="DUID=269DF4ED;NSL=0;"/>
+					<element geometry="Left=357;Top=421;Right=511;Bottom=468;" subject="EAID_CA9521A2_7874_463f_B3CF_A541401B26E3" seqno="8" style="DUID=269DF4ED;NSL=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C4A7C9D0_5734_4b5f_9E1D_5BE89CC4AD5E" style="Mode=3;EOID=3EC5DD26;SOID=2C177418;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_BF9F8262_74B0_4047_B92F_85071C3C25CE" style="Mode=3;EOID=32FDBC53;SOID=9ED25C0C;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=299:-343$299:-261$;" subject="EAID_C6EA08F5_3842_46bf_9F64_B48E8E0EBB92" style="Mode=3;EOID=33F1555D;SOID=3EC5DD26;Color=-1;LWidth=0;TREE=H;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=299:-203$299:-261$;" subject="EAID_27974562_C905_4f43_AEE8_82B238B74361" style="Mode=3;EOID=33F1555D;SOID=32FDBC53;Color=-1;LWidth=0;TREE=H;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=299:-461$299:-261$;" subject="EAID_FDBCFB65_4451_42af_8969_34FDF433385B" style="Mode=3;EOID=33F1555D;SOID=269DF4ED;Color=-1;LWidth=0;TREE=H;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=299:-444$299:-261$;" subject="EAID_FDBCFB65_4451_42af_8969_34FDF433385B" style="Mode=3;EOID=33F1555D;SOID=269DF4ED;Color=-1;LWidth=0;TREE=H;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=101;EY=-14;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=146:-224$146:-224$;" subject="EAID_15A8B654_4E90_4910_AF29_56DE02291BDA" style="Mode=3;EOID=EF7CCCDE;SOID=33F1555D;Color=-1;LWidth=0;TREE=V;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=299:-92$299:-261$;" subject="EAID_87CAB739_C4B2_448c_B14C_0E63E8699E8D" style="Mode=3;EOID=33F1555D;SOID=20AE2194;Color=-1;LWidth=0;TREE=H;Hidden=0;"/>
 				</elements>
@@ -22299,24 +22299,24 @@
 			<diagram xmi:id="EAID_3EA5E235_F561_43fb_A153_BC92B6AA1D4D">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" localID="27" owner="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="15"/>
 				<properties name="substanceAdministration" type="Logical"/>
-				<project author="kawam001" version="1.0" created="2011-07-15 15:31:06" modified="2013-12-11 10:26:52"/>
+				<project author="kawam001" version="1.0" created="2011-07-15 15:31:06" modified="2013-12-16 07:36:41"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=113;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=C86A6994;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=36D5E4B7;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
 				<elements>
 					<element geometry="Left=298;Top=32;Right=565;Bottom=133;" subject="EAID_DA123C8E_34F5_4857_B779_5CD249F00758" seqno="1" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=DCDBBC26;"/>
-					<element geometry="Left=38;Top=25;Right=241;Bottom=152;" subject="EAID_9DFD8E0C_7609_4130_9B3D_96DBD379E2AE" seqno="2" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=7A71A92A;"/>
-					<element geometry="Left=63;Top=420;Right=261;Bottom=483;" subject="EAID_938E2A04_9836_4046_ABA2_5C07433D3F6A" seqno="3" style="DUID=D1347E12;NSL=0;"/>
-					<element geometry="Left=560;Top=207;Right=830;Bottom=335;" subject="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8" seqno="4" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=478B8CB5;"/>
-					<element geometry="Left=557;Top=420;Right=780;Bottom=483;" subject="EAID_453FBA1B_187F_4a90_A0E9_08F22B167BC3" seqno="5" style="NSL=0;DUID=0FB7676D;"/>
-					<element geometry="Left=15;Top=208;Right=265;Bottom=336;" subject="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612" seqno="6" style="NSL=0;DUID=07450CB2;"/>
+					<element geometry="Left=47;Top=25;Right=250;Bottom=152;" subject="EAID_9DFD8E0C_7609_4130_9B3D_96DBD379E2AE" seqno="2" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=7A71A92A;"/>
+					<element geometry="Left=142;Top=358;Right=340;Bottom=421;" subject="EAID_938E2A04_9836_4046_ABA2_5C07433D3F6A" seqno="3" style="DUID=D1347E12;NSL=0;"/>
+					<element geometry="Left=499;Top=206;Right=769;Bottom=334;" subject="EAID_79C1F98B_840D_44ed_9E19_4B153224DFF8" seqno="4" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=478B8CB5;"/>
+					<element geometry="Left=507;Top=358;Right=730;Bottom=421;" subject="EAID_453FBA1B_187F_4a90_A0E9_08F22B167BC3" seqno="5" style="NSL=0;DUID=0FB7676D;"/>
+					<element geometry="Left=92;Top=208;Right=342;Bottom=336;" subject="EAID_D971F3CB_DCB2_45a9_923F_064B095B4612" seqno="6" style="NSL=0;DUID=07450CB2;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_459152E0_83E8_47fb_ADF9_E3442C80E9DF" style="Mode=3;EOID=7A71A92A;SOID=DCDBBC26;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=139:-183$431:-183$;" subject="EAID_6CAFCED5_3A75_4934_8185_D389F8D360C5" style="Mode=3;EOID=DCDBBC26;SOID=07450CB2;Color=-1;LWidth=0;TREE=V;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=47;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=695:-183$431:-183$;" subject="EAID_449ABFDE_5C50_49e2_B987_A8D72F6D5F0C" style="Mode=3;EOID=DCDBBC26;SOID=478B8CB5;Color=-1;LWidth=0;TREE=V;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=-127;EY=1;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=431:-451$;" subject="EAID_DA7EE696_ADC3_4f82_8DB7_079D504A960D" style="Mode=3;EOID=DCDBBC26;SOID=0FB7676D;Color=-1;LWidth=0;TREE=LV;Hidden=0;"/>
-					<element geometry="SX=0;SY=0;EX=-18;EY=23;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=431:-451$;" subject="EAID_F044410D_3372_4c18_928A_C3F9E40451FC" style="Mode=3;EOID=DCDBBC26;SOID=D1347E12;Color=-1;LWidth=0;TREE=LV;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=214:-183$431:-183$;" subject="EAID_6CAFCED5_3A75_4934_8185_D389F8D360C5" style="Mode=3;EOID=DCDBBC26;SOID=07450CB2;Color=-1;LWidth=0;TREE=V;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=47;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=634:-183$431:-183$;" subject="EAID_449ABFDE_5C50_49e2_B987_A8D72F6D5F0C" style="Mode=3;EOID=DCDBBC26;SOID=478B8CB5;Color=-1;LWidth=0;TREE=V;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=-127;EY=1;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=431:-389$;" subject="EAID_DA7EE696_ADC3_4f82_8DB7_079D504A960D" style="Mode=3;EOID=DCDBBC26;SOID=0FB7676D;Color=-1;LWidth=0;TREE=LV;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=-18;EY=23;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=431:-389$;" subject="EAID_F044410D_3372_4c18_928A_C3F9E40451FC" style="Mode=3;EOID=DCDBBC26;SOID=D1347E12;Color=-1;LWidth=0;TREE=LV;Hidden=0;"/>
 				</elements>
 			</diagram>
 			<diagram xmi:id="EAID_8C000533_A581_4cb9_B8B7_FAC01EB81F96">
@@ -22347,9 +22347,9 @@
 			<diagram xmi:id="EAID_31C30743_2E12_4b4f_B499_13E316C56D34">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" localID="29" owner="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="14"/>
 				<properties name="procedureExtensions" type="Logical"/>
-				<project author="ds187" version="1.0" created="2013-02-24 16:58:39" modified="2013-12-13 00:18:09"/>
+				<project author="ds187" version="1.0" created="2013-02-24 16:58:39" modified="2013-12-16 07:36:09"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=810;DocSize.cy=1098;MarginL=20;MarginR=20;MarginT=0;MarginB=0;ShowDetails=0;Orientation=P;Zoom=94;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;MarginL=20;MarginR=20;MarginT=0;MarginB=0;SuppressedCompartments=;SaveTag=25160130;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;MarginL=20;MarginR=20;MarginT=0;MarginB=0;SuppressedCompartments=;SaveTag=0C5B6D14;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
@@ -22357,8 +22357,8 @@
 					<element geometry="Left=423;Top=560;Right=567;Bottom=700;" subject="EAID_563CDB1B_361A_4b21_986A_4056032EE6D4" seqno="1" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=A98E7797;"/>
 					<element geometry="Left=421;Top=461;Right=588;Bottom=549;" subject="EAID_1FEF77CD_FA1A_401b_B376_1F5C65378C6C" seqno="2" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=D546C7CE;"/>
 					<element geometry="Left=310;Top=302;Right=506;Bottom=427;" subject="EAID_097DD2E5_DFA6_44b6_9728_E080923E7F65" seqno="3" style="DUID=D736A4C8;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
-					<element geometry="Left=408;Top=809;Right=617;Bottom=1043;" subject="EAID_753DA084_BCD6_42d4_B334_55ABAC42DCBE" seqno="4" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=BA97DF7A;"/>
-					<element geometry="Left=102;Top=783;Right=311;Bottom=1027;" subject="EAID_7CE9072B_B461_4e80_AD63_3EAFFAEB502C" seqno="5" style="DUID=063D09DD;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=406;Top=712;Right=615;Bottom=946;" subject="EAID_753DA084_BCD6_42d4_B334_55ABAC42DCBE" seqno="4" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=BA97DF7A;"/>
+					<element geometry="Left=100;Top=711;Right=309;Bottom=955;" subject="EAID_7CE9072B_B461_4e80_AD63_3EAFFAEB502C" seqno="5" style="DUID=063D09DD;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=102;Top=461;Right=269;Bottom=549;" subject="EAID_41F2DE1F_FF80_4ac3_B7AE_F481F017EBF9" seqno="6" style="DUID=0B8C168F;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=102;Top=559;Right=246;Bottom=699;" subject="EAID_F20E69F9_42E4_4c06_A982_58F454BA7045" seqno="7" style="DUID=4BDC9665;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=385;Top=46;Right=518;Bottom=106;" subject="EAID_DEDB80FD_9A16_44c1_B44A_D2E634C4008C" seqno="8" style="DUID=84FF794F;NSL=0;"/>
@@ -22368,12 +22368,12 @@
 					<element geometry="EX=-4;EY=0;EDGE=4;SX=2;SY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=402:-631$;" subject="EAID_868652F5_58F4_49ca_BCB0_9E9075340949" style="Mode=3;EOID=D736A4C8;SOID=A98E7797;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="EDGE=1;SX=81;SY=21;EX=2;EY=21;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=443:-283$254:-283$;" subject="EAID_C4BB93E6_97DB_4052_82FD_3CD70EACC33F" style="Mode=3;EOID=FCB0E863;SOID=D736A4C8;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=86;EY=-41;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=144:-283$254:-283$;" subject="EAID_1411241E_94CB_431f_8010_D47C1AD4377B" style="Mode=3;EOID=FCB0E863;SOID=96BDA787;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="EDGE=4;EX=0;EY=0;SX=0;SY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=68:-871$;" subject="EAID_E1526C74_B099_4718_883B_72290C981A91" style="Mode=3;EOID=96BDA787;SOID=063D09DD;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="EDGE=4;EX=0;EY=0;SX=0;SY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=68:-855$;" subject="EAID_E1526C74_B099_4718_883B_72290C981A91" style="Mode=3;EOID=96BDA787;SOID=063D09DD;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=-53;SY=69;EX=-106;EY=-1;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=68:-624$;" subject="EAID_6605B74F_0EA8_4b75_9100_FA3AD4B5FEA8" style="Mode=3;EOID=96BDA787;SOID=4BDC9665;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="SX=0;SY=43;EX=101;EY=29;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_AE25E8F3_FCFD_48e9_AA67_D5B878AEA202" style="Mode=2;EOID=FA889317;SOID=FCB0E863;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=-80;SY=28;EDGE=4;EX=-64;EY=-60;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=68:-505$;" subject="EAID_60E9D623_9908_4c41_818E_6A2E23BB5064" style="Mode=3;EOID=96BDA787;SOID=0B8C168F;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 					<element geometry="EX=0;EY=0;EDGE=4;SX=-83;SY=-6;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=402:-511$;" subject="EAID_AB926124_CD0A_41bb_8177_381568BAB8BE" style="Mode=3;EOID=D736A4C8;SOID=D546C7CE;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
-					<element geometry="SX=-100;SY=-2;EX=-87;EY=-31;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=321:-927$;" subject="EAID_A7A6010C_BFFF_44f9_A75C_A260DD1B568A" style="Mode=3;EOID=D736A4C8;SOID=BA97DF7A;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
+					<element geometry="SX=-100;SY=-2;EX=-87;EY=-31;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=321:-831$;" subject="EAID_A7A6010C_BFFF_44f9_A75C_A260DD1B568A" style="Mode=3;EOID=D736A4C8;SOID=BA97DF7A;Color=-1;LWidth=0;TREE=OS;Hidden=0;"/>
 				</elements>
 			</diagram>
 			<diagram xmi:id="EAID_14A9A0C0_9359_41c4_B514_ED419926F0C6">
@@ -22467,15 +22467,15 @@
 			<diagram xmi:id="EAID_A7B21921_B963_42e0_B190_10013E4C665D">
 				<model package="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" localID="48" owner="EAPK_A5B8A5EA_E063_4079_A66B_7F4407B0F8CC" tpos="17"/>
 				<properties name="substanceDispense" type="Logical"/>
-				<project author="kawam001" version="1.0" created="2013-12-06 23:03:02" modified="2013-12-11 10:28:00"/>
+				<project author="kawam001" version="1.0" created="2013-12-06 23:03:02" modified="2013-12-16 07:37:08"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=113;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=ED5CD85B;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=9A797B2F;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
 				<elements>
-					<element geometry="Left=554;Top=473;Right=747;Bottom=524;" subject="EAID_F1A3677C_2A33_4317_B969_F8AD954F47DA" seqno="1" style="DUID=3F4E55A7;"/>
-					<element geometry="Left=72;Top=481;Right=265;Bottom=534;" subject="EAID_25C7A913_62FA_4ea6_B44C_C198EF9570E1" seqno="2" style="DUID=5BEC99E7;"/>
+					<element geometry="Left=555;Top=435;Right=748;Bottom=486;" subject="EAID_F1A3677C_2A33_4317_B969_F8AD954F47DA" seqno="1" style="DUID=3F4E55A7;"/>
+					<element geometry="Left=70;Top=430;Right=263;Bottom=483;" subject="EAID_25C7A913_62FA_4ea6_B44C_C198EF9570E1" seqno="2" style="DUID=5BEC99E7;"/>
 					<element geometry="Left=64;Top=223;Right=288;Bottom=390;" subject="EAID_9F02D19B_A130_4053_8BEC_4FE660128FA6" seqno="3" style="NSL=0;DUID=A9361857;"/>
 					<element geometry="Left=538;Top=223;Right=765;Bottom=390;" subject="EAID_E87E3953_5982_4a5f_B9FD_E253D850CC18" seqno="4" style="DUID=60F14A4A;"/>
 					<element geometry="Left=297;Top=33;Right=564;Bottom=134;" subject="EAID_DA123C8E_34F5_4857_B779_5CD249F00758" seqno="5" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;italic=0;ul=0;charset=0;pitch=0;DUID=DCDBBC26;"/>
