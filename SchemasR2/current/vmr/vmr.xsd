@@ -799,7 +799,11 @@ Common denials of allergies or intolerances to a class of agents can be expresse
 		<xs:complexContent>
 			<xs:extension base="AbstractDeniedCondition">
 				<xs:sequence>
-					<xs:element name="agent" type="dt:CD" minOccurs="0"/>
+					<xs:element name="agent" type="dt:CD" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>An agent that causes or contributes to the allergy or intolerance, identified with as much specificity as available, or as required by a template.  Used for allergies, intolerances, and other reactions to a known agent.  E.g., penicillin, peanuts, latex.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -823,9 +827,21 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 		<xs:complexContent>
 			<xs:extension base="SupplyOrder">
 				<xs:sequence>
-					<xs:element name="dietType" type="dt:CD" maxOccurs="unbounded"/>
-					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="dietType" type="dt:CD" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Specifies the type of diet ordered. Note that for oral diet orders, supplyCode should be a code for Oral Diet. The dietCode may specify what kind of diet is ordered such as 'Consistent carbohydrate diet'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Consists of the nutrient (e.g., Sodium) and the amount in the diet (e.g., 20-30g).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Specifies or modifies the texture for one or more types of food in a diet. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="isInEffect" type="dt:BL" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the diet order item is currently in effect for the patient. </xs:documentation>
@@ -839,14 +855,26 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 		<xs:annotation>
 			<xs:documentation>A class representing a wide variety of allowable types of meals and/or specification of meal and/or nutrient restrictions for an individual patient, based on the patient's clinical condition.
 
-Includes diet- and nutrition-related orders for a patient/resident including orders for oral diet, either general or therapeutic (medical) nutritional supplements.</xs:documentation>
+Includes diet- and nutrition-related proposals for a patient/resident including proposals for oral diet, either general or therapeutic (medical) nutritional supplements.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="SupplyProposal">
 				<xs:sequence>
-					<xs:element name="dietType" type="dt:CD" maxOccurs="unbounded"/>
-					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="dietType" type="dt:CD" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Specifies the type of diet ordered. Note that for oral diet orders, supplyCode should be a code for Oral Diet. The dietCode may specify what kind of diet is ordered such as 'Consistent carbohydrate diet'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Consists of the nutrient (e.g., Sodium) and the amount in the diet (e.g., 20-30g).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Specifies or modifies the texture for one or more types of food in a diet. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="isInEffect" type="dt:BL" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the diet proposal item is currently in effect for the patient. </xs:documentation>

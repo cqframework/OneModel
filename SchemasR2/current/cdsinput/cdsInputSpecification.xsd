@@ -97,9 +97,7 @@ If no CodedAttributeRequirement specified, all relevant clinical statements are 
 			<xs:documentation>The data required for the patient.  Is a specialization of the EvaluatedPersonInputSpecification class.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="EvaluatedPersonInputSpecification">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="EvaluatedPersonInputSpecification"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="RelatedEntityInputSpecification">
