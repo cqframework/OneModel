@@ -5,6 +5,7 @@
 	</xs:annotation>
 	<xs:import namespace="urn:hl7-org:vmr:r2" schemaLocation="../vmr/vmr.xsd"/>
 	<xs:import namespace="urn:hl7-org:cdsdt:r2" schemaLocation="../common/datatypes.xsd"/>
+	<xs:element name="CDSOutputAsVMRSpecification" type="CDSOutputAsVMRSpecification"/>
 	<xs:complexType name="CDSOutputAsVMRSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class specifying the vMR output to be provided by a specific CDS use case.  For example, this class can be used to specify that the evaluation of a patient for the need for a mammogram will return a templated observation specifying whether the intervention is needed, and a templated observation specifying when the intervention was last done.
@@ -35,6 +36,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="RelatedEntityOutputSpecification" type="RelatedEntityOutputSpecification"/>
 	<xs:complexType name="RelatedEntityOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the entities related to the source clinical statement regarding the evaluated person of interest.  </xs:documentation>
@@ -53,6 +55,7 @@ Can include a detailed output specification for the focal patient as well as for
 			<xs:element name="entityOutputSpecification" type="EntityOutputSpecification" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="PatientOutputSpecification" type="PatientOutputSpecification"/>
 	<xs:complexType name="PatientOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>The evaluation results to be returned for the patient.  Is a specialization of the EvaluatedPersonOutputSpecification class.</xs:documentation>
@@ -63,6 +66,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EvaluatedPersonOutputSpecification" type="EvaluatedPersonOutputSpecification"/>
 	<xs:complexType name="EvaluatedPersonOutputSpecification" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Specifies the evaluation results to be provided for an evaluated person. Specifies the templates that SHALL or MAY be applied.</xs:documentation>
@@ -81,6 +85,7 @@ Can include a detailed output specification for the focal patient as well as for
 			<xs:element name="clinicalStatementOutputSpecification" type="ClinicalStatementOutputSpecification" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RelatedEvaluatedPersonOutputSpecification" type="RelatedEvaluatedPersonOutputSpecification"/>
 	<xs:complexType name="RelatedEvaluatedPersonOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>The results that will be provided for evaluated persons related to the patient.  Is a specialization of the EvaluatedPersonOutputSpecification class.</xs:documentation>
@@ -91,6 +96,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="ClinicalStatementOutputSpecification" type="ClinicalStatementOutputSpecification"/>
 	<xs:complexType name="ClinicalStatementOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the output clinical statements regarding the evaluated person of interest.  </xs:documentation>
@@ -111,6 +117,7 @@ Can include a detailed output specification for the focal patient as well as for
 			<xs:element name="attributeOutputSpecification" type="AttributeOutputSpecification" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RelatedClinicalStatementOutputSpecification" type="RelatedClinicalStatementOutputSpecification"/>
 	<xs:complexType name="RelatedClinicalStatementOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the clinical statements related to the source clinical statement regarding the evaluated person of interest.  </xs:documentation>
@@ -129,6 +136,7 @@ Can include a detailed output specification for the focal patient as well as for
 			<xs:element name="clinicalStatementOutputSpecification" type="ClinicalStatementOutputSpecification" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSOutputSpecification" type="CDSOutputSpecification"/>
 	<xs:complexType name="CDSOutputSpecification" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. 
@@ -143,6 +151,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSOutputAsDataTypeSpecification" type="CDSOutputAsDataTypeSpecification"/>
 	<xs:complexType name="CDSOutputAsDataTypeSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class specifying the data type output to be provided by a specific CDS use case.  </xs:documentation>
@@ -159,6 +168,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="EntityOutputSpecification" type="EntityOutputSpecification"/>
 	<xs:complexType name="EntityOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the entities to be provided as a part of the output.  </xs:documentation>
@@ -176,6 +186,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="AttributeOutputSpecification" type="AttributeOutputSpecification"/>
 	<xs:complexType name="AttributeOutputSpecification">
 		<xs:annotation>
 			<xs:documentation>Specifies the attributes contained in the source clinical statement regarding the evaluated person of interest.  </xs:documentation>
@@ -193,6 +204,7 @@ Can include a detailed output specification for the focal patient as well as for
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CDSOutputAsStringNameValuePairSpecification" type="CDSOutputAsStringNameValuePairSpecification"/>
 	<xs:complexType name="CDSOutputAsStringNameValuePairSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class specifying the string name value pair output to be provided by a specific CDS use case.  </xs:documentation>
