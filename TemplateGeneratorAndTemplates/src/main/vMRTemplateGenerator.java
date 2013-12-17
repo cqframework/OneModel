@@ -25,7 +25,7 @@ public class vMRTemplateGenerator
 	 */
 	public static final int FINAL_CONTENT_ROW = 1316;
 	
-	private static final boolean INCLUDE_EXAMPLES = true;
+	private static final boolean INCLUDE_EXAMPLES = false;
 	
 	private static final boolean RESTRICT_OUTPUT_BASED_ON_COMPLETED_TEMPLATES_FILE = true; 
 	// if false, everything available in source file will be outputted.  Can use for visualizing Google Doc contents for review purposes

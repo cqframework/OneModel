@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by Bryn Rhodes (private) -->
+<wsdl:description targetNamespace="http://www.omg.org/spec/CDSS/201309/dssWsdl" name="DSS_WSDL" xmlns:dss="http://www.omg.org/spec/CDSS/201309/dss" xmlns:dssWsdl="http://www.omg.org/spec/CDSS/201309/dssWsdl" xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsdlx="http://www.w3.org/ns/wsdl-extensions" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--NOTE: This documentation element is commented out because Altova complains a validation error if it is present, even though the wsdl itself is reported as valid. -->
+	<!--wsdl:documentation>
+		This is the WSDL 2.0 description for the RESTful implementation of the HSSP Simple Evaluation DSS Functional Profile, Version 1.0.
+	</wsdl:documentation-->
+	<wsdl:types>
+		<xs:schema targetNamespace="http://www.omg.org/spec/CDSS/201309/dss" elementFormDefault="qualified">
+			<xs:include schemaLocation="baseWsdl\OmgDssSchema.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:interface name="SimpleEvaluation">
+		<wsdl:documentation>The SimpleEvaluation Interface enables data evaluation using knowledge modules.  It contains only the "evaluate" and "evaluateAtSpecifiedTime" operations from within the full Evaluation interface.</wsdl:documentation>
+		<wsdl:operation name="evaluate" pattern="http://www.w3.org/ns/wsdl/in-out" wsdlx:safe="true">
+			<wsdl:documentation>Throws one of the exceptions if an exception condition is present.  If none of the exception conditions are present, evaluates in a non-iterative fashion one or more knowledge modules using the data provided as an EvaluationRequest object and returns the result(s) of the evaluation as an EvaluationResponse object. 
+All time-stamped data are considered to have the time zone offset specified by the client, unless otherwise noted.
+The provision of excessive data (i.e., unrequired DataRequirementItemData) shall be ignored without leading to an exception.  However, a warning may be provided.</wsdl:documentation>
+			<wsdl:input messageLabel="In" element="dss:evaluate"/>
+			<wsdl:output messageLabel="Out" element="dss:evaluateResponse"/>
+			<wsdl:fault name="invalidSpecifiedTimeZoneOffsetException" element="dss:InvalidTimeZoneOffsetException"/>
+			<wsdl:fault name="unrecognizedLanguageException" element="dss:UnrecognizedLanguageException"/>
+			<wsdl:fault name="unsupportedLanguageException" element="dss:UnsupportedLanguageException"/>
+			<wsdl:fault name="unrecognizedScopedEntityException" element="dss:UnrecognizedScopedEntityException"/>
+			<wsdl:fault name="requiredDataNotProvidedException" element="dssWsdl:RequiredDataNotProvidedException"/>
+			<wsdl:fault name="invalidDriDataFormatException" element="dssWsdl:InvalidDriDataFormatException"/>
+			<wsdl:fault name="evaluationException" element="dss:EvaluationException"/>
+			<wsdl:fault name="dssRuntimeException" element="dss:DSSRuntimeException"/>
+		</wsdl:operation>
+		<wsdl:operation name="evaluateAtSpecifiedTime" pattern="http://www.w3.org/ns/wsdl/in-out" wsdlx:safe="true">
+			<wsdl:documentation>Throws one of the exceptions if an exception condition is present.  If none of the exception conditions are present, evaluates in a non-iterative fashion one or more knowledge modules using the data provided as an EvaluationRequest object and returns the result(s) of the evaluation as an EvaluationResponse object. 
+All time-stamped data are considered to have the time zone offset specified by the client, unless otherwise noted.
+The provision of excessive data (i.e., unrequired DataRequirementItemData) shall be ignored without leading to an exception.  However, a warning may be provided.</wsdl:documentation>
+			<wsdl:input messageLabel="In" element="dss:evaluateAtSpecifiedTime"/>
+			<wsdl:output messageLabel="Out" element="dss:evaluateAtSpecifiedTimeResponse"/>
+			<wsdl:fault name="invalidSpecifiedTimeZoneOffsetException" element="dss:InvalidTimeZoneOffsetException"/>
+			<wsdl:fault name="unrecognizedLanguageException" element="dss:UnrecognizedLanguageException"/>
+			<wsdl:fault name="unsupportedLanguageException" element="dss:UnsupportedLanguageException"/>
+			<wsdl:fault name="unrecognizedScopedEntityException" element="dss:UnrecognizedScopedEntityException"/>
+			<wsdl:fault name="requiredDataNotProvidedException" element="dssWsdl:RequiredDataNotProvidedException"/>
+			<wsdl:fault name="invalidDriDataFormatException" element="dssWsdl:InvalidDriDataFormatException"/>
+			<wsdl:fault name="evaluationException" element="dss:EvaluationException"/>
+			<wsdl:fault name="dssRuntimeException" element="dss:DSSRuntimeException"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	<wsdl:binding name="SimpleEvaluationBinding" interface="dssWsdl:SimpleEvaluation" type="http://www.w3.org/ns/wsdl/http">
+		<wsdl:operation ref="dssWsdl:evaluate" whttp:method="POST"/>
+		<wsdl:operation ref="dssWsdl:evaluateAtSpecifiedTime" whttp:method="POST"/>
+	</wsdl:binding>
+	<wsdl:service name="DecisionSupportService" interface="dssWsdl:SimpleEvaluation">
+		<wsdl:endpoint name="SimpleEvaluationEndpoint" binding="dssWsdl:SimpleEvaluationBinding" address="http://www.exampleLocation.com/evaluation/"/>
+	</wsdl:service>
+</wsdl:description>

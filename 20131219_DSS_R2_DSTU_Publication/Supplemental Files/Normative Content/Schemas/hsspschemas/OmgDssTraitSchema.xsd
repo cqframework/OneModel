@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (x64) (http://www.altova.com) by David Shields (Duke University Medical Center) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsstraits="http://www.omg.org/spec/CDSS/201309/dssTraits" targetNamespace="http://www.omg.org/spec/CDSS/201309/dssTraits" elementFormDefault="qualified">
+	<xs:include schemaLocation="../hl7v3schemas/coreschemas/iso-21090_hl7-r2_datatypes.xsd"/>
+	<!--Traits-->
+	<xs:element name="StewardOrganization" type="xs:string"/>
+	<xs:element name="CreationDate" type="xs:dateTime"/>
+	<xs:element name="LastReviewDate" type="xs:dateTime"/>
+	<xs:element name="AuthorList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Author" type="dsstraits:EN" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FreeTextKeywordList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FreeTextKeyword" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CodedValueKeywordList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CodedValueKeyword" type="dsstraits:CD" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Purpose" type="xs:string"/>
+	<xs:element name="Explanation" type="xs:string"/>
+	<!--Trait Criteria-->
+	<xs:element name="ReviewedOnOrAfter" type="xs:dateTime"/>
+	<xs:element name="ReviewedWithinLastXDays" type="xs:nonNegativeInteger"/>
+	<xs:element name="FreeTextKeywordContainsString" type="xs:string"/>
+	<xs:element name="CodedValueKeywordExists" type="dsstraits:CD"/>
+	<xs:element name="CodedValueKeywordOrKeywordDescendantExists" type="dsstraits:CD"/>
+</xs:schema>
