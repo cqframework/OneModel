@@ -58,9 +58,7 @@ Includes concepts such as mild, moderate, severe</xs:documentation>
 	</xs:complexType>
 	<xs:complexType name="AbstractDeniedCondition" abstract="true">
 		<xs:complexContent>
-			<xs:extension base="ConditionBase">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="ConditionBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="AdministrableSubstance">
@@ -778,9 +776,7 @@ PCV	PCV	event occurs [duration] after dinner (from the Latin post cibus vesperti
 			<xs:documentation>A denial that the subject has or had the specified adverse event.  E.g., if adverseEventCode is hives, adverse event agent is penicillin, and documentation time is 2011-05-01, an assertion was made on 2011-05-01 that the subject does not get hives as a reaction to penicillin.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AdverseEventBase">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="AdverseEventBase"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DeniedAllergyOrIntolerance">
@@ -813,9 +809,7 @@ Common denials of allergies or intolerances to a class of agents can be expresse
 			<xs:documentation>An statement denying the presence of a clinical condition.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="AbstractDeniedCondition">
-				<xs:sequence/>
-			</xs:extension>
+			<xs:extension base="AbstractDeniedCondition"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DietOrder">
