@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2014 sp1 (x64) (http://www.altova.com) by Kensaku Kawamoto (University of Utah) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsdt:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" targetNamespace="urn:hl7-org:cdsdt:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data types used.  The data types are a simplified/constrained version of the HL7 version 3 datatypes specification, release 2, which is itself based on the implementable specification of ISO 21090 data types.</xs:documentation>
@@ -917,7 +916,6 @@ If no extension attribute is provided in a non-null II, then the root is the com
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				
 				<xs:attribute name="value" type="xs:integer" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the INT. Note that this specification imposes no limitations on the size of integer, but most implementations will map this to a 32 or 64 bit integer.</xs:documentation>
@@ -952,9 +950,7 @@ Any ordered type can be the basis of an IVL; it does not matter whether the base
 This class is maintained here despite the lack of attributes to maintain compatibility with the ISO 21090 data structure.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="QSET">
-				
-			</xs:extension>
+			<xs:extension base="QSET"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="IVL_CO">
@@ -1327,7 +1323,6 @@ CodeSystem "PostalAddressUse", OID: 2.16.840.1.113883.5.1012, Owner: HL7 </xs:do
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				
 				<xs:attribute name="value" type="Decimal" use="required">
 					<xs:annotation>
 						<xs:documentation>The number which is multiplied by the unit to make the PQ.</xs:documentation>
@@ -1365,9 +1360,7 @@ QSETs SHALL not contain null or nullFlavored values as members of the set.
 This class is maintained here despite the lack of attributes to maintain compatibility with the ISO 21090 data structure.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ANY">
-				
-			</xs:extension>
+			<xs:extension base="ANY"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="QTY" abstract="true">
@@ -1377,9 +1370,7 @@ This class is maintained here despite the lack of attributes to maintain compati
 The quantity type abstraction is needed in defining certain other types, such as the interval, and probability distributions.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ANY">
-				
-			</xs:extension>
+			<xs:extension base="ANY"/>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="REAL">
@@ -1388,7 +1379,6 @@ The quantity type abstraction is needed in defining certain other types, such as
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				
 				<xs:attribute name="value" type="Decimal" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the REAL. </xs:documentation>
@@ -1447,7 +1437,6 @@ A ST SHALL have at least one character or else be null.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				
 				<xs:attribute name="value" type="xs:string" use="required">
 					<xs:annotation>
 						<xs:documentation>The actual content of the string. </xs:documentation>
@@ -1468,7 +1457,6 @@ Note:  The intent of this datatype is to be a locator, not an identifier; this d
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ANY">
-				
 				<xs:attribute name="value" type="xs:anyURI" use="required">
 					<xs:annotation>
 						<xs:documentation>A uniform resource identifier specified according to IETF RFC 2396. 
@@ -1609,7 +1597,6 @@ CodeSystem "TelecommunicationCapabilities", OID: 2.16.840.1.113883.5.1118, Owner
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="QTY">
-				
 				<xs:attribute name="value" type="TimeStamp" use="required">
 					<xs:annotation>
 						<xs:documentation>The value of the TS. value is a string with the format "YYYY[MM[DD[HH[MM[SS[.U[U[U[U]]]]]]]]][+|-ZZzz]" that conforms to the constrained ISO 8601 defined in ISO 8824 (ASN.1) under clause 32 (generalized time). The format should be used to the degree of precision that is appropriate.</xs:documentation>
@@ -1638,7 +1625,6 @@ Even though this specification recognizes no semantic difference between the dif
 		<xs:annotation>
 			<xs:documentation>A part of a name or address. Each part is a character string.</xs:documentation>
 		</xs:annotation>
-		
 		<xs:attribute name="value" type="xs:string" use="required">
 			<xs:annotation>
 				<xs:documentation>The actual string value of the part.</xs:documentation>

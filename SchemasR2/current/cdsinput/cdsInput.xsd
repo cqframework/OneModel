@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2014 sp1 (x64) (http://www.altova.com) by Kensaku Kawamoto (University of Utah) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsinput:r2" xmlns:cdsin="urn:hl7-org:cdsinput:r2" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" targetNamespace="urn:hl7-org:cdsinput:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies input data used by CDS systems.</xs:documentation>
