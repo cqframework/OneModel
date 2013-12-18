@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2014 sp1 (x64) (http://www.altova.com) by Kensaku Kawamoto (University of Utah) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsoutputspecification:r2" xmlns:cdsos="urn:hl7-org:cdsoutputspecification:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2" targetNamespace="urn:hl7-org:cdsoutputspecification:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS output data produced for a specific CDS use case.</xs:documentation>
@@ -40,8 +39,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="CDSOutputAsStringNameValuePairSpecification"
-		type="CDSOutputAsStringNameValuePairSpecification"/>
+	<xs:element name="CDSOutputAsStringNameValuePairSpecification" type="CDSOutputAsStringNameValuePairSpecification"/>
 	<xs:complexType name="CDSOutputAsStringNameValuePairSpecification">
 		<xs:annotation>
 			<xs:documentation>The parent class specifying the string name value pair output to be provided by a specific CDS use case.  </xs:documentation>
