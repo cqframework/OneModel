@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:knowledgeartifact:r1" targetNamespace="urn:hl7-org:knowledgeartifact:r1" elementFormDefault="qualified">
+	<xs:simpleType name="CriterionRoleTypeCore">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="InitialPatientPopulation">
+				<xs:annotation>
+					<xs:documentation>This role type specifies that a criterion is used to define the initial patient population for a clinical quality measure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Numerator">
+				<xs:annotation>
+					<xs:documentation>This role type specifies that a criterion is used to define the numerator for a clinical quality measure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Denominator">
+				<xs:annotation>
+					<xs:documentation>This role type specifies that a criterion is used to define the denominator for a clinical quality measure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DenominatorException">
+				<xs:annotation>
+					<xs:documentation>This role type specifies that a criterion is used to define the denominator exception for a clinical quality measure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Stratifier">
+				<xs:annotation>
+					<xs:documentation>This role type specifies that a criterion is used to define a stratifier for a clinical quality measure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
