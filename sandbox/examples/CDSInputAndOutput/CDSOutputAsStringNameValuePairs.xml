@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is an example CDSOutput where the output is represented in vMR format -->
+<CDSOutputAsStringNameValuePairs xmlns="urn:hl7-org:cdsoutput:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vmr="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xsi:schemaLocation="urn:hl7-org:cdsoutput:r2 ../../schemata/cdsoutput/cdsOutput.xsd">
+   <stringNameValuePair>
+      <vmr:name value="Denominator criteria met"/>
+      <vmr:value value="true"/>
+   </stringNameValuePair>
+   <stringNameValuePair>
+      <vmr:name value="Numerator criteria met"/>
+      <vmr:value value="true"/>
+   </stringNameValuePair>
+</CDSOutputAsStringNameValuePairs>
+
+
+

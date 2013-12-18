@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsinputspecification:r2" xmlns:cdsis="urn:hl7-org:cdsinputspecification:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2" targetNamespace="urn:hl7-org:cdsinputspecification:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS input data required for a specific CDS use case.</xs:documentation>
@@ -10,7 +10,9 @@
 		<xs:annotation>
 			<xs:documentation>The parent class containing the data required by a specific CDS use case.  For example, this class can be used to specify that the evaluation of a patient for the need for a mammogram requires the following data: (i) gender; (ii) age; (iii) past mastectomy history; and (iv) past mammogram history.
 
-Can include a detailed input specification for the focal patient as well as for related evaluated persons.  Note that it is assumed that the superset of data required for related evaluated persons are the same for each of the related evaluated persons (e.g., relatives).  If input specifications are not provided regarding patients or other evaluated persons, then this signifies that no further constraints are being placed on required data other than what is expressed through the input data model and its existing template(s).</xs:documentation>
+Can include a detailed input specification for the focal patient as well as for related evaluated persons.  Note that it is assumed that the superset of data required for related evaluated persons are the same for each of the related evaluated persons (e.g., relatives).  If input specifications are not provided regarding patients or other evaluated persons, then this signifies that no further constraints are being placed on required data other than what is expressed through the input data model and its existing template(s).
+
+ As a specific example, a CDSInputSpecification may be used to specify required CDS input by a CDS guidance service compliant with the HL7 Decision Support Service standard.  Specifically, this type of specification can be encapsulated within the “query” section of a Decision Support Service’s specification of knowledge module data requirements.  Further information regarding this type of use case can be found in the HL7 Decision Support Service specification and the HL7 Decision Support Service Implementation Guide.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="requiredCdsResourceType" type="dt:CD" minOccurs="0" maxOccurs="unbounded">

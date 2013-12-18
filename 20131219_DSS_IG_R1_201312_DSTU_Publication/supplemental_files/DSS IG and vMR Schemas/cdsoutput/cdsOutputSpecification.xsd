@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsoutputspecification:r2" xmlns:cdsos="urn:hl7-org:cdsoutputspecification:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns:vmr="urn:hl7-org:vmr:r2" targetNamespace="urn:hl7-org:cdsoutputspecification:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies the specific CDS output data produced for a specific CDS use case.</xs:documentation>
@@ -94,7 +94,9 @@ Can include a detailed output specification for the focal patient as well as for
 	</xs:complexType>
 	<xs:complexType name="CDSOutputSpecification" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. </xs:documentation>
+			<xs:documentation>Abstract base class specifying the output to be provided by a specific CDS use case. 
+
+ As a specific example, a CDSOutputSpecification may be used to specify details on the CDS output that will be returned by a CDS guidance service compliant with the HL7 Decision Support Service standard.  Specifically, this type of specification can be encapsulated within the “CDS output specification” section of a Decision Support Service’s specification of knowledge module evaluation result semantics.  Further information regarding this type of use case can be found in the HL7 Decision Support Service specification and the HL7 Decision Support Service Implementation Guide.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="cdsOutputTemplate" type="vmr:CodedIdentifier" minOccurs="0" maxOccurs="unbounded">

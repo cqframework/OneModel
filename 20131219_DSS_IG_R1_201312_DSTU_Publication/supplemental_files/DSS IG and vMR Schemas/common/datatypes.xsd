@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:cdsdt:r2" xmlns:dt="urn:hl7-org:cdsdt:r2" targetNamespace="urn:hl7-org:cdsdt:r2" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>Specifies data types used.  The data types are a simplified/constrained version of the HL7 version 3 datatypes specification, release 2, which is itself based on the implementable specification of ISO 21090 data types.</xs:documentation>
@@ -375,6 +375,21 @@ The code system name has no computational value. codeSystemName can never modify
 Information Processing Entities claiming direct or indirect conformance SHALL NOT functionally rely on codeSystemName. In addition, they MAY choose not to implement codeSystemName; but SHALL NOT reject instances because codeSystemName is present.
 
 Note:  The purpose of a code system name is to assist an unaided human interpreter of a code value to interpret codeSystem.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="codeSystemVersion" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>If applicable, a version descriptor defined specifically for the given code system.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="valueSet" type="Uid" use="optional">
+					<xs:annotation>
+						<xs:documentation>The value set that applied when this CD was created.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="valueSetVersion" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>The version of the valueSet in which the code was found.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 			</xs:extension>
