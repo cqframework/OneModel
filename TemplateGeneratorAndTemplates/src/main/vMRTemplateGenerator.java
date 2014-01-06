@@ -23,7 +23,7 @@ public class vMRTemplateGenerator
 	/*
 	 * !!!! IMPORTANT!  Make sure FINAL_CONTENT_ROW below is updated to last row in Excel spreadsheet of Source.  !!!!
 	 */
-	public static final int FINAL_CONTENT_ROW = 1316;
+	public static final int FINAL_CONTENT_ROW = 1325;
 	
 	private static final boolean INCLUDE_EXAMPLES = false;
 	
