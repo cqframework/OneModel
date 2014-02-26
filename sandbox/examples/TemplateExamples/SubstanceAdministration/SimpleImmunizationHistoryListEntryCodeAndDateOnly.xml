@@ -13,8 +13,8 @@
         <dt:displayName value="Immunization/vaccination management (procedure)"/>
     </substanceAdministrationGeneralPurpose>
     <administrationTimeInterval>
-        <dt:low value="2012"/>
-        <dt:high value="2013"/>
+        <dt:low value="20120101"/>
+        <dt:high value="20120101"/>
     </administrationTimeInterval>
 </ClinicalStatement>
 

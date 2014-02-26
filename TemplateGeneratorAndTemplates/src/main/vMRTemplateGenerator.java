@@ -31,7 +31,7 @@ public class vMRTemplateGenerator
 	// if false, everything available in source file will be outputted.  Can use for visualizing Google Doc contents for review purposes
 	// if true, only those in the completed templates file will be outputted.  This is for publication and balloting purposes.
 	
-	private static final String COLUMN_TO_USE_FOR_TEMPLATES_OUTPUT = "D"; // if there is an X in this column, it is exported.  
+	private static final String COLUMN_TO_USE_FOR_TEMPLATES_OUTPUT = "E"; // if there is an X in this column, it is exported.  
 	// Note if RESTRICT_OUTPUT_BASED_ON_COMPLETED_TEMPLATES_FILE is false, this does not come into play.		
 
 	private enum TemplateCellFormat
