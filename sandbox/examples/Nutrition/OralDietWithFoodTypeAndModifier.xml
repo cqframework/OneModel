@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OralDietOrder xmlns:dt="urn:hl7-org:cdsdt:r2"
+    xmlns:vmr="urn:hl7-org:vmr:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:vmr:r2 file:/C:/cnanjo/repository/OneModel/sandbox/schemata/vmr/vmr.xsd"
+    xmlns="urn:hl7-org:vmr:r2">
+    <dietType codeSystem="2.16.840.1.113883.6.96" code="439101000124101">
+        <dt:originalText value="Easy to chew diet (regime/therapy)"/>
+    </dietType>
+    <!-- Ask Margaret for source of codes -->
+    <foodType codeSystem="??" code="??">
+        <dt:displayName value="Meats"/>
+    </foodType>
+    <foodType codeSystem="??" code="??">
+        <dt:displayName value="Vegetables"/>
+    </foodType>
+    <texture>
+        <foodType codeSystem="??" code="??">
+            <dt:displayName value="Meats"/>
+        </foodType>
+        <textureType>
+            <dt:displayName value="Ground"/>
+        </textureType>
+    </texture>
+    <texture>
+        <foodType codeSystem="??" code="??">
+            <dt:displayName value="Vegetables"/>
+        </foodType>
+        <textureType>
+            <dt:displayName value="Pureed"/>
+        </textureType>
+    </texture>
+    <dietEffectiveTime>
+        <dt:low value="20140330"/>
+    </dietEffectiveTime>
+    <orderEventTime>
+        <dt:low value="20140230"/>
+        <dt:high value="20140230"/>
+    </orderEventTime>
+</OralDietOrder>

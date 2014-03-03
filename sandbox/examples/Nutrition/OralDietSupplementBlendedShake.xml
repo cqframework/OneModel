@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OralDietOrder xmlns:dt="urn:hl7-org:cdsdt:r2"
+    xmlns:vmr="urn:hl7-org:vmr:r2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:vmr:r2 file:/C:/cnanjo/repository/OneModel/sandbox/schemata/vmr/vmr.xsd"
+    xmlns="urn:hl7-org:vmr:r2">
+    <comment>
+        <content xsi:type="dt:ED" value="High-calory protein shake"/>
+    </comment>
+    <dietType codeSystem="2.16.840.1.113883.6.96" code="439021000124105">
+        <dt:displayName value="Dietary liquid consistency - nectar thick liquid (regime/therapy)"/>
+    </dietType>
+    <dietType codeSystem="2.16.840.1.113883.6.96" code="437461000124104">
+        <dt:displayName value="Increased protein diet (regime/therapy)"/>
+    </dietType>
+    <dietType codeSystem="2.16.840.1.113883.6.96" code="435701000124100">
+        <dt:displayName value="Energy modified diet (regime/therapy)"/>
+    </dietType>
+    <!-- Ask Margaret for source of codes -->
+    <foodType codeSystem="??" code="??">
+        <dt:displayName value="Fruits"/>
+    </foodType>
+    <frequency>
+        <cycle>
+            <cycleTiming xsi:type='vmr:CodedRecurringEvent'>
+                <when codeSystem="2.16.840.1.113883.4.642.2.19" code="PCD">
+                    <dt:displayName value="event occurs [duration] after lunch (from the Latin post cibus diurnus)."/>
+                </when>
+                <repeatCode code="Q1D" codeSystem="??">
+                    <dt:displayName value="Once daily"/>
+                </repeatCode>
+            </cycleTiming> 
+        </cycle>
+    </frequency>
+    <!-- What should the amount of carbohydrates be? Is this better capture with another attribute called, say, caloryContent? -->
+    <nutrient>
+        <nutrient>
+            <dt:displayName value="CHO"/>
+        </nutrient>
+        <quantity>
+            <dt:low value="45" unit="g"/>
+            <dt:high value="45" unit="g"/>
+        </quantity>
+    </nutrient>
+    <texture>
+        <foodType codeSystem="??" code="??">
+            <dt:displayName value="Fruits"/>
+        </foodType>
+        <textureType>
+            <dt:displayName value="Blended"/>
+        </textureType>
+    </texture>
+    <dietEffectiveTime>
+        <dt:low value="20140330"/>
+    </dietEffectiveTime>
+    <orderEventTime>
+        <dt:low value="20140230"/>
+        <dt:high value="20140230"/>
+    </orderEventTime>
+</OralDietOrder>

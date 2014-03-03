@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vmr:OralDietOrder xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xmlns:vmr="urn:hl7-org:vmr:r2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 file:/C:/cnanjo/repository/OneModel/sandbox/schemata/vmr/vmr.xsd">
+   <vmr:dietType codeSystem="2.16.840.1.113883.6.96" code="436991000124104">
+      <dt:originalText value="Increased fiber diet (regime/therapy)"/>
+    </vmr:dietType>
+   <vmr:dietType codeSystem="2.16.840.1.113883.6.96" code="435651000124106">
+      <dt:originalText value="Consistent carbohydrate diet (regime/therapy)"/>
+   </vmr:dietType>
+   <vmr:dietEffectiveTime>
+      <dt:low value="20140330"/>
+   </vmr:dietEffectiveTime>
+</vmr:OralDietOrder>

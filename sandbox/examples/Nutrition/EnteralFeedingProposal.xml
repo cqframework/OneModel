@@ -51,8 +51,8 @@
         </deliveryRateGoal>
     </dose>
     <caloricDensity>
-        <dt:low value="1000" unit="kcal"/>
-        <dt:high value="1000" unit="kcal"/>
+        <dt:low value="880" unit="kcal"/>
+        <dt:high value="880" unit="kcal"/>
     </caloricDensity>
 </EnteralFeedingProposal>
 <!-- Specify type of tube. Should we model a device? -->

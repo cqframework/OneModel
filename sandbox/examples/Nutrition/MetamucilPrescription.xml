@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GroupingClinicalStatement xmlns:vmr="urn:hl7-org:vmr:r2"
+ xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 file:/C:/cnanjo/repository/OneModel/sandbox/schemata/vmr/vmr.xsd"
+ xmlns="urn:hl7-org:vmr:r2">
+ <!-- Prescription for metamucil -->
+ <groupingConcept codeSystem="??" code="??">
+  <dt:displayName value="Metamucil Prescription"/>
+ </groupingConcept>
+ <!-- Dispense -->
+ <relatedClinicalStatement>
+  <targetRole>
+   <dt:displayName value="Dispense"/>
+  </targetRole>
+  <clinicalStatement xsi:type="SubstanceDispenseProposal">
+   <substance>
+    <substanceCode code="880853" codeSystem="2.16.840.1.113883.6.88">
+     <dt:displayName value="Psyllium 14.2 MG/ML Oral Suspension [Metamucil]"/>
+    </substanceCode>
+   </substance>
+   <proposedDispenseTime lowClosed="true" highClosed="false">
+    <dt:low value="20130910"/>
+    <dt:high value="20130917"/>
+   </proposedDispenseTime>
+   <!-- Unsure of unit here: bag, pouch, ... -->
+   <dispenseQuantity value="14" unit="pouch"/>
+   <numberOfFillsAllowed value="1"/>
+   <supplyDuration value="7" unit="days"/>
+   <validityPeriod>
+    <dt:low value="20130911"/>
+   </validityPeriod>
+   <proposalEventTime>
+    <dt:low value="20130910"/>
+    <dt:high value="20130910"/>
+   </proposalEventTime>
+  </clinicalStatement>
+ </relatedClinicalStatement>
+ <!-- Substance Administration -->
+ <relatedClinicalStatement>
+  <targetRole>
+   <dt:displayName value="Dosing Instructions"/>
+  </targetRole>
+  <clinicalStatement xsi:type="SubstanceAdministrationProposal">
+   <substance>
+    <substanceCode code="880853" codeSystem="2.16.840.1.113883.6.88">
+     <dt:displayName value="Psyllium 14.2 MG/ML Oral Suspension [Metamucil]"/>
+    </substanceCode>
+   </substance>
+   <dose>
+    <!-- 1 pouch twice daily after meals -->
+    <doseQuantity>
+     <dt:low value="1" unit="pouch"/>
+     <dt:high value="1" unit="pouch"/>
+    </doseQuantity>
+    <frequency>
+     <cycle>
+      <cycleTiming xsi:type='vmr:CodedRecurringEvent'>
+       <when codeSystem="HL7 Timing OID here" code="PC">
+        <dt:displayName value="event occurs [duration] after a meal (from the Latin post cibus)."/>
+       </when>
+       <repeatCode code="BID" codeSystem="??">
+        <dt:displayName value="Twice daily"/>
+       </repeatCode>
+      </cycleTiming> 
+     </cycle>
+    </frequency>
+   </dose>
+  </clinicalStatement>
+ </relatedClinicalStatement>
+</GroupingClinicalStatement>
