@@ -9,10 +9,12 @@
         <!-- Provide active problem list -->
         <clinicalStatementInputSpecification>
             <requiredClinicalStatementTemplate root="2.16.840.1.113883.3.1829.11.7.2.4" identifierName="ActiveProblemListEntryCodeOnly"/>
+            <requiredClinicalStatementClass code="TPS"/>
         </clinicalStatementInputSpecification>
         <!-- Provide immunizations (specifically, pneumococcal vaccinations) -->
         <clinicalStatementInputSpecification>
             <requiredClinicalStatementTemplate root="2.16.840.1.113883.3.1829.11.9.1.11" identifierName="SimpleImmunizationHistoryListEntryCodeAndDateOnly"/>
+            <requiredClinicalStatementClass code="TPS"/>
             <codedAttributeRequirement>
                 <targetCodedAttribute code="substance.substanceCode"/>
                 <targetCode codeSystem="OID for CVX" code="133"/>

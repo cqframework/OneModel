@@ -20,9 +20,9 @@ Plus Trace Element with Selenium Pkg
 NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
 
 -->
-<CompositeSubstanceProposal xmlns="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+<CompositeSubstanceProposal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:cdsdt:r2 ../../schemata/common/datatypes.xsd urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd"
+ xmlns="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2">
     <comment>
         <type>
             <dt:displayName value="Instructions to care provider"/>
@@ -47,10 +47,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:denominator xsi:type="dt:INT" value="1"/>
             </strength>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="5.5" unit="percent"/>
-            <dt:high value="5.5" unit="percent"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="5.5" unit="percent"/>
+                <dt:high value="5.5" unit="percent"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <constituentType>
@@ -65,10 +67,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:denominator xsi:type="dt:INT" value="1"/>
             </strength>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="2.5" unit="percent"/>
-            <dt:high value="2.5" unit="percent"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="2.5" unit="percent"/>
+                <dt:high value="2.5" unit="percent"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <constituentType>
@@ -83,10 +87,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:denominator xsi:type="dt:INT" value="1"/>
             </strength>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="22.7" unit="percent"/>
-            <dt:high value="22.7" unit="percent"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="22.7" unit="percent"/>
+                <dt:high value="22.7" unit="percent"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <constituentType>
@@ -97,10 +103,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Adult Multivitamin Combination"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="1" unit="package"/>
-            <dt:high value="1" unit="package"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="1" unit="package"/>
+                <dt:high value="1" unit="package"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <constituentType>
@@ -111,10 +119,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Trace Elements with Selenium"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="1" unit="package"/>
-            <dt:high value="1" unit="package"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="1" unit="package"/>
+                <dt:high value="1" unit="package"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <substance>
@@ -122,10 +132,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Sodium Chloride"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="60" unit="mEq"/>
-            <dt:high value="60" unit="mEq"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="60" unit="mEq"/>
+                <dt:high value="60" unit="mEq"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <substance>
@@ -133,10 +145,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Potassium Chloride"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="45" unit="mEq"/>
-            <dt:high value="45" unit="mEq"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="45" unit="mEq"/>
+                <dt:high value="45" unit="mEq"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <substance>
@@ -144,10 +158,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Potassium Phosphate"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="30" unit="mEq"/>
-            <dt:high value="30" unit="mEq"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="30" unit="mEq"/>
+                <dt:high value="30" unit="mEq"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <substance>
@@ -155,10 +171,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Calcium Gluconate"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="16" unit="mEq"/>
-            <dt:high value="16" unit="mEq"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="16" unit="mEq"/>
+                <dt:high value="16" unit="mEq"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <constituent>
         <substance>
@@ -166,10 +184,12 @@ NEED TO WORK ON THIS EXAMPLE WITH DOMAIN EXPERT.
                 <dt:displayName value="Magnesium Sulphate"/>
             </substanceCode>
         </substance>
-        <substanceAmount lowClosed="true" highClosed="true">
-            <dt:low value="24" unit="mEq"/>
-            <dt:high value="24" unit="mEq"/>
-        </substanceAmount>
+        <dose>
+            <doseQuantity>
+                <dt:low value="24" unit="mEq"/>
+                <dt:high value="24" unit="mEq"/>
+            </doseQuantity>
+        </dose>
     </constituent>
     <totalVolume lowClosed="true" highClosed="true">
         <dt:low value="1724" unit="ml"/>

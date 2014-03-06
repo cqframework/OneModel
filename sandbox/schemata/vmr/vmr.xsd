@@ -97,6 +97,7 @@ Approaches to representing specific statements:
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="MissedAppointment" type="MissedAppointment"/>
+	<xs:element name="vMR" type="VMR"/>
 	<xs:complexType name="MissedAppointment">
 		<xs:annotation>
 			<xs:documentation>An appointment that was (i) scheduled, (ii) not rescheduled or canceled, and (iii) for which the EvaluatedPerson did not show up.</xs:documentation>
@@ -279,15 +280,17 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="maxDoseForInterval" type="dt:PQ" minOccurs="1" maxOccurs="1">
+					<xs:element name="maxDoseForInterval" type="dt:PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Maximum amount of substance that can be given within the specified time interval.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="minDoseForInterval" type="dt:PQ" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="timeInterval" type="dt:PQ" minOccurs="1" maxOccurs="1">
+					<xs:element name="timeInterval" type="dt:PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The time interval during which the dose specified is the maximum amount that should be administered.</xs:documentation>
+							<xs:documentation>The time interval during which the dose specified is the maximum or minimum amount that should be administered.
+
+Note: if the timeInterval is left out, it will be implied to be the duration of the treatment. It is preferable, however, to specify a value for timeInterval.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -855,7 +858,7 @@ Requirement: This is useful input for an Immunization CDS engine. Expired admini
 							<xs:documentation>Specification of how a patient will be moved from their hospital room to the performing department</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="radiationDose" type="dt:IVL_PQ" minOccurs="1" maxOccurs="1">
+					<xs:element name="radiationDose" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The amount of radiation intended to be administered to a patient.</xs:documentation>
 						</xs:annotation>
@@ -898,7 +901,7 @@ If the observationFocus is not observed, one may use an observationValue of type
 					</xs:element>
 					<xs:element name="certainty" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Code indicating whether allergy to agent is a 'Known' or 'Suspected'.</xs:documentation>
+							<xs:documentation>Code indicating degree of certainty about the problem or allergy to an agent, such as 'Known' or 'Suspected'.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="conditionStatus" type="dt:CD" minOccurs="0" maxOccurs="1">
@@ -942,9 +945,11 @@ Includes concepts such as mild, moderate, severe</xs:documentation>
 
 Use AdverseEvent to model adverse reaction. An adverse reaction is type of adverse event that is characterized by an undesired or unexpected negative reaction to an agent (generally a medication or a food item). 
 
-An adverse reactions can range from a mild reaction, such as a harmless rash to a severe and life-threatening reaction. They can occur immediately or develop over time. 
+An adverse reactions can range from a mild reaction, such as a harmless rash to a severe and life-threatening reaction. They can occur immediately or develop over time. For example, a patient may develop a rash after taking a particular medication. 
 
-For example, a patient may develop a rash after taking a particular medication. </xs:documentation>
+ In the case of adverse reactions, if a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events. 
+
+Note that allergies are represented as special types of conditions embodied in the AllergyOrIntolerance class, whereas individual adverse events are represented as adverse events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AdverseEventBase">
@@ -1374,7 +1379,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 							<xs:documentation>Generally the ingredient of the constituent (e.g., dopamine) such as an additive in a composite IV.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="dose" type="Dose" minOccurs="1" maxOccurs="1">
+					<xs:element name="dose" type="Dose" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The dose of the constituent that makes up the whole. E.g., 500ml 50% Dextrose solution</xs:documentation>
 						</xs:annotation>
@@ -1441,7 +1446,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 	<xs:element name="ObservationBase" type="ObservationBase"/>
 	<xs:complexType name="ObservationBase" abstract="true">
 		<xs:annotation>
-			<xs:documentation>The abstract base class for an observation, which is the act of recognizing and noting a fact.</xs:documentation>
+			<xs:documentation>The abstract base class for an observation which represents a result (e.g., a laboratory value), a clinical finding (e.g., sitting, tachypneic, rebound tenderness), or an inferred finding such as one produced by a CDS system (e.g., patient is in need of an HbA1c test).</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
@@ -1666,7 +1671,7 @@ There maybe a related clinical statement that identifies the topic of the commun
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
 				<xs:sequence>
-					<xs:element name="medium" type="dt:CD" minOccurs="0" maxOccurs="1">
+					<xs:element name="medium" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>The communication medium, e.g., email, fax</xs:documentation>
 						</xs:annotation>
@@ -1941,7 +1946,7 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 	<xs:element name="OralDietBase" type="OralDietBase"/>
 	<xs:complexType name="OralDietBase" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Concept generally representing a tray of food or a nutritional supplement prepared from food ingredients that is typically self-administered by a patient and consumed orally. Note that nutritional supplements derived from a specific product such as an Ensure shake or Metamucil should be represented using SubstanceAdministration or SubstanceDispense-related classes. Unlike these classes, OralDiet-related classes do not specify a specific product to administer but rather provide constraints that a nutrition fulfillment system may consider when preparing the order.</xs:documentation>
+			<xs:documentation>Concept generally representing food and/or a nutritional supplement prepared from food ingredients that is self-administered by a patient and consumed orally. Note that nutritional supplements derived from a specific product such as an Ensure shake or Metamucil should be represented using SubstanceAdministration or SubstanceDispense-related classes.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
@@ -1956,19 +1961,9 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>Indicates what type of food the diet should contain.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="frequency" type="Schedule" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>The interval in between occurrences. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="nutrient" type="NutrientModification" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Consists of the nutrient (e.g., Sodium) and the amount in the diet (e.g., 20-30g).</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Indication that the diet is to be used only in specified circumstances.  Typically, not used.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="texture" type="TextureModification" minOccurs="0" maxOccurs="unbounded">
@@ -1976,14 +1971,9 @@ UDE	http://hl7.org/fhir/v3/ActCode	unit dose equivalent</xs:documentation>
 							<xs:documentation>Specifies or modifies the texture for one or more types of food in a diet. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="isInEffect" type="dt:BL" minOccurs="0" maxOccurs="1">
+					<xs:element name="frequency" type="Schedule" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Indicates whether the diet item is currently in effect for the patient. </xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="reason" type="dt:CD" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>An indication, purpose or reason for why this diet is being or has been proposed/ordered.</xs:documentation>
+							<xs:documentation>The interval in between occurrences. For instance, 'Every 8 hours', TID, BID, q8h, etc... Frequency may be represented as either a code or as an interval.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="urgency" type="dt:CD" minOccurs="0" maxOccurs="1">
@@ -1994,9 +1984,47 @@ Characterizes how quickly an action must be initiated
 Includes concepts such as stat, urgent, routine</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="reason" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>An indication, purpose or reason for why this diet is being or has been proposed/ordered.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="prnReason" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indication that the diet is to be used only in specified circumstances.  Typically, not used.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="isInEffect" type="dt:BL" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Indicates whether the diet item is currently in effect for the patient. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="originationMode" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The mode the order was received (such as by telephone, electronic, verbal, written). This describes 'how' the communication was done as opposed to dataSourceType which specifies the 'where' and 'from'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="StringNameValuePair" type="StringNameValuePair"/>
+	<xs:complexType name="StringNameValuePair">
+		<xs:annotation>
+			<xs:documentation>Class that represents a generic StringName-StringValue-Pair object where the name is just an ST and the value is
+also an ST and defined by a template.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ExtendedVmrTypeBase">
+				<xs:sequence>
+					<xs:element name="name" type="dt:ST" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A String representing the name of the attribute.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="value" type="dt:ST" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A String representing the value of the attribute.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2254,7 +2282,7 @@ Includes diet- and nutrition-related orders for a patient/resident including ord
 							<xs:documentation>Specification of how a patient will be moved from their hospital room to the performing department</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="radiationDose" type="dt:IVL_PQ" minOccurs="1" maxOccurs="1">
+					<xs:element name="radiationDose" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The amount of radiation intended to be administered to a patient.</xs:documentation>
 						</xs:annotation>
@@ -2412,14 +2440,14 @@ Note that enumerations and value domains are anticipated to be specified in prof
 		<xs:complexContent>
 			<xs:extension base="Entity">
 				<xs:sequence>
-					<xs:element name="address" type="dt:AD" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>The place or the name of the place where an organization is located or may be reached.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="name" type="dt:ST" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A word or a combination of words by which an organization is known.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="address" type="dt:AD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The place or the name of the place where an organization is located or may be reached.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="telecom" type="dt:TEL" minOccurs="0" maxOccurs="unbounded">
@@ -2439,14 +2467,14 @@ Note that enumerations and value domains are anticipated to be specified in prof
 		<xs:complexContent>
 			<xs:extension base="Entity">
 				<xs:sequence>
-					<xs:element name="address" type="dt:AD" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>The place or the name of the place where a facility is located or may be reached.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="name" type="dt:ST" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>A word or a combination of words by which a facility is known.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="address" type="dt:AD" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The place or the name of the place where a facility is located or may be reached.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="telecom" type="dt:TEL" minOccurs="0" maxOccurs="unbounded">
@@ -2643,9 +2671,7 @@ Note that allergies are represented as a special type of conditions represented 
 	<xs:element name="AdverseEventBase" type="AdverseEventBase"/>
 	<xs:complexType name="AdverseEventBase" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Abstract base class for adverse events, which are unfavorable healthcare events (e.g., death, rash, difficulty breathing) that are thought to have been caused by some agent (e.g., a medication, immunization, food, or environmental agent). If a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events.
-
-Note that allergies are represented as special types of conditions embodied in the AllergyOrIntolerance class, whereas individual adverse events are represented as adverse events.</xs:documentation>
+			<xs:documentation>Abstract base class for both adverse events and denied adverse events.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ClinicalStatement">
@@ -2831,19 +2857,30 @@ If present, the Schedule.event indicates the time of the first occurrence.</xs:d
 	</xs:complexType>
 	<xs:element name="RadiotherapyProposal" type="RadiotherapyProposal"/>
 	<xs:complexType name="RadiotherapyProposal">
+		<xs:annotation>
+			<xs:documentation>A proposal for a radiotherapy procedure.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ProcedureProposal">
 				<xs:sequence>
 					<xs:element name="simulationMethod" type="RadiotherapySimulation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Simulation for a radiotherapy procedure.</xs:documentation>
+							<xs:documentation>In this part of the RadiotherapyProposal, the type of imaging and any accessories that will be used during the simulation session are defined.  For example, an order might indicate that the simulation should be done using a 4-dimensional PET-CT with 5mm slices, no bolus and wire (to mark surgical scar).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="motionManagement" type="MotionManagement" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="localizationMethod" type="LocalizationMethod" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="TreatmentPlanningInstructions" type="Dose" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="motionManagement" type="MotionManagement" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Dosing radiation instructions for a radiotherapy procedures. 
+							<xs:documentation>In this part of the RadiotherapyProposal, the positioning and type of immobilization for various parts of the body are defined.  For example,  an order might indicate that the head should be hyper-extended and immobilized in a head-support and thermoplastic mask.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="localizationMethod" type="LocalizationMethod" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>In this part of the RadiotherapyOrder, the imaging modality and the frequency it will be used to confirm that a tumor/target is in the same position at the time of treatment as it was at the time of simulation are defined.  For example, an order may indicate that a cone-beam CT (CBCT)should be acquired just prior to each treatment to confirm that a lung tumor is within a target volume.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="treatmentPlanningInstructions" type="Dose" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>In this part of the RadiotherapyProposal, the radiation delivery techniques to be used for treatment and the physician’s goals for how much radiation dose targets and normal tissues should receive are defined.  For example, an order might indicate that a treatment should use intensity modulate x-ray radiation (IMXT) to deliver at least 50 Gy to 95% of a planning target volume but no more than 20 Gy to 20% of the total lung volume.
 
 Please note the following guidance vis-a-vis dose:
 1. The target volume delineation is captured as the dose's targetBodySite. Values may include: GTV, ITV, CTV and PTV, for instance.
@@ -2851,7 +2888,6 @@ Please note the following guidance vis-a-vis dose:
 3. doseRestriction may be used to represent to total dose or the number of fractions for a given volume delineation. Note that this value may specify either a minimum or maximum volume - e.g., 30 GY</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2866,7 +2902,7 @@ Please note the following guidance vis-a-vis dose:
 				<xs:sequence>
 					<xs:element name="agent" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>An agent that causes or contributes to the allergy or intolerance, identified with as much specificity as available, or as required by a template.  Used for allergies, intolerances, and other reactions to a known agent.  E.g., penicillin, peanuts, latex.</xs:documentation>
+							<xs:documentation>An agent that causes or contributes to the allergy or intolerance, identified with as much specificity as available, or as required by a template.  Used for allergies and intolerances to a known agent.  E.g., penicillin, peanuts, latex.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -2939,19 +2975,30 @@ The purpose of this use case is to notify Food &amp; Nutrition Services of an or
 	</xs:complexType>
 	<xs:element name="RadiotherapyOrder" type="RadiotherapyOrder"/>
 	<xs:complexType name="RadiotherapyOrder">
+		<xs:annotation>
+			<xs:documentation>An order for a radiotherapy procedure.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ProcedureOrder">
 				<xs:sequence>
 					<xs:element name="simulationMethod" type="RadiotherapySimulation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Simulation for a radiotherapy procedure.</xs:documentation>
+							<xs:documentation>In this part of the RadiotherapyOrder, the type of imaging and any accessories that will be used during the simulation session are defined.  For example, an order might indicate that the simulation should be done using a 4-dimensional PET-CT with 5mm slices, no bolus and wire (to mark surgical scar).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="motionManagement" type="MotionManagement" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="localizationMethod" type="LocalizationMethod" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="TreatmentPlanningInstructions" type="Dose" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="motionManagement" type="MotionManagement" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Dosing radiation instructions for a radiotherapy procedures. 
+							<xs:documentation>In this part of the RadiotherapyOrder, the positioning and type of immobilization for various parts of the body are defined.  For example,  an order might indicate that the head should be hyper-extended and immobilized in a head-support and thermoplastic mask.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="localizationMethod" type="LocalizationMethod" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>In this part of the RadiotherapyOrder, the imaging modality and the frequency it will be used to confirm that a tumor/target is in the same position at the time of treatment as it was at the time of simulation are defined.  For example, an order may indicate that a cone-beam CT (CBCT)should be acquired just prior to each treatment to confirm that a lung tumor is within a target volume.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="treatmentPlanningInstructions" type="Dose" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>In this part of the RadiotherapyOrder, the radiation delivery techniques to be used for treatment and the physician’s goals for how much radiation dose targets and normal tissues should receive are defined.  For example, an order might indicate that a treatment should use intensity modulate x-ray radiation (IMXT) to deliver at least 50 Gy to 95% of a planning target volume but no more than 20 Gy to 20% of the total lung volume.
 
 Please note the following guidance vis-a-vis dose:
 1. The target volume delineation is captured as the dose's targetBodySite. Values may include: GTV, ITV, CTV and PTV, for instance.
@@ -2959,7 +3006,6 @@ Please note the following guidance vis-a-vis dose:
 3. doseRestriction may be used to represent to total dose or the number of fractions for a given volume delineation. Note that this value may specify either a minimum or maximum volume - e.g., 30 GY</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -3138,7 +3184,7 @@ PCV	PCV	event occurs [duration] after dinner (from the Latin post cibus vesperti
 	<xs:element name="MotionManagement" type="MotionManagement"/>
 	<xs:complexType name="MotionManagement">
 		<xs:annotation>
-			<xs:documentation>Class represents a method to control the positioning and movement of a specific area of the body generally during a procedure.</xs:documentation>
+			<xs:documentation>Class representing a method to control the positioning and movement of a specific area of the body. Such motion management may be conducted during a procedure.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
@@ -3160,7 +3206,7 @@ PCV	PCV	event occurs [duration] after dinner (from the Latin post cibus vesperti
 					</xs:element>
 					<xs:element name="immobilizationDevice" type="dt:CD" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>The device used to manage motion of the specified body region. E.g., Mask, Knee and foot pillow, endorectal balloon, stent.</xs:documentation>
+							<xs:documentation>Immobilization device refers to the device or devices used to maximize reproducibility of positioning and to minimize motion of a part of a body for each radiation treatment.   For example, a commonly used immobilization device is a thermoplastic mask for patients being treated to the head and neck region. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -3378,23 +3424,42 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 	</xs:complexType>
 	<xs:element name="RadiotherapySimulation" type="RadiotherapySimulation"/>
 	<xs:complexType name="RadiotherapySimulation">
+		<xs:annotation>
+			<xs:documentation>The type of imaging and any accessories that will be used during a simulation session for radiotherapy.  For example, an order might indicate that the simulation should be done using a 4-dimensional PET-CT with 5mm slices, no bolus and wire (to mark surgical scar).</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
 					<xs:element name="simulationImagingType" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>E.g., CT alone, CT-PET, CT-MRI, MRI alone.</xs:documentation>
+							<xs:documentation>Defines the type of imaging modality to be used. E.g., PET-CT, CT alone, CT-PET, CT-MRI, MRI alone.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="simulationDimensions" type="dt:CD" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>E.g., 2D, 3D or 4D</xs:documentation>
+							<xs:documentation>Defines whether the imaging is volumetric (3D) and whether motion over time will be modeled (4D). E.g., 2D, 3D or 4D</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="scanThickness" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="bolusThickness" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="bolusType" type="dt:CD" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="markerType" type="dt:CD" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="scanThickness" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Defines the distance between each imaging slice. E.g., 5mm between axial slices of a CT scan.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bolusType" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Defines the type of tissue-equivalent material that will be placed on a patient’s skin at the time of treatment to minimize the skin-sparing effect of high energy photon beams.  For example, paraffin wax may be used as a bolus.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bolusThickness" type="dt:IVL_PQ" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Defines the thickness of the bolus material to be used. E.g., 5mm thick</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="markerType" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Defines the type of marker that will be used to define the targeted area for treatment planning or localize the targeted area during treatment.  For example, gold coils may be placed within a tumor for localization during treatment.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="simulationComment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Additional information pertaining to the simulation</xs:documentation>
@@ -3406,12 +3471,27 @@ TID - the occurrence should happen 3 times within a 24 hour period but could occ
 	</xs:complexType>
 	<xs:element name="LocalizationMethod" type="LocalizationMethod"/>
 	<xs:complexType name="LocalizationMethod">
+		<xs:annotation>
+			<xs:documentation>The imaging modality and the frequency with which it will be used to confirm that a tumor/target is in the same position at the time of treatment as it was at the time of simulation are defined.  For example, an order may indicate that a cone-beam CT (CBCT)should be acquired just prior to each treatment to confirm that a lung tumor is within a target volume.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ExtendedVmrTypeBase">
 				<xs:sequence>
-					<xs:element name="localizationModality" type="dt:CD" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="localizationMethodFrequency" type="Schedule" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="comment" type="Documentation" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="localizationModality" type="dt:CD" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Defines the imaging modality to be used to verify the positioning of a patient and/or target prior and/or during a radiation treatment. For example, a patient may have a cone-beam CT prior to treatment to verify that a lung tumor is within the targeted volume.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="localizationMethodFrequency" type="Schedule" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Defines how often the localization imaging should be performed.  For example, a patient may have a cone-beam CT taken only once every 5 treatments.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="localizationMethodComment" type="Documentation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Additional comments pertaining to the localization method.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

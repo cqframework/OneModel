@@ -63,13 +63,22 @@
         <!-- Note that if code does not exist, one may use FrequencyAsInterval instead -->
         <frequency>
             <cycle>
-                <cycleLength value="8" unit="h"/>
-                <endOn value="20130303192012"/>
+                <cycleLength>
+                    <dt:low value="8" unit="h"/>
+                    <dt:high value="8" unit="h"/>
+                </cycleLength>
+                <endOn>
+                    <dt:low value="20130303192012"/>
+                    <dt:high value="20130303192012"/>
+                </endOn>
                 <cycleTiming xsi:type="RecurringEvent">
                     <when code="PTS" codeSystem="PTS" codeSystemName="PTS">
                         <dt:displayName value="PTS"/>
                     </when>
-                    <frequencyPerCycle value="1"/>
+                    <frequencyPerCycle>
+                        <dt:low value="1"/>
+                        <dt:high value="1"/>
+                    </frequencyPerCycle>
                     <intervalIsImportant value="false"/>
                 </cycleTiming>
             </cycle>

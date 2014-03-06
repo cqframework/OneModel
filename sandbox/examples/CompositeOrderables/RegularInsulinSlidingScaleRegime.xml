@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VMR xmlns="urn:hl7-org:vmr:r2"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:dt="urn:hl7-org:cdsdt:r2"
-    xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+<VMR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/common/datatypes.xsd urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd"
+ xmlns:dt="urn:hl7-org:cdsdt:r2" xmlns="urn:hl7-org:vmr:r2">
     <patient>
         <clinicalStatement xsi:type="GroupingClinicalStatement">
             <!-- Glucose measurement, blood, test strip -->

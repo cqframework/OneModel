@@ -20,9 +20,9 @@
             <dt:displayName value="PTS"/>
         </targetRole>
         <entity xsi:type="Entity">
-            <entityType codeSystem="PTS" codeSystemName="PTS" code="PTS">
+            <type codeSystem="PTS" codeSystemName="PTS" code="PTS">
                 <dt:displayName value="PTS"/> 
-            </entityType>
+            </type>
         </entity>
     </relatedEntity>
     <!-- . . . Substance other than Medication, Vaccine, or Food Product: -->
@@ -31,9 +31,9 @@
             <dt:displayName value="PTS"/> 
         </targetRole>
         <entity xsi:type="Entity">
-            <entityType codeSystem="PTS" codeSystemName="PTS" code="PTS">
+            <type codeSystem="PTS" codeSystemName="PTS" code="PTS">
                 <dt:displayName value="PTS"/> 
-            </entityType>
+            </type>
         </entity>
     </relatedEntity>
     <adverseEventCode codeSystem="PTS" codeSystemName="PTS" code="PTS">

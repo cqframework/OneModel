@@ -20,18 +20,7 @@
     <foodType codeSystem="??" code="??">
         <dt:displayName value="Fruits"/>
     </foodType>
-    <frequency>
-        <cycle>
-            <cycleTiming xsi:type='vmr:CodedRecurringEvent'>
-                <when codeSystem="2.16.840.1.113883.4.642.2.19" code="PCD">
-                    <dt:displayName value="event occurs [duration] after lunch (from the Latin post cibus diurnus)."/>
-                </when>
-                <repeatCode code="Q1D" codeSystem="??">
-                    <dt:displayName value="Once daily"/>
-                </repeatCode>
-            </cycleTiming> 
-        </cycle>
-    </frequency>
+
     <!-- What should the amount of carbohydrates be? Is this better capture with another attribute called, say, caloryContent? -->
     <nutrient>
         <nutrient>
@@ -50,6 +39,18 @@
             <dt:displayName value="Blended"/>
         </textureType>
     </texture>
+    <frequency>
+        <cycle>
+            <cycleTiming xsi:type='vmr:CodedRecurringEvent'>
+                <when codeSystem="2.16.840.1.113883.4.642.2.19" code="PCD">
+                    <dt:displayName value="event occurs [duration] after lunch (from the Latin post cibus diurnus)."/>
+                </when>
+                <repeatCode code="Q1D" codeSystem="??">
+                    <dt:displayName value="Once daily"/>
+                </repeatCode>
+            </cycleTiming> 
+        </cycle>
+    </frequency>
     <dietEffectiveTime>
         <dt:low value="20140330"/>
     </dietEffectiveTime>

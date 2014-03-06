@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VMR xmlns="urn:hl7-org:vmr:r2"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:dt="urn:hl7-org:cdsdt:r2"
-    xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
+<VMR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd" xmlns="urn:hl7-org:vmr:r2"
+ xmlns:dt="urn:hl7-org:cdsdt:r2">
     <patient>
         <clinicalStatement xsi:type="GroupingClinicalStatement">
             <!-- PREDNIZONE 10MG TAB (Dose 10MG, Freq: BID, Route Oral, Duration: 2 Days) -->
@@ -32,7 +32,10 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="2" unit="day"/>
+                                <cycleLength>
+                                    <dt:low value="2" unit="day"/>
+                                    <dt:high value="2" unit="day"/>
+                                </cycleLength>
                                 <cycleTiming xsi:type="CodedRecurringEvent">
                                     <repeatCode>
                                         <dt:displayName value="BID"/>
@@ -71,7 +74,10 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="3" unit="day"/>
+                                <cycleLength>
+                                    <dt:low value="3" unit="day"/>
+                                    <dt:high value="3" unit="day"/>
+                                </cycleLength>
                                 <cycleTiming xsi:type="CodedRecurringEvent">
                                     <repeatCode>
                                         <dt:displayName value="BID"/>
@@ -110,7 +116,10 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="3" unit="day"/>
+                                <cycleLength>
+                                    <dt:low value="3" unit="day"/>
+                                    <dt:high value="3" unit="day"/>
+                                </cycleLength>
                                 <cycleTiming xsi:type="CodedRecurringEvent">
                                     <repeatCode>
                                         <dt:displayName value="BID"/>
@@ -149,8 +158,11 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="2" unit="day"/>
-                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                <cycleLength>
+                                    <dt:low value="2" unit="day"/>
+                                    <dt:high value="2" unit="day"/>
+                                </cycleLength>
+                              <cycleTiming xsi:type="CodedRecurringEvent">
                                     <repeatCode>
                                         <dt:displayName value="QD"/>
                                     </repeatCode>
@@ -188,7 +200,10 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="1" unit="day"/>
+                                <cycleLength>
+                                    <dt:low value="1" unit="day"/>
+                                    <dt:high value="1" unit="day"/>
+                                </cycleLength>
                                 <cycleTiming xsi:type="CodedRecurringEvent">
                                     <repeatCode>
                                         <dt:displayName value="TID"/>
@@ -227,8 +242,11 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="5" unit="day"/>
-                                <cycleTiming xsi:type="CodedRecurringEvent">
+                                <cycleLength>
+                                    <dt:low value="5" unit="day"/>
+                                    <dt:high value="5" unit="day"/>
+                                </cycleLength>
+                              <cycleTiming xsi:type="CodedRecurringEvent">
                                     <repeatCode>
                                         <dt:displayName value="QID"/>
                                     </repeatCode>

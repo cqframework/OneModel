@@ -5,12 +5,9 @@
  Increased Protein~No Concentrated Sweets~ No Sweetened Beverages~High Fiber~Lacto Ovo~Gluten Free~
  Consistent Vitamin K Intake~High Calcium~ High Iron~ High Potassium~ Low Phosphorus   
  -->
-<DietOrder xmlns="urn:hl7-org:vmr:r2" xmlns:dt="urn:hl7-org:cdsdt:r2"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="urn:hl7-org:vmr:r2 ../schemata/vmr/vmr.xsd">
-    <supplyCode code="123" codeSystem="11.1111.11.1.1111" codeSystemName="Some Code System">
-        <dt:displayName value="Oral Diet"/>
-    </supplyCode>
+<OralDietOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd" xmlns="urn:hl7-org:vmr:r2"
+ xmlns:dt="urn:hl7-org:cdsdt:r2">
     <dietType code="123" codeSystem="11.1111.11.1.1111" codeSystemName="Some Code System">
         <dt:displayName value="Kosher"/>
     </dietType>
@@ -79,4 +76,4 @@
             <dt:displayName value="Honey Consistency"/>
         </textureModifier>
     </texture>
-</DietOrder>
+</OralDietOrder>

@@ -2,30 +2,46 @@
 <!-- Give medication X on day 4 for a span of three days three times per day and on day 15 for a span of one day 
     twice a day within a 27 day cycle. Repeat the cycle 5 times with a week interval between each cycle. -->
 <Cycle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../sandbox/schemata/vmr/vmr.xsd"
- xmlns="urn:hl7-org:vmr:r2">
-    <cycleLength value='27' unit='d'/>
+ xsi:schemaLocation="urn:hl7-org:cdsdt:r2 ../../schemata/common/datatypes.xsd urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd"
+ xmlns="urn:hl7-org:vmr:r2"  xmlns:dt="urn:hl7-org:cdsdt:r2">
+    <cycleLength>
+        <dt:low value="27" unit="d"/>
+    </cycleLength>
     <totalCycleCount value='5'/>
-    <cycleLagTime value='7' unit='d'/>
+    <cycleLagTime>
+        <dt:low value="7" unit="d"/>
+        <dt:high value="7" unit="d"/>
+    </cycleLagTime>
     <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='4' unit='d'/>
         <cycle>
-            <cycleLength value='24' unit='h'/>
-            <totalCycleCount value='3'/> <!-- Unnecessary -->
+            <cycleLength>
+                <dt:low value="24" unit="h"/>
+            </cycleLength>
+            <totalCycleCount value="3"/>
             <cycleTiming xsi:type='RecurringEvent'>
-                <frequencyPerCycle value='3'/>
-                <intervalIsImportant value='true'/>
+                <frequencyPerCycle>
+                    <dt:low value="3"/>
+                    <dt:high value="3"/>
+                </frequencyPerCycle>
+              <intervalIsImportant value='true'/>
             </cycleTiming>
         </cycle>
     </cycleTiming>
     <cycleTiming xsi:type='AnchoredEvent'>
         <pointInCycle value='15' unit='d'/>
         <cycle>
-            <cycleLength value='24' unit='h'/>
+            <cycleLength>
+                <dt:low value="24" unit="h"/>
+                <dt:high value="24" unit="h"/>
+            </cycleLength>
             <totalCycleCount value='1'/> <!-- Unnecessary -->
             <cycleTiming xsi:type='RecurringEvent'>
-                <frequencyPerCycle value='2'/>
-                <intervalIsImportant value='true'/>
+                <frequencyPerCycle>
+                    <dt:low value="2"/>
+                    <dt:high value="2"/>
+                </frequencyPerCycle>
+              <intervalIsImportant value='true'/>
             </cycleTiming>
         </cycle>
     </cycleTiming>

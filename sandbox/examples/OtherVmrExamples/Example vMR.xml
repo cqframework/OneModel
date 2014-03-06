@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Example vMR.  Note that templates are included in this example for illustrative purposes only.  For the definitive specification of templates, please see the HL7 vMR Templates specification.-->
 <vMR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd" xmlns="urn:hl7-org:vmr:r2"
- xmlns:dt="urn:hl7-org:cdsdt:r2">
+ xsi:schemaLocation="urn:hl7-org:vmr:r2 ../../schemata/vmr/vmr.xsd" xmlns:dt="urn:hl7-org:cdsdt:r2"
+ xmlns="urn:hl7-org:vmr:r2">
 	<templateId root="OID for vMR" identifierName="String"/>
 	<!-- The subject of the patient record -->
 	<patient>
@@ -15,13 +15,14 @@
 			<entity xsi:type="Person">
 				<templateId root="2.16.840.1.113883.3.1829.11.13.1.3" identifierName="Provider"/>
 				<description value=""/>
-				<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
-					<dt:displayName value="Provider"/>
-				</entityType>
+				<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
+					<dt:displayName value="CaseManager"/>
+				</type>
 				<attribute>
-					<name codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
+					<name value="caseManager"/>
+					<semanticCode codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
 						<dt:displayName value="TBD"/>
-					</name>
+					</semanticCode>
 					<value xsi:type="Value">
 						<value xsi:type="dt:CD" codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
 							<dt:displayName value="TBD"/>
@@ -38,10 +39,10 @@
 			</entity>
 		</relatedEntity>
 		<!--<age value="3.14159" unit="y"/>-->
-		<birthTime value="19630525"/>
+		<race codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 		<ethnicity codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 		<gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M"/>
-		<race codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+		<birthTime value="19630525"/>
 		<!-- An example of an adverse event -->
 		<clinicalStatement xsi:type="AdverseEvent">
 			<templateId root="2.16.840.1.113883.3.1829.11.3.1.2" identifierName="AdverseEventToMedicationOrImmunization"/>
@@ -78,7 +79,7 @@
 			<relatedEntity xsi:type="RelatedEntity">
 				<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				<entity xsi:type="Entity">
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				</entity>
 			</relatedEntity>
 			<adverseEventCode codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
@@ -100,7 +101,7 @@
 			<relatedEntity xsi:type="RelatedEntity">
 				<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				<entity xsi:type="Entity">
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				</entity>
 			</relatedEntity>
 			<adverseEventCode codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
@@ -170,9 +171,9 @@
 				<entity xsi:type="Facility">
 					<templateId root="2.16.840.1.113883.3.1829.11.13.1.4" identifierName="Facility"/>
 					<id root="OID for TBD" extension="TBD" identifierName="University of Utah Hospital"/>
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD">
 						<dt:displayName value="Hospital"/>
-					</entityType>
+					</type>
 				</entity>
 			</relatedEntity>
 			<relatedClinicalStatement>
@@ -274,14 +275,14 @@
 				</targetRole>
 				<entity xsi:type="Entity">
 					<templateId root="2.16.840.1.113883.3.1829.11.13.5.1" identifierName="Specimen"/>
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				</entity>
 			</relatedEntity>
 			<relatedEntity>
 				<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				<entity xsi:type="Entity">
 					<templateId root="2.16.840.1.113883.3.1829.11.13.4.1" identifierName="IdentifiedMicroorganism"/>
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				</entity>
 			</relatedEntity>
 			<observationFocus codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
@@ -309,7 +310,7 @@
 				</targetRole>
 				<entity xsi:type="Entity">
 					<templateId root="2.16.840.1.113883.3.1829.11.13.5.1" identifierName="Specimen"/>
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				</entity>
 			</relatedEntity>
 			<relatedClinicalStatement>
@@ -320,7 +321,7 @@
 						<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 						<entity xsi:type="Entity">
 							<templateId root="2.16.840.1.113883.3.1829.11.13.4.1" identifierName="IdentifiedMicroorganism"/>
-							<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+							<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 						</entity>
 					</relatedEntity>
 					<observationFocus codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
@@ -361,7 +362,7 @@
 				<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				<entity xsi:type="Entity">
 					<templateId root="2.16.840.1.113883.3.1829.11.13.4.1" identifierName="IdentifiedMicroorganism"/>
-					<entityType codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
+					<type codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				</entity>
 			</relatedEntity>
 			<observationFocus codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
@@ -471,10 +472,12 @@
 				<substance>
 					<substanceCode code="" codeSystem=""/>
 				</substance>
-				<substanceAmount>
-					<dt:low value="2" unit=""/>
-					<dt:high value="3" unit=""/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity>
+						<dt:low value="2" unit=""/>
+						<dt:high value="3" unit=""/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 			<constituent xsi:type="Constituent">
 				<constituentType>
@@ -483,10 +486,12 @@
 				<substance>
 					<substanceCode code="" codeSystem=""/>
 				</substance>
-				<substanceAmount>
-					<dt:low value="2" unit=""/>
-					<dt:high value="3" unit=""/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity>
+						<dt:low value="2" unit=""/>
+						<dt:high value="3" unit=""/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 		</clinicalStatement>
 		<!-- An example of a composite substance proposal such as a composite drug -->
@@ -532,10 +537,12 @@
 						<dt:denominator xsi:type="dt:PQ" value="1" unit="Tab"/>
 					</strength>
 				</substance>
-				<substanceAmount xsi:type="dt:IVL_PQ">
-					<dt:low xsi:type="dt:PQ" value="200" unit="mg"/>
-					<dt:high xsi:type="dt:PQ" value="250" unit="mg"/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity>
+						<dt:low xsi:type="dt:PQ" value="200" unit="mg"/>
+						<dt:high xsi:type="dt:PQ" value="250" unit="mg"/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 			<constituent>
 				<constituentType>
@@ -548,10 +555,12 @@
 						<dt:denominator xsi:type="dt:PQ" value="1" unit="Tab"/>
 					</strength>
 				</substance>
-				<substanceAmount xsi:type="dt:IVL_PQ">
-					<dt:low xsi:type="dt:PQ" value="200" unit="mg"/>
-					<dt:high xsi:type="dt:PQ" value="250" unit="mg"/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity xsi:type="dt:IVL_PQ">
+						<dt:low xsi:type="dt:PQ" value="200" unit="mg"/>
+						<dt:high xsi:type="dt:PQ" value="250" unit="mg"/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 		</clinicalStatement>
 		<!-- An example of a composite substance order -->
@@ -601,10 +610,12 @@
 						<dt:denominator xsi:type="dt:PQ" value="1000" unit="ml"/>
 					</strength>
 				</substance>
-				<substanceAmount xsi:type="dt:IVL_PQ">
-					<dt:low value="200" unit="ml"/>
-					<dt:high value="250" unit="ml"/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity>
+						<dt:low value="200" unit="ml"/>
+						<dt:high value="250" unit="ml"/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 			<constituent>
 				<constituentType>
@@ -618,27 +629,12 @@
 					</strength>
 					
 				</substance>
-				<substanceAmount xsi:type="dt:IVL_PQ">
-					<dt:low value="20" unit="ml"/>
-					<dt:high value="25" unit="ml"/>
-				</substanceAmount>
-			</constituent>
-			<constituent>
-				<constituentType>
-					<dt:displayName value="additive"/>
-				</constituentType>
-				<substance>
-					<substanceCode code="" codeSystem="" codeSystemName=""/>
-					<strength>
-						<dt:numerator xsi:type="dt:PQ" value="20" unit="mg"/>
-						<dt:denominator xsi:type="dt:PQ" value="100" unit="ml"/>
-					</strength>
-					
-				</substance>
-				<substanceAmount xsi:type="dt:IVL_PQ">
-					<dt:low value="20" unit="ml"/>
-					<dt:high value="25" unit="ml"/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity>
+						<dt:low value="20" unit="ml"/>
+						<dt:high value="25" unit="ml"/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 			<constituent>
 				<constituentType>
@@ -651,10 +647,30 @@
 						<dt:denominator xsi:type="dt:PQ" value="100" unit="ml"/>
 					</strength>
 				</substance>
-				<substanceAmount xsi:type="dt:IVL_PQ">
-					<dt:low value="20" unit="ml"/>
-					<dt:high value="25" unit="ml"/>
-				</substanceAmount>
+				<dose>
+					<doseQuantity xsi:type="dt:IVL_PQ">
+						<dt:low value="20" unit="ml"/>
+						<dt:high value="25" unit="ml"/>
+					</doseQuantity>
+				</dose>
+			</constituent>
+			<constituent>
+				<constituentType>
+					<dt:displayName value="additive"/>
+				</constituentType>
+				<substance>
+					<substanceCode code="" codeSystem="" codeSystemName=""/>
+					<strength>
+						<dt:numerator xsi:type="dt:PQ" value="20" unit="mg"/>
+						<dt:denominator xsi:type="dt:PQ" value="100" unit="ml"/>
+					</strength>
+				</substance>
+				<dose>
+					<doseQuantity>
+						<dt:low value="20" unit="ml"/>
+						<dt:high value="25" unit="ml"/>
+					</doseQuantity>
+				</dose>
 			</constituent>
 		</clinicalStatement>
 		<!-- An example of a laboratory proposal -->
@@ -677,9 +693,11 @@
 			</frequency>
 			<reason code="" codeSystem="" codeSystemName=""/>
 			<urgency code="" codeSystem="2.16.840.1.113883.6.96" codeSystemName=""/>
-			<collectionMethod code="" codeSystem="2.16.840.1.113883.12.488" codeSystemName=""/>
 			<specialHandling code="" codeSystem="" codeSystemName=""/>
-			<specimenSource code="" codeSystem="" codeSystemName=""/>
+			<specimen>
+				<type code="" codeSystem="" codeSystemName=""/>
+				<collectionMethod code="" codeSystem="2.16.840.1.113883.12.488" codeSystemName=""/>
+			</specimen>
 			<suspectedPathogen code="" codeSystem="2.16.840.1.113883.6.96" codeSystemName=""/>
 		</clinicalStatement>
 		<!-- end of primary ClinicalStatements -->
@@ -688,11 +706,11 @@
 			<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 			<otherEvaluatedPerson xsi:type="EvaluatedPerson">
 				<templateId root="2.16.840.1.113883.3.1829.11.2.4.2" identifierName="PatientRelative"/>
-				<age value="3.14159" unit="y"/>
-				<ageAtDeath value="68" unit="y"/>
-				<birthTime value="19630525"/>
 				<ethnicity codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 				<gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M"><dt:displayName value="Male"/></gender>
+				<birthTime value="19630525"/>
+				<age value="3.14159" unit="y"/>
+				<ageAtDeath value="68" unit="y"/>
 				<isDeceased value="false"/>
 			</otherEvaluatedPerson>
 		</relatedEvaluatedPerson>
@@ -701,8 +719,8 @@
 			<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 			<otherEvaluatedPerson xsi:type="EvaluatedPerson">
 				<templateId root="2.16.840.1.113883.3.1829.11.2.5.2" identifierName="PatientRelativeMinimal"/>
-				<ageAtDeath value="68" unit="y"/>
 				<gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M"><dt:displayName value="Male"/></gender>
+				<ageAtDeath value="68" unit="y"/>
 			</otherEvaluatedPerson>
 		</relatedEvaluatedPerson>
 		<!-- An example of a patient relative -->
@@ -710,8 +728,8 @@
 			<targetRole codeSystem="OID for TBD" codeSystemName="TBD" code="TBD"/>
 			<otherEvaluatedPerson xsi:type="EvaluatedPerson">
 				<templateId root="2.16.840.1.113883.3.1829.11.2.5.2" identifierName="PatientRelativeMinimal"/>
-				<ageAtDeath value="68" unit="y"/>
 				<gender codeSystem="2.16.840.1.113883.1.11.1" codeSystemName="HL7" code="M"><dt:displayName value="Male"/></gender>
+				<ageAtDeath value="68" unit="y"/>
 				<clinicalStatement xsi:type="Problem">
 					<templateId root="2.16.840.1.113883.3.1829.11.7.2.17" identifierName="FamilyMedicalHistoryEntryCodeTimeRangeCriticalityAndStatusOnly"/>
 					<conditionCode codeSystem="OID for ICD9CM" codeSystemName="ICD9CM" code="250.00"><dt:displayName value="Diabetes mellitus"/></conditionCode>

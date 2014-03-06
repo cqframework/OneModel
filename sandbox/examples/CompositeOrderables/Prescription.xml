@@ -71,9 +71,15 @@
                         </deliveryRoute>
                         <frequency>
                             <cycle>
-                                <cycleLength value="24" unit="hours"/>
-                                <cycleTiming xsi:type="RecurringEvent">
-                                    <frequencyPerCycle value="3"/>
+                                <cycleLength>
+                                    <dt:low value='24' unit='h'/>
+                                    <dt:high value="24" unit="h"/>
+                                </cycleLength>
+                              <cycleTiming xsi:type="RecurringEvent">
+                                    <frequencyPerCycle>
+                                        <dt:low value="3"/>
+                                        <dt:high value="3"/>
+                                    </frequencyPerCycle>
                                     <intervalIsImportant value="false"/>
                                 </cycleTiming>
                             </cycle>

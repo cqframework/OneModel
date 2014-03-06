@@ -5,9 +5,6 @@
  xsi:schemaLocation="urn:hl7-org:vmr:r2 file:/C:/cnanjo/repository/OneModel/sandbox/schemata/vmr/vmr.xsd"
  xmlns="urn:hl7-org:vmr:r2">
  <!-- Prescription for metamucil -->
- <groupingConcept codeSystem="??" code="??">
-  <dt:displayName value="Metamucil Prescription"/>
- </groupingConcept>
  <!-- Dispense -->
  <relatedClinicalStatement>
   <targetRole>
@@ -68,4 +65,7 @@
    </dose>
   </clinicalStatement>
  </relatedClinicalStatement>
+ <groupingConcept codeSystem="??" code="??">
+  <dt:displayName value="Metamucil Prescription"/>
+ </groupingConcept>
 </GroupingClinicalStatement>

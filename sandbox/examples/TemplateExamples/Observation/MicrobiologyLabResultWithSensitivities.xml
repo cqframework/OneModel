@@ -10,7 +10,7 @@
         </targetRole>
         <entity xsi:type="Specimen">
             <templateId root="2.16.840.1.113883.3.1829.11.13.5.2" identifierName="Lab Specimen"/>
-            <source codeSystem="PTS" codeSystemName="PTS" code="Code for some body fluid"/>
+            <type codeSystem="PTS" codeSystemName="PTS" code="Code for some body fluid"/>
         </entity>
     </relatedEntity>
     <!--Repeat this statement once per pair of organism and antimicrobial substance -->
@@ -27,7 +27,7 @@
                 <targetRole codeSystem="2.16.840.1.113883.5.90" codeSystemName="HL7 ParticipationType" code="PART"/>
                 <entity>
                     <templateId root="2.16.840.1.113883.3.1829.11.13.4.2" identifierName="Identified Microorganism Species"/>
-                    <entityType codeSystem="PTS" codeSystemName="PTS" code="Code for a microorganism species"/>
+                    <type codeSystem="PTS" codeSystemName="PTS" code="Code for a microorganism species"/>
                 </entity>
             </relatedEntity>
             <relatedEntity>
