@@ -8,7 +8,7 @@
          <dt:displayName value="Energy Density"/>
       </vmr:semanticCode>
       <vmr:value xsi:type="vmr:Value">
-         <vmr:value xsi:type="dt:PQ" value='1' unit='d'/>
+         <vmr:value xsi:type="dt:PQ" value="1" unit="mL"/>
       </vmr:value>
    </vmr:attribute>
    <vmr:dietType codeSystem="2.16.840.1.113883.6.96" code="436991000124104">
