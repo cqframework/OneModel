@@ -70,7 +70,7 @@
 					<xs:documentation>Narrows down the knowledge request by specifying a subdomain of interest (e.g., indications, contraindications, dose).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="extension" type="vmr:CodedNameValuePair" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="extension" type="vmr:NameValuePair" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Section for user-defined CDSContext attributes.</xs:documentation>
 				</xs:annotation>

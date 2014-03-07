@@ -97,7 +97,6 @@ Approaches to representing specific statements:
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="MissedAppointment" type="MissedAppointment"/>
-	<xs:element name="vMR" type="VMR"/>
 	<xs:complexType name="MissedAppointment">
 		<xs:annotation>
 			<xs:documentation>An appointment that was (i) scheduled, (ii) not rescheduled or canceled, and (iii) for which the EvaluatedPerson did not show up.</xs:documentation>
@@ -947,9 +946,17 @@ Use AdverseEvent to model adverse reaction. An adverse reaction is type of adver
 
 An adverse reactions can range from a mild reaction, such as a harmless rash to a severe and life-threatening reaction. They can occur immediately or develop over time. For example, a patient may develop a rash after taking a particular medication. 
 
- In the case of adverse reactions, if a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events. 
+In the case of adverse reactions, if a given agent is thought to cause multiple reactions, these reactions should be represented using multiple adverse events. 
 
-Note that allergies are represented as special types of conditions embodied in the AllergyOrIntolerance class, whereas individual adverse events are represented as adverse events.</xs:documentation>
+Note that allergies are represented as special types of conditions embodied in the AllergyOrIntolerance class, whereas individual adverse events are represented as adverse events.
+
+Note that a problem resulting from adverse event should not be confused with the adverse event. A fall is an adverse event whereas the fracture resulting from the fall is a problem.  In general, as a rule of thumb, if something can naturally be represented as a problem, it should be represented as a problem.
+
+Iatrogenic issues should generally be represented as both an adverse event and problem where feasible. For instance, hospital-acquired pneumonia, central-line infections, or deep-venous thrombosis occurring during a hospitalization.
+
+In some cases, the iatrogenic event will be distinct from the resulting problem. For example, an inadvertent liver laceration during surgery is an adverse event whereas the resulting liver bleeding is the problem.
+
+Note that 'Never-Events' are adverse events while the resulting condition from these events are problems.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="AdverseEventBase">
@@ -1741,6 +1748,7 @@ Includes concepts such as stat, urgent, routine</xs:documentation>
 					<xs:documentation>Optional unique identifier for the extended vmr type.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="attribute" type="NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="RespiratoryCareProposal" type="RespiratoryCareProposal"/>
