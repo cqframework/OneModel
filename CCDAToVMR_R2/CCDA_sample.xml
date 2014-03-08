@@ -543,7 +543,7 @@ Allergies, Adverse Reactions, Alerts
 						<act classCode="ACT" moodCode="EVN">
 							<templateId root="2.16.840.1.113883.10.20.22.4.30"/>
 							<!-- ** Allergy problem act ** -->
-							<!-- vMR mapping comments: mapped to vMR.patient.clinicalStatement[xsi:type="Problem"]. -->
+							<!-- vMR mapping comments: mapped to vMR.patient.clinicalStatement[xsi:type="AllergyOrIntolerance"]. -->
 							<id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
 							<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, adverse reactions, alerts"/>
 							<statusCode code="completed"/>
