@@ -8,24 +8,24 @@
 		<!-- Patient demographic information -->
 
 		<id extension="1" root="2.16.840.1.113883.4.6"/>
+		<name use="OR"><dt:part type="FAM" value="Jones"/><dt:part type="GIV" value="Myra"/></name>		
 		<address use="HP"><dt:part type="SAL" value="1357 Amber Drive"/><dt:part type="CTY" value="Beaverton"/><dt:part type="STA" value="OR"/><dt:part type="ZIP" value="97006"/><dt:part type="CNT" value="US"/></address>
-		<name use="OR"><dt:part type="FAM" value="Jones"/><dt:part type="GIV" value="Myra"/></name>
 		<telecom value="tel:(816)276-6909" use="HP"/>
-		<birthTime value="19470501"/>
+		<race code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race and Ethnicity - CDC"><dt:displayName value="White"/></race>
 		<ethnicity code="2186-5" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race and Ethnicity - CDC"><dt:displayName value="Not Hispanic or Latino"/></ethnicity>
 		<gender code="F" codeSystem="2.16.840.1.113883.5.1"><dt:displayName value="Female"/></gender>
+		<birthTime value="19470501"/>
 		<preferredLanguage code="eng" codeSystem="1.0.639.2" codeSystemName="ISO 639-2"/>
-		<race code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race and Ethnicity - CDC"><dt:displayName value="White"/></race>
 
 		<!-- Allergies  -->
 
-		<clinicalStatement xsi:type="Problem">
+		<clinicalStatement xsi:type="AllergyOrIntolerance">
 			<id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
-			<problemCode code="247472004" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Hives"/></problemCode>
-			<problemEffectiveTime><dt:low value="20070501"/><dt:high value="20120806"/></problemEffectiveTime>			
-			<problemAgent code="7982" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="Penicillin G benzathine"/></problemAgent>
-			<problemStatus code="73425007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Inactive"/></problemStatus>
+			<conditionCode code="247472004" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Hives"/></conditionCode>
+			<conditionEffectiveTime><dt:low value="20070501"/><dt:high value="20120806"/></conditionEffectiveTime>			
+			<conditionStatus code="73425007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Inactive"/></conditionStatus>
 			<severity code="371924009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Moderate to severe"/></severity>
+			<agent code="7982" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="Penicillin G benzathine"/></agent>
 		</clinicalStatement>
 		
 		<!-- Encounters and associated clinical statements -->
@@ -37,8 +37,8 @@
 				<targetRole code="RSON" codeSystem="2.16.840.1.113883.5.90" codeSystemName="HL7 ParticipationType"><dt:displayName value="reason"/></targetRole>
 				<clinicalStatement xsi:type="Problem">
 					<id root="db734647-fc99-424c-a864-7e3cda82e703" extension="45665"/>
-					<problemCode code="233604007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Pneumonia"/></problemCode>
-					<problemEffectiveTime><dt:low value="20120806"/></problemEffectiveTime>
+					<conditionCode code="233604007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Pneumonia"/></conditionCode>
+					<conditionEffectiveTime><dt:low value="20120806"/></conditionEffectiveTime>
 				</clinicalStatement>
 			</relatedClinicalStatement>
 			<!-- Diagnosis made during encounter-->
@@ -46,9 +46,9 @@
 				<targetRole code="SUBJ" codeSystem="2.16.840.1.113883.5.90" codeSystemName="HL7 ParticipationType"><dt:displayName value="subject"/></targetRole>
 				<clinicalStatement xsi:type="Problem">
 					<id root="5a784260-6856-4f38-9638-80c751aff2fb"/>
-					<problemCode code="233604007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Pneumonia"/></problemCode>
-					<problemEffectiveTime><dt:low value="20120806"/></problemEffectiveTime>
-					<problemStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Active"/></problemStatus>
+					<conditionCode code="233604007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Pneumonia"/></conditionCode>
+					<conditionEffectiveTime><dt:low value="20120806"/></conditionEffectiveTime>
+					<conditionStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Active"/></conditionStatus>
 				</clinicalStatement>
 			</relatedClinicalStatement>
 			<!-- Discharge medication -->
@@ -62,20 +62,35 @@
 						<clinicalStatement xsi:type="Problem">
 							<!-- Changed the id from the CCDA, because the same id appears to have been used for two different problems. -->
 							<id root="313e0fc5-d750-40fa-855b-c860f7a6b911" extension="45666"/>
-							<problemCode code="32398004" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Bronchitis"/></problemCode>
-							<problemEffectiveTime><dt:low value="20110113"/></problemEffectiveTime>
+							<conditionCode code="32398004" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Bronchitis"/></conditionCode>
+							<conditionEffectiveTime><dt:low value="20110113"/></conditionEffectiveTime>
 						</clinicalStatement>
 					</relatedClinicalStatement>
-					<deliveryRate><dt:low value="110" unit="ml/min"/><dt:high value="110" unit="ml/min"/></deliveryRate>
-					<deliveryRoute code="C38216" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus"><dt:displayName value="RESPIRATORY (INHALATION)"/></deliveryRoute>
-					<doseQuantity><dt:low value="1" unit="mg/actuat"/><dt:high value="1" unit="mg/actuat"/></doseQuantity>
-					<frequency xsi:type="FrequencyAsInterval"><intervalIsImportant value="false"/><period unit="h" value="24"/>
-					</frequency>
 					<substance>
-						<form code="324049" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="Aerosol"/></form>
 						<substanceCode code="896001" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="120 ACTUAT Fluticasone propionate 0.11 MG/ACTUAT Metered Dose Inhaler"/></substanceCode>
+						<form code="324049" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="Aerosol"/></form>
 					</substance>
 					<substanceAdministrationGeneralPurpose code="18629005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<dose>
+						<doseQuantity><dt:low value="1" unit="mg/actuat"/><dt:high value="1" unit="mg/actuat"/></doseQuantity>
+						<deliveryRoute code="C38216" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus"><dt:displayName value="RESPIRATORY (INHALATION)"/></deliveryRoute>
+						<deliveryRate><dt:low value="110" unit="ml/min"/><dt:high value="110" unit="ml/min"/></deliveryRate>
+						<frequency>
+							<cycle>
+								<cycleLength>
+									<dt:low value="24" unit="h"/>
+								</cycleLength>
+								<cycleTiming xsi:type="RecurringEvent">
+									<frequencyPerCycle>
+										<dt:low value="1"/>
+										<dt:high value="1"/>
+									</frequencyPerCycle>
+									<intervalIsImportant value="false"/>
+								</cycleTiming>
+							</cycle>
+						</frequency>
+					</dose>
+					
 					<administrationTimeInterval><dt:low value="20120813"/><dt:high value="20120813"/></administrationTimeInterval>
 					<orderEventTime><dt:low value="20120813"/><dt:high value="20120813"/></orderEventTime>
 				</clinicalStatement>	
@@ -88,10 +103,12 @@
 		
 		<clinicalStatement xsi:type="SubstanceAdministrationEvent">
 			<id root="e6f1ba43-c0ed-4b9b-9f12-f435d8ad8f92"/>
-			<deliveryRoute code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="National Cancer Institute (NCI) Thesaurus"><dt:displayName value="Intramuscular injection"/></deliveryRoute>
-			<doseQuantity><dt:low value="50" unit="mcg"/><dt:high value="50" unit="mcg"/></doseQuantity>
 			<substance><substanceCode code="88" codeSystem="2.16.840.1.113883.6.59" codeSystemName="CVX"><dt:displayName value="Influenza virus vaccine"/></substanceCode></substance>			
 			<substanceAdministrationGeneralPurpose code="384810002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Immunization/vaccination management"/></substanceAdministrationGeneralPurpose>
+			<dose>
+				<doseQuantity><dt:low value="50" unit="mcg"/><dt:high value="50" unit="mcg"/></doseQuantity>
+				<deliveryRoute code="C28161" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="National Cancer Institute (NCI) Thesaurus"><dt:displayName value="Intramuscular injection"/></deliveryRoute>
+			</dose>
 			<administrationTimeInterval><dt:low value="20120510"/><dt:high value="20120510"/></administrationTimeInterval>
 		</clinicalStatement>
 		
@@ -104,16 +121,32 @@
 				<targetRole code="RSON" codeSystem="2.16.840.1.113883.5.90" codeSystemName="HL7 ParticipationType"><dt:displayName value="reason"/></targetRole>
 				<clinicalStatement xsi:type="Problem">
 					<id root="db734647-fc99-424c-a864-7e3cda82e703" extension="45665"/>
-					<problemCode code="233604007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Pneumonia"/></problemCode>
-					<problemEffectiveTime><dt:low value="20120806"/></problemEffectiveTime>
+					<conditionCode code="233604007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Pneumonia"/></conditionCode>
+					<conditionEffectiveTime><dt:low value="20120806"/></conditionEffectiveTime>
 				</clinicalStatement>
 			</relatedClinicalStatement>
-			<deliveryRate><dt:low value="90" unit="ml/min"/><dt:high value="90" unit="ml/min"/></deliveryRate>
-			<deliveryRoute code="C38216" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus"><dt:displayName value="RESPIRATORY (INHALATION)"/></deliveryRoute>
-			<doseQuantity><dt:low value="0.09" unit="mg/actuat"/><dt:high value="0.09" unit="mg/actuat"/></doseQuantity>						
-			<frequency xsi:type="FrequencyAsInterval"><intervalIsImportant value="false"/><period value="12" unit="h"/></frequency>
-			<substance><substanceCode code="573621" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="Albuterol 0.09 MG/ACTUAT inhalant solution"/></substanceCode></substance>						
-			<substanceAdministrationGeneralPurpose code="18629005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Management of drug regimen"/></substanceAdministrationGeneralPurpose>			
+			<substance><substanceCode code="573621" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm"><dt:displayName value="Albuterol 0.09 MG/ACTUAT inhalant solution"/></substanceCode></substance>
+			<substanceAdministrationGeneralPurpose code="18629005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Management of drug regimen"/></substanceAdministrationGeneralPurpose>		
+			<dose>
+				<doseQuantity><dt:low value="0.09" unit="mg/actuat"/><dt:high value="0.09" unit="mg/actuat"/></doseQuantity>						
+				<deliveryRoute code="C38216" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="NCI Thesaurus"><dt:displayName value="RESPIRATORY (INHALATION)"/></deliveryRoute>
+				<deliveryRate><dt:low value="90" unit="ml/min"/><dt:high value="90" unit="ml/min"/></deliveryRate>
+				<frequency>
+					<cycle>
+						<cycleLength>
+							<dt:low value="24" unit="h"/>
+							<dt:high value="24" unit="h"/>
+						</cycleLength>
+						<cycleTiming xsi:type="RecurringEvent">
+							<frequencyPerCycle>
+								<dt:low value="2"/>
+								<dt:high value="2"/>
+							</frequencyPerCycle>
+							<intervalIsImportant value="false"/>
+						</cycleTiming>
+					</cycle>
+				</frequency>
+			</dose>	
 			<administrationTimeInterval><dt:low value="20120806"/><dt:high value="20120813"/></administrationTimeInterval>									
 		</clinicalStatement>
 
@@ -121,11 +154,11 @@
 		
 		<clinicalStatement xsi:type="AppointmentProposal">
 			<id root="9a6d1bac-17d3-4195-89a4-1121bc809b4d"/>
-			<encounterType code="99241" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT"><dt:displayName value="Office consultation - 15 minutes"/></encounterType>			
 			<comment>
-				<content value="Follow up with Dr George Potomac for Asthma"/>
-				<type code="409073007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="instruction"/></type> 				
-			</comment>			
+				<type code="409073007" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="instruction"/></type> 		
+				<content value="Follow up with Dr George Potomac for Asthma"/>	
+			</comment>		
+			<encounterType code="99241" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT"><dt:displayName value="Office consultation - 15 minutes"/></encounterType>			
 			<proposedAppointmentTime><dt:low value="20120820"/><dt:high value="20120820"/></proposedAppointmentTime>			
 		</clinicalStatement>
 		
@@ -150,10 +183,10 @@
 		
 		<clinicalStatement xsi:type="Problem">
 			<id root="ab1791b0-5c71-11db-b0de-0800200c9a66"/>
-			<problemCode code="195967001" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Asthma"/></problemCode>
-			<problemEffectiveTime><dt:low value="20070103"/></problemEffectiveTime>
+			<conditionCode code="195967001" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Asthma"/></conditionCode>
+			<conditionEffectiveTime><dt:low value="20070103"/></conditionEffectiveTime>
 			<ageAtOnset unit="a" value="59"/>
-			<problemStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Active"/></problemStatus>
+			<conditionStatus code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"><dt:displayName value="Active"/></conditionStatus>
 		</clinicalStatement>
 
 		<!-- Procedures -->
@@ -169,8 +202,8 @@
 		
 		<clinicalStatement xsi:type="Problem">
 			<id root="ab1791b0-5c71-11db-b0de-0800200c9a66"/>
-			<problemCode code="105504002" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Dependence on Cane"/></problemCode>
-			<problemEffectiveTime><dt:low value="20081101"/></problemEffectiveTime>
+			<conditionCode code="105504002" codeSystem="2.16.840.1.113883.6.96"><dt:displayName value="Dependence on Cane"/></conditionCode>
+			<conditionEffectiveTime><dt:low value="20081101"/></conditionEffectiveTime>
 		</clinicalStatement>
 		
 		<!-- Results -->
