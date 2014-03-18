@@ -6432,7 +6432,7 @@
 					</attribute>
 					<attribute xmi:idref="EAID_C2F0FB0F_29B8_49cc_8656_A5FBE4E92931" name="foodType" scope="Public">
 						<initial/>
-						<documentation value="*********** DESCRIPTION TO BE WRITTEN."/>
+						<documentation value="Indicates what type of food the diet should contain."/>
 						<model ea_localid="230" ea_guid="{C2F0FB0F-29B8-49cc-8656-A5FBE4E92931}"/>
 						<properties type="Code" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
