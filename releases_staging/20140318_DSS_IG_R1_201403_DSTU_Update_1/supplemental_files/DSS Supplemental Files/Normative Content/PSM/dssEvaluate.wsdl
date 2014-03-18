@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:dss="http://www.omg.org/spec/CDSS/201309/dss" xmlns:dssWsdl="http://www.omg.org/spec/CDSS/201309/dssWsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" name="DSS_WSDL" targetNamespace="http://www.omg.org/spec/CDSS/201309/dssWsdl">
+	<wsdl:import namespace="http://www.omg.org/spec/CDSS/201309/dssWsdl" location="baseWsdl/dssBaseComponents.wsdl"/>
+	<wsdl:portType name="SimpleEvaluation">
+		<wsdl:documentation>The SimpleEvaluation Interface enables data evaluation using knowledge modules.  It contains only the "evaluate" operation from within the full Evaluation interface.</wsdl:documentation>
+		<wsdl:operation name="evaluate">
+			<wsdl:documentation>Throws one of the exceptions if an exception condition is present.  If none of the exception conditions are present, evaluates in a non-iterative fashion one or more knowledge modules using the data provided as an EvaluationRequest object and returns the result(s) of the evaluation as an EvaluationResponse object. 
+All time-stamped data are considered to have the time zone offset specified by the client, unless otherwise noted.
+The provision of excessive data (i.e., unrequired DataRequirementItemData) shall be ignored without leading to an exception.  However, a warning may be provided.</wsdl:documentation>
+			<wsdl:input message="dssWsdl:evaluateRequest"/>
+			<wsdl:output message="dssWsdl:evaluateResponse"/>
+			<wsdl:fault name="invalidSpecifiedTimeZoneOffsetException" message="dssWsdl:InvalidTimeZoneOffsetExceptionFault"/>
+			<wsdl:fault name="unrecognizedLanguageException" message="dssWsdl:UnrecognizedLanguageExceptionFault"/>
+			<wsdl:fault name="unsupportedLanguageException" message="dssWsdl:UnsupportedLanguageExceptionFault"/>
+			<wsdl:fault name="unrecognizedScopedEntityException" message="dssWsdl:UnrecognizedScopedEntityExceptionFault"/>
+			<wsdl:fault name="requiredDataNotProvidedException" message="dssWsdl:RequiredDataNotProvidedExceptionFault"/>
+			<wsdl:fault name="invalidDriDataFormatException" message="dssWsdl:InvalidDriDataFormatExceptionFault"/>
+			<wsdl:fault name="evaluationException" message="dssWsdl:EvaluationExceptionFault"/>
+			<wsdl:fault name="dssRuntimeException" message="dssWsdl:DSSRuntimeExceptionFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="evaluateAtSpecifiedTime">
+			<wsdl:documentation>Throws one of the exceptions if an exception condition is present.  If none of the exception conditions are present, evaluates in a non-iterative fashion one or more knowledge modules using the data provided as an EvaluationRequest object and returns the result(s) of the evaluation as an EvaluationResponse object. 
+Conducts evaluation as if it was currently the specified date and time.
+All time-stamped data are considered to have the time zone offset specified by the client, unless otherwise noted.
+The provision of excessive data (i.e., unrequired DataRequirementItemData) shall be ignored without leading to an exception.  However, a warning may be provided.</wsdl:documentation>
+			<wsdl:input message="dssWsdl:evaluateAtSpecifiedTimeRequest"/>
+			<wsdl:output message="dssWsdl:evaluateAtSpecifiedTimeResponse"/>
+			<wsdl:fault name="invalidSpecifiedTimeZoneOffsetException" message="dssWsdl:InvalidTimeZoneOffsetExceptionFault"/>
+			<wsdl:fault name="unrecognizedLanguageException" message="dssWsdl:UnrecognizedLanguageExceptionFault"/>
+			<wsdl:fault name="unsupportedLanguageException" message="dssWsdl:UnsupportedLanguageExceptionFault"/>
+			<wsdl:fault name="unrecognizedScopedEntityException" message="dssWsdl:UnrecognizedScopedEntityExceptionFault"/>
+			<wsdl:fault name="requiredDataNotProvidedException" message="dssWsdl:RequiredDataNotProvidedExceptionFault"/>
+			<wsdl:fault name="invalidDriDataFormatException" message="dssWsdl:InvalidDriDataFormatExceptionFault"/>
+			<wsdl:fault name="evaluationException" message="dssWsdl:EvaluationExceptionFault"/>
+			<wsdl:fault name="dssRuntimeException" message="dssWsdl:DSSRuntimeExceptionFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="simpleEvaluationSOAPBinding" type="dssWsdl:SimpleEvaluation">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="evaluate">
+			<soap:operation soapAction="http://www.omg.org/spec/CDSS/201105/dssWsdl:operation:evaluate" soapActionRequired="false" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidSpecifiedTimeZoneOffsetException">
+				<soap:fault name="invalidSpecifiedTimeZoneOffsetException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="unrecognizedLanguageException">
+				<soap:fault name="unrecognizedLanguageException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="unsupportedLanguageException">
+				<soap:fault name="unsupportedLanguageException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="unrecognizedScopedEntityException">
+				<soap:fault name="unrecognizedScopedEntityException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="requiredDataNotProvidedException">
+				<soap:fault name="requiredDataNotProvidedException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="invalidDriDataFormatException">
+				<soap:fault name="invalidDriDataFormatException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="evaluationException">
+				<soap:fault name="evaluationException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="dssRuntimeException">
+				<soap:fault name="dssRuntimeException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="evaluateAtSpecifiedTime">
+			<soap:operation soapAction="http://www.omg.org/spec/CDSS/201105/dssWsdl:operation:evaluateAtSpecifiedTime" soapActionRequired="false" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="invalidSpecifiedTimeZoneOffsetException">
+				<soap:fault name="invalidSpecifiedTimeZoneOffsetException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="unrecognizedLanguageException">
+				<soap:fault name="unrecognizedLanguageException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="unsupportedLanguageException">
+				<soap:fault name="unsupportedLanguageException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="unrecognizedScopedEntityException">
+				<soap:fault name="unrecognizedScopedEntityException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="requiredDataNotProvidedException">
+				<soap:fault name="requiredDataNotProvidedException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="invalidDriDataFormatException">
+				<soap:fault name="invalidDriDataFormatException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="evaluationException">
+				<soap:fault name="evaluationException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="dssRuntimeException">
+				<soap:fault name="dssRuntimeException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DecisionSupportService">
+		<wsdl:port name="evaluate" binding="dssWsdl:simpleEvaluationSOAPBinding">
+			<soap:address location="www.exampleLocation.com/evaluation"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
