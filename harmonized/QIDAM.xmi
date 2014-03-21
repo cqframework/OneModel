@@ -4,7 +4,6 @@
 	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
 		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_D51DF601_2A2C_4ff8_B4A3_7FF41F190F1C" name="Model" visibility="public">
 			<packagedElement xmi:type="uml:Package" xmi:id="EAPK_2663152C_4446_4c85_B11F_A256116CC577" name="QIDAM Class Model" visibility="public">
-				<ownedComment xmi:type="uml:Comment" xmi:id="EAID_6D6F4916_F618_468b_A482_99510DA77867" body="Device needs to indicate its&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;capabilities&lt;/li&gt;&#xA;	&lt;li&gt;status - e.g., up and running&lt;/li&gt;&#xA;	&lt;li&gt;current state e.g., inhibitory state&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;HL7 Healthcare Devices WG&#xA;IEEE 11073 - collaboratively with HL7&#xA;Continua - adding security"/>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_B788C777_5DFE_419c_A7D9_1BFE0F7232AE" name="ActionNonPerformance" visibility="public" isAbstract="true">
 					<generalization xmi:type="uml:Generalization" xmi:id="EAID_90A0E498_6E35_453d_B8AC_0E12C8DDB641" general="EAID_C7BC9168_5F26_4ab1_B5A8_B833DADEC20E"/>
 				</packagedElement>
@@ -1953,8 +1952,8 @@
 			</element>
 			<element xmi:idref="EAID_7C3C6E52_2002_40ab_8CE8_3EBC15060E41" xmi:type="uml:Class" name="AllergyIntolerance" scope="public">
 				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" tpos="0" ea_localid="85" ea_eleType="element"/>
-				<properties documentation="An statement about an allergy or intolerance triggered by a known or suspected agent. " isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Aziz" version="1.0" phase="1.0" created="2013-11-06 20:04:16" modified="2013-12-10 22:59:59" complexity="1" status="Proposed"/>
+				<properties documentation="A statement about an allergy or intolerance triggered by a known or suspected agent. " isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="Aziz" version="1.0" phase="1.0" created="2013-11-06 20:04:16" modified="2014-03-18 10:07:41" complexity="1" status="Proposed"/>
 				<code gentype="Java" genfile="C:\Users\Aziz\Downloads\Working\code\QIDAM Class Model\AllergyIntolerance.java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -1983,8 +1982,8 @@
 			</element>
 			<element xmi:idref="EAID_643B53D6_1113_4284_B92D_B80B825F0658" xmi:type="uml:Class" name="BodySite" scope="public">
 				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" tpos="0" ea_localid="146" ea_eleType="element"/>
-				<properties documentation="A location on an person's body.  E.g., left breast, heart." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Aziz" version="1.0" phase="1.0" created="2013-12-04 12:51:42" modified="2014-03-05 10:13:07" complexity="1" status="Proposed"/>
+				<properties documentation="A location on a person's body.  E.g., left breast, heart." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="Aziz" version="1.0" phase="1.0" created="2013-12-04 12:51:42" modified="2014-03-18 10:07:08" complexity="1" status="Proposed"/>
 				<code gentype="Java" genfile="C:\Users\Aziz\Downloads\Working\code\QIDAM Class Model\BodySite.java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -1994,7 +1993,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_CFE1C854_54EB_4355_A43F_048E7C89D8BA" name="anatomicalLocation" scope="Public">
 						<initial/>
-						<documentation value="A location on an patient's body.  May or may not encompass laterality.  E.g., lung, left lung."/>
+						<documentation value="A location on a patient's body.  May or may not encompass laterality. E.g., lung, left lung."/>
 						<model ea_localid="276" ea_guid="{CFE1C854-54EB-4355-A43F-048E7C89D8BA}"/>
 						<properties type="Code" derived="0" collection="false" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -2422,8 +2421,8 @@
 			</element>
 			<element xmi:idref="EAID_4D93C489_EBFF_47d8_A57A_C59D580AA9A5" xmi:type="uml:Class" name="Device" scope="public">
 				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" tpos="0" ea_localid="116" ea_eleType="element"/>
-				<properties documentation="This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Aziz" version="1.0" phase="1.0" created="2013-11-27 11:36:06" modified="2014-03-05 09:43:23" complexity="1" status="Proposed"/>
+				<properties documentation="This element identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="Aziz" version="1.0" phase="1.0" created="2013-11-27 11:36:06" modified="2014-03-21 10:15:23" complexity="1" status="Proposed"/>
 				<code gentype="Java" genfile="C:\Users\Aziz\Downloads\Working\code\QIDAM Class Model\Device.java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -3524,8 +3523,8 @@
 			</element>
 			<element xmi:idref="EAID_B638B9D0_9BAD_4fb2_94DC_71AD2BDE3B37" xmi:type="uml:Class" name="Patient" scope="public">
 				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" tpos="0" ea_localid="122" ea_eleType="element"/>
-				<properties documentation="Demographics and other administrative information about a person or animal receiving care or other health-related services.&#xA;&#xA;This Resource covers data about persons and animals involved in a wide range of health-related activities, including:&#xA;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;Curative activities&lt;/li&gt;&#xA;	&lt;li&gt;Psychiatric care&lt;/li&gt;&#xA;	&lt;li&gt;Social services&lt;/li&gt;&#xA;	&lt;li&gt;Pregnancy care&lt;/li&gt;&#xA;	&lt;li&gt;Nursing and assisted living&lt;/li&gt;&#xA;	&lt;li&gt;Dietary services&lt;/li&gt;&#xA;	&lt;li&gt;Tracking of personal health and exercise data&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;The data in the Resource covers the &quot;who&quot; information about the patient: it's attributes are focused on the demographic information necessary to support the administrative, financial and logistic procedures. A Patient record is generally created and maintained by each organization providing care for a patient. A person or animal receiving care at multiple organizations may therefore have its information present in multiple Patient Resources." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Aziz" version="1.0" phase="1.0" created="2013-11-27 12:07:47" modified="2014-03-05 09:11:44" complexity="1" status="Proposed"/>
+				<properties documentation="Demographics and other administrative information about a person receiving care or other health-related services.&#xA;&#xA;The data in the element covers the &quot;who&quot; information about the patient: it's attributes are focused on the demographic information necessary to support the administrative, financial and logistic procedures." isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="Aziz" version="1.0" phase="1.0" created="2013-11-27 12:07:47" modified="2014-03-21 10:13:50" complexity="1" status="Proposed"/>
 				<code gentype="Java" genfile="C:\Users\Aziz\Downloads\Working\code\QIDAM Class Model\Patient.java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -3955,8 +3954,8 @@
 			</element>
 			<element xmi:idref="EAID_2ADF7841_6338_4ebb_BB37_10CAC2CA667A" xmi:type="uml:Class" name="RelatedPerson" scope="public">
 				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" tpos="0" ea_localid="130" ea_eleType="element"/>
-				<properties documentation="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a professional responsibility in the care process.&#xA;&#xA;RelatedPersons typically have a personal or non-healthcare-specific professional relationship to the patient. A RelatedPerson resource is primarily used for attribution of information, since RelatedPersons are often a source of information about the patient. Example RelatedPersons are:&#xA;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;A patient's wife or husband&lt;/li&gt;&#xA;	&lt;li&gt;A patient's relatives or friends&lt;/li&gt;&#xA;	&lt;li&gt;A neighbour bringing a patient to the hospital&lt;/li&gt;&#xA;	&lt;li&gt;A patient's attorney or guardian&lt;/li&gt;&#xA;&lt;/ul&gt;" isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="Aziz" version="1.0" phase="1.0" created="2013-12-03 12:40:59" modified="2014-03-13 18:33:24" complexity="1" status="Proposed"/>
+				<properties documentation="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a professional responsibility in the care process.&#xA;&#xA;RelatedPersons typically have a personal or non-healthcare-specific professional relationship to the patient. A RelatedPerson element is primarily used for attribution of information, since RelatedPersons are often a source of information about the patient. Example RelatedPersons are:&#xA;&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;A patient's wife or husband&lt;/li&gt;&#xA;	&lt;li&gt;A patient's relatives or friends&lt;/li&gt;&#xA;	&lt;li&gt;A neighbour bringing a patient to the hospital&lt;/li&gt;&#xA;	&lt;li&gt;A patient's attorney or guardian&lt;/li&gt;&#xA;&lt;/ul&gt;" isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="Aziz" version="1.0" phase="1.0" created="2013-12-03 12:40:59" modified="2014-03-21 10:15:05" complexity="1" status="Proposed"/>
 				<code gentype="Java" genfile="C:\Users\Aziz\Downloads\Working\code\QIDAM Class Model\RelatedPerson.java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<modelDocument/>
@@ -7394,17 +7393,6 @@
 				<links>
 					<Aggregation xmi:id="EAID_1EEC82FC_876C_4d28_80B4_92BD627B6C6C" start="EAID_5154A19C_EFD9_4135_816E_180A6832C023" end="EAID_F5BCE8C1_7A0D_42d2_ABD9_F088CA0EDE91"/>
 				</links>
-			</element>
-			<element xmi:idref="EAID_6D6F4916_F618_468b_A482_99510DA77867" xmi:type="uml:Note" scope="public">
-				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" tpos="0" ea_localid="231" ea_eleType="element"/>
-				<properties documentation="Device needs to indicate its&#xA;&lt;ul&gt;&#xA;	&lt;li&gt;capabilities&lt;/li&gt;&#xA;	&lt;li&gt;status - e.g., up and running&lt;/li&gt;&#xA;	&lt;li&gt;current state e.g., inhibitory state&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;HL7 Healthcare Devices WG&#xA;IEEE 11073 - collaboratively with HL7&#xA;Continua - adding security" isSpecification="false" sType="Note" nType="0" scope="public"/>
-				<project author="Aziz" version="1.0" phase="1.0" created="2014-03-04 11:22:31" modified="2014-03-04 11:31:02" complexity="1" status="Proposed"/>
-				<code gentype="&lt;none&gt;"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<modelDocument/>
-				<tags/>
-				<xrefs/>
-				<extendedProperties tagged="0" package_name="QIDAM Class Model"/>
 			</element>
 		</elements>
 		<connectors>
@@ -14667,9 +14655,9 @@
 			<diagram xmi:id="EAID_B39B518B_C77A_487f_838D_713C6DC4B461">
 				<model package="EAPK_2663152C_4446_4c85_B11F_A256116CC577" localID="16" owner="EAPK_2663152C_4446_4c85_B11F_A256116CC577"/>
 				<properties name="EntitiesAndExtendedTypes" type="Logical"/>
-				<project author="Aziz" version="1.0" created="2013-11-27 11:35:48" modified="2014-03-14 16:34:51"/>
+				<project author="Aziz" version="1.0" created="2013-11-27 11:35:48" modified="2014-03-18 10:07:09"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=799;DocSize.cy=1067;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=6AA258E8;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SaveTag=128956CA;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
 				<extendedProperties/>
@@ -14680,19 +14668,18 @@
 					<element geometry="Left=363;Top=654;Right=474;Bottom=724;" subject="EAID_CBFC4F60_5D6C_4bb5_8336_736A64F19C5B" seqno="4" style="DUID=C30C7313;"/>
 					<element geometry="Left=476;Top=563;Right=631;Bottom=618;" subject="EAID_5F7B2D5F_23B3_4807_94AA_CACDAD78038C" seqno="5" style="DUID=0BC1B620;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
 					<element geometry="Left=478;Top=362;Right=625;Bottom=435;" subject="EAID_B11DBFE6_624C_4b94_8BFD_B9A99C77E904" seqno="6" style="DUID=0ADB8E1E;"/>
-					<element geometry="Left=493;Top=21;Right=710;Bottom=158;" subject="EAID_6D6F4916_F618_468b_A482_99510DA77867" seqno="7" style="DUID=B53B64AF;"/>
-					<element geometry="Left=612;Top=484;Right=737;Bottom=554;" subject="EAID_421E3492_9274_4cf5_83DB_46D246D7D346" seqno="8" style="DUID=FEABCD2A;"/>
-					<element geometry="Left=314;Top=38;Right=404;Bottom=109;" subject="EAID_FD12A881_F882_4e1e_92D1_6F5A6BC36970" seqno="9" style="DUID=712CCABB;"/>
-					<element geometry="Left=265;Top=746;Right=383;Bottom=816;" subject="EAID_12A3AF5B_F2F6_4c90_A92F_4D77BFC03627" seqno="10" style="DUID=AF45C720;"/>
-					<element geometry="Left=31;Top=644;Right=186;Bottom=714;" subject="EAID_643B53D6_1113_4284_B92D_B80B825F0658" seqno="11" style="DUID=C8D6E861;"/>
-					<element geometry="Left=119;Top=433;Right=235;Bottom=503;" subject="EAID_2ADF7841_6338_4ebb_BB37_10CAC2CA667A" seqno="12" style="DUID=53024569;"/>
-					<element geometry="Left=26;Top=528;Right=178;Bottom=629;" subject="EAID_55B06D0E_3FE2_4b76_AEE9_405437C98DFE" seqno="13" style="DUID=93F63A60;"/>
-					<element geometry="Left=281;Top=192;Right=433;Bottom=280;" subject="EAID_FB39C456_57D0_4780_8F6A_8199ECEB8D2F" seqno="14" style="DUID=926134D1;"/>
-					<element geometry="Left=206;Top=317;Right=352;Bottom=418;" subject="EAID_B638B9D0_9BAD_4fb2_94DC_71AD2BDE3B37" seqno="15" style="DUID=FF9CB46E;"/>
-					<element geometry="Left=4;Top=329;Right=160;Bottom=417;" subject="EAID_937D9656_4704_4bc1_BB7B_9839D0BDC2E5" seqno="16" style="DUID=F9E8BC4F;"/>
-					<element geometry="Left=100;Top=165;Right=252;Bottom=266;" subject="EAID_05586DFB_272E_47dd_99D8_1B0E840F3A2D" seqno="17" style="DUID=0C83B479;"/>
-					<element geometry="Left=368;Top=476;Right=469;Bottom=546;" subject="EAID_628BFBAA_6800_43b6_A213_5E1E85DF1B11" seqno="18" style="DUID=30F04B68;"/>
-					<element geometry="Left=479;Top=180;Right=626;Bottom=304;" subject="EAID_4D93C489_EBFF_47d8_A57A_C59D580AA9A5" seqno="19" style="DUID=57EB30E7;"/>
+					<element geometry="Left=612;Top=484;Right=737;Bottom=554;" subject="EAID_421E3492_9274_4cf5_83DB_46D246D7D346" seqno="7" style="DUID=FEABCD2A;"/>
+					<element geometry="Left=314;Top=38;Right=404;Bottom=109;" subject="EAID_FD12A881_F882_4e1e_92D1_6F5A6BC36970" seqno="8" style="DUID=712CCABB;"/>
+					<element geometry="Left=265;Top=746;Right=383;Bottom=816;" subject="EAID_12A3AF5B_F2F6_4c90_A92F_4D77BFC03627" seqno="9" style="DUID=AF45C720;"/>
+					<element geometry="Left=31;Top=644;Right=186;Bottom=714;" subject="EAID_643B53D6_1113_4284_B92D_B80B825F0658" seqno="10" style="DUID=C8D6E861;"/>
+					<element geometry="Left=119;Top=433;Right=235;Bottom=503;" subject="EAID_2ADF7841_6338_4ebb_BB37_10CAC2CA667A" seqno="11" style="DUID=53024569;"/>
+					<element geometry="Left=26;Top=528;Right=178;Bottom=629;" subject="EAID_55B06D0E_3FE2_4b76_AEE9_405437C98DFE" seqno="12" style="DUID=93F63A60;"/>
+					<element geometry="Left=281;Top=192;Right=433;Bottom=280;" subject="EAID_FB39C456_57D0_4780_8F6A_8199ECEB8D2F" seqno="13" style="DUID=926134D1;"/>
+					<element geometry="Left=206;Top=317;Right=352;Bottom=418;" subject="EAID_B638B9D0_9BAD_4fb2_94DC_71AD2BDE3B37" seqno="14" style="DUID=FF9CB46E;"/>
+					<element geometry="Left=4;Top=329;Right=160;Bottom=417;" subject="EAID_937D9656_4704_4bc1_BB7B_9839D0BDC2E5" seqno="15" style="DUID=F9E8BC4F;"/>
+					<element geometry="Left=100;Top=165;Right=252;Bottom=266;" subject="EAID_05586DFB_272E_47dd_99D8_1B0E840F3A2D" seqno="16" style="DUID=0C83B479;"/>
+					<element geometry="Left=368;Top=476;Right=469;Bottom=546;" subject="EAID_628BFBAA_6800_43b6_A213_5E1E85DF1B11" seqno="17" style="DUID=30F04B68;"/>
+					<element geometry="Left=479;Top=180;Right=626;Bottom=304;" subject="EAID_4D93C489_EBFF_47d8_A57A_C59D580AA9A5" seqno="18" style="DUID=57EB30E7;"/>
 					<element geometry="EDGE=2;$LLB=CX=16:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=67:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_EAF221BB_F0A7_437a_8C77_AA2AB2043FEC" style="Mode=3;EOID=712CCABB;SOID=2B732EFB;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=CX=16:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=54:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_4E53D075_7A07_4e1b_BE79_C5A2EB1FEFF1" style="Mode=3;EOID=30F04B68;SOID=C30C7313;Color=-1;LWidth=0;Hidden=0;"/>
 					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_7C1A39D7_3F08_4b99_86DA_6F826A030116" style="Mode=3;EOID=0ADB8E1E;SOID=0BC1B620;Color=-1;LWidth=0;Hidden=0;"/>
