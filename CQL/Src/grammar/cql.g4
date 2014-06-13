@@ -9,7 +9,7 @@ logic:
 	contextDefinition?
 	includeDefinition*
 	parameterDefinition*
-	conceptDefinition*
+	valuesetDefinition*
 	statement+;
 
 /*
@@ -24,7 +24,7 @@ includeDefinition: 'include' IDENTIFIER ('version' STRING)?;
 
 parameterDefinition: 'parameter' IDENTIFIER (':' typeSpecifier)? ('default' expression)?;
 
-conceptDefinition: 'concept' STRING '=' expression;
+valuesetDefinition: 'valueset' STRING '=' expression;
 
 /*
  * Type Specifiers
@@ -52,28 +52,28 @@ tupleElementDefinition: IDENTIFIER ':' typeSpecifier;
 
 statement:
     letStatement |
-    operatorDefinition |
+    functionDefinition |
     retrieveDefinition;
 
-letStatement: 'let' IDENTIFIER '=' query;
+letStatement: 'let' IDENTIFIER '=' expression;
 
-operatorDefinition:
-    'define' 'operator' IDENTIFIER '(' (operandDefinition (',' operandDefinition)*)? ')' operatorBody;
+functionDefinition:
+    'define' 'function' IDENTIFIER '(' (operandDefinition (',' operandDefinition)*)? ')' functionBody;
 
 operandDefinition: IDENTIFIER ':' typeSpecifier;
 
-operatorBody:
+functionBody:
     '{' returnStatement '}';
 
 returnStatement:
     'return' expression;
 
 retrieveDefinition:
-    'define' 'retrieve' existenceModifier? '[' topicType (',' activityType)? (':' conceptPathIdentifier 'in' conceptIdentifier)? (',' duringPathIdentifier 'during' duringIdentifier)? ']' operatorBody;
+    'define' 'retrieve' existenceModifier? '[' topic (',' modality)? (':' valuesetPathIdentifier 'in' valuesetIdentifier)? (',' duringPathIdentifier 'during' duringIdentifier)? ']' functionBody;
 
-conceptPathIdentifier: IDENTIFIER;
+valuesetPathIdentifier: IDENTIFIER;
 
-conceptIdentifier: IDENTIFIER;
+valuesetIdentifier: IDENTIFIER;
 
 duringPathIdentifier: IDENTIFIER;
 
@@ -83,16 +83,8 @@ duringIdentifier: IDENTIFIER;
  * Expressions
  */
 
-query:
-    querySource |
-    aliasedQuerySource queryInclusionClause* ('where' expression)? |
-    'union' '(' query (',' query)+ ')' |
-    'intersect' '(' query (',' query)+ ')' |
-    query 'except' query |
-    expression;
-
 querySource:
-    retrieve | IDENTIFIER;
+    retrieve | IDENTIFIER | '(' expression ')';
 
 aliasedQuerySource:
     querySource alias;
@@ -104,62 +96,69 @@ queryInclusionClause:
     'combine' aliasedQuerySource 'where' expression
 ;
 
-retrieve: existenceModifier? '[' topicType (',' activityType)? (':' (IDENTIFIER 'in')? concept)? (',' IDENTIFIER? 'during' expression)? ']';
+retrieve: existenceModifier? '[' topic (',' modality)? (':' (IDENTIFIER 'in')? valueset)? (',' IDENTIFIER? 'during' expression)? ']';
 
 existenceModifier: 'no' | 'unknown';
 
-topicType: IDENTIFIER;
+topic: IDENTIFIER;
 
-activityType: IDENTIFIER;
+modality: IDENTIFIER;
 
-concept: STRING | IDENTIFIER;
+valueset: STRING | IDENTIFIER;
 
 expression:
-    term |
-    expression '.' IDENTIFIER |
-    expression '[' expression ']' |
-    expression '(' (expression (',' expression)*)? ')' |
-    expression 'is' 'not'? 'null' |
+    expressionTerm |
+    retrieve |
+    aliasedQuerySource queryInclusionClause* ('where' expression)? ('return' expression)? ('sort' 'by' sortByItem (',' sortByItem)*)? |
+    expression 'is' 'not'? ( 'null' | 'true' | 'false' ) |
     expression ('is' | 'as') typeSpecifier |
-    'convert' expression 'to' typeSpecifier |
-    ('+' | '-') expression |
     ('not' | 'exists') expression |
-    ('start' | 'end') 'of' expression |
-    ('date' | 'time' | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'millisecond') 'of' expression |
-    //expression 'between' expression 'and' expression |
-    //('years' | 'months' | 'days' | 'hours' | 'minutes' | 'seconds' | 'milliseconds') 'between' expression 'and' expression |
-    expression '^' expression |
-    expression ('*' | '/' | 'div' | 'mod') expression |
-    expression ('+' | '-') expression |
+    expression 'between' expressionTerm 'and' expressionTerm |
+    ('years' | 'months' | 'days' | 'hours' | 'minutes' | 'seconds' | 'milliseconds') 'between' expressionTerm 'and' expressionTerm |
     expression ('<=' | '<' | '>' | '>=') expression |
     expression intervalOperatorPhrase expression |
     expression ('=' | '<>') expression |
     expression 'and' expression |
-    expression ('or' | 'xor' | 'in' | 'contains' | 'like') expression |
+    expression ('or' | 'xor' | 'in' | 'contains' | 'like') expression;
+
+expressionTerm:
+    term |
+    expressionTerm '.' IDENTIFIER |
+    expressionTerm '[' expression ']' |
+    expressionTerm '(' (expression (',' expression)*)? ')' |
+    expressionTerm '(' IDENTIFIER 'from' expression ')' |
+    'convert' expression 'to' typeSpecifier |
+    ('+' | '-') expressionTerm |
+    ('start' | 'end') 'of' expressionTerm |
+    ('date' | 'time' | 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | 'millisecond') 'of' expressionTerm |
+    'duration' 'in' ('years' | 'months' | 'days' | 'hours' | 'minutes' | 'seconds' | 'milliseconds') 'of' expressionTerm |
+    expressionTerm '^' expressionTerm |
+    expressionTerm ('*' | '/' | 'div' | 'mod') expressionTerm |
+    expressionTerm ('+' | '-') expressionTerm |
     'if' expression 'then' expression 'else' expression |
 	'case' expression? caseExpressionItem+ 'else' expression 'end' |
 	'coalesce' '(' expression (',' expression)+ ')' |
 	'with' expression alias? 'return' expression |
-	'convert' expression 'to' typeSpecifier |
-	'expand' expression |
-	'foreach' IDENTIFIER 'in' query 'return' expression |
-	'sort' query 'by' sortByItem (',' sortByItem)*;
+	('distinct' | 'collapse' | 'expand') expression |
+    ('union' | 'intersect') '(' expression (',' expression)+ ')' |
+    expressionTerm ('union' | 'intersect' | 'except') expressionTerm |
+	'foreach' IDENTIFIER 'in' expression 'return' expression;
 
 caseExpressionItem:
     'when' expression 'then' expression;
 
 sortByItem:
-    qualifiedIdentifier ('asc' | 'desc');
+    qualifiedIdentifier ('asc' | 'desc')?;
 
 qualifiedIdentifier:
-    IDENTIFIER ('.' IDENTIFIER)*;
+    IDENTIFIER '.' IDENTIFIER;
 
 intervalOperatorPhrase:
     ('starts' | 'ends')? 'concurrent with' ('start' | 'end')? |
     'properly'? 'includes' ('start' | 'end')? |
     ('starts' | 'ends')? 'properly'? 'during' |
     ('starts' | 'ends')? quantityOffset? ('before' | 'after') ('start' | 'end')? |
-    ('starts' | 'ends') 'within' quantityLiteral 'of' ('start' | 'end') |
+    ('starts' | 'ends')? 'within' quantityLiteral 'of' ('start' | 'end')? |
     'meets' (quantityOffset? ('before' | 'after'))? |
     'overlaps' (quantityOffset? ('before' | 'after'))? |
     'starts' |
@@ -171,12 +170,12 @@ quantityOffset:
     'within'? quantityLiteral;
 
 term:
-    literal |
     IDENTIFIER |
+    literal |
     intervalSelector |
     tupleSelector |
     listSelector |
-    '(' query ')';
+    '(' expression ')';
 
 intervalSelector: // TODO: Consider this as an alternative syntax for intervals... (would need to be moved up to expression to make it work)
     //expression ( '..' | '*.' | '.*' | '**' ) expression;
@@ -192,10 +191,19 @@ listSelector:
     ('list' ('<' typeSpecifier '>')?)? '{' expression (',' expression)* '}';
 
 literal:
-    NULL |
-    BOOLEAN |
-    STRING |
+    nullLiteral |
+    booleanLiteral |
+    stringLiteral |
     quantityLiteral;
+
+nullLiteral:
+    'null';
+
+booleanLiteral:
+    'true' | 'false';
+
+stringLiteral:
+    STRING;
 
 quantityLiteral:
     QUANTITY unit?;
@@ -216,10 +224,6 @@ unit:
  */
 
 IDENTIFIER: [A-Za-z]+;
-
-NULL: 'null';
-
-BOOLEAN: 'true' | 'false';
 
 QUANTITY: [0-9]+('.'[0-9]+)?;
 
