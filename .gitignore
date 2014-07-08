@@ -6,3 +6,9 @@
 
 Thumbs.db
 /CQL/Src/cql-lm/schema/fhir
+/CQL/Src/dotnet/CQL.ELM/obj/Debug
+/CQL/Src/dotnet/CQL.Translation/bin/Debug
+/CQL/Src/dotnet/CQL.Translation/obj/Debug
+/CQL/Src/dotnet/CQL.Translation_UnitTests/bin/Debug
+/CQL/Src/dotnet/CQL.Translation_UnitTests/obj/Debug
+/CQL/Src/dotnet/QUICK.Model/obj/Debug
