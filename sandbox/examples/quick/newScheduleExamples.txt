@@ -1,0 +1,81 @@
+*****************************
+	-- OLD
+*****************************
+let TicagrelorOrder = 
+  [MedicationTreatment, Order: "Ticagrelor"] T where
+    exists (
+      T.dosage LD where 
+      IsEquivalent(LD.doseType, LoadingDoseCode)
+        and
+      LD.doseQuantity = 180 u 'mg'
+        and
+      IsEquivalent(LD.route, OralRouteCode)
+        and
+     ((LD.administrationFrequency.cycle.cycleTiming as AnchoredEvent).pointInCycle = 1 days)
+        and
+      IsEquivalent(((LD.administrationFrequency.cycle.cycleTiming as AnchoredEvent).cycle[1].cycleTiming as CodedRecurringEvent).repeatCode,  OncePerDayCode)
+    )
+    and
+    exists (
+      T.dosage LD where 
+      IsEquivalent(LD.doseType, LoadingDoseCode)
+        and
+      LD.doseQuantity = 90 u 'mg'
+        and
+      IsEquivalent(LD.route, OralRouteCode)
+        and
+     ((LD.administrationFrequency.cycle.cycleTiming as AnchoredEvent).pointInCycle = 2 days)
+        and
+      IsEquivalent(((LD.administrationFrequency.cycle.cycleTiming as AnchoredEvent).cycle[1].cycleTiming as CodedRecurringEvent).repeatCode,  TwicePerDayCode)
+    )
+    
+*****************************
+   -- NEW
+*****************************
+let TicagrelorOrder = 
+  [MedicationTreatment, Order: "Ticagrelor"] T where
+    exists (
+      T.dosage LD where 
+      IsEquivalent(LD.doseType, LoadingDoseCode)
+        and
+      LD.doseQuantity = 180 u 'mg'
+        and
+      IsEquivalent(LD.route, OralRouteCode)
+        and
+	 ((LD.administrationFrequency as ScheduleAsCode).offset = 0 days)
+        and
+	 ((LD.administrationFrequency as ScheduleAsCode).duration = 1 days)
+		and
+      IsEquivalent(((LD.administrationFrequency as ScheduleAsCode).frequency,  OncePerDayCode)
+    )
+    and
+    exists (
+      T.dosage LD where 
+      IsEquivalent(LD.doseType, LoadingDoseCode)
+        and
+      LD.doseQuantity = 90 u 'mg'
+        and
+      IsEquivalent(LD.route, OralRouteCode)
+        and
+	 ((LD.administrationFrequency as ScheduleAsCode).offset = 1 days)
+        and
+      IsEquivalent(((LD.administrationFrequency as ScheduleAsCode).frequency,  TwicePerDayCode)
+    )
+
+*****************************
+	-- OLD
+*****************************
+let FSOrder =
+  [Procedure, Order: "Finger Stick Screening "] Gluc
+    where IsEquivalent((procedureSchedule.administrationFrequency.cycle.cycleTiming as CodedRecurringEvent).repeatCode, FourTimesPerDayCode)
+     and 
+       procedureSchedule.administrationFrequency.cycle.cycleLength = 1 days
+	
+*****************************
+   -- NEW
+*****************************
+let FSOrder =
+  [Procedure, Order: "Finger Stick Screening "] Gluc
+    where IsEquivalent((procedureSchedule as ScheduleAsCode).frequency, FourTimesPerDayCode)
+     and 
+	   (procedureSchedule as ScheduleAsCode).duration = 1 days
