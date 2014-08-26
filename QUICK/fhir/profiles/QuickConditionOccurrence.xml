@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir fhir-all-xsd/profile.xsd" xmlns="http://hl7.org/fhir">
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">This profile is a tentative draft profile for Condition Occurrence. Note the following TODOs:
+        <ul>
+            <li>Need to define profiles for dependent structures and constrained resource references</li>
+            <li>Need to move some extension definitions to the right profiles. Many should not be in the ConditionOccurrence profile. I am leaving them for now.</li>
+            <li>Need to introduce several new resources into FHIR as extensions of Other (or have then added to Core FHIR)</li>
+            <li>Figure out how to handle Qualifier. Suggestion would be to eliminate it in favor of formal extensions.</li>
+        </ul>
+        </div>
+    </text>
+    <url value="http://hl7.org/quick/ConditionOccurrenceProfile"/>
+    <identifier id="conditionoccurrence"/>
+    <version value="0.1.0"/>
+    <name value="QUICK Condition Occurrence"/>
+    <publisher value="CQF"/>
+    <telecom>
+      <system value="url"/>
+      <value value="cnanjo@gmail.com"/>
+    </telecom>
+    <description value="Draft profile for a Condition Occurrence in the QUICK modeling framework."/>
+    <status value="draft"/>
+    <date value="2014-08-12"/>
+    <requirements value="Profiles for QUICK"/>
+    <fhirVersion value="0.80"/>
+    <!-- Do we wish to map to a QUICK resource?
+    <mapping>
+        <identity/>
+        <uri/>
+        <name/>
+        <comments/>
+    </mapping>
+    -->
+    <!-- Constraint Block -->
+    <structure>
+        <type value="Condition"/>
+        <name value="ConditionOccurrence"/>
+        <publish value="true"/>
+        <purpose value="Represents a clinical statement stating the occurrence of a condition in the QUICK model."/>
+        <differential>
+            <element> <!-- The root -->
+                <path value="Condition"/>
+                <name value="ConditionOccurrence"/>
+                <definition>
+                    <short value="A QUICK ConditionOccurrence"/>
+                    <formal value="A statement about a condition that the patient has or is believed to have had."/>
+                    <comments value="An instance payload that conforms to this profile should meet the necessary requirements for conversion to the ConditionOccurrence concept in QUICK"/>
+                    <requirements value="QUICK ConditionOccurrence"/>
+                    <synonym value="[StatementOfOccurrence|Observation|Condition]"/>
+                    <min value="1"/>
+                    <max value="1"/>
+                    <type>
+                        <code value="Resource"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ConditionOccurrence"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- Constraining Out Modifying Extensions -->
+                <path value="DiagnosticReport.modifierExtension"/>
+                <definition>
+                    <short value="Extensions that cannot be ignored"/>
+                    <formal value="May be used to represent additional information that is not part of the basic definition
+                        of the resource, and that modifies the understanding of the element that contains it.
+                        Usually modifier elements provide negation or qualification. In order to make the use
+                        of extensions safe and manageable, there is a strict governance applied to the definition
+                        and use of extensions. Though any implementer is allowed to define an extension, there
+                        is a set of requirements that SHALL be met as part of the definition of the extension.
+                        Applications processing a resource are required to check for modifier extensions."/>
+                    <comments value="there can be no stigma associated with the use of extensions by any application, project,
+                        or standard - regardless of the institution or jurisdiction that uses or defines the extensions.
+                        The use of extensions is what allows the FHIR specification to retain a core simplicity
+                        for everyone."/>
+                    <min value="0"/>
+                    <max value="0"/>
+                    <type>
+                        <code value="Extension"/>
+                    </type>
+                    <isModifier value="true"/>
+                </definition>
+            </element>
+            <element> <!-- Identifier: Cardinality Restriction -->
+                <path value="Condition.identifier"/>
+                <definition>
+                    <short value="The identifier for this statement of occurrence."/>
+                    <formal value="A unique ID of this clinical statement for reference purposes. It must be provided if user wants it returned as part of any output, otherwise it will be auto-generated, if needed, by CDS system.  Does not need to be the actual ID of the source system. "/>
+                    <comments value="In QUICK, the identifier cardinality is restricted between 1..1"/>
+                    <min value="1"/>
+                    <max value="1"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.identifier"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- subject: Profile Restriction. TODO Need Patient profile. -->
+                <path value="Condition.subject"/>
+                <definition>
+                    <short value="The patient."/>
+                    <formal value="The patient described by this statement."/>
+                    <comments value="Shall refer to a patient instance that conforms with the QUICK FHIR patient profile."/>
+                    <type>
+                        <code value="Patient"/>
+                        <profile value="http://hl7.org/quick/Patient"/>
+                    </type>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.subject"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- encounter: Profile Restriction. TODO Need Encounter profile. -->
+                <path value="Condition.encounter"/>
+                <definition>
+                    <short value="A clinical encounter."/>
+                    <formal value="The encounter within which the clinical statement was created."/>
+                    <comments value="Shall refer to an Encounter instance that conforms with the QUICK FHIR encounter profile."/>
+                    <type>
+                        <code value="Encounter"/>
+                        <profile value="http://hl7.org/quick/Encounter"/>
+                    </type>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.encounter"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- asserter: Profile Restriction. TODO Need Patient/Provider profiles. Note that when QUICK refers to an abstract concept such as Person, it needs to also clearly constrain this to the relevant specializations or simply enumerate them.-->
+                <path value="Condition.asserter"/>
+                <definition>
+                    <short value="The person who created the statement."/>
+                    <formal value="The person who created the statement."/>
+                    <comments value="Shall refer to a Patient/Provider instance that conforms with the QUICK FHIR Patient/Provider profile."/>
+                    <type>
+                        <code value="Patient"/>
+                        <profile value="http://hl7.org/quick/Patient"/>
+                    </type>
+                    <type>
+                        <code value="Practitioner"/>
+                        <profile value="http://hl7.org/quick/Practitioner"/>
+                    </type>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.statementAuthor"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- dateAsserted -->
+                <path value="Condition.dateAsserted"/>
+                <definition>
+                    <short value="The time at which the statement was made/recorded."/>
+                    <formal value="The time at which the statement was made/recorded. This may not be the same time as the occurrence of the action or the observation event."/>
+                    <type>
+                        <code value="Date"/> <!-- FHIR will change this to DateTime so extension may need to be removed. -->
+                    </type>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.statementDatetime"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- dateTimeAsserted - Extension. May not be necessary since FHIR will convert to DateTime. -->
+                <path value="Condition.extension"/>
+                <name value="dateTimeAsserted"/>
+                <definition>
+                    <short value="The timestamp at which the statement was made/recorded. "/>
+                    <formal value="The timestamp at which the statement was made/recorded. This may not be the same time as the occurrence of the action or the observation event."/>
+                    <min value="0"/> 
+                    <max value="1"/>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#dateTimeAsserted"/>
+                    </type>
+                    <constraint>
+                        <key value="1"/>
+                        <severity value="error"/>
+                        <human value="If dateTimeAsserted extension exists, value of dateAsserted must be asserted and have the same date as the value of dateTimeAsserted."/>
+                        <xpath value="exists(f:dateAsserted) and date components are equal"/> <!-- TODO: Convert to XPath -->
+                    </constraint>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ConditionOccurrence.statementDatetime"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- contributionToDeath - Extension -->
+                <path value="Condition.extension"/>
+                <name value="contributionToDeath"/>
+                <definition>
+                    <short value="Problem contributed to death."/>
+                    <formal value="Whether the problem was the cause or contributor to the subject's death."/>
+                    <min value="0"/> 
+                    <max value="1"/>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#contributionToDeath"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="Condition.contributedToDeath"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- observedAtTime - Extension -->
+                <path value="Condition.extension"/>
+                <name value="observedAtTime"/>
+                <definition>
+                    <type>
+                        <code value="Extension"/> 
+                        <profile value="#observedAtTime"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="Observation.observedAtTime"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- location.directionality - Extension -->
+                <path value="Condition.location.extension"/> 
+                <name value="directionality"/>
+                <definition>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#bodySiteDirectionality"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ConditionOccurrence.location.directionality"/> <!-- Or should this be mapped to BodySite.directionality -->
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- location.laterality - Extension -->
+                <path value="Condition.laterality.extension"/>
+                <name value="laterality"/>
+                <definition>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#bodySiteLaterality"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ConditionOccurrence.location.laterality"/> <!-- Or should this be mapped to BodySite.directionality -->
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- criticality - Extension -->
+                <path value="Condition.extension"/>
+                <name value="criticality"/>
+                <definition>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#criticality"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ConditionOccurrence.criticality"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- profileId - Extension -->
+                <path value="Condition.extension"/>
+                <name value="profileId"/>
+                <definition>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#profileId"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.profileId"/>
+                    </mapping>
+                </definition>
+            </element>
+            <element> <!-- statementSource - Extension -->
+                <path value="Condition.extension"/>
+                <name value="statementSource"/>
+                <definition>
+                    <type>
+                        <code value="Extension"/>
+                        <profile value="#statementSource"/>
+                    </type>
+                    <isModifier value="false"/>
+                    <mapping>
+                        <identity value="quick"/>
+                        <map value="ClinicalStatement.statementSource"/>
+                    </mapping>
+                </definition>
+            </element>
+        </differential>
+    </structure>
+    <!-- End of Constraint Block -->
+    
+    <!-- Extension Block -->
+    <extensionDefn> <!-- dateTimeAsserted -->
+        <code value="dateTimeAsserted"/>
+        <display value="Date Time Asserted"/>
+        <contextType value="resource"/>
+        <context value="Condition"/>
+        <element>
+            <path value="dateTimeAsserted"/>
+            <definition>
+                <short value="Datetime the statement was asserted."/>
+                <formal value="Datetime the statement was asserted. This attribute allows one to capture time in addition to date."/>
+                <comments value="If this extension is used, dateAsserted must also be specified and the date must be the same."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="DateTime"/>
+                </type>
+                <isModifier value="false"/>
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- contributionToDeath -->
+        <code value="contributionToDeath"/>
+        <display value="Contribution to Death"/>
+        <contextType value="resource"/>
+        <context value="Condition"/>
+        <element>
+            <path value="contributionToDeath"/>
+            <definition>
+                <short value="Problem is cause of death."/>
+                <formal value="Whether the problem was the cause or contributor to the subject's death."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <!-- TODO: Need to specify binding -->
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- observedAtTime: Shared by a number of resources. Move to a common profile. -->
+        <code value="observedAtTime"/>
+        <display value="Phenomenon Observed at Time"/>
+        <contextType value="resource"/>
+        <context value="Condition"/>
+        <element>
+            <path value="observedAtTime"/>
+            <definition>
+                <short value="Time when the observation was made by the statement author."/>
+                <formal value="Time when the observation was made by the statement author. This may be different than the time the observation was physically recorded (which may occur much later). This also is different time than when the observed phenomenon actually occurred. For example, a patient had a headache three days ago, but reported it to their physician today. The physician would record the observedAtTime as today."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="Period"/>
+                </type>
+                <isModifier value="false"/>
+                <!-- TODO: Need to specify binding -->
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- Body Site Directionality -->
+        <code value="bodySiteDirectionality"/>
+        <display value="Body Site Directionality"/>
+        <contextType value="resource"/>
+        <context value="Condition.location"/>
+        <element>
+            <path value="directionality"/>
+            <definition>
+                <short value="Upper, lower, frontal, medial, etc."/>
+                <formal value="This is further specification of the body part by adding directionality, such as upper, lower, frontal, medial, etc."/>
+                <comments value="May be provided if not precoordinated in the location code or if explicit post-coordination is desired or required."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <!-- TODO: Need to specify binding -->
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- Body Site Laterality -->
+        <code value="bodySiteLaterality"/>
+        <display value="Body Site Laterality"/>
+        <contextType value="resource"/>
+        <context value="Condition.location"/>
+        <element>
+            <path value="laterality"/>
+            <definition>
+                <short value="Left, right, bilateral, etc..."/>
+                <formal value="The side of the body, from the Patient's perspective. E.g., left, right, bilateral."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <!-- TODO: Need to specify binding -->
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- criticality -->
+        <code value="criticality"/>
+        <display value="Criticality"/>
+        <contextType value="resource"/>
+        <context value="Condition"/>
+        <element>
+            <path value="criticality"/>
+            <definition>
+                <short value="Characterizes impact of condition on life, or durable impact on physiological function or on quality of life. "/>
+                <formal value="Characterizes impact of condition on life, or durable impact on physiological function or on quality of life. Includes concepts such as life-threatening, or potential loss of function or capacity."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="CodeableConcept"/>
+                </type>
+                <isModifier value="false"/>
+                <!-- TODO: Need to specify binding -->
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- profileId -->
+        <code value="profileId"/>
+        <display value="Profile ID"/>
+        <contextType value="resource"/>
+        <context value="Condition"/>
+        <element>
+            <path value="profileId"/>
+            <definition>
+                <short value="The identifier of a set of constraints placed on a clinical statement."/>
+                <formal value="The identifier of a set of constraints placed on a clinical statement.  If there are multiple templates specified for the element, then the element must satisfy ALL constraints defined in ANY template at that level."/>
+                <min value="0"/>
+                <max value="*"/>
+                <type>
+                    <code value="Identifier"/>
+                </type>
+                <isModifier value="false"/>
+            </definition>
+        </element>
+    </extensionDefn>
+    <extensionDefn> <!-- statementSource -->
+        <code value="statementSource"/>
+        <display value="Statement Source"/>
+        <contextType value="resource"/>
+        <context value="Condition"/>
+        <element>
+            <path value="statementSource"/>
+            <definition>
+                <short value="The source of this statement."/>
+                <formal value="The person, device, or other system that was the source of this statement."/>
+                <min value="0"/>
+                <max value="1"/>
+                <type>
+                    <code value="Device"/>
+                    <profile value="http://hl7.org/quick/Device"/>
+                </type>
+                <type>
+                    <code value="Organization"/>
+                    <profile value="http://hl7.org/quick/Organization"/>
+                </type>
+                <type>
+                    <code value="RelatedPerson"/>
+                    <profile value="http://hl7.org/quick/RelatedPerson"/>
+                </type>
+                <type>
+                    <code value="Patient"/>
+                    <profile value="http://hl7.org/quick/Patient"/>
+                </type>
+                
+                <type>
+                    <code value="Provider"/>
+                    <profile value="http://hl7.org/quick/Provider"/>
+                </type>
+                <isModifier value="false"/>
+            </definition>
+        </element>
+    </extensionDefn>
+    <!-- End of Extension Block -->
+</Profile>
