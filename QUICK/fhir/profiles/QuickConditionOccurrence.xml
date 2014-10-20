@@ -63,7 +63,7 @@
                 </definition>
             </element>
             <element> <!-- Constraining Out Modifying Extensions -->
-                <path value="DiagnosticReport.modifierExtension"/>
+                <path value="Condition.modifierExtension"/>
                 <definition>
                     <short value="Extensions that cannot be ignored"/>
                     <formal value="May be used to represent additional information that is not part of the basic definition
